@@ -2,10 +2,9 @@ package me.Jared.PlaceHolders;
 
 import org.bukkit.entity.Player;
 
-import me.Jared.Duels;
-import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+import me.Jared.Stats;
 
-public class DuelsExpansion extends PlaceholderExpansion
+public class DuelsExpansion
 {
 	@Override
 	public String getAuthor()
@@ -16,7 +15,7 @@ public class DuelsExpansion extends PlaceholderExpansion
 	@Override
 	public String getIdentifier()
 	{
-		return "Duels";
+		return "Stats";
 	}
 
 	@Override
@@ -41,9 +40,17 @@ public class DuelsExpansion extends PlaceholderExpansion
 	public String onPlaceholderRequest(Player player, String params)
 	{
 		if(player == null) return "";
-		if(params.equals("wins"))
+		if(params.equals("rank"))
 		{
-			return Duels.getInstance().getConfig().getString(player.getUniqueId() + ".wins");
+			return Stats.getInstance().getRankManager().getRank(player.getUniqueId()).getDisplay();
+		}
+		if(params.equals("kills"))
+		{
+			return Stats.getInstance().getConfig().getString(player.getUniqueId() + ".kills");
+		}
+		if(params.equals("deaths"))
+		{
+			return Stats.getInstance().getConfig().getString(player.getUniqueId() + ".deaths");
 		}
 		
 		return null;

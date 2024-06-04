@@ -13,5 +13,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/jared/Desktop/SERVER/plugins/Kits.jar"/>
 	<classpathentry kind="lib" path="C:/Users/jared/Desktop/SERVER/plugins/Stats.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jared/Desktop/SERVER/plugins/PlaceholderAPI-2.11.6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

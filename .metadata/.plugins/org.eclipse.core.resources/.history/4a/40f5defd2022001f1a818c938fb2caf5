@@ -16,7 +16,7 @@ public class DuelsExpansion extends PlaceholderExpansion
 	@Override
 	public String getIdentifier()
 	{
-		return "Duels";
+		return "Stats";
 	}
 
 	@Override

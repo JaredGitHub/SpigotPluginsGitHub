@@ -3,6 +3,7 @@ package me.Jared.PlaceHolders;
 import org.bukkit.entity.Player;
 
 import me.Jared.Duels;
+import me.Jared.Stats;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 
 public class DuelsExpansion extends PlaceholderExpansion
@@ -16,7 +17,7 @@ public class DuelsExpansion extends PlaceholderExpansion
 	@Override
 	public String getIdentifier()
 	{
-		return "Duels";
+		return "Stats";
 	}
 
 	@Override

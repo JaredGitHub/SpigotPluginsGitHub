@@ -12,6 +12,7 @@ import me.Jared.DuelMenuSystem.PlayerMenuUtility;
 import me.Jared.Listeners.DuelListener;
 import me.Jared.Manager.ConfigManager;
 import me.Jared.PlaceHolders.DuelsExpansion;
+import me.Jared.PlaceHolders.StatsExpansion;
 
 public class Duels extends JavaPlugin
 {

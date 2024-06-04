@@ -11,7 +11,6 @@ import me.Jared.Command.DuelCommands;
 import me.Jared.DuelMenuSystem.PlayerMenuUtility;
 import me.Jared.Listeners.DuelListener;
 import me.Jared.Manager.ConfigManager;
-import me.Jared.PlaceHolders.DuelsExpansion;
 
 public class Duels extends JavaPlugin
 {
@@ -31,8 +30,6 @@ public class Duels extends JavaPlugin
 		
 		Bukkit.getServer().getPluginManager().registerEvents(new DuelListener(), instance);
 		this.getCommand("duel").setExecutor(new DuelCommands());
-		
-		new DuelsExpansion().register();
 	}
 	
 	@Override
