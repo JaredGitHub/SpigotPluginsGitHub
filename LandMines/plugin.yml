@@ -1,0 +1,8 @@
+name: LandMine
+main: me.Jared.LandMinePlugin
+version: 0.1
+api-version: 1.20
+depend: [BoostPads]
+commands:
+ landmine:
+  description: Type /landmine and the tab completer will do the rest!

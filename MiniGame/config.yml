@@ -1,0 +1,23 @@
+required-players: 2
+countdown-seconds: 30
+lobby-spawn:
+  world: world
+  x: 1967
+  y: 185
+  z: 1386
+  yaw: 0
+  pitch: 0
+sg:
+  0:
+    world: world
+    x: 1855
+    y: 4
+    z: 1308
+    yaw: 0
+    pitch: 0
+    
+ 
+items:
+
+  
+  DIAMOND_SWORD:Diamond Sword:1:HIGH

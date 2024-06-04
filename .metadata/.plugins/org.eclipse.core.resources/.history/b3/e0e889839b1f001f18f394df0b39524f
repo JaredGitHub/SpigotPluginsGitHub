@@ -1,0 +1,54 @@
+package me.Jared.PlaceHolders;
+
+
+import org.bukkit.entity.Player;
+
+import me.Jared.Stats;
+import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+
+public class StatsExpansion extends PlaceholderExpansion
+{
+
+	@Override
+	public String getAuthor()
+	{
+		return "Jared";
+	}
+
+	@Override
+	public String getIdentifier()
+	{
+		return "Stats";
+	}
+
+	@Override
+	public String getVersion()
+	{
+		return "1.0";
+	}
+
+	@Override
+	public boolean canRegister()
+	{
+		return true;
+	}
+	
+	@Override
+	public boolean persist()
+	{
+		return true;
+	}
+	
+	@Override
+	public String onPlaceholderRequest(Player player, String params)
+	{
+		if(player == null) return "";
+		if(params.equals("rank"))
+		{
+			return Stats.getInstance().getRankManager().getRank(player.getUniqueId()).getDisplay();
+		}
+		
+		return null;
+	}
+	
+}

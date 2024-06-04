@@ -1,0 +1,8 @@
+name: Teams
+main: me.jared.TeamMane
+version: 1.0
+api-version: 1.20
+commands:
+ team:
+  description: Make teams!
+  usage: /<command>

@@ -1,0 +1,320 @@
+package me.Jared.Loot;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.Damageable;
+import org.bukkit.inventory.meta.ItemMeta;
+
+import me.Jared.Warz;
+
+public class ConfigItem
+{
+	private Warz plugin = Warz.getInstance();
+	FileConfiguration config = plugin.getConfig();
+
+	private String getItemDataIndex(String string, int num)
+	{
+		StringBuilder stringBuilder = new StringBuilder();
+
+		int count = 0;
+		for(int i = 0; i < string.length(); i++)
+		{
+			if(string.charAt(i) == ':')
+			{
+				count++;
+				continue;
+			}
+
+			if(count == num)
+			{
+				stringBuilder.append(string.charAt(i));
+			}
+		}
+
+		return stringBuilder.toString();
+	}
+
+	public Location getChestLocation(String string)
+	{
+		Location location = new Location(Bukkit.getWorld("warz"), getChestX(string), getChestY(string),
+				getChestZ(string));
+
+		return location;
+	}
+
+	public Zone getChestZone(String string)
+	{
+		Zone zone = null;
+
+		String str = getItemDataIndex(string, 3);
+
+		switch(str)
+		{
+		case "LOW":
+			zone = Zone.LOW;
+			break;
+		case "MEDIUM":
+			zone = Zone.MEDIUM;
+			break;
+		case "HIGH":
+			zone = Zone.HIGH;
+			break;
+		case "SKYHIGH":
+			zone = Zone.SKYHIGH;
+			break;
+		default:
+			break;
+		}
+
+		return zone;
+	}
+
+	public ArrayList<String> zoneListChests(Zone zone)
+	{
+		ArrayList<String> chestList = new ArrayList<String>(config.getStringList("chests"));
+		ArrayList<String> zoneList = new ArrayList<String>();
+		for(String chest : chestList)
+		{
+			if(getChestZone(chest).equals(zone))
+			{
+				zoneList.add(chest);
+			}
+		}
+		return zoneList;
+	}
+
+	public ArrayList<String> zoneListItems(Zone zone)
+	{
+		ArrayList<String> itemList = new ArrayList<String>(config.getStringList("items"));
+		ArrayList<String> zoneList = new ArrayList<String>();
+		for(String item : itemList)
+		{
+			if(getZone(item).equals(zone))
+			{
+				zoneList.add(item);
+			}
+		}
+
+		return zoneList;
+	}
+
+	public ItemStack stringToItemStack(String string)
+	{
+		Material material = getMaterial(string);
+		String displayName = getDisplayName(string);
+		int amount = getAmount(string);
+
+		if(material == null)
+			Bukkit.getConsoleSender().sendMessage("There is something messed up in the config!");
+
+		ItemStack item = new ItemStack(material, amount);
+		ItemMeta meta = item.getItemMeta();
+
+		meta.setDisplayName(displayName);
+		item.setItemMeta(meta);
+
+		return item;
+	}
+
+	public ItemStack stringToItemStackWithLore(String string)
+	{
+		Material material = getMaterial(string);
+		String displayName = getDisplayName(string);
+		String itemLore = getItemDataIndex(string, 4);
+		int durability = getDurability(string);
+
+		int amount = getAmount(string);
+
+		if(material == null)
+			Bukkit.getConsoleSender().sendMessage("There is something messed up in the config!");
+
+		ItemStack item = new ItemStack(material, amount);
+
+		ItemMeta meta = item.getItemMeta();
+		if(itemLore.length() >= 1)
+		{
+			List<String> lore = new ArrayList<String>();
+			lore.add(ChatColor.translateAlternateColorCodes('&', itemLore));
+			meta.setLore(lore);
+		}
+		meta.setDisplayName(displayName);
+
+		if(item.getItemMeta() instanceof Damageable)
+		{
+			meta = (Damageable) item.getItemMeta();
+			// Set the damage (which is essentially the inverse of durability)
+			int maxDurability = item.getType().getMaxDurability();
+			damageableMeta.setDamage(maxDurability - durability);
+			item.setItemMeta((org.bukkit.inventory.meta.ItemMeta) damageableMeta);
+		}
+
+		item.setItemMeta(meta);
+
+		return item;
+	}
+
+	public String itemStackToString(ItemStack item, Zone zone)
+	{
+		String material = item.getType().name();
+		int amount = item.getAmount();
+
+		String displayName = "";
+		int durability = 0;
+		if(item.hasItemMeta())
+		{
+			displayName = item.getItemMeta().getDisplayName().replaceAll("§", "&");
+			if(item.getItemMeta() instanceof Damageable)
+			{
+				durability = ((Damageable) item.getItemMeta()).getDamage();
+			}
+		}
+
+		StringBuilder stringBuilder = new StringBuilder();
+
+		stringBuilder.append(material + ":");
+		stringBuilder.append(displayName + ":");
+		stringBuilder.append(amount + ":");
+		stringBuilder.append(durability + ":");
+		stringBuilder.append(zone + ":");
+		if(item.hasItemMeta())
+		{
+			if(item.getItemMeta().hasLore())
+			{
+				String lore = item.getItemMeta().getLore().get(0);
+				stringBuilder.append(lore + ":");
+			}
+		}
+
+		for(int i = 0; i < material.length(); i++)
+		{
+			char charAt = material.charAt(i);
+			if(charAt == ':')
+			{
+				break;
+			}
+		}
+
+		return stringBuilder.toString();
+	}
+
+	public String itemStackToString(ItemStack item)
+	{
+		if(item.getType() == null)
+		{
+			return "";
+		}
+		String material = item.getType().name();
+		int amount = item.getAmount();
+
+		String displayName = "";
+		int durability = 0;
+		if(item.hasItemMeta())
+		{
+			displayName = item.getItemMeta().getDisplayName().replaceAll("§", "&");
+			if(item.getItemMeta() instanceof Damageable)
+			{
+				durability = ((Damageable) item.getItemMeta()).getDamage();
+			}
+		}
+
+		StringBuilder stringBuilder = new StringBuilder();
+
+		stringBuilder.append(material + ":");
+		stringBuilder.append(displayName + ":");
+		stringBuilder.append(amount + ":");
+		stringBuilder.append(durability + ":");
+		if(item.hasItemMeta())
+		{
+			if(item.getItemMeta().hasLore())
+			{
+				String lore = item.getItemMeta().getLore().get(0).replaceAll("§", "&");
+				stringBuilder.append(lore + ":");
+			}
+		}
+
+		for(int i = 0; i < material.length(); i++)
+		{
+			char charAt = material.charAt(i);
+			if(charAt == ':')
+			{
+				break;
+			}
+		}
+
+		return stringBuilder.toString();
+	}
+
+	public double getChestX(String string)
+	{
+		return Double.parseDouble(getItemDataIndex(string, 0));
+	}
+
+	public double getChestY(String string)
+	{
+		return Double.parseDouble(getItemDataIndex(string, 1));
+	}
+
+	public double getChestZ(String string)
+	{
+		return Double.parseDouble(getItemDataIndex(string, 2));
+	}
+
+	public Material getMaterial(String string)
+	{
+		return Material.getMaterial(getItemDataIndex(string, 0));
+	}
+
+	public String getDisplayName(String string)
+	{
+		return getItemDataIndex(ChatColor.translateAlternateColorCodes('&', string), 1);
+	}
+
+	public int getAmount(String string)
+	{
+		return Integer.parseInt(getItemDataIndex(string, 2));
+	}
+
+	public int getDurability(String string)
+	{
+		return Integer.parseInt(getItemDataIndex(string, 3));
+	}
+
+	public Zone getZone(String string)
+	{
+		Zone zone = null;
+
+		String str = getItemDataIndex(string, 4);
+
+		switch(str)
+		{
+		case "LOW":
+			zone = Zone.LOW;
+			break;
+		case "MEDIUM":
+			zone = Zone.MEDIUM;
+			break;
+		case "HIGH":
+			zone = Zone.HIGH;
+			break;
+		case "SKYHIGH":
+			zone = Zone.SKYHIGH;
+			break;
+		default:
+			break;
+		}
+
+		return zone;
+	}
+
+	public String getLore(String string)
+	{
+		return getItemDataIndex(string, 5);
+	}
+}

@@ -1,0 +1,5 @@
+name: BarbWire
+main: me.jared.barb.BarbWire
+version: 0.1
+depend: [BoostPads]
+api-version: 1.20

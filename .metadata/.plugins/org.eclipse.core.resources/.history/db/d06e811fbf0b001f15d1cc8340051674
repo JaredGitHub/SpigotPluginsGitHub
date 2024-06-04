@@ -1,0 +1,300 @@
+package me.Jared.Essentials;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Sound;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import me.Jared.Essentials.Runnables.TPARunnable;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.ClickEvent.Action;
+import net.md_5.bungee.api.chat.TextComponent;
+
+public class Main extends JavaPlugin
+{
+	private HashMap<Player, Player> requesters;
+	private ArrayList<Player> playersInCooldown;
+
+	public void loadConfig()
+	{
+		getConfig().options().copyDefaults(true);
+		saveConfig();
+	}
+
+	private static Main instance;
+
+	@Override
+	public void onEnable()
+	{
+		requesters = new HashMap<Player, Player>();
+		playersInCooldown = new ArrayList<Player>();
+		instance = this;
+
+		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "My plugin has been enabled!");
+
+		this.getServer().getPluginManager().registerEvents(new Listener1(this), this);
+
+		for(Player p : Bukkit.getOnlinePlayers())
+		{
+			PacketUtils.sendTabHF(p, ChatColor.GOLD + "JaredServer", ChatColor.GOLD + "store.jaredcoen.com\n"
+					+ ChatColor.GREEN + "Players Online: " + ChatColor.WHITE + Bukkit.getOnlinePlayers().size());
+		}
+
+		loadConfig();
+	}
+
+	@Override
+	public void onDisable()
+	{
+		Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Bye bye birdie!");
+	}
+
+	public static Main getInstance()
+	{
+		return instance;
+	}
+
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
+	{
+		Player p = (Player) sender;
+
+		if(cmd.getName().equalsIgnoreCase("r"))
+		{
+			if(requesters.containsKey(p))
+			{
+				if(args.length == 0)
+				{
+					p.sendMessage(ChatColor.RED + "Usage: /r <message>");
+					return true;
+				}
+				if(args.length >= 1)
+				{
+					String playerName = requesters.get(p).getName();
+					String message = "";
+					for(int i = 0; i < args.length; i++)
+					{
+						message += args[i] + " ";
+					}
+
+					if(Bukkit.getPlayer(playerName) != null)
+					{
+						Bukkit.getPlayer(playerName).sendMessage(ChatColor.WHITE + playerName + ChatColor.GRAY
+								+ " ---> You: " + ChatColor.WHITE + message);
+						p.sendMessage(ChatColor.GRAY + "You --> " + ChatColor.WHITE + playerName + ": " + message);
+					} else
+					{
+						p.sendMessage(ChatColor.RED + "Player not online!");
+						return true;
+					}
+				}
+			} else
+			{
+				p.sendMessage(ChatColor.RED + "You have no one to reply to noob!");
+			}
+		}
+		if(cmd.getName().equalsIgnoreCase("msg"))
+		{
+			if(args.length == 0)
+			{
+				p.sendMessage(ChatColor.RED + "Usage: /msg <player>");
+				return true;
+			}
+			if(args.length >= 1)
+			{
+				String playerName = args[0];
+				requesters.put(Bukkit.getPlayer(playerName), p);
+				String message = "";
+				for(int i = 1; i < args.length; i++)
+				{
+					message += args[i] + " ";
+				}
+
+				if(Bukkit.getPlayer(playerName) != null)
+				{
+					Bukkit.getPlayer(playerName).sendMessage(
+							ChatColor.WHITE + playerName + ChatColor.GRAY + " ---> You: " + ChatColor.WHITE + message);
+					p.sendMessage(ChatColor.GRAY + "You --> " + ChatColor.WHITE + playerName + ": " + message);
+				} else
+				{
+					p.sendMessage(ChatColor.RED + "Player not online!");
+					return true;
+				}
+			}
+		}
+
+		// TEleport commands
+		if(cmd.getName().equalsIgnoreCase("tpa"))
+		{
+			if(args.length == 0)
+			{
+				p.sendMessage(ChatColor.RED + "Usage: /tpa <playername>");
+				return true;
+			}
+
+			Cooldown cooldown = new Cooldown(300);
+			if(args.length >= 1)
+			{
+
+				if(cooldown.isOnCooldown(p))
+				{
+					// Here I want to add how many seconds left till they can teleport again
+					p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait " + cooldown.getCooldownSeconds(p)
+							+ " seconds");
+					return true;
+				} else
+				{
+					String playerName = args[0];
+					if(playerName.equals(p.getName()))
+					{
+						p.sendMessage(ChatColor.RED + "You cannot teleport to yourself noob!");
+						return true;
+					}
+
+					if(Bukkit.getPlayer(playerName) != null)
+					{
+						Bukkit.getPlayer(playerName)
+								.sendMessage(ChatColor.GRAY + p.getName() + " has sent you a TPA request. (/tpyes)");
+						p.sendMessage(ChatColor.GRAY + "You have sent a TPA request to " + playerName);
+						requesters.put(Bukkit.getPlayer(playerName), p);
+						requesters.put(p, Bukkit.getPlayer(playerName));
+
+					} else
+					{
+						p.sendMessage(ChatColor.RED + "Player not online!");
+						return true;
+					}
+				}
+			}
+		}
+
+		if(cmd.getName().equalsIgnoreCase("tpyes") || cmd.getName().equalsIgnoreCase("tpaccept"))
+		{
+			if(requesters.containsKey(requesters.get(p)))
+			{
+				requesters.remove(requesters.get(p));
+				TPARunnable tpaRunnable = new TPARunnable(p, 10, requesters, playersInCooldown);
+				tpaRunnable.runTaskTimer(instance, 0, 20);
+			} else
+			{
+				p.sendMessage(ChatColor.RED + "No one is requesting to teleport noob!");
+				return true;
+			}
+		}
+
+		if(cmd.getName().equalsIgnoreCase("texture"))
+		{
+			TextComponent text = new TextComponent(
+					ChatColor.GRAY + "" + ChatColor.UNDERLINE + "Click me for textures!");
+			text.setClickEvent(new ClickEvent(Action.OPEN_URL,
+					"https://www.dropbox.com/scl/fi/pioj8vx7o2vdih3ruuu4j/Jared-Server-Pack.zip?rlkey=h8o9s489a89r7ljn3nl6rpvry&dl=1"));
+			p.spigot().sendMessage(text);
+			p.playSound(p, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 1);
+		}
+
+		if(cmd.getName().equalsIgnoreCase("discord"))
+		{
+			TextComponent text = new TextComponent(
+					ChatColor.DARK_PURPLE + "" + ChatColor.UNDERLINE + "Click me for the discord!");
+			text.setClickEvent(new ClickEvent(Action.OPEN_URL, "https://discord.gg/PjKDsGf69U"));
+			p.spigot().sendMessage(text);
+			p.playSound(p, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 1);
+		}
+
+		if(cmd.getName().equalsIgnoreCase("spawn"))
+		{
+			p.teleport(ConfigManager.getSpawn());
+			p.sendMessage(ChatColor.GREEN + "Successfully teleported you to spawn!");
+			p.playSound(p.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
+			return true;
+		}
+
+		if(p.hasPermission("jared"))
+		{
+
+			if(cmd.getName().equalsIgnoreCase("setspawn"))
+			{
+				Location location = p.getLocation();
+
+				ConfigManager.setSpawn(location);
+				p.sendMessage(ChatColor.GREEN + "Successfully set spawn to your location!");
+				p.playSound(p.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
+				return true;
+			}
+
+			if(cmd.getName().equalsIgnoreCase("tutorial"))
+			{
+				if(!(sender instanceof Player))
+				{
+					sender.sendMessage(ChatColor.RED + "Nope.");
+					return true;
+				}
+
+				int x = (int) p.getLocation().getX();
+				int y = (int) p.getLocation().getY();
+				int z = (int) p.getLocation().getZ();
+
+				this.getConfig().set("tutorial.x", x);
+				this.getConfig().set("tutorial.y", y);
+				this.getConfig().set("tutorial.z", z);
+				this.saveConfig();
+
+				p.sendMessage(ChatColor.GREEN + "Set the tutorial area to where you are standing!");
+				p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_CHIME, 1, 1);
+			}
+
+			if(cmd.getName().equalsIgnoreCase("sudo"))
+			{
+				if(!(sender instanceof Player))
+				{
+					sender.sendMessage(ChatColor.RED + "Nope.");
+					return true;
+				}
+
+				if(args.length < 1)
+				{
+					p.sendMessage(ChatColor.RED + "You must type a player and a message!");
+				}
+
+				if(args.length >= 2)
+				{
+
+					Player target;
+					try
+					{
+
+						StringBuilder x = new StringBuilder();
+						for(int i = 1; i < args.length; i++)
+						{
+							x.append(args[i] + " ");
+						}
+						String message = x.toString().trim();
+
+						target = Bukkit.getPlayer(args[0]);
+						if(target == null)
+						{
+							p.sendMessage(ChatColor.RED + args[0].toString() + " is not online");
+							return true;
+						}
+
+						target.chat(message);
+
+					} catch(IllegalArgumentException e)
+					{
+						p.sendMessage(ChatColor.RED + "Usage: /sudo <name> <message>");
+					}
+					return true;
+				}
+
+			}
+		}
+		return true;
+	}
+}

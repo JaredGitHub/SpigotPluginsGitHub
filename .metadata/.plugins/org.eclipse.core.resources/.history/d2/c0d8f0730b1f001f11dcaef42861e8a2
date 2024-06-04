@@ -1,0 +1,133 @@
+
+package me.Jared.Manager;
+
+import java.util.ArrayList;
+import java.util.Random;
+
+import org.bukkit.Bukkit;
+import org.bukkit.Location;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+
+import me.Jared.Event;
+import me.Jared.Managers.KitManager;
+
+public class PlayerManager
+{
+	private ArrayList<Player> players;
+	private GameManager gameManager;
+
+	public PlayerManager(GameManager gameManager)
+	{
+		this.setGameManager(gameManager);
+		this.players = new ArrayList<Player>();
+	}
+
+	public int getPlayerCount()
+	{
+		return players.size();
+	}
+
+	public void setPlayerInGame(Player player)
+	{
+		players.add(player);
+	}
+	
+	public void removePlayer(Player player)
+	{
+		players.remove(player);
+	}
+	public void removePlayers()
+	{
+		players.clear();
+	}
+
+	public ArrayList<Player> getPlayers()
+	{
+		return players;
+	}
+
+	public void sendMessage(String string)
+	{
+		for (Player player : getPlayers())
+		{
+			player.sendMessage(string);
+		}
+	}
+
+	public void teleportPlayersInGame()
+	{
+		
+		for (Player player : getPlayers())
+		{
+			int teamIndex = ConfigManager.getTeamIndex(player);
+			if(teamIndex % 2 == 0)
+			{
+				teamIndex = 2;
+			}
+			else
+			{
+				teamIndex = 1;
+			}
+			
+			Location location = ConfigManager.getEventSpawn(teamIndex);
+			player.teleport(spawnRadius(location, 2));
+
+			
+			player.getInventory().clear();
+			player.getActivePotionEffects().clear();
+			player.setHealth(20);
+
+			//Giving the player a diamond kit
+			if (Event.getInstance().getConfig().get("PlayerUniqueID." + player.getUniqueId()) != null)
+			{
+				KitManager.playerCustomHotBar(player);
+				KitManager.diamondKit(player);
+				KitManager.giveAmmo(player);
+			} else
+			{
+				KitManager.diamondKit(player);
+				for (int i = 0; i < 9; i++)
+					KitManager.defaultHotBar(player.getInventory());
+				player.getInventory().addItem(new ItemStack[]
+						{ KitManager.sniperAmmo(128) });
+				player.getInventory().addItem(new ItemStack[]
+						{ KitManager.shotgunAmmo(128) });
+				player.getInventory().addItem(new ItemStack[]
+						{ KitManager.autoAmmo(128) });
+			}	
+		}
+	}
+
+	private Location spawnRadius(Location loc, int radius)
+	{
+		Location center = loc;
+		Random rand = new Random();
+		double angle = rand.nextDouble()*360; //Generate a random angle
+		double x = center.getX() + (rand.nextDouble()*radius*Math.cos(Math.toRadians(angle))); // x
+		double z = center.getZ() + (rand.nextDouble()*radius*Math.sin(Math.toRadians(angle))); // z
+		Location newloc = new Location(Bukkit.getWorld("world"), x, center.getY(), z);
+		newloc.setYaw(center.getYaw());
+		newloc.setPitch(center.getPitch());
+		return newloc;
+	}
+	
+	public void teleportPlayers(Location location)
+	{
+		for(Player player : Bukkit.getOnlinePlayers())
+		{
+			player.teleport(location);
+		}
+	}
+
+	public GameManager getGameManager()
+	{
+		return gameManager;
+	}
+
+	public void setGameManager(GameManager gameManager)
+	{
+		this.gameManager = gameManager;
+	}
+
+}

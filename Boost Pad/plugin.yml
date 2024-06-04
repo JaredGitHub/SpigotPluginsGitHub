@@ -1,0 +1,17 @@
+name: BoostPads
+main: me.jared.BoostPad
+version: 1.0
+api-version: 1.20
+commands:
+ boostpad:
+  description: Type /boostpad
+  usage: /<command>
+ ladder:
+  description: Type /ladder
+  usage: /<command>
+ web:
+  description: Type /web
+  usage: /<command>
+ landmines:
+  description: Type /landmines
+  usage: /<command>

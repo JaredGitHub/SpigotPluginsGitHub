@@ -1,0 +1,9 @@
+name: TDM
+main: me.Jared.Deathmatch
+version: 0.1
+api-version: 1.20
+depend: [Kits]
+commands:
+  tdm:
+    description: Deathmatch command
+    usage: "/<command> [join|leave]"

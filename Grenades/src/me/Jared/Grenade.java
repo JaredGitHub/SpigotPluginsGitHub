@@ -1,0 +1,243 @@
+package me.Jared;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Sound;
+import org.bukkit.entity.Damageable;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Item;
+import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.util.Vector;
+
+import com.sk89q.worldedit.bukkit.BukkitAdapter;
+import com.sk89q.worldedit.world.World;
+import com.sk89q.worldguard.WorldGuard;
+import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
+import com.sk89q.worldguard.protection.managers.RegionManager;
+import com.sk89q.worldguard.protection.regions.ProtectedRegion;
+import com.sk89q.worldguard.protection.regions.RegionContainer;
+
+import me.Jared.ParticleRunnables.FireRunnable;
+import me.Jared.ParticleRunnables.FlashBangRunnable;
+import me.Jared.ParticleRunnables.SmokeRunnable;
+import me.Jared.ParticleRunnables.StickyRunnable;
+import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.TextComponent;
+
+public class Grenade
+{
+	private Material grenadeItem;
+	private String displayName;
+	private GrenadeType grenadeType;
+	private float power;
+	private int cooldown;
+	private Location grenadeLocation;
+	private Item explosive;
+	private Player thrower;
+	private Entity stickyVictim;
+
+	public enum GrenadeType
+	{
+		MOLOTOV, GRENADE, FLASHBANG, SMOKE, STICKY
+	};
+
+	public Grenade(Material item, String name, GrenadeType type, float power, int cooldownSeconds)
+	{
+		this.grenadeItem = item;
+		this.displayName = ChatColor.translateAlternateColorCodes('&', name);
+		this.grenadeType = type;
+		this.power = power;
+		this.cooldown = cooldownSeconds;
+	}
+
+	public Player getThrower()
+	{
+		return thrower;
+	}
+
+	public void remove()
+	{
+		explosive.remove();
+	}
+
+	public Location getLocation()
+	{
+		return this.grenadeLocation;
+	}
+
+	public void setLocation(Location location)
+	{
+		this.grenadeLocation = location;
+	}
+
+	public Material getItem()
+	{
+		return grenadeItem;
+	}
+
+	public String getDisplayName()
+	{
+		return displayName;
+	}
+
+	public Entity getStickyVictim()
+	{
+		return this.stickyVictim;
+	}
+
+	public void setStickyVictim(Entity entity)
+	{
+		this.stickyVictim = entity;
+	}
+
+	public GrenadeType getType()
+	{
+		return this.grenadeType;
+	}
+
+	Cooldown throwCooldown = new Cooldown(5);
+
+	private void blowUpGrenade(Entity entity)
+	{
+		Bukkit.getScheduler().runTaskLater(GrenadesMain.getInstance(), new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				Location location = entity.getLocation();
+				location.getWorld().createExplosion(location, power, false, false);
+				entity.remove();
+			}
+		}, 50L);
+	}
+
+	private void blowUpMolotov(Entity entity)
+	{
+		FireRunnable fireRunnable = new FireRunnable(this,entity, 2, cooldown * 20);
+		fireRunnable.runTaskTimer(GrenadesMain.getInstance(), 50l, 1);
+	}
+
+	private void blowUpSmoke(Entity entity)
+	{
+		SmokeRunnable smokeRunnable = new SmokeRunnable(entity, 2, cooldown * 20);
+		smokeRunnable.runTaskTimer(GrenadesMain.getInstance(), 50l, 1);
+	}
+
+	private void blowUpFlashbang(Entity entity)
+	{
+		FlashBangRunnable flashBangRunnable = new FlashBangRunnable(this,entity, cooldown * 20);
+		flashBangRunnable.runTaskTimer(GrenadesMain.getInstance(), 50l, 1);
+	}
+
+	public void blowUpSticky(Entity entity)
+	{
+		var stickyRunnable = new StickyRunnable(this,entity);
+		stickyRunnable.runTaskTimer(GrenadesMain.getInstance(), 0, 1);
+
+		Bukkit.getScheduler().runTaskLater(GrenadesMain.getInstance(), new Runnable()
+		{
+			@Override
+			public void run()
+			{
+				if(getStickyVictim() != null)
+				{
+					Location location = getStickyVictim().getLocation();
+					location.getWorld().createExplosion(location, power, false, false);
+					((Damageable) getStickyVictim()).damage(10);
+				}
+				else
+				{
+					Location location = getLocation();
+					location.getWorld().createExplosion(location, power, false, false);
+				}
+
+				entity.remove();
+				setLocation(null);
+				setStickyVictim(null);
+				stickyRunnable.cancel();
+			}
+		}, 50L);
+	}
+
+	boolean isInRegion(Player player, String stringRegion)
+	{
+		RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
+		World world = WorldGuardPlugin.inst().wrapPlayer(player).getWorld();
+		RegionManager regions = container.get(world);
+
+		for(ProtectedRegion r : regions.getApplicableRegions(BukkitAdapter.asBlockVector(player.getLocation())))
+		{
+			if(r.getId().contains(stringRegion))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public void throwGrenade(Player player)
+	{
+		this.thrower = player;
+
+		if(isInRegion(player, "spawn") == false)
+		{
+			if(!throwCooldown.isOnCooldown(thrower))
+			{
+				throwCooldown.putInCooldown(thrower);
+				
+				player.playSound(player, Sound.ENTITY_FISHING_BOBBER_THROW, 2, 1);
+
+				Location playerLocation = thrower.getLocation().add(0, 2, 0);
+				Vector vector = thrower.getEyeLocation().getDirection();
+
+				var playerHand = thrower.getInventory().getItemInMainHand();
+				playerHand.setAmount(playerHand.getAmount() - 1);
+
+				ItemStack item = new ItemStack(grenadeItem);
+				ItemMeta meta = item.getItemMeta();
+				meta.setDisplayName(displayName);
+				item.setItemMeta(meta);
+
+				this.explosive = thrower.getLocation().getWorld().dropItem(playerLocation, item);
+				explosive.setPickupDelay(999);
+				explosive.setVelocity(vector.multiply(1.1));
+
+				switch(grenadeType)
+				{
+				case GRENADE:
+					blowUpGrenade(explosive);
+					break;
+				case MOLOTOV:
+					blowUpMolotov(explosive);
+					break;
+				case FLASHBANG:
+					blowUpFlashbang(explosive);
+					break;
+				case SMOKE:
+					blowUpSmoke(explosive);
+					break;
+				case STICKY:
+					blowUpSticky(explosive);
+					break;
+				default:
+					break;
+				}
+			}
+			else
+			{
+				thrower.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
+						ChatColor.RED + "" + ChatColor.UNDERLINE + "" + throwCooldown.getCooldownLeft(thrower) + "s"));
+			}
+		}
+		else
+		{
+			thrower.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
+					ChatColor.RED + "" + ChatColor.UNDERLINE + "" + "Not here noob!"));
+		}
+	}
+}
+

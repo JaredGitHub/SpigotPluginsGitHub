@@ -1,0 +1,27 @@
+package me.Jared.PlaceHolders;
+
+
+import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+
+public class StatsExpansion extends PlaceholderExpansion
+{
+
+	@Override
+	public String getAuthor()
+	{
+		return null;
+	}
+
+	@Override
+	public String getIdentifier()
+	{
+		return null;
+	}
+
+	@Override
+	public String getVersion()
+	{
+		return null;
+	}
+
+}

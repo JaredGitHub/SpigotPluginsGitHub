@@ -1,0 +1,9 @@
+name: GameGUI
+main: me.Jared.GameGUI
+version: 1.0
+api-version: 1.20
+commands:
+ games:
+  description: Opens games GUI
+ g:
+  description: Opens games GUI

@@ -1,0 +1,259 @@
+package me.Jared.Listener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+import java.util.UUID;
+
+import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.block.Block;
+import org.bukkit.entity.Drowned;
+import org.bukkit.entity.Player;
+import org.bukkit.entity.Zombie;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+
+import me.Jared.Warz;
+import me.Jared.Loot.ConfigItem;
+import me.Jared.Loot.ConfigManager;
+import me.Jared.Loot.LootManager;
+import me.Jared.Loot.Zone;
+
+public class WarzListener implements Listener
+{
+	private Map<UUID, Location> deathLocation;
+	ArrayList<UUID> deadPlayers;
+	private Location randomLocation;
+
+	public WarzListener()
+	{
+		deadPlayers = new ArrayList<>();
+		;
+		deathLocation = new HashMap<>();
+	}
+
+	@EventHandler
+	public void onChestOpen(PlayerInteractEvent e)
+	{
+		Player player = e.getPlayer();
+
+		if(player.getWorld().getName().equals("warz"))
+		{
+			if(e.getAction() == Action.RIGHT_CLICK_BLOCK && e.getClickedBlock().getType() == Material.CHEST)
+			{
+				LootManager lootManager = new LootManager();
+				String region = lootManager.getRegion(player.getLocation());
+				Zone zone = lootManager.getZoneFromRegion(region);
+				Block block = e.getClickedBlock();
+
+				lootManager.setItems(zone, block);
+				if(!Warz.getOpenChestLocations().contains(block.getLocation()))
+				{
+					Warz.getOpenChestLocations().add(block.getLocation());
+				}
+			}
+		}
+	}
+
+	@EventHandler
+	public void onQuit(PlayerQuitEvent e)
+	{
+		Player player = e.getPlayer();
+
+		if(deadPlayers.contains(player.getUniqueId()))
+		{
+			player.teleport(randomLocation);
+			deadPlayers.remove(player.getUniqueId());
+		}
+		if(player.getWorld().getName().equals("warz"))
+		{
+			if(player.getGameMode() == GameMode.SURVIVAL)
+			{
+				ConfigManager.savePlayerWarzData(player, "warz");
+			}
+		} else if(player.getWorld().getName().equals("world"))
+		{
+			ConfigManager.saveInventory(player, "world");
+		}
+	}
+
+	@EventHandler
+	public void onJoin(PlayerJoinEvent e)
+	{
+		Player player = e.getPlayer();
+		ConfigManager.loadInventory(player, "world");
+	}
+
+	@EventHandler
+	public void onDeath(PlayerDeathEvent e)
+	{
+		e.setDroppedExp(0);
+
+		Player p = e.getEntity();
+
+		Bukkit.getScheduler().runTaskLater(Warz.getInstance(), new Runnable()
+		{
+			@Override
+			public void run()
+			{	
+				if(p.getWorld().getName().equals("world"))
+				{
+					Warz.getInstance().getConfig().set(p.getUniqueId() + ".inventoryworld", null);
+					Warz.getInstance().saveConfig();
+				} else if(p.getWorld().getName().equals("warz"))
+				{
+					Warz.getInstance().getConfig().set(p.getUniqueId() + ".inventorywarz", null);
+					Warz.getInstance().getConfig().set(p.getUniqueId() + ".world", null);
+					Warz.getInstance().getConfig().set(p.getUniqueId() + ".x", null);
+					Warz.getInstance().getConfig().set(p.getUniqueId() + ".y", null);
+					Warz.getInstance().getConfig().set(p.getUniqueId() + ".z", null);
+					Warz.getInstance().getConfig().set(p.getUniqueId() + ".yaw", null);
+					Warz.getInstance().getConfig().set(p.getUniqueId() + ".pitch", null);
+					Warz.getInstance().getConfig().set(p.getUniqueId() + ".health", null);
+
+					Warz.getInstance().saveConfig();
+				}
+			}
+		}, 5);
+	}
+
+	@EventHandler
+	public void onRespawn(PlayerRespawnEvent e)
+	{
+		Player p = e.getPlayer();
+
+		if(p.getWorld().equals(Bukkit.getWorld("warz")))
+		{	
+			Random rand = new Random();
+			randomLocation = ConfigManager.getGameSlotLocation(rand.nextInt(1, ConfigManager.getGameSlotsSize()));
+			deathLocation.put(p.getUniqueId(), p.getEyeLocation());
+
+			if(deathLocation.get(p.getUniqueId()) != null)
+			{
+				deadPlayers.add(p.getUniqueId());
+				p.setGameMode(GameMode.SPECTATOR);
+				e.setRespawnLocation(deathLocation.get(p.getUniqueId()));
+				Bukkit.getScheduler().runTaskLater((Plugin) Warz.getInstance(), () ->
+				{
+					if(p.isOnline())
+					{
+						p.setGameMode(GameMode.SURVIVAL);
+
+						p.teleport(randomLocation);
+						deathLocation.remove(p.getUniqueId());
+					}
+				}, 100L);
+			}
+		}
+	}
+
+
+	@EventHandler
+	public void onCommandExecute(PlayerCommandPreprocessEvent e)
+	{
+		Player player = e.getPlayer();
+
+		if(player.getWorld().equals(Bukkit.getWorld("warz")))
+		{
+			if(!player.hasPermission("jared"))
+			{
+				switch(e.getMessage())
+				{
+				case "/msg":
+				case "/tpa":
+				case "/spawn":
+					break;
+				default:
+					e.setCancelled(true);
+					break;
+				}
+			}
+		}
+	}
+
+	private ItemStack getItem(Zone zone)
+	{
+		var configItem = new ConfigItem();
+		ArrayList<String> items = new ArrayList<String>(configItem.zoneListItems(zone));
+
+		Random rand = new Random();
+		int randomIndex = rand.nextInt(0, items.size());
+		String randomElement = items.get(randomIndex);
+
+		ItemStack item = configItem.stringToItemStack(randomElement);
+		return item;
+	}
+
+	@EventHandler
+	public void onZombieKill(EntityDeathEvent e)
+	{
+		if(e.getEntity() instanceof Zombie || e.getEntity() instanceof Drowned)
+		{
+			Zombie zombie = (Zombie) e.getEntity();
+			e.getDrops().clear();
+
+			switch(zombie.getEquipment().getHelmet().getType())
+			{
+			case LEATHER_HELMET:
+				e.getDrops().add(getItem(Zone.LOW));
+				break;
+			case IRON_HELMET:
+				e.getDrops().add(getItem(Zone.MEDIUM));
+				break;
+			case DIAMOND_HELMET:
+				e.getDrops().add(getItem(Zone.HIGH));
+				break;
+			case NETHERITE_HELMET:
+				e.getDrops().add(getItem(Zone.SKYHIGH));
+				break;
+			default:
+				break;
+			}
+		}
+	}
+
+	@EventHandler
+	public void onZombieStrike(EntityDamageByEntityEvent e)
+	{
+		if(e.getEntity() instanceof Player)
+		{
+			Player player = (Player) e.getEntity();
+			PotionEffect potionEffect = new PotionEffect(PotionEffectType.WITHER, 20*60*3, 1);
+			PotionEffect potionEffect1 = new PotionEffect(PotionEffectType.HUNGER, 20*60*3, 4);
+
+			if(player.getWorld().getName().equals("warz"))
+			{
+				if(e.getDamager() instanceof Zombie)
+				{
+					Random random = new Random();
+					int randomNumber = random.nextInt(5);
+					if(randomNumber == 4)
+					{
+						potionEffect.apply(player);
+					}
+					else if(randomNumber == 3)
+					{
+						potionEffect1.apply(player);
+					}
+				}
+			}
+		}
+	}
+}

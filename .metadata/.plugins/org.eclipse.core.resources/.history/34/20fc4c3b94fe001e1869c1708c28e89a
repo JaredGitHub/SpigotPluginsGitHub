@@ -1,0 +1,61 @@
+package me.Jared;
+
+import java.util.ArrayList;
+
+import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
+import org.bukkit.Location;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import me.Jared.Commands.WarzCommands;
+import me.Jared.Listener.WarzListener;
+import me.Jared.Loot.LootManager;
+
+public class Warz extends JavaPlugin
+{
+	private static Warz instance;
+	private static ArrayList<Location> chestLocations;
+	private static ArrayList<Inventory> inventories;
+	
+	@Override
+	public void onEnable()
+	{
+		instance = this;
+		chestLocations = new ArrayList<Location>();
+		inventories = new ArrayList<Inventory>();
+		
+		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Warz plugin is here!");
+		Bukkit.getPluginCommand("setzone").setExecutor(new WarzCommands());
+		Bukkit.getPluginCommand("setloot").setExecutor(new WarzCommands());
+		
+		var lootManager = new LootManager();
+		
+		lootManager.setChests();
+		lootManager.runLootRunnable();
+		lootManager.runChestParticles();
+		
+		Bukkit.getPluginManager().registerEvents(new WarzListener(), this);
+	}
+	
+	public static Warz getInstance()
+	{
+		return instance;
+	}
+	
+	public static ArrayList<Location> getChestLocations()
+	{
+		return chestLocations;
+	}
+	
+	public static ArrayList<Inventory> getInventories()
+	{
+		return inventories;
+	}
+	
+	@Override
+	public void onDisable()
+	{
+		Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Warz plugin is gone!");
+	}
+}

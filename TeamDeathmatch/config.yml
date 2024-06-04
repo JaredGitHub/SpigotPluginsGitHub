@@ -1,0 +1,17 @@
+required-players: 2
+countdown-seconds: 1
+deathmatch-time: 600
+lobby-spawn:
+  world: world
+  x: 1967
+  y: 185
+  z: 1386
+  yaw: 0
+  pitch: 0
+spawn:
+  world: world
+  x: 1967
+  y: 185
+  z: 1386
+  yaw: 0
+  pitch: 0

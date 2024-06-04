@@ -1,0 +1,20 @@
+package me.Jared.Utils;
+
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Entity;
+import org.bukkit.scheduler.BukkitRunnable;
+
+public class RemoveBullets extends BukkitRunnable
+{
+
+	@Override
+	public void run()
+	{
+		for(Entity entity : Bukkit.getWorld("world").getEntities())
+		{
+			entity.remove();
+		}
+		
+	}
+
+}

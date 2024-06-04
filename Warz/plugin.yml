@@ -1,0 +1,14 @@
+name: Warz
+main: me.Jared.Warz
+version: 1.0
+api-version: 1.20
+depend: [WorldEdit, WorldGuard]
+commands:
+ setzone:
+  description: Sets a zone 1-6 based on the cuboid selection
+ setloot:
+  description: Sets the item in your hand to loot in the loot table
+ addspawnpoint:
+  descriptoin: Adds a spawnpoint to the config
+ warz:
+  description: Puts you in warz!

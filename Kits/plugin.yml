@@ -1,0 +1,8 @@
+name: Kits
+main: me.Jared.Kits.Main
+version: 1.0
+api-version: 1.20
+commands:
+   kit:
+      description: Gives you a kit!
+      usage: /<command>
