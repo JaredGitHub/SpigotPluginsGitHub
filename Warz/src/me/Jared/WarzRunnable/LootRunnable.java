@@ -28,10 +28,6 @@ public class LootRunnable extends BukkitRunnable
 			{
 				player.setLevel(seconds);
 			}
-			else
-			{
-				player.setLevel(0);
-			}
 		}
 		if(seconds == 60)
 		{

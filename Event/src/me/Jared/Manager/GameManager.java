@@ -77,8 +77,6 @@ public class GameManager
 			if(this.countdown != null) this.countdown.cancel();
 			break;
 		case COUNTDOWN:
-
-			playerManager.teleportPlayersInGame();
 			
 			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "killstreak f");
 			
@@ -101,6 +99,10 @@ public class GameManager
 				player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
 
 				player.sendTitle(ChatColor.GREEN + "You won!", null, 20, 20, 20);
+				
+				//Add win to the config!!
+				plugin.getConfig().set(player.getUniqueId() + ".wins", plugin.getConfig().getInt(player.getUniqueId() + ".wins") + 1);
+				plugin.saveConfig();
 			}
 
 			Bukkit.getScheduler().runTaskLater(Event.getInstance(), new Runnable()

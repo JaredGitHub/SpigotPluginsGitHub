@@ -108,6 +108,11 @@ public class GameManager
 					player.getInventory().setArmorContents(null);
 					player.getInventory().clear();
 					player.teleport(player.getWorld().getSpawnLocation());
+					
+					//Add win to config
+					plugin.getConfig().set(player.getUniqueId() + ".wins", plugin.getConfig().getInt(player.getUniqueId() + ".wins") + 1);
+					plugin.saveConfig();
+					
 				}
 			}
 			this.setGameState(GameState.WAITING);

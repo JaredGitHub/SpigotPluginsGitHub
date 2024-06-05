@@ -277,6 +277,7 @@ public class Main extends JavaPlugin
 			}
 
 			p.teleport(ConfigManager.getSpawn());
+			p.setLevel(0);
 			p.sendMessage(ChatColor.GREEN + "Successfully teleported you to spawn!");
 			p.playSound(p.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
 			return true;

@@ -140,6 +140,7 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 			{
 				ConfigManager.setGameSlot(player.getLocation(), ConfigManager.getGameSlotsSize());
 				player.sendMessage(ChatColor.GREEN + "Added a spawn point of your location!");
+				
 			}
 		}
 		return true;

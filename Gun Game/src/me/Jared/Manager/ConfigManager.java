@@ -48,13 +48,13 @@ public class ConfigManager
 	
 	public static Location getGameSlotLocation(int i)
 	{
-		double x = config.getDouble("sg." + i + ".x");
-		double y = config.getDouble("sg." + i + ".y");
-		double z = config.getDouble("sg." + i + ".z");
-		float yaw = (float) config.getDouble("sg." + i + ".yaw");
-		float pitch = (float) config.getDouble("sg." + i + ".pitch");
+		double x = config.getDouble("gg." + i + ".x");
+		double y = config.getDouble("gg." + i + ".y");
+		double z = config.getDouble("gg." + i + ".z");
+		float yaw = (float) config.getDouble("gg." + i + ".yaw");
+		float pitch = (float) config.getDouble("gg." + i + ".pitch");
 		
-		return new Location(Bukkit.getWorld(config.getString("sg." + i + ".world")),x,y,z,yaw,pitch);
+		return new Location(Bukkit.getWorld(config.getString("gg." + i + ".world")),x,y,z,yaw,pitch);
 	}
 	
 	public static void setGameSlot(Location loc, int i)
@@ -63,12 +63,12 @@ public class ConfigManager
 		double y = loc.getY();
 		double z = loc.getZ();
 		
-		config.set("sg." + i + ".world",loc.getWorld().getName());
-		config.set("sg." + i + ".x", x);
-		config.set("sg." + i + ".y", y);
-		config.set("sg." + i + ".z", z);
-		config.set("sg." + i + ".yaw", loc.getYaw());
-		config.set("sg." + i + ".pitch", loc.getPitch());
+		config.set("gg." + i + ".world",loc.getWorld().getName());
+		config.set("gg." + i + ".x", x);
+		config.set("gg." + i + ".y", y);
+		config.set("gg." + i + ".z", z);
+		config.set("gg." + i + ".yaw", loc.getYaw());
+		config.set("gg." + i + ".pitch", loc.getPitch());
 		
 		plugin.saveConfig();
 	}

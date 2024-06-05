@@ -246,14 +246,15 @@ public class DuelCommands implements CommandExecutor
 
 									if(Main.getInstance().getConfig().get("PlayerUniqueID." + player.getUniqueId()) != null)
 									{
-										KitManager.playerCustomHotBar(player);
-										KitManager.diamondKit(player);
-										KitManager.giveAmmo(player);
+											KitManager.playerCustomHotBar(player);
+											KitManager.diamondKit(player);
+											KitManager.giveAmmo(player);
+										
 									} else
 									{
+										KitManager.defaultHotBar(player.getUniqueId());
 										KitManager.diamondKit(player);
 										for(int i = 0; i < 9; i++)
-											KitManager.defaultHotBar(player.getInventory());
 										player.getInventory().addItem(new ItemStack[]
 												{ KitManager.sniperAmmo(128) });
 										player.getInventory().addItem(new ItemStack[]
@@ -270,9 +271,9 @@ public class DuelCommands implements CommandExecutor
 										KitManager.giveAmmo(requester);
 									} else
 									{
+										KitManager.defaultHotBar(player.getUniqueId());
 										KitManager.diamondKit(requester);
 										for(int i = 0; i < 9; i++)
-											KitManager.defaultHotBar(requester.getInventory());
 										requester.getInventory().addItem(new ItemStack[]
 												{ KitManager.sniperAmmo(128) });
 										requester.getInventory().addItem(new ItemStack[]

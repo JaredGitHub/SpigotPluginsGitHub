@@ -7,6 +7,7 @@ import me.Jared.Command.GunGameCommand;
 import me.Jared.Listeners.GameListener;
 import me.Jared.Manager.ConfigManager;
 import me.Jared.Manager.GameManager;
+import me.Jared.Manager.GunGameExpansion;
 import net.md_5.bungee.api.ChatColor;
 
 public class GunGame extends JavaPlugin
@@ -31,6 +32,8 @@ public class GunGame extends JavaPlugin
 		//Command Handlers
 		getCommand("gungame").setExecutor(new GunGameCommand(gameManager));
 		getCommand("gg").setExecutor(new GunGameCommand(gameManager));
+		
+		new GunGameExpansion().register();
 		
 	}
 	

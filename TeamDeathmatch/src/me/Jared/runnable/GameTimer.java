@@ -1,5 +1,6 @@
 package me.Jared.runnable;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -26,25 +27,23 @@ public class GameTimer extends BukkitRunnable
 		{	
 			for(Player player : gameManager.getPlayerManager().getPlayers())
 			{
+				player.setLevel(gameTimeSeconds);
 				if(gameTimeSeconds % 60 == 0)
 				{
 					player.sendMessage(ChatColor.GREEN + ""+gameTimeSeconds/60  + " minute" + (gameTimeSeconds/60 == 1 ? "": "s") + " left!");
 					player.sendTitle(ChatColor.GREEN.toString() + gameTimeSeconds/60 + " minute" + (gameTimeSeconds/60 == 1 ? "" : "s"), ChatColor.GRAY + "until game ends!",1,20,1);
 				}
-
-				player.setLevel(gameTimeSeconds);
 			}
 		}
 		else
 		{
-			System.out.println("CANCELED THE GAMETIMER TASK");
+			Bukkit.getConsoleSender().sendMessage("CANCELED THE GAMETIMER TASK");
 			cancel();
 		}
 		
 		//If game timer is done set gamestate to waiting
 		if(gameTimeSeconds == 0)
 		{
-
 			gameManager.setGameState(GameState.WAITING);
 		}
 

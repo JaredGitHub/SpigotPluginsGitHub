@@ -7,6 +7,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import me.Jared.Commands.EventCommands;
 import me.Jared.Commands.TeamCommands;
 import me.Jared.Listeners.GameListener;
+import me.Jared.Manager.EventExpansion;
 import me.Jared.Manager.GameManager;
 
 public class Event extends JavaPlugin
@@ -25,6 +26,8 @@ public class Event extends JavaPlugin
 		
 		Bukkit.getPluginCommand("event").setExecutor(new EventCommands(gameManager));
 		Bukkit.getPluginCommand("team").setExecutor(new TeamCommands(gameManager));
+		
+		new EventExpansion().register();
 	}
 	
 	@Override

@@ -66,8 +66,6 @@ public class GameManager
 		{
 		case LIVE:
 			if(this.countdown != null) this.countdown.cancel();
-
-			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "killstreak f");
 			
 			GameTimer gameTimer = new GameTimer(this);
 			gameTimer.runTaskTimer(this.getPlugin(), 0, 20);
@@ -78,6 +76,7 @@ public class GameManager
 		case COUNTDOWN:
 			
 			Bukkit.broadcastMessage(ChatColor.GREEN + "Team deathmatch has started!");
+			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "killstreak f");
 			for(Player player : playerManager.getPlayers())
 			{
 
@@ -152,6 +151,10 @@ public class GameManager
 				if(ConfigManager.getWinners(ConfigManager.getWinningTeam()).contains(player.getUniqueId().toString()))
 				{
 					Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "givegems " + player.getName() + " 250");
+					
+					//add wins to the config
+					plugin.getConfig().set(player.getUniqueId() + ".wins", plugin.getConfig().getInt(player.getUniqueId() + ".wins") + 1);
+					plugin.saveConfig();
 				}
 			}
 

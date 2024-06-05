@@ -2,6 +2,7 @@ package me.Jared.Listeners;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
@@ -181,13 +182,15 @@ public class GameListener implements Listener
 
 			ArrayList<Integer> numbers = new ArrayList<Integer>();
 			
-			for(String num : GunGame.getInstance().getConfig().getConfigurationSection("sg").getKeys(false))
+			for(String num : GunGame.getInstance().getConfig().getConfigurationSection("gg").getKeys(false))
 			{
 				int number = Integer.parseInt(num);
 				numbers.add(number);
 			}
-			
-			int randomNumber = (int)(Math.random() * numbers.size()) + 1;
+
+			Random random = new Random();
+			int randomNumber = random.nextInt(1, numbers.size()+1);
+			Bukkit.getServer().broadcastMessage(ChatColor.DARK_PURPLE + ""+randomNumber);
 			Location location = ConfigManager.getGameSlotLocation(randomNumber);
 
 			e.setRespawnLocation(location);

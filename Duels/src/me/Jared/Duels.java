@@ -15,7 +15,6 @@ import me.Jared.PlaceHolders.DuelsExpansion;
 
 public class Duels extends JavaPlugin
 {
-
 	private static Duels instance;
 	
 	@Override

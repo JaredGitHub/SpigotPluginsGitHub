@@ -11,6 +11,7 @@ import me.Jared.Listeners.GameListener;
 import me.Jared.Loot.LootManager;
 import me.Jared.Manager.ConfigManager;
 import me.Jared.Manager.GameManager;
+import me.Jared.Manager.MiniGameExpansion;
 
 public class MiniGame extends JavaPlugin
 {
@@ -37,6 +38,8 @@ public class MiniGame extends JavaPlugin
 
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "MiniGame plugin is here!");
 
+		//Placeholder hooker
+		new MiniGameExpansion().register();
 	}
 	
 	@Override

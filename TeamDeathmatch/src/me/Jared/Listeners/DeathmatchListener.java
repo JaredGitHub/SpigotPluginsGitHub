@@ -151,9 +151,9 @@ public class DeathmatchListener implements Listener
 				KitManager.giveAmmo(player);
 			} else
 			{
+				KitManager.defaultHotBar(player.getUniqueId());
 				KitManager.diamondKit(player);
 				for (int i = 0; i < 9; i++)
-					KitManager.defaultHotBar(player.getInventory());
 				player.getInventory().addItem(new ItemStack[]
 						{ KitManager.sniperAmmo(128) });
 				player.getInventory().addItem(new ItemStack[]
@@ -187,10 +187,8 @@ public class DeathmatchListener implements Listener
 	@EventHandler
 	public void onDamage(EntityDamageByEntityEvent e)
 	{
-
 		if(gameManager.getGameState() == GameState.LIVE)
 		{
-
 			if(e.getEntity() instanceof Player && e.getDamager() instanceof Player)
 			{
 				Player p = (Player) e.getEntity();
@@ -221,6 +219,7 @@ public class DeathmatchListener implements Listener
 				if(damagedTeam == damagerTeam)
 				{
 					pdamager.sendMessage(ChatColor.RED + "You cannot hurt your teammates!");
+					e.setDamage(0);
 					e.setCancelled(true);
 				}
 			}

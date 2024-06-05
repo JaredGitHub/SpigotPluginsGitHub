@@ -1,9 +1,0 @@
-name: Duels
-main: me.Jared.Duels
-version: 0.1
-api-version: 1.20
-depend: [Kits, Stats]
-commands:
-  duel:
-    description: Duels command!!
-    usage: "/<command> [join,leave, set, accept, deny, list, remove, setspawn]"

@@ -7,6 +7,7 @@ import me.Jared.Command.DeathmatchCommand;
 import me.Jared.Listeners.DeathmatchListener;
 import me.Jared.Manager.ConfigManager;
 import me.Jared.Manager.GameManager;
+import me.Jared.Manager.TDMExpansion;
 import net.md_5.bungee.api.ChatColor;
 
 public class Deathmatch extends JavaPlugin
@@ -35,6 +36,8 @@ public class Deathmatch extends JavaPlugin
 		Bukkit.getServer().getPluginManager().registerEvents(new DeathmatchListener(gameManager), this);
 		//Command Handlers
 		getCommand("tdm").setExecutor(new DeathmatchCommand(gameManager));
+		
+		new TDMExpansion().register();
 		
 	}
 	

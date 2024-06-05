@@ -63,7 +63,6 @@ public class GunGameCommand implements CommandExecutor
 						}
 
 						// Allow the player to join the game
-						Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "toggleks false");
 						gameManager.getPlayerManager().setPlayerInGame(player);
 						gameManager.setGameState(GameState.WAITING);
 
@@ -105,7 +104,6 @@ public class GunGameCommand implements CommandExecutor
 							if (gameManager.getPlayerManager().getPlayers().size() == 1
 									&& gameManager.getGameState() == GameState.LIVE)
 							{
-								Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "toggleks true");
 								gameManager.setGameState(GameState.WINNING);
 							}
 							
@@ -212,13 +210,6 @@ public class GunGameCommand implements CommandExecutor
 
 							Bukkit.broadcastMessage(ChatColor.GREEN + "Make sure your second argument is a number!");
 							return false;
-						}
-
-						if (id > ConfigManager.getPlayersNeeded())
-						{
-							player.sendMessage(ChatColor.RED + "Max players is "
-									+ ConfigManager.getPlayersNeeded() + "!");
-							return true;
 						}
 						if (id == 0)
 						{

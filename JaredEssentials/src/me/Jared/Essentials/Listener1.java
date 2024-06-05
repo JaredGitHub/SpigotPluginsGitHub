@@ -2,6 +2,7 @@ package me.Jared.Essentials;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.Location;
 import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EnderPearl;
@@ -71,6 +72,15 @@ public class Listener1 implements Listener
 			e.setJoinMessage(ChatColor.DARK_RED + "" + ChatColor.BOLD + "[!!ALERT!!] " + ChatColor.GREEN + ""
 					+ ChatColor.BOLD + "PLEASE WELCOME THE SERVER OPERATOR, " + p.getName() + "!");
 		}
+
+		if(!(p.hasPlayedBefore()))
+		{
+			int x = plugin.getConfig().getInt("tutorial.x");
+			int y = plugin.getConfig().getInt("tutorial.y");
+			int z = plugin.getConfig().getInt("tutorial.z");
+			Location location = new Location(Bukkit.getWorld("world"),x,y,z);
+			p.teleport(location);
+		}
 	}
 
 	// When a player who is not an operator quits it shows a different message than
@@ -86,6 +96,7 @@ public class Listener1 implements Listener
 		}
 
 		Player p = e.getPlayer();
+		p.setLevel(0);
 		if(!(p.hasPermission("jared")))
 		{
 			e.setQuitMessage(ChatColor.GRAY + p.getName() + " has left!");

@@ -5,30 +5,26 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import me.Jared.GameState;
 import me.Jared.Manager.GameManager;
-import me.Jared.Manager.PlayerManager;
 
 public class Winning extends BukkitRunnable
 {
 
 	GameManager gameManager;
-	
-	public Winning(GameManager gameManager)
+	Player player;
+
+	public Winning(GameManager gameManager, Player player)
 	{
 		this.gameManager = gameManager;
+		this.player = player;
 	}
-	
+
 	@Override
 	public void run()
 	{
-		PlayerManager playerManager = gameManager.getPlayerManager();
-		for(Player player : playerManager.getPlayers())
-		{
-			player.teleport(player.getWorld().getSpawnLocation());
-			player.getInventory().clear();
-			gameManager.setGameState(GameState.WAITING);
-		}
-		this.cancel();
-		
-	}
+		player.teleport(player.getWorld().getSpawnLocation());
+		player.getInventory().clear();
+		gameManager.setGameState(GameState.WAITING);
 
+		this.cancel();
+	}
 }

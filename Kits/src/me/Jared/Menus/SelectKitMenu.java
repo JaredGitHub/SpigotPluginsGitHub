@@ -64,10 +64,11 @@ public class SelectKitMenu extends KitsMenu
 					KitManager.giveAmmo(p);
 				} else
 				{
+					KitManager.defaultHotBar(p.getUniqueId());
 					KitManager.diamondKit(p);
 					for (int i = 0; i < 9; i++)
-					p.getInventory().addItem(new ItemStack[]
-							{ KitManager.sniperAmmo(128) });
+						p.getInventory().addItem(new ItemStack[]
+								{ KitManager.sniperAmmo(128) });
 					p.getInventory().addItem(new ItemStack[]
 							{ KitManager.shotgunAmmo(128) });
 					p.getInventory().addItem(new ItemStack[]
@@ -94,10 +95,11 @@ public class SelectKitMenu extends KitsMenu
 					KitManager.giveAmmo(p);
 				} else
 				{
+					KitManager.defaultHotBar(p.getUniqueId());
 					KitManager.ironKit(p);
 					for (int i = 0; i < 9; i++)
-					p.getInventory().addItem(new ItemStack[]
-							{ KitManager.sniperAmmo(128) });
+						p.getInventory().addItem(new ItemStack[]
+								{ KitManager.sniperAmmo(128) });
 					p.getInventory().addItem(new ItemStack[]
 							{ KitManager.shotgunAmmo(128) });
 					p.getInventory().addItem(new ItemStack[]
@@ -117,8 +119,11 @@ public class SelectKitMenu extends KitsMenu
 		case ENDER_EYE:
 			p.closeInventory();
 
-			KitManager.defaultHotBar(p.getUniqueId());
-			
+			if (Main.getInstance().getConfig().get("PlayerUniqueID." + p.getUniqueId()) == null)
+			{
+				KitManager.defaultHotBar(p.getUniqueId());
+			}
+
 			ItemSelectionMenu menu = new ItemSelectionMenu(Main.getPlayerMenuUtility(p));
 			menu.open();
 			break;

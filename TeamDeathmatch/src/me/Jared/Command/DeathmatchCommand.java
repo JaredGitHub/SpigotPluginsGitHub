@@ -69,9 +69,6 @@ public class DeathmatchCommand implements CommandExecutor
 
 							if(gameManager.getGameState() == GameState.LIVE)
 							{
-
-								Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "toggleks true");
-								
 								if(gameManager.getPlayerManager().getPlayers().contains(player))
 								{
 									ConfigManager.setKills(ConfigManager.getTeam(player), 0);
@@ -197,7 +194,6 @@ public class DeathmatchCommand implements CommandExecutor
 							// Allow the player to join the game'
 							gameManager.getPlayerManager().setPlayerInGame(player);
 							Bukkit.getConsoleSender().sendMessage("Added player to the game " + player.getName());
-							Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "toggleks false");
 							gameManager.setGameState(GameState.RECRUITING);
 
 							ConfigManager.setTeam(team, player);

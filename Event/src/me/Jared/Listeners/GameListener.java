@@ -1,5 +1,6 @@
 package me.Jared.Listeners;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
@@ -11,6 +12,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
@@ -34,6 +36,25 @@ public class GameListener implements Listener
 		{
 			e.getPlayer().sendMessage(ChatColor.RED + "No commands at this time!");
 			e.setCancelled(true);
+		}
+	}
+	
+	@EventHandler
+	public void onJoin(PlayerJoinEvent e)
+	{
+		if(gameManager.getGameState() != GameState.INACTIVE)
+		{
+			Bukkit.getScheduler().runTaskLater(gameManager.getPlugin(), new Runnable()
+			{
+				
+				@Override
+				public void run()
+				{
+					e.getPlayer().teleport(ConfigManager.getLobbySpawn());
+					e.getPlayer().sendTitle("EVENT TIME", "EVENT TIME", 0, 0, 0);
+					
+				}
+			}, 20);
 		}
 	}
 	

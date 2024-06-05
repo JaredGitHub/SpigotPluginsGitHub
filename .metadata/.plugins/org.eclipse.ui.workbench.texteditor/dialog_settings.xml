@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="PROJ"/>
+		<item key="selection" value="default"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="proj"/>
-			<item value="snow"/>
-			<item value="callEvent"/>
-			<item value="elim"/>
-			<item value="dam"/>
-			<item value="join"/>
-			<item value="system"/>
-			<item value="blood"/>
+			<item value="default"/>
+			<item value="tutorial "/>
+			<item value="teamm"/>
+			<item value="teleport"/>
+			<item value="player"/>
+			<item value="gamemanager.s"/>
+			<item value="won"/>
+			<item value="killstreak"/>
 		</list>
 		<list key="replacehistory">
 			<item value="uses"/>
