@@ -190,6 +190,7 @@ public class GameListener implements Listener
 
 			Random random = new Random();
 			int randomNumber = random.nextInt(1, numbers.size()+1);
+			Bukkit.getServer().broadcastMessage(ChatColor.DARK_PURPLE + ""+randomNumber);
 			Location location = ConfigManager.getGameSlotLocation(randomNumber);
 
 			e.setRespawnLocation(location);
