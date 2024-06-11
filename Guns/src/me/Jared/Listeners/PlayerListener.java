@@ -169,7 +169,14 @@ public class PlayerListener implements Listener
 			{
 				if (gp == null)
 					break;
-				gp.onClick(GunPlayer.ClickType.LEFT);
+				if(GunsPlugin.getPlugin.getConfig().getBoolean(gp.getPlayer().getUniqueId() + ".triggerswap"))
+				{
+					gp.onClick(GunPlayer.ClickType.RIGHT);
+				}
+				else
+				{
+					gp.onClick(GunPlayer.ClickType.LEFT);
+				}
 				break;
 			}
 			case RIGHT_CLICK_BLOCK:
@@ -195,7 +202,16 @@ public class PlayerListener implements Listener
 				}
 				if (gp == null)
 					break;
-				gp.onClick(GunPlayer.ClickType.RIGHT);
+				
+				if(GunsPlugin.getPlugin.getConfig().getBoolean(gp.getPlayer().getUniqueId() + ".triggerswap"))
+				{
+					gp.onClick(GunPlayer.ClickType.LEFT);
+				}
+				else
+				{
+					gp.onClick(GunPlayer.ClickType.RIGHT);
+				}
+				
 				break;
 			}
 			default:

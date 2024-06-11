@@ -1,8 +1,0 @@
-package me.Jared.Manager;
-
-import me.clip.placeholderapi.expansion.PlaceholderExpansion;
-
-public class GunGameExpansion extends PlaceholderExpansion
-{
-	
-}

@@ -13,6 +13,7 @@ import org.bukkit.entity.Item;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.MainHand;
 import org.bukkit.util.Vector;
 
 import me.Jared.GunsPlugin;
@@ -48,8 +49,15 @@ public class Bullet
 		{
 			Location loc = owner.getPlayer().getEyeLocation();
 
-			double offset = 0.23;
+			double offset = 0.2;
 			double yOffset = -0.2;
+			if(owner.getPlayer().getMainHand() == MainHand.LEFT)
+			{
+				offset = -0.2;
+				yOffset = -0.2;
+			}
+			
+
 			switch(getDirection(loc))
 			{
 			case NORTH:
@@ -83,7 +91,7 @@ public class Bullet
 			loc.setPitch(0);
 			this.projectile = owner.getPlayer().launchProjectile(clazz, this.velocity);
 			this.projectile.teleport(loc);
-			
+
 			this.startLocation = loc;
 		}
 		this.releaseTime = this.shotFrom.getReleaseTime() == -1 ? 80 + (gun.isThrowable() ? 0 : 1) * 400

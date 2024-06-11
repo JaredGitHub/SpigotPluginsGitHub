@@ -24,6 +24,7 @@ import com.sk89q.worldedit.WorldEdit;
 import me.Jared.Guns.Bullet;
 import me.Jared.Guns.Gun;
 import me.Jared.Guns.GunPlayer;
+import me.Jared.Guns.TriggerSwap;
 import me.Jared.Guns.WeaponReader;
 import me.Jared.Guns.constant.GunValue;
 import me.Jared.Listeners.EntityListener;
@@ -51,6 +52,9 @@ public class GunsPlugin extends JavaPlugin
 		
 		new RemoveBullets("world").runTaskTimer(this, 0, 20);
 		new RemoveBullets("warz").runTaskTimer(this, 0, 20);
+		
+		//Register trigger swap command
+		Bukkit.getPluginCommand("triggerswap").setExecutor(new TriggerSwap(this));
 		
 		try
 		{

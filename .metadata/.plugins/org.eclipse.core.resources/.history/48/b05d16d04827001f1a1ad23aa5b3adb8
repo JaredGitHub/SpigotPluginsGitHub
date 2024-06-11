@@ -1,0 +1,39 @@
+package me.Jared.Guns;
+
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandExecutor;
+import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
+
+import me.Jared.GunsPlugin;
+
+public class TriggerSwap implements CommandExecutor
+{
+	
+	private GunsPlugin plugin;
+	public TriggerSwap(GunsPlugin plugin)
+	{
+		this.plugin = plugin;
+	}
+	
+	@Override
+	public boolean onCommand(CommandSender sender, Command cmd, String str, String[] args)
+	{
+		if(sender instanceof Player)
+		{
+			Player player = (Player) sender;
+			FileConfiguration config = plugin.getConfig();
+			
+			if(config.getBoolean(player.getUniqueId() + ".triggerswap") == false)
+					|| config.getBoolean(str))
+			{
+				
+			}
+			
+		}
+		
+		return true;
+	}
+
+}

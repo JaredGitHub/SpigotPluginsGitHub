@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.bukkit.event.inventory.InventoryInteractEvent"/>
-    <fullyQualifiedTypeName name="org.bukkit.event.inventory.InventoryOpenEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerMoveEvent"/>
     <fullyQualifiedTypeName name="me.Jared.Loot.ConfigItem"/>
     <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
-    <fullyQualifiedTypeName name="org.bukkit.Sound"/>
-    <fullyQualifiedTypeName name="me.Jared.GunsPlugin"/>
     <fullyQualifiedTypeName name="org.bukkit.entity.EntityType"/>
     <fullyQualifiedTypeName name="me.Jared.WarzRunnable.TimeLeftChestRunnable"/>
     <fullyQualifiedTypeName name="org.bukkit.entity.Entity"/>
-    <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
     <fullyQualifiedTypeName name="me.Jared.Essentials.TPARunnable"/>
     <fullyQualifiedTypeName name="me.Jared.Essentials.Runnables.TPACooldownRunnable"/>
     <fullyQualifiedTypeName name="me.Jared.Essentials.Main"/>
@@ -57,7 +51,13 @@
     <fullyQualifiedTypeName name="me.Jared.Manager.ConfigManager"/>
     <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
-    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="org.bukkit.Location"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="org.bukkit.command.CommandExecutor"/>
+    <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
+    <fullyQualifiedTypeName name="me.Jared.Guns.TriggerSwap"/>
+    <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
+    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
+    <fullyQualifiedTypeName name="org.bukkit.Sound"/>
+    <fullyQualifiedTypeName name="me.Jared.GunsPlugin"/>
 </qualifiedTypeNameHistroy>
