@@ -64,6 +64,7 @@ public class DuelListener implements Listener
 					DuelCommands.betAmount.remove(player);
 					return;
 				}
+				return;
 			}
 
 			String healthLeft = ChatColor.DARK_RED + player.getKiller().getName() 
