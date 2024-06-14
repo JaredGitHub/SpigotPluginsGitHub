@@ -72,6 +72,7 @@ public class GameManager
 		{
 		case LIVE:
 
+			if(this.countdown != null) this.countdown.cancel();
 			for(int i = 0; i < ConfigManager.getChestLocations().size(); i++)
 			{
 				locations.add(ConfigManager.getChestLocations().get(i));
@@ -85,8 +86,6 @@ public class GameManager
 				this.chestOpen.put(location,false);
 			}
 
-			if(this.countdown != null) this.countdown.cancel();
-
 			playerManager.sendMessage(ChatColor.GOLD + "" + ChatColor.UNDERLINE + "Be the last one standing!");
 
 			break;
@@ -96,7 +95,6 @@ public class GameManager
 			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "killstreak f");
 			
 			lootManager.setChests();
-			this.getPlayerManager().teleportPlayerInGame();
 			for(Player player : playerManager.getPlayers())
 			{
 				player.getInventory().clear();

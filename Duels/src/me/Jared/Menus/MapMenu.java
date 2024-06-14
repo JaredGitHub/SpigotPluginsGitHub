@@ -53,13 +53,14 @@ public class MapMenu extends DuelsMenu
 	
 	public static ArrayList<Player> playersInDuel = new ArrayList<Player>();
 	public static ArrayList<Player> playersToDuel = new ArrayList<Player>();
-
 	
 	@Override
 	public void handleMenu(InventoryClickEvent e)
 	{
 		e.setCancelled(true);
 		Player p = (Player) e.getWhoClicked();
+		playersToDuel.remove(DuelCommands.duelPlayer);
+		playersInDuel.remove(p);
 		p.closeInventory();
 
 		String itemName = e.getCurrentItem().getItemMeta().getDisplayName();

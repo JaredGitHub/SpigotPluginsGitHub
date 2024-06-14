@@ -39,6 +39,8 @@
 		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Duels.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Stats.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\MiniGame.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Guns.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\GunGame.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Kits.jar"/>
@@ -46,10 +48,8 @@
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\TDM.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Event.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Warz.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\MiniGame.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Food.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Grenades.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\Stats.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\BarbWire.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\GrapplingHook.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\TeamDeathmatch.jar"/>

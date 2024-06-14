@@ -63,6 +63,8 @@ public class ArenaCommand implements CommandExecutor
 						if(gameManager.getPlayerManager().getPlayers().size() == ConfigManager.getPlayersNeeded() - 1)
 						{
 							gameManager.getPlayerManager().setPlayerInGame(player);
+							
+							gameManager.getPlayerManager().teleportPlayerInGame();
 							gameManager.setGameState(GameState.COUNTDOWN);
 						}
 						else

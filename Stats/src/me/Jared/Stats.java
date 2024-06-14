@@ -145,6 +145,7 @@ public class Stats extends JavaPlugin
 			if(!sender.hasPermission("stats"))
 			{
 				sender.sendMessage(ChatColor.RED + "You cannot remove gems noob!");
+				return true;
 			}
 			if(args.length >= 2)
 			{

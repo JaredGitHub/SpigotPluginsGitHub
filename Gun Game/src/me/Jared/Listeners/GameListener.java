@@ -133,13 +133,15 @@ public class GameListener implements Listener
 	public void onMove(PlayerMoveEvent e)
 	{
 		Player player = e.getPlayer();
-		if(gameManager.getPlayerManager().getPlayers().contains(player) && gameManager.getGameState() == GameState.COUNTDOWN)
+		if(gameManager.getPlayerManager().getPlayers().contains(player) 
+				&& gameManager.getGameState() == GameState.COUNTDOWN)
 		{
 			Location newToLocation = e.getFrom().setDirection(e.getTo().getDirection());
 			e.setTo(newToLocation);
 		}
 
-		if(!(gameManager.getPlayerManager().getPlayers().contains(player)) && gameManager.getGameState() == GameState.LIVE)
+		if(!(gameManager.getPlayerManager().getPlayers().contains(player)) 
+				&& gameManager.getGameState() == GameState.LIVE)
 		{
 			if(!player.hasPermission("gungame") && player.getGameMode() == GameMode.SPECTATOR)
 			{

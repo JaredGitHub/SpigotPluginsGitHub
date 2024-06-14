@@ -30,13 +30,12 @@ public class DuelListener implements Listener
 	{
 		Player player = e.getEntity();
 
-
 		if(MapMenu.playersInDuel.contains(player) || DuelCommands.betAmount.containsKey(player))
 		{
 			if(player.getKiller() == null)
 			{
-				int indexMinusOne = (MapMenu.playersInDuel.indexOf(player) -1);
-				int indexPlusOne = (MapMenu.playersInDuel.indexOf(player) +1);
+				int indexMinusOne = (MapMenu.playersInDuel.indexOf(player) - 1);
+				int indexPlusOne = (MapMenu.playersInDuel.indexOf(player) + 1);
 
 				boolean inBoundsMinusOne = (indexMinusOne >= 0) 
 						&& (indexMinusOne < MapMenu.playersInDuel.size());
@@ -48,6 +47,7 @@ public class DuelListener implements Listener
 				{
 					Player dueler = MapMenu.playersInDuel.get(indexPlusOne);
 					dueler.teleport(dueler.getWorld().getSpawnLocation());
+					dueler.getInventory().clear();
 					MapMenu.playersInDuel.remove(dueler);
 					DuelCommands.betAmount.remove(dueler);
 					MapMenu.playersInDuel.remove(player);
@@ -58,6 +58,7 @@ public class DuelListener implements Listener
 				{
 					Player dueler = MapMenu.playersInDuel.get(indexMinusOne);
 					dueler.teleport(dueler.getWorld().getSpawnLocation());
+					dueler.getInventory().clear();
 					MapMenu.playersInDuel.remove(dueler);
 					DuelCommands.betAmount.remove(dueler);
 					MapMenu.playersInDuel.remove(player);
@@ -88,8 +89,6 @@ public class DuelListener implements Listener
 			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), 
 					"removegems " + player.getName() + " " + DuelCommands.betAmount.get(player.getKiller()));
 
-
-			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "kill @e[type=item]");
 			player.getKiller().teleport(player.getWorld().getSpawnLocation());
 		}
 		MapMenu.playersInDuel.remove(player.getKiller());
@@ -106,7 +105,6 @@ public class DuelListener implements Listener
 		message.setHoverEvent(new HoverEvent(Action.SHOW_TEXT, hoverMessage));
 
 		return message;
-
 	}
 
 	//Handle quitting
@@ -130,6 +128,7 @@ public class DuelListener implements Listener
 			{
 				Player dueler = MapMenu.playersInDuel.get(indexPlusOne);
 				dueler.teleport(dueler.getWorld().getSpawnLocation());
+				dueler.getInventory().clear();
 				MapMenu.playersInDuel.remove(dueler);
 				DuelCommands.betAmount.remove(dueler);
 				MapMenu.playersInDuel.remove(player);
@@ -140,6 +139,7 @@ public class DuelListener implements Listener
 			{
 				Player dueler = MapMenu.playersInDuel.get(indexMinusOne);
 				dueler.teleport(dueler.getWorld().getSpawnLocation());
+				dueler.getInventory().clear();
 				MapMenu.playersInDuel.remove(dueler);
 				DuelCommands.betAmount.remove(dueler);
 				MapMenu.playersInDuel.remove(player);

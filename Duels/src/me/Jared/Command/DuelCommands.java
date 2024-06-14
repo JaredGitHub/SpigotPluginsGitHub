@@ -156,6 +156,7 @@ public class DuelCommands implements CommandExecutor
 							{
 								Player dueler = MapMenu.playersInDuel.get(indexPlusOne);
 								dueler.teleport(dueler.getWorld().getSpawnLocation());
+								dueler.getInventory().clear();
 								MapMenu.playersInDuel.remove(dueler);
 								DuelCommands.betAmount.remove(dueler);
 							}
@@ -163,6 +164,7 @@ public class DuelCommands implements CommandExecutor
 							{
 								Player dueler = MapMenu.playersInDuel.get(indexMinusOne);
 								dueler.teleport(dueler.getWorld().getSpawnLocation());
+								dueler.getInventory().clear();
 								MapMenu.playersInDuel.remove(dueler);
 								DuelCommands.betAmount.remove(dueler);
 							}
@@ -244,6 +246,20 @@ public class DuelCommands implements CommandExecutor
 									requester.teleport(ConfigManager
 											.getMapLocation(ConfigManager.getMaps().get(MapMenu.getMapNumber()), 2));
 
+									Bukkit.getScheduler().runTaskLater(Duels.getInstance(), new Runnable()
+									{
+										
+										@Override
+										public void run()
+										{
+											Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "kill @e[type=item]");
+											Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "boostpad clear");
+											Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "landmine clear");
+											Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "web clear");
+										}
+									}, 5);
+									
+									
 									if(Main.getInstance().getConfig().get("PlayerUniqueID." + player.getUniqueId()) != null)
 									{
 											KitManager.playerCustomHotBar(player);
