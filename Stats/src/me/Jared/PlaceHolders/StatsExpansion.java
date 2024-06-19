@@ -81,6 +81,10 @@ public class StatsExpansion extends PlaceholderExpansion
 		{
 			return Stats.getInstance().getConfig().getString(player.getUniqueId() + ".zombiekills");
 		}
+		if(params.equals("highks"))
+		{
+			return Stats.getInstance().getConfig().getString(player.getUniqueId() + ".highks");
+		}
 		
 		return null;
 	}

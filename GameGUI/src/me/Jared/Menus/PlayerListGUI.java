@@ -44,7 +44,6 @@ public class PlayerListGUI extends Menu
 		{
 			if(e.getSlot() == i)
 			{
-				ConfigManager.leaveAllGames(player);
 				Bukkit.dispatchCommand(player, "duel " + e.getCurrentItem().getItemMeta().getDisplayName().toString());
 			}
 		}

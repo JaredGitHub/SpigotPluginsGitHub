@@ -39,10 +39,11 @@ public class StatScoreboard
 		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "JaredServer");
 
 
-		objective.getScore(ChatColor.BLUE + "=-=-=-=-=-=-=-=-=-=-=-=-").setScore(8);
-		objective.getScore(ChatColor.GOLD + "Kills: " + ChatColor.RESET + config.getInt(p.getUniqueId() +".kills")).setScore(7);
-		objective.getScore(ChatColor.GOLD + "Zombie Kills: " + ChatColor.RESET + config.getInt(p.getUniqueId() +".zombiekills")).setScore(6);
-		objective.getScore(ChatColor.GOLD + "Deaths: " + ChatColor.RESET + config.getInt(p.getUniqueId() +".deaths")).setScore(5);
+		objective.getScore(ChatColor.BLUE + "=-=-=-=-=-=-=-=-=-=-=-=-").setScore(9);
+		objective.getScore(ChatColor.GOLD + "Kills: " + ChatColor.RESET + config.getInt(p.getUniqueId() +".kills")).setScore(8);
+		objective.getScore(ChatColor.GOLD + "Zombie Kills: " + ChatColor.RESET + config.getInt(p.getUniqueId() +".zombiekills")).setScore(7);
+		objective.getScore(ChatColor.GOLD + "Deaths: " + ChatColor.RESET + config.getInt(p.getUniqueId() +".deaths")).setScore(6);
+		objective.getScore(ChatColor.GOLD + "Highest KS: " + ChatColor.RESET + config.getInt(String.valueOf(p.getUniqueId()) + ".highks")).setScore(5);
 		objective.getScore(ChatColor.GOLD + "KillStreak: " + ChatColor.RESET + config.getInt(String.valueOf(p.getUniqueId()) + ".killStreak")).setScore(4);
 		objective.getScore(ChatColor.GOLD + "Gems: " + ChatColor.RESET + config.getInt(p.getUniqueId() + ".gems")).setScore(2);
 

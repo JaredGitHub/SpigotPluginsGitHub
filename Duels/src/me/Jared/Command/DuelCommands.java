@@ -14,10 +14,8 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 
 import me.Jared.Duels;
-import me.Jared.Kits.Main;
 import me.Jared.Manager.ConfigManager;
 import me.Jared.Managers.KitManager;
 import me.Jared.Menus.MapMenu;
@@ -68,7 +66,6 @@ public class DuelCommands implements CommandExecutor
 							{
 								try
 								{
-
 									int number = Integer.parseInt(args[2]);
 
 									if(number == 1 || number == 2)
@@ -143,13 +140,13 @@ public class DuelCommands implements CommandExecutor
 					{
 						if((MapMenu.playersInDuel.contains(player)) || (betAmount.containsKey(player)))
 						{
-							int indexMinusOne = (MapMenu.playersInDuel.indexOf(player) -1);
-							int indexPlusOne = (MapMenu.playersInDuel.indexOf(player) +1);
+							int indexMinusOne = (MapMenu.playersInDuel.indexOf(player) - 1);
+							int indexPlusOne = (MapMenu.playersInDuel.indexOf(player) + 1);
 
-							boolean inBoundsMinusOne = (indexMinusOne >= 0) 
+							boolean inBoundsMinusOne = (indexMinusOne >= 0)
 									&& (indexMinusOne < MapMenu.playersInDuel.size());
 
-							boolean inBoundsPlusOne = (indexPlusOne >= 0) 
+							boolean inBoundsPlusOne = (indexPlusOne >= 0)
 									&& (indexPlusOne < MapMenu.playersInDuel.size());
 
 							if(inBoundsPlusOne)
@@ -159,8 +156,7 @@ public class DuelCommands implements CommandExecutor
 								dueler.getInventory().clear();
 								MapMenu.playersInDuel.remove(dueler);
 								DuelCommands.betAmount.remove(dueler);
-							}
-							else if(inBoundsMinusOne)
+							} else if(inBoundsMinusOne)
 							{
 								Player dueler = MapMenu.playersInDuel.get(indexMinusOne);
 								dueler.teleport(dueler.getWorld().getSpawnLocation());
@@ -169,21 +165,19 @@ public class DuelCommands implements CommandExecutor
 								DuelCommands.betAmount.remove(dueler);
 							}
 
-							//Remove player from hashmaps for dueling
+							// Remove player from hashmaps for dueling
 							player.teleport(player.getWorld().getSpawnLocation());
 							MapMenu.playersInDuel.remove(player);
 							DuelCommands.betAmount.remove(player);
 
 							return true;
 
-						}
-						else
+						} else
 						{
 							player.sendMessage(ChatColor.RED + "You are not in a duel noob!");
 							return true;
 						}
-					}
-					else
+					} else
 					{
 						try
 						{
@@ -204,14 +198,12 @@ public class DuelCommands implements CommandExecutor
 									player.playSound(player, Sound.ENTITY_GHAST_DEATH, 1, 1);
 									return true;
 								}
-							}
-							else
+							} else
 							{
 								player.sendMessage(ChatColor.GRAY + "Usage: /duel [player] [betAmount]");
 								return true;
 							}
-						}
-						catch(Exception e)
+						} catch(Exception e)
 						{
 							player.sendMessage(ChatColor.GRAY + "That player is not online!");
 							if(args[0].contains("set"))
@@ -221,8 +213,7 @@ public class DuelCommands implements CommandExecutor
 							return true;
 						}
 					}
-				}
-				else if(args.length == 2)
+				} else if(args.length == 2)
 				{
 					if(args[0].equalsIgnoreCase("accept"))
 					{
@@ -234,6 +225,8 @@ public class DuelCommands implements CommandExecutor
 							{
 								if(MapMenu.playersInDuel.contains(requester) || betAmount.containsKey(requester))
 								{
+									
+									
 									MapMenu.playersInDuel.add(player);
 
 									player.getInventory().clear();
@@ -248,66 +241,31 @@ public class DuelCommands implements CommandExecutor
 
 									Bukkit.getScheduler().runTaskLater(Duels.getInstance(), new Runnable()
 									{
-										
+
 										@Override
 										public void run()
 										{
 											Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "kill @e[type=item]");
 											Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "boostpad clear");
-											Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "landmine clear");
+											Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "landmines clear");
 											Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "web clear");
 										}
 									}, 5);
 									
-									
-									if(Main.getInstance().getConfig().get("PlayerUniqueID." + player.getUniqueId()) != null)
-									{
-											KitManager.playerCustomHotBar(player);
-											KitManager.diamondKit(player);
-											KitManager.giveAmmo(player);
-										
-									} else
-									{
-										KitManager.defaultHotBar(player.getUniqueId());
-										KitManager.diamondKit(player);
-										for(int i = 0; i < 9; i++)
-										player.getInventory().addItem(new ItemStack[]
-												{ KitManager.sniperAmmo(128) });
-										player.getInventory().addItem(new ItemStack[]
-												{ KitManager.shotgunAmmo(128) });
-										player.getInventory().addItem(new ItemStack[]
-												{ KitManager.autoAmmo(128) });
-									}
-
-									if(Main.getInstance().getConfig()
-											.get("PlayerUniqueID." + requester.getUniqueId()) != null)
-									{
-										KitManager.playerCustomHotBar(requester);
-										KitManager.diamondKit(requester);
-										KitManager.giveAmmo(requester);
-									} else
-									{
-										KitManager.defaultHotBar(player.getUniqueId());
-										KitManager.diamondKit(requester);
-										for(int i = 0; i < 9; i++)
-										requester.getInventory().addItem(new ItemStack[]
-												{ KitManager.sniperAmmo(128) });
-										requester.getInventory().addItem(new ItemStack[]
-												{ KitManager.shotgunAmmo(128) });
-										requester.getInventory().addItem(new ItemStack[]
-												{ KitManager.autoAmmo(128) });
-									}
+									KitManager.diamondKit(player);
+									KitManager.diamondKit(requester);
 
 									player.sendMessage(ChatColor.GREEN + "You are now in a duel against "
 											+ requester.getName() + " with a bet of " + betAmount.get(requester) + "!");
 
-									Bukkit.getServer().broadcastMessage(ChatColor.GREEN + player.getName() + " is now in a duel with " + requester.getName() + "!");
+									Bukkit.getServer().broadcastMessage(ChatColor.GREEN + player.getName()
+											+ " is now in a duel with " + requester.getName() + "!");
 
 									betAmount.put(player, betAmount.get(requester));
 									player.getActivePotionEffects().clear();
 									requester.getActivePotionEffects().clear();
-								}
-								else
+								
+								} else
 								{
 									player.sendMessage(ChatColor.RED + "You haven't been invited!");
 									return true;
@@ -379,21 +337,19 @@ public class DuelCommands implements CommandExecutor
 									player.playSound(player, Sound.ENTITY_GHAST_DEATH, 1, 1);
 									return true;
 								}
-							}
-							else
+							} else
 							{
 								player.sendMessage(ChatColor.RED + "That player is not online or it is you!!");
 								player.playSound(player, Sound.ENTITY_GHAST_DEATH, 1, 1);
 								return true;
 							}
-						}
-						else
+						} else
 						{
 							player.sendMessage(ChatColor.RED + "That bet is too much! " + argPlayer.getName()
-							+ " only has " + ChatColor.GREEN
-							+ statsConfig.getInt(argPlayer.getUniqueId() + ".gems") + ChatColor.RED + " gems! "
-							+ "And you have " + ChatColor.GREEN
-							+ statsConfig.getInt(player.getUniqueId() + ".gems") + ChatColor.RED + " gems!");
+									+ " only has " + ChatColor.GREEN
+									+ statsConfig.getInt(argPlayer.getUniqueId() + ".gems") + ChatColor.RED + " gems! "
+									+ "And you have " + ChatColor.GREEN
+									+ statsConfig.getInt(player.getUniqueId() + ".gems") + ChatColor.RED + " gems!");
 
 							player.playSound(player, Sound.ENTITY_GHAST_DEATH, 1, 1);
 							return true;
@@ -407,13 +363,11 @@ public class DuelCommands implements CommandExecutor
 				}
 			}
 			return true;
-		}
-		else
+		} else
 		{
 			System.out.println("Be a player OKAY!");
 		}
 		return true;
 	}
-
 
 }

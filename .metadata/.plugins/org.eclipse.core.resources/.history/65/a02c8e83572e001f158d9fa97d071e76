@@ -1,0 +1,21 @@
+package me.Jared.LandMine;
+
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockPlaceEvent;
+
+import me.Jared.LandMinePlugin;
+
+public class LandMineListener implements Listener
+{
+	@EventHandler
+	public void onBlockPlace(BlockPlaceEvent e)
+	{
+		Player player = e.getPlayer();
+		
+		LandMineRunnable warzLandMine = new LandMineRunnable(player.getWorld());
+		warzLandMine.runTaskTimer(LandMinePlugin.getInstance(), 0, 5);
+	}
+
+}

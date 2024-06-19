@@ -57,25 +57,7 @@ public class SelectKitMenu extends KitsMenu
 		case DIAMOND_CHESTPLATE:
 			if (!diamondCooldown.isOnCooldown(p))
 			{
-				if (Main.getInstance().getConfig().get("PlayerUniqueID." + p.getUniqueId()) != null)
-				{
-					KitManager.playerCustomHotBar(p);
-					KitManager.diamondKit(p);
-					KitManager.giveAmmo(p);
-				} else
-				{
-					KitManager.defaultHotBar(p.getUniqueId());
-					KitManager.diamondKit(p);
-					for (int i = 0; i < 9; i++)
-						p.getInventory().addItem(new ItemStack[]
-								{ KitManager.sniperAmmo(128) });
-					p.getInventory().addItem(new ItemStack[]
-							{ KitManager.shotgunAmmo(128) });
-					p.getInventory().addItem(new ItemStack[]
-							{ KitManager.autoAmmo(128) });
-					p.getInventory().addItem(new ItemStack[]
-							{ KitManager.pistolAmmo(128) });	
-				}
+				KitManager.diamondKit(p);
 				diamondCooldown.putInCooldown(p);
 				p.closeInventory();
 				break;
@@ -88,25 +70,7 @@ public class SelectKitMenu extends KitsMenu
 		case IRON_CHESTPLATE:
 			if (!ironCooldown.isOnCooldown(p))
 			{
-				if (Main.getInstance().getConfig().get("PlayerUniqueID." + p.getUniqueId()) != null)
-				{
-					KitManager.playerCustomHotBar(p);
-					KitManager.ironKit(p);
-					KitManager.giveAmmo(p);
-				} else
-				{
-					KitManager.defaultHotBar(p.getUniqueId());
-					KitManager.ironKit(p);
-					for (int i = 0; i < 9; i++)
-						p.getInventory().addItem(new ItemStack[]
-								{ KitManager.sniperAmmo(128) });
-					p.getInventory().addItem(new ItemStack[]
-							{ KitManager.shotgunAmmo(128) });
-					p.getInventory().addItem(new ItemStack[]
-							{ KitManager.autoAmmo(128) });
-					p.getInventory().addItem(new ItemStack[]
-							{ KitManager.pistolAmmo(128) });
-				}
+				KitManager.ironKit(p);
 				ironCooldown.putInCooldown(p);
 				p.closeInventory();
 				break;

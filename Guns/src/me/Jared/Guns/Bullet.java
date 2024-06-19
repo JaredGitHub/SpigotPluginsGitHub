@@ -50,7 +50,7 @@ public class Bullet
 			Location loc = owner.getPlayer().getEyeLocation();
 
 			double offset = 0.2;
-			double yOffset = -0.2;
+			double yOffset = -0.05;
 			if(owner.getPlayer().getMainHand() == MainHand.LEFT)
 			{
 				offset = -0.2;

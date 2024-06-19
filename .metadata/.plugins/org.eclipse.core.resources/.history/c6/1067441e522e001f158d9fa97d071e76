@@ -1,0 +1,25 @@
+package me.Jared.LandMine;
+
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerMoveEvent;
+
+import me.Jared.LandMinePlugin;
+
+public class LandMineEvents implements Listener
+{
+	FileConfiguration config = LandMinePlugin.getInstance().getConfig();
+
+
+
+	@EventHandler
+	public void onMove(PlayerMoveEvent e)
+	{
+		Player player = e.getPlayer();
+
+		LandMine landMine = new LandMine(player.getWorld());
+		landMine.changeItemToLandMine(player.getInventory());
+	}
+}

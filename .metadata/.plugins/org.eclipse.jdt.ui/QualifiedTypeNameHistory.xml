@@ -21,7 +21,6 @@
     <fullyQualifiedTypeName name="com.github.sirblobman.combatlogx.CombatPlugin"/>
     <fullyQualifiedTypeName name="com.github.sirblobman.combatlogx.api.listener.CombatListener"/>
     <fullyQualifiedTypeName name="org.bukkit.GameMode"/>
-    <fullyQualifiedTypeName name="me.Jared.Kits.Main"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerCommandPreprocessEvent"/>
     <fullyQualifiedTypeName name="me.Jared.Stats"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerInteractEvent"/>
@@ -34,7 +33,6 @@
     <fullyQualifiedTypeName name="org.bukkit.scheduler.BukkitRunnable"/>
     <fullyQualifiedTypeName name="me.Jared.Utils.RemoveBullets"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityPickupItemEvent"/>
-    <fullyQualifiedTypeName name="org.bukkit.Material"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerPickupArrowEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageByEntityEvent"/>
     <fullyQualifiedTypeName name="me.Jared.PlaceHolders.DuelsExpansion"/>
@@ -43,7 +41,6 @@
     <fullyQualifiedTypeName name="me.Jared.Manager.GunGameExpansion"/>
     <fullyQualifiedTypeName name="me.clip.placeholderapi.expansion.PlaceholderExpansion"/>
     <fullyQualifiedTypeName name="me.Jared.Manager.EventExpansion"/>
-    <fullyQualifiedTypeName name="me.Jared.Managers.KitManager"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerJoinEvent"/>
     <fullyQualifiedTypeName name="me.Jared.GameState"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
@@ -60,4 +57,7 @@
     <fullyQualifiedTypeName name="me.Jared.Duels"/>
     <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="me.Jared.Command.DuelCommands"/>
+    <fullyQualifiedTypeName name="me.Jared.Kits.Main"/>
+    <fullyQualifiedTypeName name="me.Jared.Managers.KitManager"/>
+    <fullyQualifiedTypeName name="org.bukkit.Material"/>
 </qualifiedTypeNameHistroy>

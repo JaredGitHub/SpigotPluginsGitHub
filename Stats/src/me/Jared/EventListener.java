@@ -246,17 +246,22 @@ public class EventListener implements Listener
 						rankGems = 20;
 					}
 				}
-				
+
 				killer.sendMessage(ChatColor.GREEN + "You killed " + ChatColor.WHITE + p.getName() + ChatColor.GREEN + " and received " + rankGems + " gems!");
 
 
-				
+
 				// Setting the config to kills deaths killstreaks and gems
 				int deaths = config.getInt(e.getEntity().getUniqueId() + "." + "deaths");
 				int kills = config.getInt(e.getEntity().getKiller().getUniqueId() + "." + "kills");
 				int killStreak = config.getInt(e.getEntity().getKiller().getUniqueId() + ".killStreak");
+				int highKS = config.getInt(p.getKiller().getUniqueId() + ".highks");
 				int gems = config.getInt(p.getKiller().getUniqueId() + ".gems");
 
+				if(killStreak >= highKS)
+				{
+					config.set(e.getEntity().getKiller().getUniqueId() + ".highks", killStreak+1);
+				}
 				config.set(e.getEntity().getKiller().getUniqueId() + ".gems", gems + rankGems);
 				config.set(e.getEntity().getUniqueId()+ ".deaths", deaths + 1);
 				config.set(e.getEntity().getKiller().getUniqueId()+".kills", kills + 1);

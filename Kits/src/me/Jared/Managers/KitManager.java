@@ -28,6 +28,23 @@ public class KitManager
 		p.getInventory().setHelmet(helm);
 		p.getInventory().setLeggings(legs);
 		p.getInventory().setBoots(boots);
+
+		if(Main.getInstance().getConfig().get("PlayerUniqueID." + p.getUniqueId()) != null)
+		{
+			KitManager.playerCustomHotBar(p);
+			KitManager.giveAmmo(p);
+		} 
+		else
+		{
+			KitManager.defaultHotBar(p.getUniqueId());
+			for(int i = 0; i < 9; i++)
+				p.getInventory().addItem(new ItemStack[]
+				{ KitManager.sniperAmmo(128) });
+			p.getInventory().addItem(new ItemStack[]
+			{ KitManager.shotgunAmmo(128) });
+			p.getInventory().addItem(new ItemStack[]
+			{ KitManager.autoAmmo(128) });
+		}
 	}
 
 	public static void ironKit(Player p)
@@ -41,8 +58,26 @@ public class KitManager
 		p.getInventory().setHelmet(helm);
 		p.getInventory().setLeggings(legs);
 		p.getInventory().setBoots(boots);
+		
+		if(Main.getInstance().getConfig().get("PlayerUniqueID." + p.getUniqueId()) != null)
+		{
+			KitManager.playerCustomHotBar(p);
+			KitManager.giveAmmo(p);
+		} 
+		else
+		{
+			KitManager.defaultHotBar(p.getUniqueId());
+			for(int i = 0; i < 9; i++)
+				p.getInventory().addItem(new ItemStack[]
+				{ KitManager.sniperAmmo(128) });
+			p.getInventory().addItem(new ItemStack[]
+			{ KitManager.shotgunAmmo(128) });
+			p.getInventory().addItem(new ItemStack[]
+			{ KitManager.autoAmmo(128) });
+		}
 
 	}
+
 	public static void playerCustomHotBar(Player p)
 	{
 		UUID uuid = p.getUniqueId();
@@ -50,24 +85,24 @@ public class KitManager
 
 		for(int slot = 0; slot < 9; slot++)
 		{
-			ItemStack item =  (ItemStack)Main.getInstance().getConfig().getItemStack("PlayerUniqueID." + uuid + "." + slot);
+			ItemStack item = (ItemStack) Main.getInstance().getConfig()
+					.getItemStack("PlayerUniqueID." + uuid + "." + slot);
 			inv.setItem(slot, item);
 		}
 	}
 
 	public static void inventoryCustomHotbar(Inventory inv, UUID uuid)
-	{	
+	{
 		FileConfiguration config = Main.getInstance().getConfig();
 
 		for(int slot = 0; slot < 9; slot++)
 		{
 			ItemStack hotbarItems = config.getItemStack("PlayerUniqueID." + uuid + "." + slot);
 
-
 			inv.setItem(slot, hotbarItems);
 		}
 	}
-	
+
 	public static void defaultHotBar(UUID uuid)
 	{
 		FileConfiguration config = Main.getInstance().getConfig();
@@ -83,7 +118,7 @@ public class KitManager
 
 	public static void defaultHotBar(Inventory inv)
 	{
-		
+
 		FileConfiguration config = Main.getInstance().getConfig();
 		ConfigItem configItem = new ConfigItem();
 		for(String str : config.getStringList("HotbarItems"))
@@ -118,26 +153,18 @@ public class KitManager
 			{
 				Material slot = guns.get(i).getType();
 
-				if(slot== Material.DIAMOND_AXE 
-						|| slot== Material.IRON_AXE 
-						|| slot==Material.STONE_AXE
-						|| slot==Material.NETHER_STAR
-						|| slot==Material.WOODEN_AXE) inv.addItem(sniperAmmo(32));
-				if(slot==Material.DIAMOND_PICKAXE 
-						|| slot==Material.IRON_PICKAXE 
-						|| slot==Material.STONE_PICKAXE 
-						|| slot==Material.WOODEN_PICKAXE) inv.addItem(shotgunAmmo(32));
-				if(slot==Material.GOLDEN_SHOVEL
-						|| slot==Material.IRON_HOE
-						|| slot==Material.GOLDEN_PICKAXE
-						|| slot==Material.STONE_HOE
-						|| slot==Material.WOODEN_HOE 
-						|| slot==Material.GOLDEN_HOE
-						|| slot==Material.DIAMOND
-						|| slot==Material.DIAMOND_HOE) inv.addItem(autoAmmo(64));
-				if(slot==Material.DIAMOND_SHOVEL
-						|| slot==Material.IRON_SHOVEL
-						|| slot==Material.STONE_SHOVEL) inv.addItem(pistolAmmo(32));
+				if(slot == Material.DIAMOND_AXE || slot == Material.IRON_AXE || slot == Material.STONE_AXE
+						|| slot == Material.NETHER_STAR || slot == Material.WOODEN_AXE)
+					inv.addItem(sniperAmmo(32));
+				if(slot == Material.DIAMOND_PICKAXE || slot == Material.IRON_PICKAXE || slot == Material.STONE_PICKAXE
+						|| slot == Material.WOODEN_PICKAXE)
+					inv.addItem(shotgunAmmo(32));
+				if(slot == Material.GOLDEN_SHOVEL || slot == Material.IRON_HOE || slot == Material.GOLDEN_PICKAXE
+						|| slot == Material.STONE_HOE || slot == Material.WOODEN_HOE || slot == Material.GOLDEN_HOE
+						|| slot == Material.DIAMOND || slot == Material.DIAMOND_HOE)
+					inv.addItem(autoAmmo(64));
+				if(slot == Material.DIAMOND_SHOVEL || slot == Material.IRON_SHOVEL || slot == Material.STONE_SHOVEL || slot == Material.WOODEN_SHOVEL)
+					inv.addItem(pistolAmmo(32));
 			}
 
 		}
@@ -145,7 +172,7 @@ public class KitManager
 
 	public static ItemStack sniperAmmo(int amount)
 	{
-		ItemStack ammo = new ItemStack(Material.CLAY_BALL,amount);
+		ItemStack ammo = new ItemStack(Material.CLAY_BALL, amount);
 		ItemMeta meta = ammo.getItemMeta();
 		meta.setDisplayName(ChatColor.GRAY + "Sniper Bullets");
 		ammo.setItemMeta(meta);
@@ -154,7 +181,7 @@ public class KitManager
 
 	public static ItemStack shotgunAmmo(int amount)
 	{
-		ItemStack ammo = new ItemStack(Material.WHEAT_SEEDS,amount);
+		ItemStack ammo = new ItemStack(Material.WHEAT_SEEDS, amount);
 		ItemMeta meta = ammo.getItemMeta();
 		meta.setDisplayName(ChatColor.GRAY + "Shotgun Shells");
 		ammo.setItemMeta(meta);
@@ -163,22 +190,23 @@ public class KitManager
 
 	public static ItemStack pistolAmmo(int amount)
 	{
-		ItemStack ammo = new ItemStack(Material.ENDER_PEARL,amount);
+		ItemStack ammo = new ItemStack(Material.ENDER_PEARL, amount);
 		ItemMeta meta = ammo.getItemMeta();
 		meta.setDisplayName(ChatColor.GRAY + "Pistol Ammo");
 		ammo.setItemMeta(meta);
 		return ammo;
 	}
+
 	public static ItemStack autoAmmo(int amount)
 	{
-		ItemStack ammo = new ItemStack(Material.FLINT,amount);
+		ItemStack ammo = new ItemStack(Material.FLINT, amount);
 		ItemMeta meta = ammo.getItemMeta();
 		meta.setDisplayName(ChatColor.GRAY + "Automatic Ammo");
 		ammo.setItemMeta(meta);
 		return ammo;
 	}
 
-	//Icon creator
+	// Icon creator
 	public static void iconCreate(ItemStack item, String displayName, Inventory inv, int num)
 	{
 		ItemMeta meta = item.getItemMeta();

@@ -105,6 +105,7 @@ public class GameManager
 				player.getInventory().addItem(new ItemStack(Material.COMPASS));
 			}
 
+			Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "kill @e[type=item]");
 			this.countdown = new Countdown(this);
 			this.countdown.runTaskTimerAsynchronously(plugin, 0, 20);
 

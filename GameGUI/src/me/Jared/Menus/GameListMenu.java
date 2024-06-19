@@ -45,16 +45,13 @@ public class GameListMenu extends Menu
 			player.closeInventory();
 			break;
 		case 2:
-			ConfigManager.leaveAllGames(player);
 			Bukkit.dispatchCommand(player, "sg join");
 			player.closeInventory();
 			break;
 		case 3:
-			ConfigManager.leaveAllGames(player);
 			Bukkit.dispatchCommand(player, "gg join");
 			break;
 		case 4:
-			ConfigManager.leaveAllGames(player);
 			Bukkit.dispatchCommand(player, "warz");
 			break;
 		case 5:

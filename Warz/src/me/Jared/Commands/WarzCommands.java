@@ -60,6 +60,8 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 				{
 					ConfigManager.saveInventory(player, "world");
 					ConfigManager.setPlayerInWarz(player);
+					
+					player.sendMessage(ChatColor.GREEN + "You can type " + ChatColor.WHITE + "/spawn" + ChatColor.GREEN + " to go back");
 				}
 				else
 				{

@@ -5,7 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.Jared.LandMine.LandMineCommand;
-import me.Jared.LandMine.LandMineEvents;
+import me.Jared.LandMine.LandMineRunnable;
 
 public class LandMinePlugin extends JavaPlugin
 {
@@ -16,7 +16,6 @@ public class LandMinePlugin extends JavaPlugin
 	{
 		instance = this;
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Land Mine plugin is here!");
-		getServer().getPluginManager().registerEvents(new LandMineEvents(), this);
 		getServer().getPluginCommand("landmine").setExecutor(new LandMineCommand());
 		
 		this.getConfig().addDefault("landmineItem", "FLOWER_POT");
@@ -29,6 +28,9 @@ public class LandMinePlugin extends JavaPlugin
 			this.getConfig().set("world", "world");
 			this.saveConfig();
 		}
+		
+		LandMineRunnable worldLandMine = new LandMineRunnable();
+		worldLandMine.runTaskTimer(this, 0, 3);
 	}
 	
 	@Override

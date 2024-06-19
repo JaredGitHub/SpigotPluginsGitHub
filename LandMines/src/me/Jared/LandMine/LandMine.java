@@ -2,6 +2,7 @@ package me.Jared.LandMine;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
@@ -17,6 +18,17 @@ public class LandMine
 {
 	FileConfiguration config = LandMinePlugin.getInstance().getConfig();
 
+	private World world;
+	public LandMine(World world)
+	{
+		this.world = world;
+	}
+	
+	public World getWorld()
+	{
+		return this.world;
+	}
+	
 	private void saveConfig()
 	{
 		LandMinePlugin.getInstance().saveConfig();

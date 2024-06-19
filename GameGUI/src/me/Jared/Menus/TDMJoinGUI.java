@@ -41,17 +41,14 @@ public class TDMJoinGUI extends Menu
 		switch(e.getSlot())
 		{
 		case 3:
-			ConfigManager.leaveAllGames(player);
 			Bukkit.dispatchCommand(player, "tdm join 1");
 			player.closeInventory();
 			break;
 		case 5:
-			ConfigManager.leaveAllGames(player);
 			Bukkit.dispatchCommand(player, "tdm join 2");
 			player.closeInventory();
 			break;
 		case 0:
-			ConfigManager.leaveAllGames(player);
 			GameListMenu menu = new GameListMenu(GameGUI.getPlayerMenuUtility(player));
 			menu.open();
 		default:
