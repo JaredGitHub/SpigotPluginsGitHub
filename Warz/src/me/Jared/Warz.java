@@ -25,6 +25,9 @@ public class Warz extends JavaPlugin
 	@Override
 	public void onEnable()
 	{
+		this.getConfig().options().copyDefaults();
+		this.saveConfig();
+		
 		instance = this;
 		chestLocations = new ArrayList<Location>();
 		openChestLocations = new ArrayList<Location>();

@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="me.Jared.Loot.ConfigItem"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
-    <fullyQualifiedTypeName name="org.bukkit.entity.EntityType"/>
-    <fullyQualifiedTypeName name="me.Jared.WarzRunnable.TimeLeftChestRunnable"/>
-    <fullyQualifiedTypeName name="org.bukkit.entity.Entity"/>
-    <fullyQualifiedTypeName name="me.Jared.Essentials.TPARunnable"/>
-    <fullyQualifiedTypeName name="me.Jared.Essentials.Runnables.TPACooldownRunnable"/>
-    <fullyQualifiedTypeName name="me.Jared.Essentials.Main"/>
     <fullyQualifiedTypeName name="org.bukkit.entity.ArmorStand"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDeathEvent"/>
     <fullyQualifiedTypeName name="me.Jared.Essentials.ConfigManager"/>
@@ -30,7 +22,6 @@
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.ProjectileHitEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.PlayerDeathEvent"/>
-    <fullyQualifiedTypeName name="org.bukkit.scheduler.BukkitRunnable"/>
     <fullyQualifiedTypeName name="me.Jared.Utils.RemoveBullets"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityPickupItemEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerPickupArrowEvent"/>
@@ -49,15 +40,24 @@
     <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
     <fullyQualifiedTypeName name="me.Jared.Guns.TriggerSwap"/>
     <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
-    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
     <fullyQualifiedTypeName name="org.bukkit.Sound"/>
     <fullyQualifiedTypeName name="me.Jared.GunsPlugin"/>
     <fullyQualifiedTypeName name="me.Jared.Manager.ConfigManager"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="me.Jared.Duels"/>
     <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="me.Jared.Command.DuelCommands"/>
     <fullyQualifiedTypeName name="me.Jared.Kits.Main"/>
     <fullyQualifiedTypeName name="me.Jared.Managers.KitManager"/>
     <fullyQualifiedTypeName name="org.bukkit.Material"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.EventHandler"/>
+    <fullyQualifiedTypeName name="org.bukkit.scheduler.BukkitRunnable"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.Listener"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.block.BlockPlaceEvent"/>
+    <fullyQualifiedTypeName name="me.Jared.LandMinePlugin"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerMoveEvent"/>
+    <fullyQualifiedTypeName name="me.Jared.LandMine.LandMineListener"/>
+    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
+    <fullyQualifiedTypeName name="me.Jared.LandMine.LandMineRunnable"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="org.bukkit.plugin.java.JavaPlugin"/>
 </qualifiedTypeNameHistroy>
