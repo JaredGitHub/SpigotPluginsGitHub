@@ -21,48 +21,52 @@ public class TPARunnable extends BukkitRunnable
 		this.player = player;
 		this.requesters = requesters;
 		this.playersInCooldown = playersInCooldown;
-		
+
 		this.seconds = seconds;
 	}
 
 	private Location previousLocation;
-	
+
 	@Override
 	public void run()
 	{
+		if(!(player.isOnline())) cancel(); 
 		if(seconds <= 0)
 		{
 			requesters.get(player).teleport(player);
-			
+
 			//Start five minute timer and add player to ArrayList
 			playersInCooldown.add(requesters.get(player));
 			this.cancel();
 			return;
 		}
 
-		Location currentLocation = requesters.get(player).getLocation();
-
-		if(previousLocation != null)
+		if(requesters.get(player) != null)
 		{
-			if(currentLocation.getX() != previousLocation.getX()
-					|| currentLocation.getZ() != previousLocation.getZ())
+			Location currentLocation = requesters.get(player).getLocation();
+
+			if(previousLocation != null)
 			{
-				requesters.get(player).sendMessage(ChatColor.RED + "You moved!");
-				player.sendMessage(ChatColor.RED + requesters.get(player).getName() + " moved like a noob!");
-				requesters.remove(player);
-				this.cancel();
-				return;
+				if(currentLocation.getX() != previousLocation.getX()
+						|| currentLocation.getZ() != previousLocation.getZ())
+				{
+					requesters.get(player).sendMessage(ChatColor.RED + "You moved!");
+					player.sendMessage(ChatColor.RED + requesters.get(player).getName() + " moved like a noob!");
+					requesters.remove(player);
+					this.cancel();
+					return;
+				}
 			}
+
+			player.sendMessage(ChatColor.GOLD + "Teleporting " + requesters.get(player).getName() + " to " + player.getName()
+			+ " in " + ChatColor.WHITE + seconds + ChatColor.GOLD + " seconds!");
+
+			requesters.get(player).sendMessage(ChatColor.GOLD + "Teleporting " + requesters.get(player).getName() + " to "
+					+ player.getName() + " in " + ChatColor.WHITE + seconds + ChatColor.GOLD + " seconds, don't move!");
+
+
+			previousLocation = currentLocation.clone();
+			seconds--;
 		}
-
-		player.sendMessage(ChatColor.GOLD + "Teleporting " + requesters.get(player).getName() + " to " + player.getName()
-				+ " in " + ChatColor.WHITE + seconds + ChatColor.GOLD + " seconds!");
-		
-		requesters.get(player).sendMessage(ChatColor.GOLD + "Teleporting " + requesters.get(player).getName() + " to "
-				+ player.getName() + " in " + ChatColor.WHITE + seconds + ChatColor.GOLD + " seconds, don't move!");
-
-		
-		previousLocation = currentLocation.clone();
-		seconds--;
 	}
 }

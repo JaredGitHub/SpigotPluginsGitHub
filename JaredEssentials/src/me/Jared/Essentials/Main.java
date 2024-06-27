@@ -10,6 +10,9 @@ import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.Jared.Essentials.Runnables.TPARunnable;
@@ -17,7 +20,7 @@ import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.ClickEvent.Action;
 import net.md_5.bungee.api.chat.TextComponent;
 
-public class Main extends JavaPlugin
+public class Main extends JavaPlugin implements Listener
 {
 	private HashMap<Player, Player> requesters;
 	private ArrayList<Player> playersInCooldown;
@@ -46,6 +49,7 @@ public class Main extends JavaPlugin
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "My plugin has been enabled!");
 
 		this.getServer().getPluginManager().registerEvents(new Listener1(this), this);
+		this.getServer().getPluginManager().registerEvents(this, this);
 
 		for(Player p : Bukkit.getOnlinePlayers())
 		{
@@ -67,6 +71,14 @@ public class Main extends JavaPlugin
 		return instance;
 	}
 
+	@EventHandler
+	public void onQuit(PlayerQuitEvent e)
+	{
+		Player player = e.getPlayer();
+		requesters.remove(player);
+		playersInCooldown.remove(player);
+	}
+
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
@@ -84,6 +96,7 @@ public class Main extends JavaPlugin
 				if(args.length >= 1)
 				{
 					String playerName = requesters.get(p).getName();
+					requesters.put(Bukkit.getPlayer(playerName), p);
 					String message = "";
 					for(int i = 0; i < args.length; i++)
 					{
@@ -116,6 +129,13 @@ public class Main extends JavaPlugin
 			if(args.length >= 1)
 			{
 				String playerName = args[0];
+
+				if(playerName.equals(p.getName()))
+				{
+					p.sendMessage(ChatColor.RED + "You cannot message yourself noob!");
+					return true;
+				}
+				requesters.remove(Bukkit.getPlayer(playerName));
 				requesters.put(Bukkit.getPlayer(playerName), p);
 				String message = "";
 				for(int i = 1; i < args.length; i++)
@@ -154,42 +174,38 @@ public class Main extends JavaPlugin
 					p.sendMessage(ChatColor.RED + "You cannot teleport to yourself noob!");
 					return true;
 				}
-				
+
 				if(!(Bukkit.getPlayer(playerName).getWorld().equals(p.getWorld())))
 				{
 					p.sendMessage(ChatColor.RED + "You cannot teleport to someone in another world noob!!");
 					return true;
 				}
-				
+
 				if(Bukkit.getPlayer(playerName) != null)
 				{
-					if(!(cooldown5min.isOnCooldown(p)) || !(cooldown4min.isOnCooldown(p))
-							|| !(cooldown3min.isOnCooldown(p)) || !(cooldown2min.isOnCooldown(p))
-							|| !(cooldown1min.isOnCooldown(p)))
+					if(!(cooldown5min.isOnCooldown(p)) && !(cooldown4min.isOnCooldown(p))
+							&& !(cooldown3min.isOnCooldown(p)) && !(cooldown2min.isOnCooldown(p))
+							&& !(cooldown1min.isOnCooldown(p)))
 					{
 						Bukkit.getPlayer(playerName)
-						.sendMessage(ChatColor.GRAY + p.getName() + " has sent you a TPA request. (/tpyes)");
+								.sendMessage(ChatColor.GRAY + p.getName() + " has sent you a TPA request. (/tpyes)");
 						p.sendMessage(ChatColor.GRAY + "You have sent a TPA request to " + playerName);
 						requesters.put(Bukkit.getPlayer(playerName), p);
 						requesters.put(p, Bukkit.getPlayer(playerName));
-						
+
 						if(p.hasPermission("ranks.mvpplus"))
 						{
 							cooldown1min.putInCooldown(p);
-						}
-						else if(p.hasPermission("ranks.vip"))
-						{
-							cooldown4min.putInCooldown(p);
-						}
-						else if(p.hasPermission("ranks.vipplus"))
-						{
-							cooldown3min.putInCooldown(p);
-						}
-						else if(p.hasPermission("ranks.mvp"))
+						} else if(p.hasPermission("ranks.mvp"))
 						{
 							cooldown2min.putInCooldown(p);
-						}
-						else
+						} else if(p.hasPermission("ranks.vipplus"))
+						{
+							cooldown3min.putInCooldown(p);
+						} else if(p.hasPermission("ranks.vip"))
+						{
+							cooldown4min.putInCooldown(p);
+						} else
 						{
 							cooldown5min.putInCooldown(p);
 						}
@@ -200,34 +216,40 @@ public class Main extends JavaPlugin
 
 						if(p.hasPermission("ranks.mvpplus"))
 						{
+							int seconds = cooldown1min.getCooldownSeconds(p);
+							int minutes = seconds / 60;
 							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait "
-									+ cooldown1min.getCooldownSeconds(p) + " seconds");
-						}
-						else if(p.hasPermission("ranks.vip"))
+									+ minutes + "m " + seconds % 60 + "s");
+						} else if(p.hasPermission("ranks.mvp"))
 						{
+							int seconds = cooldown2min.getCooldownSeconds(p);
+							int minutes = seconds / 60;
 							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait "
-									+ cooldown2min.getCooldownSeconds(p) + " seconds");
-						}
-						else if(p.hasPermission("ranks.vipplus"))
+									+ minutes + "m " + seconds % 60 + "s");
+						} else if(p.hasPermission("ranks.vipplus"))
 						{
+							int seconds = cooldown3min.getCooldownSeconds(p);
+							int minutes = seconds / 60;
 							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait "
-									+ cooldown3min.getCooldownSeconds(p) + " seconds");
-						}
-						else if(p.hasPermission("ranks.mvp"))
+									+ minutes + "m " + seconds % 60 + "s");
+						} else if(p.hasPermission("ranks.vip"))
 						{
+							int seconds = cooldown4min.getCooldownSeconds(p);
+							int minutes = seconds / 60;
 							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait "
-									+ cooldown2min.getCooldownSeconds(p) + " seconds");
-						}
-						else
+									+ minutes + "m " + seconds % 60 + "s");
+						} else
 						{
+							int seconds = cooldown5min.getCooldownSeconds(p);
+							int minutes = seconds / 60;
 							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait "
-									+ cooldown5min.getCooldownSeconds(p) + " seconds");
+									+ minutes + "m " + seconds % 60 + "s");
 						}
+
 						return true;
 					}
 
-				}
-				else
+				} else
 				{
 					p.sendMessage(ChatColor.RED + "Player not online!");
 					return true;
