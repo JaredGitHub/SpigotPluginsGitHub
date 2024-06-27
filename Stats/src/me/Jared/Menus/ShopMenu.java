@@ -69,7 +69,6 @@ public class ShopMenu extends StatsMenu
 					player.sendMessage(ChatColor.GREEN + "You bought " + e.getCurrentItem().getItemMeta().getDisplayName() + ChatColor.GREEN + " for " + price + " gems!");
 					player.playSound(player.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1, 1);
 
-
 					ItemStack item = configItem.stringToItemStack(itemList.get(i));
 					item.setItemMeta(null);
 					

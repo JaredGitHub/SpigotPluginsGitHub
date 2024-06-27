@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Block entityFootY = entity.getLocation().getBlock();"/>
+		<item key="selection" value="size"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="newSize"/>
+			<item value="shop"/>
 			<item value="Block entityFootY = entity.getLocation().getBlock();"/>
 			<item value="number f"/>
 			<item value="kitm"/>
 			<item value="death"/>
 			<item value="&#x09;&#x09;if(Main.getInstance().getConfig().get(&quot;PlayerUniqueID.&quot; + p.getUniqueId()) != null)"/>
 			<item value="hotbar"/>
-			<item value="givekit"/>
-			<item value="killstreak"/>
 		</list>
 		<list key="replacehistory">
+			<item value="size"/>
 			<item value="uses"/>
 			<item value="location.getWorld()"/>
 			<item value="world"/>

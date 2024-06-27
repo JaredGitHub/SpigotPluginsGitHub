@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\Users\jared\Desktop\BuildTools\Spigot\Spigot-API\target"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\Users\jared\Desktop\SERVER\plugins"/>
 	<item key="org.eclipse.jdt.ui.codeformatter.loadpath" value="C:\Users\jared\Desktop"/>
 	<item key="org.eclipse.jdt.ui.last.selected.jre.kind2" value="2"/>
 	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-17"/>
@@ -40,6 +40,9 @@
 		<item key="JarManifestWizardPage.MANIFEST_LOCATION" value=""/>
 		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\GunGame.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\PersonalVault.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\RankedEnderChests.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Warz.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\LandMines.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Stats.jar"/>
@@ -48,7 +51,6 @@
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\GameGUI.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Guns.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\MiniGame.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\GunGame.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\JaredEssentials.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\TDM.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Event.jar"/>
@@ -58,8 +60,6 @@
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\GrapplingHook.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\TeamDeathmatch.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Boosters.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\PlaceableWalls.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\BoostPad.jar"/>
 		</list>
 		<section name="JarPackageWizard.dialogBounds">
 			<item key="DIALOG_X_ORIGIN" value="384"/>

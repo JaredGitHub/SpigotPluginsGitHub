@@ -40,18 +40,12 @@ public class GameListener implements Listener
 		{
 			gameManager.getPlayerManager().removePlayer(player);
 			player.teleport(player.getWorld().getSpawnLocation());
-		}
-		if(gameManager.getPlayerManager().getPlayers().contains(player) 
-				&& gameManager.getGameState() == GameState.LIVE)
-		{
-			gameManager.getPlayerManager().removePlayer(player);
-			player.teleport(player.getWorld().getSpawnLocation());
-
-			if(gameManager.getPlayerManager().getPlayerCount() == 1)
+			if(gameManager.getPlayerManager().getPlayerCount() <= 1)
 			{
 				this.gameManager.setGameState(GameState.WINNING);
 			}
 			player.getInventory().clear();
+
 		}
 
 		if(player.getGameMode() == GameMode.SPECTATOR)
@@ -183,7 +177,7 @@ public class GameListener implements Listener
 			gameManager.getPlayerManager().giveGuns(player, kills.get(player.getUniqueId()));
 
 			ArrayList<Integer> numbers = new ArrayList<Integer>();
-			
+
 			for(String num : GunGame.getInstance().getConfig().getConfigurationSection("gg").getKeys(false))
 			{
 				int number = Integer.parseInt(num);
