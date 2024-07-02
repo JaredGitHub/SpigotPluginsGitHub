@@ -171,6 +171,7 @@ public class WarzListener implements Listener
 				case "/msg":
 				case "/tpa":
 				case "/spawn":
+				case "/r":
 					break;
 				default:
 					e.setCancelled(true);

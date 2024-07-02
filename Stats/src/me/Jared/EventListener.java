@@ -13,7 +13,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Zombie;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.entity.EntityDeathEvent;
@@ -47,7 +46,7 @@ public class EventListener implements Listener
 		{
 			LivingEntity playerHit = (LivingEntity) hitEntity;
 			String name = ChatColor.YELLOW + playerHit.getName() + " ";
-			int health = (int)playerHit.getHealth() - (int)playerHit.getLastDamage();
+			int health = (int)playerHit.getHealth();
 			switch(health)
 			{
 			case 0:
@@ -125,17 +124,6 @@ public class EventListener implements Listener
 			Player player = (Player) e.getEntity().getShooter();
 
 			showHealthActionBar(player, e.getHitEntity());
-		}
-	}
-
-	@EventHandler
-	public void onEntityDamageByEntity(EntityDamageByEntityEvent e)
-	{
-		if(e.getDamager() instanceof Player)
-		{
-			Player player = (Player) e.getDamager();
-
-			showHealthActionBar(player, e.getEntity());
 		}
 	}
 
@@ -373,6 +361,13 @@ public class EventListener implements Listener
 		e.setCancelled(true);
 
 		Player player = e.getPlayer();
-		Bukkit.broadcastMessage(stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET + player.getName() + ": " + e.getMessage());
+		if(player.getWorld().equals(Bukkit.getWorld("world")))
+		{
+			Bukkit.broadcastMessage(stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET + player.getName() + ": " + e.getMessage());
+		}
+		else if(player.getWorld().equals(Bukkit.getWorld("warz")))
+		{
+			Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "" + ChatColor.ITALIC + "[WARZ] " + stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET + player.getName() + ": " + e.getMessage());
+		}
 	}
 }

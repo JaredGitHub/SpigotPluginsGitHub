@@ -7,6 +7,8 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.World;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -56,12 +58,17 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 			{
 				Player player = (Player) sender;
 
+
+				Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
+				if(block.getType() == Material.AIR)
+				{
+					player.sendMessage(ChatColor.RED + "Stay still");
+					return true;
+				}
 				if(player.getWorld().equals(Bukkit.getWorld("world")))
 				{
 					ConfigManager.saveInventory(player, "world");
 					ConfigManager.setPlayerInWarz(player);
-					
-					player.sendMessage(ChatColor.GREEN + "You can type " + ChatColor.WHITE + "/spawn" + ChatColor.GREEN + " to go back");
 				}
 				else
 				{
@@ -142,7 +149,7 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 			{
 				ConfigManager.setGameSlot(player.getLocation(), ConfigManager.getGameSlotsSize());
 				player.sendMessage(ChatColor.GREEN + "Added a spawn point of your location!");
-				
+
 			}
 		}
 		return true;

@@ -343,23 +343,6 @@ public class Listener1 implements Listener
 				player.setHealth(20);
 				e.setCancelled(true);
 			}
-
-			sendActionBar(player, "");
-			Bukkit.getScheduler().runTaskTimer(plugin, new Runnable()
-			{
-				int num = 0;
-
-				@Override
-				public void run()
-				{
-					if(num > 1)
-					{
-						return;
-					}
-					num++;
-					sendActionBar(player, "");
-				}
-			}, 0, 20);
 		}
 	}
 

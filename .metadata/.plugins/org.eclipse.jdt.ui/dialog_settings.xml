@@ -40,18 +40,18 @@
 		<item key="JarManifestWizardPage.MANIFEST_LOCATION" value=""/>
 		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Warz.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Stats.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\JaredEssentials.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\GunGame.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\PersonalVault.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\RankedEnderChests.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\Warz.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\LandMines.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\Stats.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Kits.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Duels.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\GameGUI.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Guns.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\MiniGame.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\JaredEssentials.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\TDM.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Event.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Food.jar"/>
@@ -118,5 +118,12 @@
 		<item key="DIALOG_WIDTH" value="730"/>
 		<item key="DIALOG_HEIGHT" value="729"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-21|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.text.QuickOutline">
+		<item key="GoIntoTopLevelTypeAction.isChecked" value="false"/>
+		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_WIDTH" value="350"/>
+		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_HEIGHT" value="280"/>
+		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_USE_PERSISTED_SIZE" value="true"/>
+		<item key="org.eclipse.jdt.internal.ui.text.JavaOutlineInformationControlDIALOG_USE_PERSISTED_LOCATION" value="false"/>
 	</section>
 </section>
