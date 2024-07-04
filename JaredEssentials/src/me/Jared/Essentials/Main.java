@@ -6,7 +6,10 @@ import java.util.HashMap;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -188,7 +191,7 @@ public class Main extends JavaPlugin implements Listener
 							&& !(cooldown1min.isOnCooldown(p)))
 					{
 						Bukkit.getPlayer(playerName)
-								.sendMessage(ChatColor.GRAY + p.getName() + " has sent you a TPA request. (/tpyes)");
+						.sendMessage(ChatColor.GRAY + p.getName() + " has sent you a TPA request. (/tpyes)");
 						p.sendMessage(ChatColor.GRAY + "You have sent a TPA request to " + playerName);
 						requesters.put(Bukkit.getPlayer(playerName), p);
 						requesters.put(p, Bukkit.getPlayer(playerName));
@@ -292,6 +295,13 @@ public class Main extends JavaPlugin implements Listener
 
 		if(cmd.getName().equalsIgnoreCase("spawn"))
 		{
+			Block block = p.getLocation().getBlock().getRelative(BlockFace.DOWN);
+
+			if(block.getType() == Material.AIR)
+			{
+				p.sendMessage(ChatColor.RED + "Stay still");
+				return true;
+			}
 			if(p.getWorld().getName().equals("warz"))
 			{
 				me.Jared.Loot.ConfigManager.savePlayerWarzData(p, "warz");
