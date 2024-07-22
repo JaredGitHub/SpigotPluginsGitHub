@@ -57,7 +57,7 @@
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerQuitEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerItemDamageEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageEvent"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
     <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
 </qualifiedTypeNameHistroy>

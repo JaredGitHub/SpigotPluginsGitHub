@@ -1,5 +1,6 @@
 package me.Jared.Menu;
 
+import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -22,7 +23,14 @@ public class PVMenu extends PersonalVaultMenu
 	@Override
 	public String getMenuName()
 	{
-		return "Personal Vault (/pv to view)";
+		if(playerMenuUtility.getOwner().getWorld().equals(Bukkit.getWorld("warz")))
+		{
+			return "Buy Rank at shop.jaredcoen.com for more slots!";
+		}
+		else
+		{
+			return "Personal Vault (/pv to view)";
+		}
 	}
 
 	@Override
@@ -61,7 +69,7 @@ public class PVMenu extends PersonalVaultMenu
 	@Override
 	public void handleMenu(InventoryClickEvent e)
 	{
-		
+
 	}
 
 	@Override
