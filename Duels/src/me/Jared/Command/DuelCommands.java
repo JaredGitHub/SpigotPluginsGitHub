@@ -225,13 +225,19 @@ public class DuelCommands implements CommandExecutor
 							{
 								if(MapMenu.playersInDuel.contains(requester) || betAmount.containsKey(requester))
 								{
-									
-									
 									MapMenu.playersInDuel.add(player);
 
+									KitManager.diamondKit(player);
+									KitManager.diamondKit(requester);
 									player.getInventory().clear();
 									player.getActivePotionEffects().clear();
 									player.setHealth(20);
+									requester.getInventory().clear();
+									requester.getActivePotionEffects().clear();
+									requester.setHealth(20);
+									
+									KitManager.diamondKit(player);
+									KitManager.diamondKit(requester);
 
 									// start the game
 									player.teleport(ConfigManager
@@ -251,9 +257,6 @@ public class DuelCommands implements CommandExecutor
 											Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "web clear");
 										}
 									}, 5);
-									
-									KitManager.diamondKit(player);
-									KitManager.diamondKit(requester);
 
 									player.sendMessage(ChatColor.GREEN + "You are now in a duel against "
 											+ requester.getName() + " with a bet of " + betAmount.get(requester) + "!");
