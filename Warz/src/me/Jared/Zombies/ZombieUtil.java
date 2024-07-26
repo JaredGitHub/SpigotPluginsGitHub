@@ -136,6 +136,8 @@ public class ZombieUtil
 
 		// Give zombie helmet so that they don't burn
 		Zombie zomb = (Zombie) zombie;
+		zomb.setAdult();
+		
 		zomb.getEquipment().setHelmet(new ItemStack(helmet));
 
 		zombie.setCustomName(customName);
