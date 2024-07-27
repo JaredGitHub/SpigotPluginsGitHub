@@ -37,6 +37,7 @@ public class ConfigItem
 	{
 		//Getting each of the pieces of item data from the string
 		Material material = getMaterial(string);
+		if(material == null) return new ItemStack(Material.AIR);
 		String displayName = getDisplayName(string);
 		int amount = getAmount(string);
 		int durability = getDurability(string);
@@ -104,10 +105,8 @@ public class ConfigItem
 				break;
 			}
 		}
-
 		return stringBuilder.toString();
 	}
-
 
 	public Material getMaterial(String string)
 	{

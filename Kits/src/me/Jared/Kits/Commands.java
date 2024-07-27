@@ -80,17 +80,22 @@ public class Commands implements CommandExecutor, TabCompleter
 								ChatColor.GREEN + "Your default hotbar is set to the contents of your inventory!");
 						p.playSound(p.getLocation(), Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 0.05f);
 						FileConfiguration config = Main.getInstance().getConfig();
-						ArrayList<ItemStack> configItems = new ArrayList<ItemStack>();
-						for(int i = 0; i <= 9; i++)
+
+						ConfigItem configItem = new ConfigItem();
+						for(int slot = 0; slot < 9; slot++)
 						{
-							configItems.add(p.getInventory().getItem(i));
-						}
-						for(int slot = 0; slot <= 9; slot++)
-						{
-							if(configItems.get(slot) == null)
-								continue;
-							config.set("HotbarItems." + slot, configItems.get(slot));
-							Main.getInstance().saveConfig();
+							if(p.getInventory().getItem(slot) == null)
+							{
+								config.set("HotbarItems." + slot, "AIR");
+								Main.getInstance().saveConfig();
+							}
+							else
+							{
+								ItemStack item = p.getInventory().getItem(slot);
+
+								config.set("HotbarItems." + slot, configItem.itemStackToString(item));
+								Main.getInstance().saveConfig();
+							}
 						}
 					}
 
@@ -109,7 +114,8 @@ public class Commands implements CommandExecutor, TabCompleter
 								{
 									ItemStack item = new ItemStack(p.getInventory().getItemInMainHand());
 
-									ArrayList<String> itemList = new ArrayList<String>(config.getStringList("SelectItems"));
+									ArrayList<String> itemList = new ArrayList<String>(
+											config.getStringList("SelectItems"));
 
 									for(int i = 0; i < itemList.size(); i++)
 									{
@@ -124,9 +130,9 @@ public class Commands implements CommandExecutor, TabCompleter
 
 									if(item.hasItemMeta())
 									{
-										p.sendMessage(
-												ChatColor.GREEN + "You have added " + item.getItemMeta().getDisplayName()
-												+ ChatColor.GREEN + " to the kit menu!");
+										p.sendMessage(ChatColor.GREEN + "You have added "
+												+ item.getItemMeta().getDisplayName() + ChatColor.GREEN
+												+ " to the kit menu!");
 									} else
 									{
 										p.sendMessage(ChatColor.GREEN + "You have added " + item.getType().name()
@@ -150,8 +156,7 @@ public class Commands implements CommandExecutor, TabCompleter
 								p.sendMessage(ChatColor.RED + "Hold an item to add to the kit menu!");
 								return true;
 							}
-						}
-						else if(args[1].equalsIgnoreCase("clear"))
+						} else if(args[1].equalsIgnoreCase("clear"))
 						{
 							config.set("SelectItems", null);
 							main.saveConfig();

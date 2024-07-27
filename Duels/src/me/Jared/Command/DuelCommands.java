@@ -226,9 +226,6 @@ public class DuelCommands implements CommandExecutor
 								if(MapMenu.playersInDuel.contains(requester) || betAmount.containsKey(requester))
 								{
 									MapMenu.playersInDuel.add(player);
-
-									KitManager.diamondKit(player);
-									KitManager.diamondKit(requester);
 									player.getInventory().clear();
 									player.getActivePotionEffects().clear();
 									player.setHealth(20);
