@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="me.Jared.Warz"/>
-    <fullyQualifiedTypeName name="me.Jared.Loot.ConfigManager"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.BlockFadeEvent"/>
     <fullyQualifiedTypeName name="com.github.sirblobman.combatlogx.api.object.CombatTag"/>
     <fullyQualifiedTypeName name="com.github.sirblobman.combatlogx.CombatPlugin"/>
@@ -35,7 +33,6 @@
     <fullyQualifiedTypeName name="me.Jared.Duels"/>
     <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="me.Jared.Command.DuelCommands"/>
-    <fullyQualifiedTypeName name="me.Jared.Kits.Main"/>
     <fullyQualifiedTypeName name="me.Jared.Managers.KitManager"/>
     <fullyQualifiedTypeName name="org.bukkit.event.EventHandler"/>
     <fullyQualifiedTypeName name="org.bukkit.scheduler.BukkitRunnable"/>
@@ -50,14 +47,17 @@
     <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.Action"/>
     <fullyQualifiedTypeName name="me.Jared.Listeners.ChestListener"/>
-    <fullyQualifiedTypeName name="org.bukkit.Material"/>
     <fullyQualifiedTypeName name="me.Jared.Stats"/>
     <fullyQualifiedTypeName name="me.Jared.Menu.PVMenu"/>
     <fullyQualifiedTypeName name="me.Jared.PersonalVault"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerQuitEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerItemDamageEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageEvent"/>
-    <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
-    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
     <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="me.Jared.Kits.Main"/>
+    <fullyQualifiedTypeName name="me.Jared.Kits.ConfigItem"/>
+    <fullyQualifiedTypeName name="org.bukkit.inventory.ItemStack"/>
+    <fullyQualifiedTypeName name="org.bukkit.Material"/>
+    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
+    <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
 </qualifiedTypeNameHistroy>
