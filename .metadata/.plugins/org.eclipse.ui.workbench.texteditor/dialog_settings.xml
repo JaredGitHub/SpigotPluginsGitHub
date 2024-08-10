@@ -6,6 +6,7 @@
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="loc"/>
 			<item value="config.geti"/>
 			<item value="playerunique"/>
 			<item value="diam"/>
@@ -13,7 +14,6 @@
 			<item value="accept"/>
 			<item value="text"/>
 			<item value="clickable"/>
-			<item value="KitManager"/>
 		</list>
 		<list key="replacehistory">
 			<item value="size"/>

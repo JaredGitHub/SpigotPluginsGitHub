@@ -28,10 +28,8 @@
     <fullyQualifiedTypeName name="org.bukkit.command.CommandExecutor"/>
     <fullyQualifiedTypeName name="me.Jared.Guns.TriggerSwap"/>
     <fullyQualifiedTypeName name="org.bukkit.Sound"/>
-    <fullyQualifiedTypeName name="me.Jared.GunsPlugin"/>
     <fullyQualifiedTypeName name="me.Jared.Manager.ConfigManager"/>
     <fullyQualifiedTypeName name="me.Jared.Duels"/>
-    <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="me.Jared.Command.DuelCommands"/>
     <fullyQualifiedTypeName name="me.Jared.Managers.KitManager"/>
     <fullyQualifiedTypeName name="org.bukkit.event.EventHandler"/>
@@ -53,11 +51,13 @@
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerQuitEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerItemDamageEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageEvent"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="me.Jared.Kits.Main"/>
     <fullyQualifiedTypeName name="me.Jared.Kits.ConfigItem"/>
     <fullyQualifiedTypeName name="org.bukkit.inventory.ItemStack"/>
     <fullyQualifiedTypeName name="org.bukkit.Material"/>
     <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
     <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
+    <fullyQualifiedTypeName name="me.Jared.GunsPlugin"/>
+    <fullyQualifiedTypeName name="java.lang.Runnable"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
 </qualifiedTypeNameHistroy>

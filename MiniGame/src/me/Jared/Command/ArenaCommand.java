@@ -27,6 +27,59 @@ public class ArenaCommand implements CommandExecutor
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
+
+		if(args.length == 2)
+		{
+			if(args[0].equalsIgnoreCase("setmaxplayers"))
+			{
+				if(args.length == 2)
+				{
+					try
+					{
+						int number = Integer.parseInt(args[1]);
+						ConfigManager.setPlayersNeeded(number);
+
+						for(Player players : gameManager.getPlayerManager().getPlayers())
+						{
+							players.teleport(Bukkit.getWorld("world").getSpawnLocation());
+						}
+						gameManager.getPlayerManager().getPlayers().clear();
+						Bukkit.broadcastMessage(ChatColor.GREEN + "Successfully set max players to " + number);
+					} catch(Exception e)
+					{
+						sender.sendMessage(ChatColor.RED + "Make sure your second argument is a number!");
+						return true;
+					}
+				} else
+				{
+					sender.sendMessage(ChatColor.GRAY + "Usage: /sg setmaxplayers [number]");
+					return true;
+				}
+			}
+
+			if(args[0].equalsIgnoreCase("setcountdown"))
+			{
+				if(args.length == 2)
+				{
+					try
+					{
+						int number = Integer.parseInt(args[1]);
+						ConfigManager.setCountdown(number);
+
+						Bukkit.broadcastMessage(ChatColor.GREEN + "Successfully set countdown to " + number);
+					} catch(Exception e)
+					{
+						sender.sendMessage(ChatColor.RED + "Make sure your second argument is a number!");
+						return true;
+					}
+				} else
+				{
+					sender.sendMessage(ChatColor.GRAY + "Usage: /sg setmaxplayers [number]");
+					return true;
+				}
+			}
+		}
+
 		if(sender instanceof Player)
 		{
 			Player player = (Player) sender;
@@ -63,7 +116,7 @@ public class ArenaCommand implements CommandExecutor
 						if(gameManager.getPlayerManager().getPlayers().size() == ConfigManager.getPlayersNeeded() - 1)
 						{
 							gameManager.getPlayerManager().setPlayerInGame(player);
-							
+
 							gameManager.getPlayerManager().teleportPlayerInGame();
 							gameManager.setGameState(GameState.COUNTDOWN);
 						}
@@ -76,7 +129,7 @@ public class ArenaCommand implements CommandExecutor
 								player.sendMessage(ChatColor.RED + "Stay still");
 								return true;
 							}
-							
+
 							// Allow the player to join the game
 							gameManager.getPlayerManager().setPlayerInGame(player);
 							gameManager.setGameState(GameState.RECRUITING);
@@ -166,55 +219,6 @@ public class ArenaCommand implements CommandExecutor
 						player.sendMessage(ChatColor.GREEN + "Successfully set " + ChatColor.RESET + id
 								+ ChatColor.GREEN + " to your current location!");
 						ConfigManager.setGameSlot(player.getLocation(), id);
-					}
-
-					if(args[0].equalsIgnoreCase("setmaxplayers"))
-					{
-						if(args.length == 2)
-						{
-							try
-							{
-								int number = Integer.parseInt(args[1]);
-								ConfigManager.setPlayersNeeded(number);
-
-								for(Player players : gameManager.getPlayerManager().getPlayers())
-								{
-									players.teleport(Bukkit.getWorld("world").getSpawnLocation());
-								}
-								gameManager.getPlayerManager().getPlayers().clear();
-								Bukkit.broadcastMessage(ChatColor.GREEN + "Successfully set max players to " + number);
-							} catch(Exception e)
-							{
-								player.sendMessage(ChatColor.RED + "Make sure your second argument is a number!");
-								return true;
-							}
-						} else
-						{
-							player.sendMessage(ChatColor.GRAY + "Usage: /sg setmaxplayers [number]");
-							return true;
-						}
-					}
-					
-					if(args[0].equalsIgnoreCase("setcountdown"))
-					{
-						if(args.length == 2)
-						{
-							try
-							{
-								int number = Integer.parseInt(args[1]);
-								ConfigManager.setCountdown(number);
-
-								Bukkit.broadcastMessage(ChatColor.GREEN + "Successfully set countdown to " + number);
-							} catch(Exception e)
-							{
-								player.sendMessage(ChatColor.RED + "Make sure your second argument is a number!");
-								return true;
-							}
-						} else
-						{
-							player.sendMessage(ChatColor.GRAY + "Usage: /sg setmaxplayers [number]");
-							return true;
-						}
 					}
 				}
 			}

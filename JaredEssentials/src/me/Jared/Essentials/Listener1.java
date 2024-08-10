@@ -55,6 +55,11 @@ public class Listener1 implements Listener
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e)
 	{
+		if(Bukkit.getServer().getOnlinePlayers().size() > 1)
+		{
+			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "gg setmaxplayers " + Bukkit.getServer().getOnlinePlayers().size());
+			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "sg setmaxplayers " + Bukkit.getServer().getOnlinePlayers().size());
+		}
 		for(Player p : Bukkit.getOnlinePlayers())
 		{
 			PacketUtils.sendTabHF(p, ChatColor.GOLD + "JaredServer", ChatColor.GOLD + "store.jaredcoen.com\n"
@@ -88,6 +93,12 @@ public class Listener1 implements Listener
 	@EventHandler
 	public void onQuit(PlayerQuitEvent e)
 	{
+		if(Bukkit.getServer().getOnlinePlayers().size() > 1)
+		{
+			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "gg setmaxplayers " + Bukkit.getServer().getOnlinePlayers().size());
+			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "sg setmaxplayers " + Bukkit.getServer().getOnlinePlayers().size());
+		}
+
 		int size = Bukkit.getOnlinePlayers().size() - 1;
 		for(Player online : Bukkit.getOnlinePlayers())
 		{
