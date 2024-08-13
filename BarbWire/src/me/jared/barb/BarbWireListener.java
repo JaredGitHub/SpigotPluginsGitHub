@@ -11,7 +11,6 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
@@ -181,22 +180,16 @@ public class BarbWireListener implements Listener
 						p.playSound(p.getLocation(), Sound.ENTITY_ITEM_BREAK, 1, 1);
 					}
 
-					number--;
+					if(p.getWorld().equals(Bukkit.getWorld("warz")))
+					{
+						number--;
+					}
 					ArrayList<String> lore = new ArrayList<String>();
 					lore.add(ChatColor.GRAY + "Uses Left - " + ChatColor.GREEN + number);
 					meta.setLore(lore);
 					p.getInventory().getItemInMainHand().setItemMeta(meta);
 				}
 			}
-		}
-	}
-
-	@EventHandler
-	public void onJoin(PlayerJoinEvent e)
-	{
-		for(Player p : Bukkit.getOnlinePlayers())
-		{
-			Bukkit.getServer().getScheduler().runTaskTimer(plugin, new HurtPlayerRunnable(p), 0, 0);
 		}
 	}
 }

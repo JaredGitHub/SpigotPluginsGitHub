@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.bukkit.event.block.BlockFadeEvent"/>
-    <fullyQualifiedTypeName name="com.github.sirblobman.combatlogx.api.object.CombatTag"/>
     <fullyQualifiedTypeName name="com.github.sirblobman.combatlogx.CombatPlugin"/>
     <fullyQualifiedTypeName name="com.github.sirblobman.combatlogx.api.listener.CombatListener"/>
     <fullyQualifiedTypeName name="org.bukkit.GameMode"/>
@@ -33,7 +31,6 @@
     <fullyQualifiedTypeName name="me.Jared.Command.DuelCommands"/>
     <fullyQualifiedTypeName name="me.Jared.Managers.KitManager"/>
     <fullyQualifiedTypeName name="org.bukkit.event.EventHandler"/>
-    <fullyQualifiedTypeName name="org.bukkit.scheduler.BukkitRunnable"/>
     <fullyQualifiedTypeName name="org.bukkit.event.Listener"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.BlockPlaceEvent"/>
     <fullyQualifiedTypeName name="me.Jared.LandMinePlugin"/>
@@ -56,8 +53,11 @@
     <fullyQualifiedTypeName name="org.bukkit.inventory.ItemStack"/>
     <fullyQualifiedTypeName name="org.bukkit.Material"/>
     <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
-    <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
     <fullyQualifiedTypeName name="me.Jared.GunsPlugin"/>
+    <fullyQualifiedTypeName name="me.jared.barb.HurtEntityRunnable"/>
+    <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+    <fullyQualifiedTypeName name="org.bukkit.scheduler.BukkitRunnable"/>
     <fullyQualifiedTypeName name="java.lang.Runnable"/>
+    <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
     <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
 </qualifiedTypeNameHistroy>

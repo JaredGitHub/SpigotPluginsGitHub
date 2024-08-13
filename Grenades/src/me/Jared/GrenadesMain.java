@@ -48,7 +48,7 @@ public class GrenadesMain extends JavaPlugin implements Listener
 			new Grenade(Material.MAGMA_CREAM, "&4Molotov", GrenadeType.MOLOTOV, 2, 5),
 			new Grenade(Material.GUNPOWDER, "&8Flashbang", GrenadeType.FLASHBANG, 2, 2),
 			new Grenade(Material.GHAST_TEAR, "&7Smoke Grenade", GrenadeType.SMOKE, 2, 5),
-			new Grenade(Material.HONEYCOMB, "&7Sticky Grenade", GrenadeType.STICKY, 2.5f, 2)};
+			new Grenade(Material.HONEYCOMB, "&7Sticky Grenade", GrenadeType.STICKY, 0.5f, 2)};
 	
 	@EventHandler
 	public void onRightClick(PlayerInteractEvent e)

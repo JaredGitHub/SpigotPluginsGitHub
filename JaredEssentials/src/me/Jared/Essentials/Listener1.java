@@ -95,8 +95,9 @@ public class Listener1 implements Listener
 	{
 		if(Bukkit.getServer().getOnlinePlayers().size() > 1)
 		{
-			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "gg setmaxplayers " + Bukkit.getServer().getOnlinePlayers().size());
-			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "sg setmaxplayers " + Bukkit.getServer().getOnlinePlayers().size());
+			int num = Bukkit.getServer().getOnlinePlayers().size() - 1;
+			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "gg setmaxplayers " + num);
+			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "sg setmaxplayers " + num);
 		}
 
 		int size = Bukkit.getOnlinePlayers().size() - 1;
