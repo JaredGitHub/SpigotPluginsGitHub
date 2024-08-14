@@ -55,10 +55,11 @@ public class Listener1 implements Listener
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e)
 	{
-		if(Bukkit.getServer().getOnlinePlayers().size() > 1)
+		int size = Bukkit.getServer().getOnlinePlayers().size();
+		if(size > 1)
 		{
-			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "gg setmaxplayers " + Bukkit.getServer().getOnlinePlayers().size());
-			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "sg setmaxplayers " + Bukkit.getServer().getOnlinePlayers().size());
+			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "gg setmaxplayers " + size);
+			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "sg setmaxplayers " + size);
 		}
 		for(Player p : Bukkit.getOnlinePlayers())
 		{
@@ -93,14 +94,13 @@ public class Listener1 implements Listener
 	@EventHandler
 	public void onQuit(PlayerQuitEvent e)
 	{
+		int size = Bukkit.getOnlinePlayers().size() - 1;
 		if(Bukkit.getServer().getOnlinePlayers().size() > 1)
 		{
-			int num = Bukkit.getServer().getOnlinePlayers().size() - 1;
-			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "gg setmaxplayers " + num);
-			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "sg setmaxplayers " + num);
+			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "gg setmaxplayers " + size);
+			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), "sg setmaxplayers " + size);
 		}
 
-		int size = Bukkit.getOnlinePlayers().size() - 1;
 		for(Player online : Bukkit.getOnlinePlayers())
 		{
 			PacketUtils.sendTabHF(online, ChatColor.GOLD + "JaredServer", ChatColor.GOLD + "store.jaredcoen.com\n"

@@ -48,6 +48,11 @@ public class GunGameCommand implements CommandExecutor
 						{
 							int maxPlayers = Integer.parseInt(args[1]);
 
+							if(maxPlayers <= 1)
+							{
+								sender.sendMessage(ChatColor.RED + "Must be 2 or more noob");
+								return true;
+							}
 							sender.sendMessage(ChatColor.GREEN + "Set max players to " + maxPlayers);
 							sender.sendMessage(
 									ChatColor.DARK_GREEN + "Make sure to set your locations with /gg set [number]");

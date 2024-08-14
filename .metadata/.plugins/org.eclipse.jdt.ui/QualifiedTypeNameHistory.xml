@@ -52,12 +52,12 @@
     <fullyQualifiedTypeName name="me.Jared.Kits.ConfigItem"/>
     <fullyQualifiedTypeName name="org.bukkit.inventory.ItemStack"/>
     <fullyQualifiedTypeName name="org.bukkit.Material"/>
-    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
     <fullyQualifiedTypeName name="me.Jared.GunsPlugin"/>
-    <fullyQualifiedTypeName name="me.jared.barb.HurtEntityRunnable"/>
     <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
     <fullyQualifiedTypeName name="org.bukkit.scheduler.BukkitRunnable"/>
     <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
+    <fullyQualifiedTypeName name="me.jared.barb.HurtEntityRunnable"/>
     <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
 </qualifiedTypeNameHistroy>

@@ -37,6 +37,12 @@ public class ArenaCommand implements CommandExecutor
 					try
 					{
 						int number = Integer.parseInt(args[1]);
+						
+						if(number <= 1)
+						{
+							sender.sendMessage(ChatColor.RED + "Must be 2 or more noob");
+							return true;
+						}
 						ConfigManager.setPlayersNeeded(number);
 
 						for(Player players : gameManager.getPlayerManager().getPlayers())
