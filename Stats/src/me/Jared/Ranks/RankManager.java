@@ -94,6 +94,8 @@ public class RankManager
 			Player player = Bukkit.getPlayer(uuid);
 			stats.getNametagManager().removeTag(player);
 			stats.getNametagManager().newTag(player);
+			
+			
 		}
 	}
 

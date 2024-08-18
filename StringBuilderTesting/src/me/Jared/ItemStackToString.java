@@ -1,34 +1,30 @@
 package me.Jared;
 
-import java.util.ArrayList;
-
 public class ItemStackToString
 {
-	static ArrayList<Integer> numbers = new ArrayList<Integer>();
 	public static void main(String[] args)
 	{
-		ArrayList<Integer> teams = new ArrayList<Integer>();
-		teams.add(0);
-		teams.add(1);
-		teams.add(2);
-		teams.add(3);
-		teams.add(4);
-		teams.add(5);
+		int initialKillsToRankup = 10;
+		int accumulatedKillsToRankup = 0;
+		int rank = 0;
+		int kills = 4090;
 
-		if(teams.get(teams.size()-1) % 2 ==0)
+		for(int i = 1; i < kills; i++)
 		{
-			teams.remove(teams.size()-1);
-		}
-
-		for(int i = 0; i < teams.size(); i++)
-		{
-			if(teams.contains(i+1))
+			accumulatedKillsToRankup *= 1.15;
+			accumulatedKillsToRankup += initialKillsToRankup;
+			
+			if(accumulatedKillsToRankup % i == 0)
 			{
-				int team1 = i;
-				int team2 = i+1;
-				System.out.println("Team " + team1 + " vs Team " + team2);
+				System.out.println(accumulatedKillsToRankup);
+				if(accumulatedKillsToRankup >= kills)
+				{
+					break;
+				}
+				rank++;
 			}
 		}
-
+		System.out.println();
+		System.out.println(rank);
 	}
 }

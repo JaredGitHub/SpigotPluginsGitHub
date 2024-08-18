@@ -363,11 +363,11 @@ public class EventListener implements Listener
 		Player player = e.getPlayer();
 		if(player.getWorld().equals(Bukkit.getWorld("world")))
 		{
-			Bukkit.broadcastMessage(stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET + player.getName() + ": " + e.getMessage());
+			Bukkit.broadcastMessage(stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET + " " + ChatColor.BOLD + "["+ config.getInt(player.getUniqueId() + ".rank") + "] " + ChatColor.RESET + player.getName() + ": " + e.getMessage());
 		}
 		else if(player.getWorld().equals(Bukkit.getWorld("warz")))
 		{
-			Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "" + ChatColor.ITALIC + "[WARZ] " + stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET + player.getName() + ": " + e.getMessage());
+			Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "" + ChatColor.ITALIC + "[WARZ] " + stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET + " " + ChatColor.BOLD + "["+ config.getInt(player.getUniqueId() + ".rank") + "] " + ChatColor.RESET + player.getName() + ": " + e.getMessage());
 		}
 	}
 }

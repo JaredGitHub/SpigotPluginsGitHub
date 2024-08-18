@@ -5,6 +5,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Team;
 
 import me.Jared.Stats;
+import net.md_5.bungee.api.ChatColor;
 
 
 public class NameTagManager
@@ -24,11 +25,18 @@ public class NameTagManager
 			{
 				Team team = player.getScoreboard().registerNewTeam(rank.name());
 				team.setPrefix(rank.getDisplay());
+				
+				int numberRank = stats.getConfig().getInt(player.getUniqueId() + ".rank");
+				team.setSuffix(ChatColor.BOLD + " [" + numberRank + "]");
 			}
 			else
 			{
 				Team team = player.getScoreboard().getTeam(rank.name());
 				team.setPrefix(rank.getDisplay());
+				
+				int numberRank = stats.getConfig().getInt(player.getUniqueId() + ".rank");
+				team.setSuffix(ChatColor.BOLD + " [" + numberRank + "]");
+
 			}
 
 		}

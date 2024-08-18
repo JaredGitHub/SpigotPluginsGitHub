@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="maxpl"/>
+		<item key="selection" value="rank"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="rank"/>
+			<item value="3"/>
 			<item value="maxpl"/>
 			<item value="world"/>
 			<item value="sched"/>
 			<item value="timer"/>
 			<item value="stick"/>
 			<item value="loc"/>
-			<item value="config.geti"/>
-			<item value="playerunique"/>
 		</list>
 		<list key="replacehistory">
 			<item value="size"/>
