@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="rank"/>
+		<item key="selection" value="player"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="clicker"/>
+			<item value="getBeans"/>
+			<item value="AsyncPlayerChatEvent"/>
+			<item value="prefix"/>
 			<item value="rank"/>
 			<item value="3"/>
 			<item value="maxpl"/>
 			<item value="world"/>
-			<item value="sched"/>
-			<item value="timer"/>
-			<item value="stick"/>
-			<item value="loc"/>
 		</list>
 		<list key="replacehistory">
+			<item value="player"/>
+			<item value="getBloodBag"/>
 			<item value="size"/>
 			<item value="uses"/>
 			<item value="location.getWorld()"/>

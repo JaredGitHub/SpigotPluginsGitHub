@@ -23,7 +23,11 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import me.jared.food.listeners.Bandage;
 import me.jared.food.listeners.Beans;
+import me.jared.food.listeners.BleedRunnable;
+import me.jared.food.listeners.BloodBag;
+import me.jared.food.listeners.Bones;
 import me.jared.food.listeners.CornedBeef;
 import me.jared.food.listeners.InfectionCure;
 import me.jared.food.listeners.MountainDew;
@@ -35,6 +39,7 @@ public class Sugar extends JavaPlugin implements Listener
 	public static Sugar plugin;
 
 	public static ArrayList<ItemStack> food = new ArrayList<>();
+	public static ArrayList<UUID> bleeders = new ArrayList<UUID>();
 
 	private HashMap<UUID, Long> cooldown = new HashMap<>();
 
@@ -66,6 +71,8 @@ public class Sugar extends JavaPlugin implements Listener
 		getConfig().addDefault("dewString", "&9Mountain Dew");
 		getConfig().addDefault("cbString", "&9Corned Beef");
 		getConfig().addDefault("icString", "&aInfection Cure");
+		getConfig().addDefault("bloodbagString", "&4Blood Bag");
+		getConfig().addDefault("bonesString", "&bBones");
 		getServer().getPluginManager().registerEvents(this, (Plugin) this);
 		getServer().getPluginManager().registerEvents((Listener) new Beans(), (Plugin) this);
 		getServer().getPluginManager().registerEvents((Listener) new Pasta(), (Plugin) this);
@@ -73,7 +80,14 @@ public class Sugar extends JavaPlugin implements Listener
 		getServer().getPluginManager().registerEvents((Listener) new Pepsi(), (Plugin) this);
 		getServer().getPluginManager().registerEvents((Listener) new CornedBeef(), (Plugin) this);
 		getServer().getPluginManager().registerEvents((Listener) new InfectionCure(), (Plugin) this);
+		
+		getServer().getPluginManager().registerEvents((Listener) new BloodBag(), (Plugin) this);
+		getServer().getPluginManager().registerEvents((Listener) new Bandage(), (Plugin) this);
+		getServer().getPluginManager().registerEvents((Listener) new Bones(), (Plugin) this);
 		loadConfig();
+		
+		BleedRunnable bleedRunnable = new BleedRunnable();
+		bleedRunnable.runTaskTimer(plugin, 0, 10);
 	}
 
 	public void onDisable()
