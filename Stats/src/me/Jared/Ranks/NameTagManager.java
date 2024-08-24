@@ -38,7 +38,6 @@ public class NameTagManager
 				team.setSuffix(ChatColor.BOLD + " [" + numberRank + "]");
 
 			}
-
 		}
 
 		for(Player target : Bukkit.getOnlinePlayers())

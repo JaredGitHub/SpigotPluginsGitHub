@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="me.clip.placeholderapi.PlaceholderAPI"/>
-    <fullyQualifiedTypeName name="me.Jared.Listeners.EntityListener"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.ProjectileHitEvent"/>
-    <fullyQualifiedTypeName name="org.bukkit.event.entity.PlayerDeathEvent"/>
     <fullyQualifiedTypeName name="me.Jared.Utils.RemoveBullets"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityPickupItemEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerPickupArrowEvent"/>
@@ -51,7 +48,6 @@
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerMoveEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.Action"/>
     <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageEvent"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="org.bukkit.potion.PotionEffect"/>
@@ -60,4 +56,8 @@
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerInteractEvent"/>
     <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
     <fullyQualifiedTypeName name="org.bukkit.Sound"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="me.jared.food.Sugar"/>
+    <fullyQualifiedTypeName name="me.jared.food.listeners.BleedRunnable"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.entity.PlayerDeathEvent"/>
 </qualifiedTypeNameHistroy>

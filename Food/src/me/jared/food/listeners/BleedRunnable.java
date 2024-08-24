@@ -18,8 +18,6 @@ public class BleedRunnable extends BukkitRunnable
 			{
 				player.damage(2);
 			}
-		}
-		
+		}	
 	}
-
 }
