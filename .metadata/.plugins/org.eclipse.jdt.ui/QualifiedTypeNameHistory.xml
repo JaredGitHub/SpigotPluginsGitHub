@@ -47,7 +47,6 @@
     <fullyQualifiedTypeName name="org.bukkit.event.Listener"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerMoveEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.Action"/>
-    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageEvent"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="org.bukkit.potion.PotionEffect"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="me.jared.food.Sugar"/>
     <fullyQualifiedTypeName name="me.jared.food.listeners.BleedRunnable"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.PlayerDeathEvent"/>
+    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
 </qualifiedTypeNameHistroy>

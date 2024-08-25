@@ -25,20 +25,20 @@ public class Stats extends JavaPlugin
 		this.getConfig().options().copyDefaults();
 		this.saveConfig();
 	}
-	private static final HashMap<Player, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
 
+	private static final HashMap<Player, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
 
 	private RankManager rankManager;
 	private NameTagManager nametagManager;
 	private StatScoreboard statScoreboard;
-	
+
 	private static Stats stats;
 
 	@Override
 	public void onEnable()
 	{
 		stats = this;
-		
+
 		Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Stats plugin is here BOIII!");
 
 		getCommand("rank").setExecutor(new RankCommand(this));
@@ -49,26 +49,30 @@ public class Stats extends JavaPlugin
 
 		rankManager = new RankManager(this);
 		nametagManager = new NameTagManager(this);
-		for(Player online: Bukkit.getOnlinePlayers())
+		for(Player online : Bukkit.getOnlinePlayers())
 		{
 			statScoreboard = new StatScoreboard(this, online);
 		}
 		this.loadConfig();
-		
+
 		new StatsExpansion().register();
 	}
-	
+
 	public static Stats getInstance()
 	{
 		return stats;
 	}
 
-	public RankManager getRankManager() {
+	public RankManager getRankManager()
+	{
 		return this.rankManager;
 	}
-	public NameTagManager getNametagManager() {
+
+	public NameTagManager getNametagManager()
+	{
 		return this.nametagManager;
 	}
+
 	public StatScoreboard getStatScoreboard()
 	{
 		return this.statScoreboard;
@@ -87,8 +91,7 @@ public class Stats extends JavaPlugin
 		if(playerMenuUtilityMap.containsKey(p))
 		{
 			return playerMenuUtilityMap.get(p);
-		}
-		else
+		} else
 		{
 			playerMenuUtility = new PlayerMenuUtility(p);
 			playerMenuUtilityMap.put(p, playerMenuUtility);
@@ -98,6 +101,7 @@ public class Stats extends JavaPlugin
 	}
 
 	FileConfiguration config = this.getConfig();
+
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String str, String[] args)
 	{
@@ -121,7 +125,6 @@ public class Stats extends JavaPlugin
 
 						config.set(player.getUniqueId() + ".gems", gems + amount);
 
-
 						player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
 						player.sendMessage(ChatColor.GREEN + "Congratulions you have received " + amount + " gems!");
 
@@ -130,7 +133,6 @@ public class Stats extends JavaPlugin
 						this.saveConfig();
 
 						new StatScoreboard(this, player);
-
 
 					} catch(NumberFormatException e)
 					{
@@ -159,13 +161,13 @@ public class Stats extends JavaPlugin
 
 						player.playSound(player.getLocation(), Sound.ENTITY_GHAST_DEATH, 0.5f, 1);
 						player.sendMessage(ChatColor.RED + "Oh no " + amount + " gems has been taken away from you!");
-						sender.sendMessage(ChatColor.RED + "You took " + amount + " gems from " + player.getName() + "!");
+						sender.sendMessage(
+								ChatColor.RED + "You took " + amount + " gems from " + player.getName() + "!");
 
 						if(!(gems < amount))
 						{
 							config.set(player.getUniqueId() + ".gems", gems - amount);
-						}
-						else
+						} else
 						{
 							config.set(player.getUniqueId() + ".gems", 0);
 						}
@@ -174,7 +176,7 @@ public class Stats extends JavaPlugin
 
 						new StatScoreboard(this, player);
 
-					}catch(NumberFormatException e)
+					} catch(NumberFormatException e)
 					{
 						sender.sendMessage(ChatColor.RED + "Please use number for second argument!");
 					}
@@ -188,32 +190,27 @@ public class Stats extends JavaPlugin
 			{
 				if(args.length == 1)
 				{
-					if(args[0].equalsIgnoreCase("true")
-							|| args[0].equalsIgnoreCase("t"))
+					if(args[0].equalsIgnoreCase("true") || args[0].equalsIgnoreCase("t"))
 					{
 						config.set("killstreakRewards", true);
 						this.saveConfig();
 						sender.sendMessage(org.bukkit.ChatColor.GREEN + "Killstreak rewards are now on!");
-					}
-					else if(args[0].equalsIgnoreCase("false")
-							|| args[0].equalsIgnoreCase("f"))
+					} else if(args[0].equalsIgnoreCase("false") || args[0].equalsIgnoreCase("f"))
 					{
 						config.set("killstreakRewards", false);
 						this.saveConfig();
 						sender.sendMessage(org.bukkit.ChatColor.RED + "Killstreak rewards are now off!");
-					}
-					else
+					} else
 					{
 						sender.sendMessage(org.bukkit.ChatColor.RED + "Choose TRUE or FALSE!");
 						return true;
 					}
-				}
-				else if(args.length == 0)
+				} else if(args.length == 0)
 				{
-					sender.sendMessage(org.bukkit.ChatColor.GOLD + "Killstreak status is " + org.bukkit.ChatColor.WHITE + config.getBoolean("killstreakRewards"));
+					sender.sendMessage(org.bukkit.ChatColor.GOLD + "Killstreak status is " + org.bukkit.ChatColor.WHITE
+							+ config.getBoolean("killstreakRewards"));
 				}
-			}
-			else
+			} else
 			{
 				sender.sendMessage(org.bukkit.ChatColor.RED + "No Permission!");
 				return true;
