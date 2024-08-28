@@ -104,7 +104,8 @@ public class Bones implements Listener
 
 			if(player.getWorld().getName().equals("warz"))
 			{
-				if(e.getCause() == EntityDamageEvent.DamageCause.FALL)
+				if(e.getCause() == EntityDamageEvent.DamageCause.FALL
+						&& !(e.isCancelled()))
 				{
 					Random random = new Random();
 					int randomNumber = random.nextInt(3);
