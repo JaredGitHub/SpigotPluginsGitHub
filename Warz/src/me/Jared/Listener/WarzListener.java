@@ -132,7 +132,7 @@ public class WarzListener implements Listener
 		Player p = e.getPlayer();
 
 		if(p.getWorld().equals(Bukkit.getWorld("warz")))
-		{	
+		{
 			Random rand = new Random();
 			randomLocation = ConfigManager.getGameSlotLocation(rand.nextInt(1, ConfigManager.getGameSlotsSize()));
 			deathLocation.put(p.getUniqueId(), p.getEyeLocation());
@@ -146,6 +146,12 @@ public class WarzListener implements Listener
 					if(p.isOnline())
 					{
 						p.setGameMode(GameMode.SURVIVAL);
+						
+						p.getInventory().setChestplate(new ItemStack(Material.LEATHER_CHESTPLATE));
+						p.getInventory().setItem(0, new ItemStack(Material.WOODEN_SWORD));
+						p.getInventory().setItem(1, new ItemStack(Material.LAPIS_LAZULI, 4));
+						p.getInventory().setItem(2, new ItemStack(Material.BONE, 1));
+						p.getInventory().setItem(3, new ItemStack(Material.PAPER, 1));
 
 						p.teleport(randomLocation);
 						deathLocation.remove(p.getUniqueId());
@@ -155,7 +161,6 @@ public class WarzListener implements Listener
 			}
 		}
 	}
-
 
 	@EventHandler
 	public void onCommandExecute(PlayerCommandPreprocessEvent e)
@@ -228,8 +233,8 @@ public class WarzListener implements Listener
 		if(e.getEntity() instanceof Player)
 		{
 			Player player = (Player) e.getEntity();
-			PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, 20*60, 1);
-			PotionEffect potionEffect1 = new PotionEffect(PotionEffectType.HUNGER, 20*60, 3);
+			PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, 20 * 60, 1);
+			PotionEffect potionEffect1 = new PotionEffect(PotionEffectType.HUNGER, 20 * 60, 3);
 
 			if(player.getWorld().getName().equals("warz"))
 			{
@@ -240,8 +245,7 @@ public class WarzListener implements Listener
 					if(randomNumber == 4)
 					{
 						potionEffect.apply(player);
-					}
-					else if(randomNumber == 3)
+					} else if(randomNumber == 3)
 					{
 						potionEffect1.apply(player);
 					}

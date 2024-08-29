@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -130,10 +131,28 @@ public class Bones implements Listener
 	{
 		Player player = event.getPlayer();
 
-		if(player.getWalkSpeed() == 0.1f && event.getTo().getY() > event.getFrom().getY())
+		if(player.getWalkSpeed() == 0.1f)
 		{
-			event.setCancelled(true);
+			if(player.getWorld().getName().equals("warz"))
+			{
+				player.setWalkSpeed(0.2f);
+				
+			}
+			if(event.getTo().getY() > event.getFrom().getY())
+			{
+				event.setCancelled(true);
+			}
 		}
+
+
+	}
+
+	@EventHandler
+	public void onDeath(PlayerDeathEvent e)
+	{
+		Player player = e.getEntity();
+
+		player.setWalkSpeed(0.2f);
 	}
 
 }
