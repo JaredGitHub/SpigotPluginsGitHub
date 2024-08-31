@@ -44,7 +44,7 @@ public class GrenadesMain extends JavaPlugin implements Listener
 	}
 
 	public static final Grenade[] grenades = new Grenade[]
-	{ new Grenade(Material.SLIME_BALL, "&6Grenade", GrenadeType.GRENADE, 3.5f, 2),
+	{ new Grenade(Material.SLIME_BALL, "&6Grenade", GrenadeType.GRENADE, 8f, 2),
 			new Grenade(Material.MAGMA_CREAM, "&4Molotov", GrenadeType.MOLOTOV, 2, 5),
 			new Grenade(Material.GUNPOWDER, "&8Flashbang", GrenadeType.FLASHBANG, 2, 2),
 			new Grenade(Material.GHAST_TEAR, "&7Smoke Grenade", GrenadeType.SMOKE, 2, 5),

@@ -23,6 +23,7 @@ import com.sk89q.worldguard.protection.regions.RegionContainer;
 
 import me.Jared.ParticleRunnables.FireRunnable;
 import me.Jared.ParticleRunnables.FlashBangRunnable;
+import me.Jared.ParticleRunnables.GrenadeRunnable;
 import me.Jared.ParticleRunnables.SmokeRunnable;
 import me.Jared.ParticleRunnables.StickyRunnable;
 import net.md_5.bungee.api.ChatMessageType;
@@ -103,6 +104,9 @@ public class Grenade
 
 	private void blowUpGrenade(Entity entity)
 	{
+		GrenadeRunnable grenadeRunnable = new GrenadeRunnable(this, entity, 5, 3.5f);
+		grenadeRunnable.runTaskTimer(GrenadesMain.getInstance(), 50l, 1);
+		
 		Bukkit.getScheduler().runTaskLater(GrenadesMain.getInstance(), new Runnable()
 		{
 			@Override
