@@ -11,6 +11,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.block.SpongeAbsorbEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -25,14 +26,15 @@ import net.md_5.bungee.api.ChatColor;
 public class BoostPad extends JavaPlugin implements Listener
 {
 	private static BoostPad instance;
+
 	@Override
 	public void onEnable()
 	{
 		instance = this;
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Boost pads are here baby!!");
 
-		getServer().getPluginManager().registerEvents(this, (Plugin)this);
-		getServer().getPluginManager().registerEvents(new Boost(), (Plugin)this);
+		getServer().getPluginManager().registerEvents(this, (Plugin) this);
+		getServer().getPluginManager().registerEvents(new Boost(), (Plugin) this);
 
 		this.getCommand("boostpad").setExecutor(new Cleanup());
 		this.getCommand("ladder").setExecutor(new Cleanup());
@@ -51,13 +53,12 @@ public class BoostPad extends JavaPlugin implements Listener
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Boost pads are gone!! OH NOO!!");
 	}
 
-
 	@EventHandler
 	public void onEntityDamageEvent(EntityDamageEvent event)
 	{
-		if (event.getCause() == EntityDamageEvent.DamageCause.FALL && 
-				Boost.getNoFallEntities().containsKey(Integer.valueOf(event.getEntity().getEntityId())))
-			event.setCancelled(true); 
+		if(event.getCause() == EntityDamageEvent.DamageCause.FALL
+				&& Boost.getNoFallEntities().containsKey(Integer.valueOf(event.getEntity().getEntityId())))
+			event.setCancelled(true);
 	}
 
 	@EventHandler
@@ -65,7 +66,7 @@ public class BoostPad extends JavaPlugin implements Listener
 	{
 		Player p = e.getPlayer();
 
-		//Boosts the player into the air based upon the direction they are facing
+		// Boosts the player into the air based upon the direction they are facing
 		Boost boost = new Boost();
 		boost.boost(p);
 	}
@@ -75,15 +76,19 @@ public class BoostPad extends JavaPlugin implements Listener
 	{
 		ArrayList<String> boostPads = new ArrayList<String>(this.getConfig().getStringList("boostPads"));
 
+		if(!(e.getBlockReplacedState().getType() == Material.AIR))
+		{
+			e.setCancelled(true);
+		}
 		if(e.getBlock().getType().equals(Material.SPONGE))
 		{
 			double x = e.getBlock().getLocation().getX();
 			double y = e.getBlock().getLocation().getY();
-			double z =e.getBlock().getLocation().getZ();
+			double z = e.getBlock().getLocation().getZ();
 			String world = e.getBlock().getLocation().getWorld().getName();
 
-			boostPads.add(x +", " + y +", " + z + "," + world);
-			this.getConfig().set("boostPads",boostPads);
+			boostPads.add(x + ", " + y + ", " + z + "," + world);
+			this.getConfig().set("boostPads", boostPads);
 			this.saveConfig();
 		}
 
@@ -92,10 +97,10 @@ public class BoostPad extends JavaPlugin implements Listener
 		{
 			double x = e.getBlock().getLocation().getX();
 			double y = e.getBlock().getLocation().getY();
-			double z =e.getBlock().getLocation().getZ();
+			double z = e.getBlock().getLocation().getZ();
 			String world = e.getBlock().getLocation().getWorld().getName();
 
-			ladders.add(x +", " + y +", " + z + "," + world);
+			ladders.add(x + ", " + y + ", " + z + "," + world);
 
 			this.getConfig().set("ladders", ladders);
 			this.saveConfig();
@@ -106,10 +111,10 @@ public class BoostPad extends JavaPlugin implements Listener
 		{
 			double x = e.getBlock().getLocation().getX();
 			double y = e.getBlock().getLocation().getY();
-			double z =e.getBlock().getLocation().getZ();
+			double z = e.getBlock().getLocation().getZ();
 			String world = e.getBlock().getLocation().getWorld().getName();
 
-			webs.add(x +", " + y +", " + z + "," + world);
+			webs.add(x + ", " + y + ", " + z + "," + world);
 
 			this.getConfig().set("webs", webs);
 			this.saveConfig();
@@ -120,10 +125,10 @@ public class BoostPad extends JavaPlugin implements Listener
 		{
 			double x = e.getBlock().getLocation().getX();
 			double y = e.getBlock().getLocation().getY();
-			double z =e.getBlock().getLocation().getZ();
+			double z = e.getBlock().getLocation().getZ();
 			String world = e.getBlock().getLocation().getWorld().getName();
 
-			landmines.add(x +", " + y +", " + z + "," + world);
+			landmines.add(x + ", " + y + ", " + z + "," + world);
 
 			this.getConfig().set("landmines", landmines);
 			this.saveConfig();
@@ -155,12 +160,14 @@ public class BoostPad extends JavaPlugin implements Listener
 	@EventHandler
 	public void onProjectileHit(ProjectileHitEvent e)
 	{
-		BlockIterator iterator = new BlockIterator(e.getEntity().getWorld(), e.getEntity().getLocation().toVector(), e.getEntity().getVelocity().normalize(), 0.0D, 4);
+		BlockIterator iterator = new BlockIterator(e.getEntity().getWorld(), e.getEntity().getLocation().toVector(),
+				e.getEntity().getVelocity().normalize(), 0.0D, 4);
 		Block hitBlock = null;
 		while(iterator.hasNext())
 		{
 			hitBlock = iterator.next();
-			if(hitBlock.getType() != Material.AIR) break;
+			if(hitBlock.getType() != Material.AIR)
+				break;
 		}
 
 		if(hitBlock.getType() == Material.SPONGE)
@@ -171,13 +178,13 @@ public class BoostPad extends JavaPlugin implements Listener
 
 				ArrayList<String> boostPads = new ArrayList<String>(this.getConfig().getStringList("boostPads"));
 
-				for (String boostPadLoc : boostPads)
+				for(String boostPadLoc : boostPads)
 				{
 					double x = Double.parseDouble(getIndex(boostPadLoc, 0));
 					double y = Double.parseDouble(getIndex(boostPadLoc, 1));
 					double z = Double.parseDouble(getIndex(boostPadLoc, 2));
 					String world = getIndex(boostPadLoc, 3);
-					
+
 					Location loc = new Location(Bukkit.getWorld(world), x, y, z);
 
 					p.playSound(p.getLocation(), Sound.ENTITY_BLAZE_HURT, 1, 1);
@@ -188,6 +195,17 @@ public class BoostPad extends JavaPlugin implements Listener
 					}
 				}
 			}
+		}
+	}
+
+	@EventHandler
+	public void onSpongeAbsorb(SpongeAbsorbEvent event)
+	{
+		// Check if the block is a sponge
+		if(event.getBlock().getType() == Material.SPONGE)
+		{
+			// Cancel the event to prevent the sponge from absorbing water
+			event.setCancelled(true);
 		}
 	}
 }
