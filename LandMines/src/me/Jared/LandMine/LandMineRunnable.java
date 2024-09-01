@@ -49,13 +49,7 @@ public class LandMineRunnable extends BukkitRunnable
 
 			for(Entity entity : landMine.getWorld().getEntities())
 			{
-				if(entity instanceof Player)
-				{
-					Player player = (Player) entity;
-					landMine.changeItemToLandMine(player.getInventory());
 
-
-				}
 				Block entityFootY = entity.getLocation().getBlock();
 				for(String landminesLoc : landmines)
 				{
@@ -70,6 +64,20 @@ public class LandMineRunnable extends BukkitRunnable
 					{
 						if(entityFootY.getType() == Material.STONE_PRESSURE_PLATE)
 						{
+
+							if(entity instanceof Player)
+							{
+								Player player = (Player) entity;
+								landMine.changeItemToLandMine(player.getInventory());
+
+								String uuid = getIndex(landminesLoc, 4);
+
+								if(player.getUniqueId().toString().equals(uuid))
+								{
+									return;
+								}
+							}
+
 							if(entityFootY.getType() == landMine.getItem())
 							{
 								landMine.blowUp(entity.getLocation(), entity);

@@ -128,7 +128,7 @@ public class BoostPad extends JavaPlugin implements Listener
 			double z = e.getBlock().getLocation().getZ();
 			String world = e.getBlock().getLocation().getWorld().getName();
 
-			landmines.add(x + ", " + y + ", " + z + "," + world);
+			landmines.add(x + ", " + y + ", " + z + "," + world + "," + e.getPlayer().getUniqueId().toString());
 
 			this.getConfig().set("landmines", landmines);
 			this.saveConfig();

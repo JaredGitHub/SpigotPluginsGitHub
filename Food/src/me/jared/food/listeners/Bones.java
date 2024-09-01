@@ -114,10 +114,12 @@ public class Bones implements Listener
 					if(randomNumber == 1)
 					{
 						player.setWalkSpeed(0.1f);
+						player.swingMainHand();
 
 						player.sendMessage(ChatColor.AQUA + "You have broken your legs!");
 						player.playSound(player, Sound.ITEM_WOLF_ARMOR_CRACK, 1, 1);
-					} else
+					} 
+					else
 					{
 						player.setWalkSpeed(0.2f);
 					}
@@ -133,7 +135,7 @@ public class Bones implements Listener
 
 		if(player.getWalkSpeed() == 0.1f)
 		{
-			if(player.getWorld().getName().equals("warz"))
+			if(!player.getWorld().getName().equals("warz"))
 			{
 				player.setWalkSpeed(0.2f);
 				
