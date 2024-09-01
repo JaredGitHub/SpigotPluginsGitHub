@@ -106,17 +106,7 @@ public class Grenade
 	{
 		GrenadeRunnable grenadeRunnable = new GrenadeRunnable(this, entity, 5, 3.5f);
 		grenadeRunnable.runTaskTimer(GrenadesMain.getInstance(), 50l, 1);
-		
-		Bukkit.getScheduler().runTaskLater(GrenadesMain.getInstance(), new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				Location location = entity.getLocation();
-				location.getWorld().createExplosion(location, power, false, false);
-				entity.remove();
-			}
-		}, 50L);
+	
 	}
 
 	private void blowUpMolotov(Entity entity)

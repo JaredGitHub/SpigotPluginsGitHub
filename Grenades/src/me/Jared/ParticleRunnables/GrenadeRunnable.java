@@ -43,6 +43,7 @@ public class GrenadeRunnable extends BukkitRunnable
 		
 		Location location = entity.getLocation();
 		location.getWorld().createExplosion(location, power, false, false);
+		
 		entity.remove();
 	}
 }
