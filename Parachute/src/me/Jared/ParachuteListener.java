@@ -13,6 +13,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -67,13 +68,11 @@ public class ParachuteListener implements Listener
 						chicken.setAI(false);
 						chicken.setVisualFire(false);
 						p.addPassenger(chicken);
-						
-						
 
 						ItemStack is = p.getInventory().getItemInMainHand();
-						
+
 						if(is.getAmount() <= 1) p.getInventory().setItemInMainHand((new ItemStack(Material.AIR)));
-						
+
 						is.setAmount(is.getAmount() - 1);
 					}
 				}
@@ -105,7 +104,6 @@ public class ParachuteListener implements Listener
 				plugin.getServer().getPluginManager().callEvent(parachuteEvent);
 			}
 
-
 			//If the player is not in the air, a chicken will be removed from their head
 			Block block = p.getLocation().getBlock().getRelative(BlockFace.DOWN);
 			if(block.getType() != Material.AIR)
@@ -120,6 +118,7 @@ public class ParachuteListener implements Listener
 			if(p.isSneaking())
 			{
 				addNoFall(p, 20 * 4);
+				if(p.getPassengers().isEmpty()) return;
 				if(p.getPassengers().get(0) != null)
 				{
 					p.getPassengers().get(0).remove();
@@ -198,6 +197,22 @@ public class ParachuteListener implements Listener
 		if(p.getPassengers().get(0) != null)
 		{
 			p.getPassengers().get(0).remove();
+		}
+	}
+
+	@EventHandler
+	public void onDamage(EntityDamageByEntityEvent e)
+	{
+		if(e.getEntity() instanceof Player)
+		{
+			Player p = (Player) e.getEntity();
+			
+			addNoFall(p, 20 * 4);
+			if(p.getPassengers().isEmpty()) return;
+			if(p.getPassengers().get(0) != null)
+			{
+				p.getPassengers().get(0).remove();
+			}
 		}
 	}
 }

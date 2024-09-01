@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="Death"/>
+		<item key="selection" value="landmines"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="landmines"/>
+			<item value="EntityDamageByEntityEvent"/>
+			<item value="event"/>
 			<item value="death"/>
 			<item value="EntityDamageEvent"/>
 			<item value="cancel"/>
 			<item value="player"/>
 			<item value="config"/>
-			<item value="bleeder"/>
-			<item value="bones"/>
-			<item value="getBones"/>
 		</list>
 		<list key="replacehistory">
 			<item value="getBandage"/>

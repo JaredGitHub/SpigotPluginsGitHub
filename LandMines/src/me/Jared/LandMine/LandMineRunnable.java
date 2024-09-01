@@ -53,15 +53,17 @@ public class LandMineRunnable extends BukkitRunnable
 				{
 					Player player = (Player) entity;
 					landMine.changeItemToLandMine(player.getInventory());
+
+
 				}
 				Block entityFootY = entity.getLocation().getBlock();
-
 				for(String landminesLoc : landmines)
 				{
 					double x = Double.parseDouble(getIndex(landminesLoc, 0));
 					double y = Double.parseDouble(getIndex(landminesLoc, 1));
 					double z = Double.parseDouble(getIndex(landminesLoc, 2));
 					String worldStr = getIndex(landminesLoc, 3);
+
 					Location loc = new Location(Bukkit.getWorld(worldStr), x, y, z);
 
 					if(loc.equals(entityFootY.getLocation()))
