@@ -30,19 +30,20 @@ public class GrenadeRunnable extends BukkitRunnable
 		Location entityLoc = entity.getLocation();
 		grenade.setLocation(entityLoc);
 
-		entityLoc.getWorld().spawnParticle(Particle.EXPLOSION, entityLoc, 2, 2, 2, 1, 1);
-		entityLoc.getWorld().spawnParticle(Particle.FLAME, entityLoc, 1, 1, 1, 0, 0);
-		entity.remove();
-
 		if(seconds <= 0)
 		{
+			Location location = entity.getLocation();
+			location.getWorld().createExplosion(location, power, false, false, entity);
 			entityLoc.getWorld().playSound(entityLoc, Sound.ENTITY_GENERIC_EXPLODE, 2, 0.25f);
+			
+			entityLoc.getWorld().spawnParticle(Particle.EXPLOSION, entityLoc, 10, 1, 1, 1, 1);
+			entityLoc.getWorld().spawnParticle(Particle.FLAME, entityLoc, 1, 1, 1, 0, 0);
+			
 			this.cancel();
 			grenade.setLocation(null);
 		}
 		
-		Location location = entity.getLocation();
-		location.getWorld().createExplosion(location, power, false, false);
+		
 		
 		entity.remove();
 	}
