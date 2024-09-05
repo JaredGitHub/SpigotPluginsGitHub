@@ -1,5 +1,8 @@
 package me.Jared;
 
+import java.util.HashMap;
+import java.util.UUID;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -35,7 +38,7 @@ public class Grenade
 	private String displayName;
 	private GrenadeType grenadeType;
 	private float power;
-	private int cooldown;
+	private long cooldownSeconds;
 	private Location grenadeLocation;
 	private Item explosive;
 	private Player thrower;
@@ -46,13 +49,13 @@ public class Grenade
 		MOLOTOV, GRENADE, FLASHBANG, SMOKE, STICKY
 	};
 
-	public Grenade(Material item, String name, GrenadeType type, float power, int cooldownSeconds)
+	public Grenade(Material item, String name, GrenadeType type, float power, long cooldownSeconds)
 	{
 		this.grenadeItem = item;
 		this.displayName = ChatColor.translateAlternateColorCodes('&', name);
 		this.grenadeType = type;
 		this.power = power;
-		this.cooldown = cooldownSeconds;
+		this.cooldownSeconds = cooldownSeconds;
 	}
 
 	public Player getThrower()
@@ -100,36 +103,34 @@ public class Grenade
 		return this.grenadeType;
 	}
 
-	Cooldown throwCooldown = new Cooldown(5);
-
 	private void blowUpGrenade(Entity entity)
 	{
 		GrenadeRunnable grenadeRunnable = new GrenadeRunnable(this, entity, 5, 3.5f);
 		grenadeRunnable.runTaskTimer(GrenadesMain.getInstance(), 50l, 1);
-	
+
 	}
 
 	private void blowUpMolotov(Entity entity)
 	{
-		FireRunnable fireRunnable = new FireRunnable(this,entity, 2, cooldown * 20);
+		FireRunnable fireRunnable = new FireRunnable(this, entity, 2, 7 * 20);
 		fireRunnable.runTaskTimer(GrenadesMain.getInstance(), 50l, 1);
 	}
 
 	private void blowUpSmoke(Entity entity)
 	{
-		SmokeRunnable smokeRunnable = new SmokeRunnable(entity, 2, cooldown * 20);
+		SmokeRunnable smokeRunnable = new SmokeRunnable(entity, 2, 7 * 20);
 		smokeRunnable.runTaskTimer(GrenadesMain.getInstance(), 50l, 1);
 	}
 
 	private void blowUpFlashbang(Entity entity)
 	{
-		FlashBangRunnable flashBangRunnable = new FlashBangRunnable(this,entity, cooldown * 20);
+		FlashBangRunnable flashBangRunnable = new FlashBangRunnable(this, entity, 1 * 20);
 		flashBangRunnable.runTaskTimer(GrenadesMain.getInstance(), 50l, 1);
 	}
 
 	public void blowUpSticky(Entity entity)
 	{
-		var stickyRunnable = new StickyRunnable(this,entity);
+		var stickyRunnable = new StickyRunnable(this, entity);
 		stickyRunnable.runTaskTimer(GrenadesMain.getInstance(), 0, 1);
 
 		Bukkit.getScheduler().runTaskLater(GrenadesMain.getInstance(), new Runnable()
@@ -142,8 +143,7 @@ public class Grenade
 					Location location = getStickyVictim().getLocation();
 					location.getWorld().createExplosion(location, power, false, false);
 					((Damageable) getStickyVictim()).damage(10);
-				}
-				else
+				} else
 				{
 					Location location = getLocation();
 					location.getWorld().createExplosion(location, power, false, false);
@@ -173,65 +173,74 @@ public class Grenade
 		return false;
 	}
 
+	public HashMap<UUID, Long> cooldown = new HashMap<>();
+
 	public void throwGrenade(Player player)
 	{
 		this.thrower = player;
 
 		if(isInRegion(player, "spawn") == false)
 		{
-			if(!throwCooldown.isOnCooldown(thrower))
+			if(cooldown.containsKey(player.getUniqueId()))
 			{
-				throwCooldown.putInCooldown(thrower);
-				
-				player.playSound(player, Sound.ENTITY_FISHING_BOBBER_THROW, 2, 1);
+				long ticksleft = ((Long) cooldown.get(player.getUniqueId())).longValue() / 50L + (this.cooldownSeconds * 20)
+						- System.currentTimeMillis() / 50L;
+				long milliseconds = ticksleft * 50;
+				if(ticksleft > 0L)
 
-				Location playerLocation = thrower.getLocation().add(0, 2, 0);
-				Vector vector = thrower.getEyeLocation().getDirection();
-
-				var playerHand = thrower.getInventory().getItemInMainHand();
-				playerHand.setAmount(playerHand.getAmount() - 1);
-
-				ItemStack item = new ItemStack(grenadeItem);
-				ItemMeta meta = item.getItemMeta();
-				meta.setDisplayName(displayName);
-				item.setItemMeta(meta);
-
-				this.explosive = thrower.getLocation().getWorld().dropItem(playerLocation, item);
-				explosive.setPickupDelay(999);
-				explosive.setVelocity(vector.multiply(1.1));
-
-				switch(grenadeType)
 				{
-				case GRENADE:
-					blowUpGrenade(explosive);
-					break;
-				case MOLOTOV:
-					blowUpMolotov(explosive);
-					break;
-				case FLASHBANG:
-					blowUpFlashbang(explosive);
-					break;
-				case SMOKE:
-					blowUpSmoke(explosive);
-					break;
-				case STICKY:
-					blowUpSticky(explosive);
-					break;
-				default:
-					break;
+					
+					double seconds = milliseconds / 1000.0;
+					
+					thrower.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
+							ChatColor.RED + "" + ChatColor.UNDERLINE + "" + seconds + "s"));
+					return;
 				}
 			}
-			else
+
+			player.playSound(player, Sound.ENTITY_FISHING_BOBBER_THROW, 2, 1);
+
+			Location playerLocation = thrower.getLocation().add(0, 2, 0);
+			Vector vector = thrower.getEyeLocation().getDirection();
+
+			var playerHand = thrower.getInventory().getItemInMainHand();
+			playerHand.setAmount(playerHand.getAmount() - 1);
+
+			ItemStack item = new ItemStack(grenadeItem);
+			ItemMeta meta = item.getItemMeta();
+			meta.setDisplayName(displayName);
+			item.setItemMeta(meta);
+
+			this.explosive = thrower.getLocation().getWorld().dropItem(playerLocation, item);
+			explosive.setPickupDelay(999);
+			explosive.setVelocity(vector.multiply(1.1));
+
+			switch(grenadeType)
 			{
-				thrower.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
-						ChatColor.RED + "" + ChatColor.UNDERLINE + "" + throwCooldown.getCooldownLeft(thrower) + "s"));
+			case GRENADE:
+				blowUpGrenade(explosive);
+				break;
+			case MOLOTOV:
+				blowUpMolotov(explosive);
+				break;
+			case FLASHBANG:
+				blowUpFlashbang(explosive);
+				break;
+			case SMOKE:
+				blowUpSmoke(explosive);
+				break;
+			case STICKY:
+				blowUpSticky(explosive);
+				break;
+			default:
+				break;
 			}
-		}
-		else
+
+			cooldown.put(player.getUniqueId(), Long.valueOf(System.currentTimeMillis()));
+		} else
 		{
-			thrower.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
-					ChatColor.RED + "" + ChatColor.UNDERLINE + "" + "Not here noob!"));
+			thrower.spigot().sendMessage(ChatMessageType.ACTION_BAR,
+					new TextComponent(ChatColor.RED + "" + ChatColor.UNDERLINE + "" + "Not here noob!"));
 		}
 	}
 }
-

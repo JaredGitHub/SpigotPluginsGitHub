@@ -94,11 +94,10 @@ public class Bandage implements Listener
 
 			if(player.getWorld().getName().equals("warz"))
 			{
-				if(e.getCause() == EntityDamageEvent.DamageCause.PROJECTILE
-						|| e.getCause() == EntityDamageEvent.DamageCause.ENTITY_ATTACK)
+				if(e.getCause() == EntityDamageEvent.DamageCause.PROJECTILE)
 				{
 					Random random = new Random();
-					int randomNumber = random.nextInt(25);
+					int randomNumber = random.nextInt(20);
 
 					if(randomNumber == 1)
 					{

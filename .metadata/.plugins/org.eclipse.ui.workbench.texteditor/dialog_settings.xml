@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="createExplosion"/>
+		<item key="selection" value="seconds"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="seconds"/>
+			<item value="throwCooldown"/>
+			<item value="cooldownSeconds"/>
 			<item value="createExplosion"/>
 			<item value="test"/>
 			<item value="landmines"/>
 			<item value="EntityDamageByEntityEvent"/>
 			<item value="event"/>
-			<item value="death"/>
-			<item value="EntityDamageEvent"/>
-			<item value="cancel"/>
 		</list>
 		<list key="replacehistory">
 			<item value="getBandage"/>

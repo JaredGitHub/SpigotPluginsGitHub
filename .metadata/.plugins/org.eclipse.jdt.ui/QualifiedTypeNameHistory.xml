@@ -57,7 +57,7 @@
     <fullyQualifiedTypeName name="me.Jared.ParticleRunnables.GrenadeRunnable"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.BlockExplodeEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityExplodeEvent"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageByEntityEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
 </qualifiedTypeNameHistroy>
