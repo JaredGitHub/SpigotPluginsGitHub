@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="me.Jared.PlaceHolders.DuelsExpansion"/>
-    <fullyQualifiedTypeName name="me.Jared.Manager.MiniGameExpansion"/>
-    <fullyQualifiedTypeName name="me.Jared.Manager.TDMExpansion"/>
-    <fullyQualifiedTypeName name="me.Jared.Manager.GunGameExpansion"/>
-    <fullyQualifiedTypeName name="me.clip.placeholderapi.expansion.PlaceholderExpansion"/>
-    <fullyQualifiedTypeName name="me.Jared.Manager.EventExpansion"/>
-    <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerJoinEvent"/>
-    <fullyQualifiedTypeName name="me.Jared.GameState"/>
     <fullyQualifiedTypeName name="org.bukkit.Location"/>
     <fullyQualifiedTypeName name="org.bukkit.command.CommandExecutor"/>
     <fullyQualifiedTypeName name="me.Jared.Guns.TriggerSwap"/>
@@ -53,11 +45,19 @@
     <fullyQualifiedTypeName name="org.bukkit.inventory.ItemStack"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.SpongeAbsorbEvent"/>
     <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
-    <fullyQualifiedTypeName name="org.bukkit.Material"/>
     <fullyQualifiedTypeName name="me.Jared.ParticleRunnables.GrenadeRunnable"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.BlockExplodeEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityExplodeEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageByEntityEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
     <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="org.bukkit.Color"/>
+    <fullyQualifiedTypeName name="java.awt.Color"/>
+    <fullyQualifiedTypeName name="org.bukkit.Material"/>
+    <fullyQualifiedTypeName name="org.bukkit.map.MapRenderer"/>
+    <fullyQualifiedTypeName name="java.net.URL"/>
+    <fullyQualifiedTypeName name="java.io.IOException"/>
+    <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
+    <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
+    <fullyQualifiedTypeName name="org.bukkit.map.MapPalette"/>
 </qualifiedTypeNameHistroy>

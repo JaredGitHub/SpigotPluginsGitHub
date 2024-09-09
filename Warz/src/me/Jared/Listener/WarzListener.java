@@ -1,12 +1,18 @@
 package me.Jared.Listener;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
+import javax.imageio.ImageIO;
+
 import org.bukkit.Bukkit;
+import org.bukkit.Color;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -26,6 +32,12 @@ import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.LeatherArmorMeta;
+import org.bukkit.inventory.meta.MapMeta;
+import org.bukkit.map.MapCanvas;
+import org.bukkit.map.MapPalette;
+import org.bukkit.map.MapRenderer;
+import org.bukkit.map.MapView;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
@@ -125,6 +137,86 @@ public class WarzListener implements Listener
 			Warz.getInstance().saveConfig();
 		}
 	}
+	
+	private void givePlayerItems(Player p)
+	{
+		Color color = null;
+		ItemStack sword = new ItemStack(Material.WOODEN_SWORD);
+		ItemStack food = new ItemStack(Material.LAPIS_LAZULI, 4);
+		
+		if(p.hasPermission("ranks.default"))
+		{
+			color = null;
+		}
+		else if(p.hasPermission("ranks.vip"))
+		{
+			color = Color.LIME;
+			sword = new ItemStack(Material.STONE_SWORD);
+			food = new ItemStack(Material.LAPIS_LAZULI, 8);
+		}
+		else if(p.hasPermission("ranks.vipplus"))
+		{
+			color = Color.GREEN;
+			sword = new ItemStack(Material.STONE_SWORD);
+			food = new ItemStack(Material.YELLOW_DYE, 4);
+		}
+		else if(p.hasPermission("ranks.mvp"))
+		{
+			color = Color.TEAL;
+			sword = new ItemStack(Material.IRON_SWORD);
+			food = new ItemStack(Material.YELLOW_DYE, 8);
+		}
+		else if(p.hasPermission("ranks.mvpplus"))
+		{
+			color = Color.BLUE;
+			sword = new ItemStack(Material.IRON_SWORD);
+			food = new ItemStack(Material.PINK_DYE, 4);
+		}
+		
+		ItemStack chestPlate = new ItemStack(Material.LEATHER_CHESTPLATE);
+		LeatherArmorMeta meta = (LeatherArmorMeta) chestPlate.getItemMeta();
+		meta.setColor(color);
+		chestPlate.setItemMeta(meta);
+		p.getInventory().setChestplate(chestPlate);
+		
+		p.getInventory().setItem(0, sword);
+		p.getInventory().setItem(1, food);
+		p.getInventory().setItem(2, new ItemStack(Material.BONE, 1));
+		p.getInventory().setItem(3, new ItemStack(Material.PAPER, 1));
+		p.getInventory().setItem(4, new ItemStack(Material.COMPASS));
+		
+		ItemStack map = new ItemStack(Material.FILLED_MAP);
+		MapMeta mapMeta = (MapMeta) map.getItemMeta();
+		
+		MapView mapView = Bukkit.createMap(p.getWorld());
+		mapView.getRenderers().clear();
+		mapView.addRenderer(new MapRenderer()
+		{
+			
+			@Override
+			public void render(MapView mapView, MapCanvas mapCanvas, Player player)
+			{
+				try
+				{
+					URL url = new URL("https://i.imgur.com/xaWUSlI.png");
+					
+					BufferedImage image = ImageIO.read(url);
+					mapCanvas.drawImage(0, 0, MapPalette.resizeImage(image));
+					
+				} catch(IOException e)
+				{
+					
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		
+		mapMeta.setMapView(mapView);
+		map.setItemMeta(mapMeta);
+		
+		p.getInventory().setItem(5, map);
+	}
 
 	@EventHandler
 	public void onRespawn(PlayerRespawnEvent e)
@@ -147,11 +239,7 @@ public class WarzListener implements Listener
 					{
 						p.setGameMode(GameMode.SURVIVAL);
 						
-						p.getInventory().setChestplate(new ItemStack(Material.LEATHER_CHESTPLATE));
-						p.getInventory().setItem(0, new ItemStack(Material.WOODEN_SWORD));
-						p.getInventory().setItem(1, new ItemStack(Material.LAPIS_LAZULI, 4));
-						p.getInventory().setItem(2, new ItemStack(Material.BONE, 1));
-						p.getInventory().setItem(3, new ItemStack(Material.PAPER, 1));
+						givePlayerItems(p);
 
 						p.teleport(randomLocation);
 						deathLocation.remove(p.getUniqueId());
