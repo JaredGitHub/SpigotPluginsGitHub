@@ -105,9 +105,8 @@ public class Grenade
 
 	private void blowUpGrenade(Entity entity)
 	{
-		GrenadeRunnable grenadeRunnable = new GrenadeRunnable(this, entity, 5, 3.5f);
-		grenadeRunnable.runTaskTimer(GrenadesMain.getInstance(), 50l, 1);
-
+		GrenadeRunnable grenadeRunnable = new GrenadeRunnable(this, entity, 1, 3.5f);
+		grenadeRunnable.runTaskTimer(GrenadesMain.getInstance(), 20, 1);
 	}
 
 	private void blowUpMolotov(Entity entity)

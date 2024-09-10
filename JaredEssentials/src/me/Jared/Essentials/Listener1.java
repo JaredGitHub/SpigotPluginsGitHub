@@ -18,7 +18,6 @@ import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
-import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.hanging.HangingBreakByEntityEvent;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
@@ -26,6 +25,7 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerSignOpenEvent;
 import org.bukkit.event.server.ServerListPingEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
@@ -223,16 +223,19 @@ public class Listener1 implements Listener
 			}
 		}
 	}
-
 	@EventHandler
-	public void onDeath(PlayerDeathEvent e)
+	public void onRespawn(PlayerRespawnEvent e)
 	{
-		Player player = e.getEntity();
+		Player player = e.getPlayer();
+		
 		if(player.getWorld().getName().equals("world"))
 		{
-			player.setRespawnLocation(player.getWorld().getSpawnLocation(), true);
+			player.setRespawnLocation(Bukkit.getWorld("world").getSpawnLocation());
+
 		}
 	}
+
+
 
 	@EventHandler
 	public void onWeatherChange(WeatherChangeEvent e)

@@ -8,7 +8,7 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/jared/Desktop/BuildTools/Spigot/Spigot-API/target/spigot-api.jar"/>
 	<classpathentry kind="lib" path="C:/Users/jared/Desktop/SERVER/plugins/Warz.jar"/>
-	<classpathentry kind="lib" path="C:/Users/jared/Desktop/SERVER/plugins/worldguard-bukkit-7.0.10-dist.jar"/>
-	<classpathentry kind="lib" path="C:/Users/jared/Desktop/SERVER/plugins/worldedit-bukkit-7.3.2.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jared/Desktop/SERVER/plugins/worldguard-bukkit-7.0.11-beta1-dist.jar"/>
+	<classpathentry kind="lib" path="C:/Users/jared/Desktop/SERVER/plugins/FastAsyncWorldEdit-Bukkit-2.11.2-SNAPSHOT-897.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

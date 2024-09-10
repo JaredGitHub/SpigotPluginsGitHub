@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.bukkit.Location"/>
     <fullyQualifiedTypeName name="org.bukkit.command.CommandExecutor"/>
     <fullyQualifiedTypeName name="me.Jared.Guns.TriggerSwap"/>
     <fullyQualifiedTypeName name="me.Jared.Manager.ConfigManager"/>
@@ -60,4 +59,5 @@
     <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
     <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
     <fullyQualifiedTypeName name="org.bukkit.map.MapPalette"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerRespawnEvent"/>
 </qualifiedTypeNameHistroy>

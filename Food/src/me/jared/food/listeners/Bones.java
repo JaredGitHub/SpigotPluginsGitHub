@@ -115,6 +115,7 @@ public class Bones implements Listener
 					{
 						player.setWalkSpeed(0.1f);
 						player.swingMainHand();
+						player.setSprinting(false);
 
 						player.sendMessage(ChatColor.AQUA + "You have broken your legs!");
 						player.playSound(player, Sound.ITEM_WOLF_ARMOR_CRACK, 1, 1);
