@@ -52,7 +52,7 @@ public class DeathmatchListener implements Listener
 		gameManager.getPlayerManager().removePlayer(player);
 	}
 
-	private HashMap<UUID, Long> cooldown = new HashMap<UUID, Long>();
+	private HashMap<UUID, Long> cooldown = new HashMap<>();
 	private int cooldowntime = 3*1000;
 
 	@EventHandler
@@ -154,8 +154,10 @@ public class DeathmatchListener implements Listener
 				KitManager.defaultHotBar(player.getUniqueId());
 				KitManager.diamondKit(player);
 				for (int i = 0; i < 9; i++)
-				player.getInventory().addItem(new ItemStack[]
-						{ KitManager.sniperAmmo(128) });
+				{
+					player.getInventory().addItem(new ItemStack[]
+							{ KitManager.sniperAmmo(128) });
+				}
 				player.getInventory().addItem(new ItemStack[]
 						{ KitManager.shotgunAmmo(128) });
 				player.getInventory().addItem(new ItemStack[]

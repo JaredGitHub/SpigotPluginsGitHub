@@ -16,7 +16,8 @@ public class TPARunnable extends BukkitRunnable
 	private HashMap<Player, Player> requesters;
 	private ArrayList<Player> playersInCooldown;
 
-	public TPARunnable(Player player, int seconds, HashMap<Player, Player> requesters, ArrayList<Player> playersInCooldown)
+	public TPARunnable(Player player, int seconds, HashMap<Player, Player> requesters,
+			ArrayList<Player> playersInCooldown)
 	{
 		this.player = player;
 		this.requesters = requesters;
@@ -30,12 +31,15 @@ public class TPARunnable extends BukkitRunnable
 	@Override
 	public void run()
 	{
-		if(!(player.isOnline())) cancel(); 
+		if(!(player.isOnline()))
+		{
+			cancel();
+		}
 		if(seconds <= 0)
 		{
 			requesters.get(player).teleport(player);
 
-			//Start five minute timer and add player to ArrayList
+			// Start five minute timer and add player to ArrayList
 			playersInCooldown.add(requesters.get(player));
 			this.cancel();
 			return;
@@ -58,12 +62,13 @@ public class TPARunnable extends BukkitRunnable
 				}
 			}
 
-			player.sendMessage(ChatColor.GOLD + "Teleporting " + requesters.get(player).getName() + " to " + player.getName()
-			+ " in " + ChatColor.WHITE + seconds + ChatColor.GOLD + " seconds!");
+			player.sendMessage(ChatColor.GOLD + "Teleporting " + requesters.get(player).getName() + " to "
+					+ player.getName() + " in " + ChatColor.WHITE + seconds + ChatColor.GOLD + " seconds!");
 
-			requesters.get(player).sendMessage(ChatColor.GOLD + "Teleporting " + requesters.get(player).getName() + " to "
-					+ player.getName() + " in " + ChatColor.WHITE + seconds + ChatColor.GOLD + " seconds, don't move!");
-
+			requesters.get(player)
+					.sendMessage(ChatColor.GOLD + "Teleporting " + requesters.get(player).getName() + " to "
+							+ player.getName() + " in " + ChatColor.WHITE + seconds + ChatColor.GOLD
+							+ " seconds, don't move!");
 
 			previousLocation = currentLocation.clone();
 			seconds--;

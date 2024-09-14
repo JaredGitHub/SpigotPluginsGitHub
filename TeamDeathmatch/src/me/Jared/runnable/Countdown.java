@@ -30,7 +30,7 @@ public class Countdown extends BukkitRunnable
 
 			cancel();
 			gameManager.setGameState(GameState.LIVE);
-			
+
 			return;
 		}
 

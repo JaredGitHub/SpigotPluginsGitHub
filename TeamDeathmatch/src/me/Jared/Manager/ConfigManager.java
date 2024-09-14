@@ -29,14 +29,14 @@ public class ConfigManager
 
 	public static ArrayList<String> getWinners(int winningTeam)
 	{
-		ArrayList<String> list = new ArrayList<String>(config.getStringList("tdm.team." + winningTeam + ".players"));
+		ArrayList<String> list = new ArrayList<>(config.getStringList("tdm.team." + winningTeam + ".players"));
 
 		return list;
 	}
 
 	public static int getWinningTeam()
 	{
-		//return winning team based on the team 
+		//return winning team based on the team
 		int team1 = getKills(1);
 		int team2 = getKills(2);
 
@@ -68,7 +68,7 @@ public class ConfigManager
 
 	public static void setTeam(int number, Player player)
 	{
-		ArrayList<String> list = new ArrayList<String>(config.getStringList("tdm.team." + number + ".players"));
+		ArrayList<String> list = new ArrayList<>(config.getStringList("tdm.team." + number + ".players"));
 
 		if(!list.contains(player.getUniqueId().toString()))
 		{

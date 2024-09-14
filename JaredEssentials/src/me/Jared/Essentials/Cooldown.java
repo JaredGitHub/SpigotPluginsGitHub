@@ -14,7 +14,7 @@ public class Cooldown
 
 	private int seconds = 0;
 
-	private HashMap<UUID, Long> hashmap = new HashMap<UUID, Long>();
+	private HashMap<UUID, Long> hashmap = new HashMap<>();
 
 	public void putInCooldown(Player player)
 	{
@@ -24,7 +24,7 @@ public class Cooldown
 	public boolean isOnCooldown(Player player)
 	{
 		UUID uuid = player.getUniqueId();
-		return (hashmap.get(uuid) != null && hashmap.get(uuid) > System.currentTimeMillis());
+		return(hashmap.get(uuid) != null && hashmap.get(uuid) > System.currentTimeMillis());
 	}
 
 	public int getCooldownSeconds(Player player)

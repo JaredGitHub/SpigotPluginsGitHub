@@ -19,7 +19,7 @@ public class PlayerManager
 	public PlayerManager(GameManager gameManager)
 	{
 		this.setGameManager(gameManager);
-		this.players = new ArrayList<Player>();
+		this.players = new ArrayList<>();
 		this.maxPlayers = ConfigManager.getPlayersNeeded();
 	}
 
@@ -37,7 +37,7 @@ public class PlayerManager
 	{
 		players.add(player);
 	}
-	
+
 	public void removePlayer(Player player)
 	{
 		players.remove(player);
@@ -79,7 +79,7 @@ public class PlayerManager
 		newloc.setPitch(center.getPitch());
 		return newloc;
 	}
-	
+
 	public void teleportPlayers(Location location)
 	{
 		for(Player player : getPlayers())
@@ -94,7 +94,7 @@ public class PlayerManager
 			removePlayer(player);
 			Bukkit.getConsoleSender().sendMessage("Removed player " + player.getName());
 		}
-		players = new ArrayList<Player>();
+		players = new ArrayList<>();
 	}
 
 	public GameManager getGameManager()

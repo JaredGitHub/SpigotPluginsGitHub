@@ -4,6 +4,11 @@
 	<item key="org.eclipse.jdt.ui.codeformatter.loadpath" value="C:\Users\jared\Desktop"/>
 	<item key="org.eclipse.jdt.ui.last.selected.jre.kind2" value="2"/>
 	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-17"/>
+	<item key="SortMembers.sort_all" value="false"/>
+	<item key="TypeHierarchyViewPart.hierarchyview" value="2"/>
+	<item key="TypeHierarchyViewPart.qualifiednames" value="false"/>
+	<item key="TypeHierarchyViewPart.linkeditors" value="false"/>
+	<item key="TypeHierarchyViewPart.orientation" value="3"/>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item key="group_libraries" value="true"/>
 		<item key="layout" value="2"/>
@@ -40,26 +45,26 @@
 		<item key="JarManifestWizardPage.MANIFEST_LOCATION" value=""/>
 		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\BoostPad.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\JaredEssentials.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Boosters.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Stats.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\BarbWire.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Warz.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\Grenades.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\Food.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Warp.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Teams.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\TDM.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\Stats.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\PersonalWalls.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\PlaceableWalls.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\PersonalVault.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Parachute.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\MiniGame.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\LandMines.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\BoostPad.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Kits.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\JaredEssentials.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Grenades.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Food.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\PersonalWalls.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Guns.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\GunGame.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\GrapplingHook.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\GameGUI.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\Event.jar"/>
 		</list>
 		<section name="JarPackageWizard.dialogBounds">
 			<item key="DIALOG_X_ORIGIN" value="384"/>
@@ -78,6 +83,7 @@
 	</section>
 	<section name="OptionalMessageDialog.hide.">
 		<item key="org.eclipse.jdt.ui.typecomment.deprecated" value="true"/>
+		<item key="SortMembersMessageDialog.optionalDialog.id" value="false"/>
 	</section>
 	<section name="NewClassWizardPage">
 		<item key="create_constructor" value="false"/>
@@ -137,5 +143,8 @@
 			<item key="DIALOG_Y_ORIGIN" value="52"/>
 			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-21|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 		</section>
+	</section>
+	<section name="ClasspathContainerSelectionPage">
+		<item key="index" value="0"/>
 	</section>
 </section>

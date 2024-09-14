@@ -40,13 +40,16 @@ public class TDMExpansion extends PlaceholderExpansion
 	@Override
 	public String onPlaceholderRequest(Player player, String params)
 	{
-		if(player == null) return "";
+		if(player == null)
+		{
+			return "";
+		}
 		if(params.equals("wins"))
 		{
 			return Deathmatch.getInstance().getConfig().getString(player.getUniqueId() + ".wins");
 		}
-		
+
 		return null;
 	}
-	
+
 }

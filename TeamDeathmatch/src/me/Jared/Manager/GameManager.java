@@ -57,16 +57,21 @@ public class GameManager
 
 	public void setGameState(GameState gameState)
 	{
-		if(gameState == GameState.LIVE && gameState == GameState.COUNTDOWN) return;
-		if(this.gameState == gameState) return;
+		if((gameState == GameState.LIVE && gameState == GameState.COUNTDOWN) || (this.gameState == gameState))
+		{
+			return;
+		}
 
 		this.gameState = gameState;
 
 		switch(gameState)
 		{
 		case LIVE:
-			if(this.countdown != null) this.countdown.cancel();
-			
+			if(this.countdown != null)
+			{
+				this.countdown.cancel();
+			}
+
 			GameTimer gameTimer = new GameTimer(this);
 			gameTimer.runTaskTimer(this.getPlugin(), 0, 20);
 
@@ -74,7 +79,7 @@ public class GameManager
 
 			break;
 		case COUNTDOWN:
-			
+
 			Bukkit.broadcastMessage(ChatColor.GREEN + "Team deathmatch has started!");
 			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "killstreak f");
 			for(Player player : playerManager.getPlayers())
@@ -97,7 +102,9 @@ public class GameManager
 				{
 					KitManager.diamondKit(player);
 					for (int i = 0; i < 9; i++)
+					{
 						KitManager.defaultHotBar(player.getInventory());
+					}
 					player.getInventory().addItem(new ItemStack[]
 							{ KitManager.sniperAmmo(128) });
 					player.getInventory().addItem(new ItemStack[]
@@ -116,8 +123,14 @@ public class GameManager
 			break;
 		case WAITING:
 
-			if(this.countdown != null) this.countdown.cancel();
-			if(this.gameTimer != null) this.gameTimer.cancel();
+			if(this.countdown != null)
+			{
+				this.countdown.cancel();
+			}
+			if(this.gameTimer != null)
+			{
+				this.gameTimer.cancel();
+			}
 
 			//If the winning team is 0 then it is a tie if not then it is the team with the most kills
 			if(ConfigManager.getWinningTeam() == 0)
@@ -127,7 +140,7 @@ public class GameManager
 			else
 			{
 
-				Bukkit.broadcastMessage(ChatColor.GREEN + "Team " + ConfigManager.getWinningTeam() 
+				Bukkit.broadcastMessage(ChatColor.GREEN + "Team " + ConfigManager.getWinningTeam()
 				+ " has won the game with " + ConfigManager.getKills(ConfigManager.getWinningTeam()) + " kills!");
 			}
 
@@ -151,7 +164,7 @@ public class GameManager
 				if(ConfigManager.getWinners(ConfigManager.getWinningTeam()).contains(player.getUniqueId().toString()))
 				{
 					Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "givegems " + player.getName() + " 250");
-					
+
 					//add wins to the config
 					plugin.getConfig().set(player.getUniqueId() + ".wins", plugin.getConfig().getInt(player.getUniqueId() + ".wins") + 1);
 					plugin.saveConfig();

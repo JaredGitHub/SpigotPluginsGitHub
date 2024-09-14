@@ -49,8 +49,8 @@ public class DeathmatchCommand implements CommandExecutor
 
 						if (gameManager.getPlayerManager().getPlayers().contains(player))
 						{
-							ArrayList<String> list = 
-									new ArrayList<String>(Deathmatch.getInstance().getConfig().getStringList
+							ArrayList<String> list =
+									new ArrayList<>(Deathmatch.getInstance().getConfig().getStringList
 											("tdm.team." + ConfigManager.getTeam(player) + ".players"));
 							ConfigManager.setKills(ConfigManager.getTeam(player), 0);
 
@@ -123,7 +123,7 @@ public class DeathmatchCommand implements CommandExecutor
 						player.sendMessage(ChatColor.RED + "Stay still");
 						return true;
 					}
-					
+
 					if(args.length == 2)
 					{
 						if (gameManager.getGameState() == GameState.LIVE)
@@ -143,8 +143,8 @@ public class DeathmatchCommand implements CommandExecutor
 							player.sendMessage(ChatColor.RED + "Too many players in game!");
 							return true;
 						}
-						
-						
+
+
 						try
 						{
 							int team = Integer.parseInt(args[1]);
@@ -234,7 +234,7 @@ public class DeathmatchCommand implements CommandExecutor
 							if(gameManager.getGameState() == GameState.WAITING)
 							{
 								try
-								{	
+								{
 									int maxPlayers = Integer.parseInt(args[1]);
 
 									for(Player players : gameManager.getPlayerManager().getPlayers())
@@ -242,7 +242,7 @@ public class DeathmatchCommand implements CommandExecutor
 										players.teleport(Bukkit.getWorld("world").getSpawnLocation());
 									}
 									gameManager.getPlayerManager().getPlayers().clear();
-									
+
 									if (maxPlayers % 2 == 0)
 									{
 
@@ -326,13 +326,16 @@ public class DeathmatchCommand implements CommandExecutor
 							return true;
 						}
 
-						if(args[1] == null) player.sendMessage(ChatColor.RED + "Usage: /tdm set [number]");
+						if(args[1] == null)
+						{
+							player.sendMessage(ChatColor.RED + "Usage: /tdm set [number]");
+						}
 
 						int id;
 						try
 						{
 							id = Integer.parseInt(args[1]);
-							
+
 							if (id > 2)
 							{
 								player.sendMessage(ChatColor.RED + "There are only two teams!");

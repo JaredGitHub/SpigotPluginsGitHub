@@ -24,7 +24,7 @@ public class GameTimer extends BukkitRunnable
 	public void run()
 	{
 		if(gameManager.getGameState() == GameState.LIVE)
-		{	
+		{
 			for(Player player : gameManager.getPlayerManager().getPlayers())
 			{
 				player.setLevel(gameTimeSeconds);
@@ -40,7 +40,7 @@ public class GameTimer extends BukkitRunnable
 			Bukkit.getConsoleSender().sendMessage("CANCELED THE GAMETIMER TASK");
 			cancel();
 		}
-		
+
 		//If game timer is done set gamestate to waiting
 		if(gameTimeSeconds == 0)
 		{

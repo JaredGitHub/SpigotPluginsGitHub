@@ -84,7 +84,7 @@ public class Listener1 implements Listener
 			int x = plugin.getConfig().getInt("tutorial.x");
 			int y = plugin.getConfig().getInt("tutorial.y");
 			int z = plugin.getConfig().getInt("tutorial.z");
-			Location location = new Location(Bukkit.getWorld("world"),x,y,z);
+			Location location = new Location(Bukkit.getWorld("world"), x, y, z);
 			p.teleport(location);
 		}
 	}
@@ -163,7 +163,6 @@ public class Listener1 implements Listener
 				e.getPlayer().sendMessage(ChatColor.WHITE + "Plugins (2): " + ChatColor.GREEN + "Die" + ChatColor.WHITE
 						+ ", " + ChatColor.GREEN + "Noob");
 			}
-
 		}
 	}
 
@@ -188,8 +187,7 @@ public class Listener1 implements Listener
 					e.setCancelled(true);
 					break;
 				}
-			}
-			else
+			} else
 			{
 				e.setCancelled(true);
 			}
@@ -223,19 +221,18 @@ public class Listener1 implements Listener
 			}
 		}
 	}
+
 	@EventHandler
 	public void onRespawn(PlayerRespawnEvent e)
 	{
 		Player player = e.getPlayer();
-		
+
 		if(player.getWorld().getName().equals("world"))
 		{
-			player.setRespawnLocation(Bukkit.getWorld("world").getSpawnLocation());
+			player.setRespawnLocation(new Location(player.getWorld(), 0, 0, 0));
 
 		}
 	}
-
-
 
 	@EventHandler
 	public void onWeatherChange(WeatherChangeEvent e)

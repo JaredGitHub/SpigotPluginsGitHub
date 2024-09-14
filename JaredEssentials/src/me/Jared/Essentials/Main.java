@@ -45,8 +45,8 @@ public class Main extends JavaPlugin implements Listener
 	@Override
 	public void onEnable()
 	{
-		requesters = new HashMap<Player, Player>();
-		playersInCooldown = new ArrayList<Player>();
+		requesters = new HashMap<>();
+		playersInCooldown = new ArrayList<>();
 		instance = this;
 
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "My plugin has been enabled!");
@@ -101,9 +101,9 @@ public class Main extends JavaPlugin implements Listener
 					String playerName = requesters.get(p).getName();
 					requesters.put(Bukkit.getPlayer(playerName), p);
 					String message = "";
-					for(int i = 0; i < args.length; i++)
+					for(String arg : args)
 					{
-						message += args[i] + " ";
+						message += arg + " ";
 					}
 
 					if(Bukkit.getPlayer(playerName) != null)
@@ -191,7 +191,7 @@ public class Main extends JavaPlugin implements Listener
 							&& !(cooldown1min.isOnCooldown(p)))
 					{
 						Bukkit.getPlayer(playerName)
-						.sendMessage(ChatColor.GRAY + p.getName() + " has sent you a TPA request. (/tpyes)");
+								.sendMessage(ChatColor.GRAY + p.getName() + " has sent you a TPA request. (/tpyes)");
 						p.sendMessage(ChatColor.GRAY + "You have sent a TPA request to " + playerName);
 						requesters.put(Bukkit.getPlayer(playerName), p);
 						requesters.put(p, Bukkit.getPlayer(playerName));
@@ -221,32 +221,32 @@ public class Main extends JavaPlugin implements Listener
 						{
 							int seconds = cooldown1min.getCooldownSeconds(p);
 							int minutes = seconds / 60;
-							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait "
-									+ minutes + "m " + seconds % 60 + "s");
+							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m "
+									+ seconds % 60 + "s");
 						} else if(p.hasPermission("ranks.mvp"))
 						{
 							int seconds = cooldown2min.getCooldownSeconds(p);
 							int minutes = seconds / 60;
-							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait "
-									+ minutes + "m " + seconds % 60 + "s");
+							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m "
+									+ seconds % 60 + "s");
 						} else if(p.hasPermission("ranks.vipplus"))
 						{
 							int seconds = cooldown3min.getCooldownSeconds(p);
 							int minutes = seconds / 60;
-							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait "
-									+ minutes + "m " + seconds % 60 + "s");
+							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m "
+									+ seconds % 60 + "s");
 						} else if(p.hasPermission("ranks.vip"))
 						{
 							int seconds = cooldown4min.getCooldownSeconds(p);
 							int minutes = seconds / 60;
-							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait "
-									+ minutes + "m " + seconds % 60 + "s");
+							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m "
+									+ seconds % 60 + "s");
 						} else
 						{
 							int seconds = cooldown5min.getCooldownSeconds(p);
 							int minutes = seconds / 60;
-							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait "
-									+ minutes + "m " + seconds % 60 + "s");
+							p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m "
+									+ seconds % 60 + "s");
 						}
 
 						return true;
