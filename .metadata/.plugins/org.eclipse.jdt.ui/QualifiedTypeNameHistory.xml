@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.bukkit.command.CommandExecutor"/>
     <fullyQualifiedTypeName name="me.Jared.Guns.TriggerSwap"/>
     <fullyQualifiedTypeName name="me.Jared.Manager.ConfigManager"/>
     <fullyQualifiedTypeName name="me.Jared.Duels"/>
@@ -49,15 +48,16 @@
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityExplodeEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageByEntityEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="org.bukkit.Color"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
-    <fullyQualifiedTypeName name="org.bukkit.Material"/>
     <fullyQualifiedTypeName name="org.bukkit.map.MapRenderer"/>
-    <fullyQualifiedTypeName name="java.net.URL"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
     <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
     <fullyQualifiedTypeName name="org.bukkit.map.MapPalette"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerRespawnEvent"/>
+    <fullyQualifiedTypeName name="java.net.URL"/>
+    <fullyQualifiedTypeName name="org.bukkit.Material"/>
+    <fullyQualifiedTypeName name="org.bukkit.World"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
 </qualifiedTypeNameHistroy>

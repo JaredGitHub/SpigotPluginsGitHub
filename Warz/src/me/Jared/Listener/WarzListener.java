@@ -16,6 +16,7 @@ import org.bukkit.Color;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Drowned;
 import org.bukkit.entity.Player;
@@ -29,6 +30,7 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
@@ -137,85 +139,49 @@ public class WarzListener implements Listener
 			Warz.getInstance().saveConfig();
 		}
 	}
-	
+
 	private void givePlayerItems(Player p)
 	{
 		Color color = null;
 		ItemStack sword = new ItemStack(Material.WOODEN_SWORD);
 		ItemStack food = new ItemStack(Material.LAPIS_LAZULI, 4);
-		
+
 		if(p.hasPermission("ranks.default"))
 		{
 			color = null;
-		}
-		else if(p.hasPermission("ranks.vip"))
+		} else if(p.hasPermission("ranks.vip"))
 		{
 			color = Color.LIME;
 			sword = new ItemStack(Material.STONE_SWORD);
 			food = new ItemStack(Material.LAPIS_LAZULI, 8);
-		}
-		else if(p.hasPermission("ranks.vipplus"))
+		} else if(p.hasPermission("ranks.vipplus"))
 		{
 			color = Color.GREEN;
 			sword = new ItemStack(Material.STONE_SWORD);
 			food = new ItemStack(Material.YELLOW_DYE, 4);
-		}
-		else if(p.hasPermission("ranks.mvp"))
+		} else if(p.hasPermission("ranks.mvp"))
 		{
 			color = Color.TEAL;
 			sword = new ItemStack(Material.IRON_SWORD);
 			food = new ItemStack(Material.YELLOW_DYE, 8);
-		}
-		else if(p.hasPermission("ranks.mvpplus"))
+		} else if(p.hasPermission("ranks.mvpplus"))
 		{
 			color = Color.BLUE;
 			sword = new ItemStack(Material.IRON_SWORD);
 			food = new ItemStack(Material.PINK_DYE, 4);
 		}
-		
+
 		ItemStack chestPlate = new ItemStack(Material.LEATHER_CHESTPLATE);
 		LeatherArmorMeta meta = (LeatherArmorMeta) chestPlate.getItemMeta();
 		meta.setColor(color);
 		chestPlate.setItemMeta(meta);
 		p.getInventory().setChestplate(chestPlate);
-		
+
 		p.getInventory().setItem(0, sword);
 		p.getInventory().setItem(1, food);
 		p.getInventory().setItem(2, new ItemStack(Material.BONE, 1));
 		p.getInventory().setItem(3, new ItemStack(Material.PAPER, 1));
 		p.getInventory().setItem(4, new ItemStack(Material.COMPASS));
-		
-		ItemStack map = new ItemStack(Material.FILLED_MAP);
-		MapMeta mapMeta = (MapMeta) map.getItemMeta();
-		
-		MapView mapView = Bukkit.createMap(p.getWorld());
-		mapView.getRenderers().clear();
-		mapView.addRenderer(new MapRenderer()
-		{
-			
-			@Override
-			public void render(MapView mapView, MapCanvas mapCanvas, Player player)
-			{
-				try
-				{
-					URL url = new URL("https://i.imgur.com/xaWUSlI.png");
-					
-					BufferedImage image = ImageIO.read(url);
-					mapCanvas.drawImage(0, 0, MapPalette.resizeImage(image));
-					
-				} catch(IOException e)
-				{
-					
-					e.printStackTrace();
-				}
-				
-			}
-		});
-		
-		mapMeta.setMapView(mapView);
-		map.setItemMeta(mapMeta);
-		
-		p.getInventory().setItem(5, map);
 	}
 
 	@EventHandler
@@ -238,7 +204,7 @@ public class WarzListener implements Listener
 					if(p.isOnline())
 					{
 						p.setGameMode(GameMode.SURVIVAL);
-						
+
 						givePlayerItems(p);
 
 						p.teleport(randomLocation);
@@ -340,5 +306,69 @@ public class WarzListener implements Listener
 				}
 			}
 		}
+	}
+
+	public ItemStack getMap(World world)
+	{
+		ItemStack item = new ItemStack(Material.FILLED_MAP);
+		MapMeta mapMeta = (MapMeta) item.getItemMeta();
+
+		MapView mapView = Bukkit.createMap(world);
+		mapView.getRenderers().clear();
+		mapView.addRenderer(new MapRenderer()
+		{
+
+			@Override
+			public void render(MapView mapView, MapCanvas mapCanvas, Player player)
+			{
+				try
+				{
+					URL url = new URL("https://i.imgur.com/xaWUSlI.png");
+
+					BufferedImage image = ImageIO.read(url);
+					mapCanvas.drawImage(0, 0, MapPalette.resizeImage(image));
+
+				} catch(IOException e)
+				{
+
+					e.printStackTrace();
+				}
+
+			}
+		});
+
+		mapMeta.setMapView(mapView);
+		return item;
+	}
+
+	@EventHandler
+	public void onMove(PlayerMoveEvent e)
+	{
+		Player player = e.getPlayer();
+		if(player.getInventory().contains(Material.MAP) || player.getInventory().contains(Material.FILLED_MAP))
+			;
+		{
+			ItemStack map = null;
+			if(player.getInventory().getItemInMainHand().getType() == Material.MAP
+					|| player.getInventory().getItemInMainHand().getType() == Material.FILLED_MAP)
+			{
+				map = player.getInventory().getItemInMainHand();
+			} else if(player.getInventory().getItemInOffHand().getType() == Material.MAP
+					|| player.getInventory().getItemInOffHand().getType() == Material.FILLED_MAP)
+			{
+				map = player.getInventory().getItemInOffHand();
+			}
+
+			if(map == null)
+				return;
+
+			MapMeta mapMeta = (MapMeta) map.getItemMeta();
+
+			if(getMap(Bukkit.getWorld("world")).getItemMeta().equals(mapMeta))
+			{
+				map.setItemMeta(mapMeta);
+			}
+		}
+
 	}
 }

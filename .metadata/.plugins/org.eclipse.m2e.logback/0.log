@@ -153,3 +153,813 @@
 2024-09-09 14:19:40,149 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
 2024-09-09 14:21:30,361 [Worker-9: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2024-09-10 10:08:15,863 [Worker-8: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-09-12 09:36:58,059 [Worker-8: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-09-12 21:45:36,708 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-09-14 07:45:26,778 [Worker-9: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-09-14 08:06:02,413 [Worker-11: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-09-14 08:08:07,972 [Worker-9: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-09-14 08:11:58,675 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-09-14 08:12:24,004 [Worker-34: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: JaredEssentials:JaredEssentials:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\pom.xml.
+2024-09-14 08:12:25,357 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:12:25,359 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 08:12:25,365 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:12:25,366 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources
+2024-09-14 08:12:25,574 [Worker-34: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /JaredEssentials/src
+2024-09-14 08:12:25,575 [Worker-34: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /JaredEssentials/src/main/resources overlaps with sources folder /JaredEssentials/src
+2024-09-14 08:12:25,577 [Worker-34: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /JaredEssentials/src/test/java because it overlaps with /JaredEssentials/src
+2024-09-14 08:12:25,578 [Worker-34: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /JaredEssentials/src/test/resources overlaps with sources folder /JaredEssentials/src
+2024-09-14 08:12:25,674 [Worker-34: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:12:25,945 [Worker-34: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: JaredEssentials:JaredEssentials:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\pom.xml.
+2024-09-14 08:12:26,057 [Worker-34: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /JaredEssentials/src
+2024-09-14 08:12:26,058 [Worker-34: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /JaredEssentials/src/main/resources overlaps with sources folder /JaredEssentials/src
+2024-09-14 08:12:26,058 [Worker-34: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /JaredEssentials/src/test/java because it overlaps with /JaredEssentials/src
+2024-09-14 08:12:26,059 [Worker-34: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /JaredEssentials/src/test/resources overlaps with sources folder /JaredEssentials/src
+2024-09-14 08:12:26,139 [Worker-34: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:12:26,438 [Worker-0: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:12:26,439 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 08:12:26,442 [Worker-0: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:12:26,443 [Worker-0: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources
+2024-09-14 08:12:51,917 [Worker-29: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: JaredEssentials:JaredEssentials:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\pom.xml.
+2024-09-14 08:12:52,013 [Worker-29: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:12:52,013 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 08:12:52,016 [Worker-29: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:12:52,017 [Worker-29: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources
+2024-09-14 08:12:52,172 [Worker-29: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:12:52,350 [Worker-29: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: JaredEssentials:JaredEssentials:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\pom.xml.
+2024-09-14 08:12:52,430 [Worker-29: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /JaredEssentials/src
+2024-09-14 08:12:52,431 [Worker-29: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /JaredEssentials/src/main/resources overlaps with sources folder /JaredEssentials/src
+2024-09-14 08:12:52,431 [Worker-29: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /JaredEssentials/src/test/java because it overlaps with /JaredEssentials/src
+2024-09-14 08:12:52,431 [Worker-29: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /JaredEssentials/src/test/resources overlaps with sources folder /JaredEssentials/src
+2024-09-14 08:12:52,431 [Worker-29: Updating Maven Project] ERROR o.e.m.j.i.AbstractJavaProjectConfigurator - Failed to find a compatible VM for environment id 'JavaSE-21', falling back to workspace default
+2024-09-14 08:12:52,514 [Worker-29: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:12:53,349 [Worker-3: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:12:53,350 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 08:12:53,352 [Worker-3: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:12:53,353 [Worker-3: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources
+2024-09-14 08:13:21,247 [Worker-8: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:13:21,248 [Worker-8: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 08:13:21,249 [Worker-8: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:13:21,259 [Worker-8: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources
+2024-09-14 08:15:57,526 [Worker-2: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: JaredEssentials:JaredEssentials:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\pom.xml.
+2024-09-14 08:15:57,965 [Worker-2: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.21.1-R0.1-SNAPSHOT/maven-metadata.xml
+2024-09-14 08:15:58,087 [Worker-2: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.21.1-R0.1-SNAPSHOT/maven-metadata.xml
+2024-09-14 08:15:58,540 [Worker-2: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:15:58,541 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 08:15:58,543 [Worker-2: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:15:58,543 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources
+2024-09-14 08:15:59,882 [Worker-2: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:15:59,883 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 08:15:59,884 [Worker-2: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:15:59,885 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources
+2024-09-14 08:15:59,949 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.21.1-R0.1-SNAPSHOT/spigot-api-1.21.1-R0.1-20240909.110825-24-sources.jar
+2024-09-14 08:16:00,488 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/spigotmc/spigot-api/1.21.1-R0.1-SNAPSHOT/spigot-api-1.21.1-R0.1-20240909.110825-24-sources.jar
+2024-09-14 08:16:00,520 [Worker-46: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.spigotmc:spigot-api:1.21.1-R0.1-SNAPSHOT
+2024-09-14 08:16:00,810 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://hub.spigotmc.org/nexus/content/repositories/snapshots/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre-sources.jar
+2024-09-14 08:16:00,936 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre-sources.jar
+2024-09-14 08:16:01,043 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/guava/guava/32.1.2-jre/guava-32.1.2-jre-sources.jar
+2024-09-14 08:16:01,045 [Worker-46: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.guava:guava:32.1.2-jre
+2024-09-14 08:16:01,322 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://hub.spigotmc.org/nexus/content/repositories/snapshots/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar
+2024-09-14 08:16:01,349 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar
+2024-09-14 08:16:01,378 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar
+2024-09-14 08:16:01,380 [Worker-46: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.guava:failureaccess:1.0.1
+2024-09-14 08:16:01,678 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://hub.spigotmc.org/nexus/content/repositories/snapshots/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava-sources.jar
+2024-09-14 08:16:01,711 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava-sources.jar
+2024-09-14 08:16:01,713 [Worker-46: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava
+org.eclipse.core.runtime.CoreException: Could not resolve artifact com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$7(MavenImpl.java:540)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:509)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:494)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:282)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:300)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2024-09-14 08:16:02,021 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://hub.spigotmc.org/nexus/content/repositories/snapshots/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar
+2024-09-14 08:16:02,049 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar
+2024-09-14 08:16:02,273 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar
+2024-09-14 08:16:02,275 [Worker-46: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.code.findbugs:jsr305:3.0.2
+2024-09-14 08:16:02,549 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0-sources.jar
+2024-09-14 08:16:02,579 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0-sources.jar
+2024-09-14 08:16:02,614 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/checkerframework/checker-qual/3.33.0/checker-qual-3.33.0-sources.jar
+2024-09-14 08:16:02,617 [Worker-46: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.checkerframework:checker-qual:3.33.0
+2024-09-14 08:16:02,898 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://hub.spigotmc.org/nexus/content/repositories/snapshots/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0-sources.jar
+2024-09-14 08:16:02,944 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0-sources.jar
+2024-09-14 08:16:03,231 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.18.0/error_prone_annotations-2.18.0-sources.jar
+2024-09-14 08:16:03,233 [Worker-46: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.errorprone:error_prone_annotations:2.18.0
+2024-09-14 08:16:03,533 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://hub.spigotmc.org/nexus/content/repositories/snapshots/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8-sources.jar
+2024-09-14 08:16:03,564 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8-sources.jar
+2024-09-14 08:16:03,672 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/2.8/j2objc-annotations-2.8-sources.jar
+2024-09-14 08:16:03,674 [Worker-46: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.j2objc:j2objc-annotations:2.8
+2024-09-14 08:16:03,955 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://hub.spigotmc.org/nexus/content/repositories/snapshots/com/google/code/gson/gson/2.10.1/gson-2.10.1-sources.jar
+2024-09-14 08:16:03,982 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.10.1/gson-2.10.1-sources.jar
+2024-09-14 08:16:04,023 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.10.1/gson-2.10.1-sources.jar
+2024-09-14 08:16:04,025 [Worker-46: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.code.gson:gson:2.10.1
+2024-09-14 08:16:04,324 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/joml/joml/1.10.5/joml-1.10.5-sources.jar
+2024-09-14 08:16:04,376 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/joml/joml/1.10.5/joml-1.10.5-sources.jar
+2024-09-14 08:16:04,442 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/joml/joml/1.10.5/joml-1.10.5-sources.jar
+2024-09-14 08:16:04,443 [Worker-46: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.joml:joml:1.10.5
+2024-09-14 08:16:04,734 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://hub.spigotmc.org/nexus/content/repositories/snapshots/net/md-5/bungeecord-chat/1.20-R0.2/bungeecord-chat-1.20-R0.2-sources.jar
+2024-09-14 08:16:04,821 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/net/md-5/bungeecord-chat/1.20-R0.2/bungeecord-chat-1.20-R0.2-sources.jar
+2024-09-14 08:16:04,846 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/net/md-5/bungeecord-chat/1.20-R0.2/bungeecord-chat-1.20-R0.2-sources.jar
+2024-09-14 08:16:04,848 [Worker-46: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for net.md-5:bungeecord-chat:1.20-R0.2
+2024-09-14 08:16:05,139 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://hub.spigotmc.org/nexus/content/repositories/snapshots/org/yaml/snakeyaml/2.2/snakeyaml-2.2-sources.jar
+2024-09-14 08:16:05,164 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/yaml/snakeyaml/2.2/snakeyaml-2.2-sources.jar
+2024-09-14 08:16:05,196 [Worker-46: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/yaml/snakeyaml/2.2/snakeyaml-2.2-sources.jar
+2024-09-14 08:16:05,198 [Worker-46: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.yaml:snakeyaml:2.2
+2024-09-14 08:16:34,286 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: GrapplingHook2:GrapplingHook2:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Grappling Hook2\pom.xml.
+2024-09-14 08:16:34,558 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Grappling Hook2/src
+2024-09-14 08:16:34,559 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Grappling Hook2/src/main/resources overlaps with sources folder /Grappling Hook2/src
+2024-09-14 08:16:34,559 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Grappling Hook2/src/test/java because it overlaps with /Grappling Hook2/src
+2024-09-14 08:16:34,561 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Grappling Hook2/src/test/resources overlaps with sources folder /Grappling Hook2/src
+2024-09-14 08:16:34,620 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:16:34,648 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: GrapplingHook2:GrapplingHook2:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Grappling Hook2\pom.xml.
+2024-09-14 08:16:34,676 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Grappling Hook2/src
+2024-09-14 08:16:34,677 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Grappling Hook2/src/main/resources overlaps with sources folder /Grappling Hook2/src
+2024-09-14 08:16:34,677 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Grappling Hook2/src/test/java because it overlaps with /Grappling Hook2/src
+2024-09-14 08:16:34,678 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Grappling Hook2/src/test/resources overlaps with sources folder /Grappling Hook2/src
+2024-09-14 08:16:34,710 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:16:34,907 [Worker-46: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:16:34,908 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Grappling Hook2\src\main\resources
+2024-09-14 08:16:34,910 [Worker-46: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:16:34,911 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Grappling Hook2\src\test\resources
+2024-09-14 08:17:11,819 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:17:11,820 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Grappling Hook2\src\main\resources
+2024-09-14 08:17:11,821 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:17:11,822 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Grappling Hook2\src\test\resources
+2024-09-14 08:17:16,094 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:17:16,095 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Grappling Hook2\src\main\resources
+2024-09-14 08:17:16,097 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:17:16,097 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Grappling Hook2\src\test\resources
+2024-09-14 08:17:29,144 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: GameGUI:GameGUI:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\GameGUI\pom.xml.
+2024-09-14 08:17:29,386 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /GameGUI/src
+2024-09-14 08:17:29,387 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /GameGUI/src/main/resources overlaps with sources folder /GameGUI/src
+2024-09-14 08:17:29,389 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /GameGUI/src/test/java because it overlaps with /GameGUI/src
+2024-09-14 08:17:29,391 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /GameGUI/src/test/resources overlaps with sources folder /GameGUI/src
+2024-09-14 08:17:29,458 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:17:29,485 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: GameGUI:GameGUI:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\GameGUI\pom.xml.
+2024-09-14 08:17:29,517 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /GameGUI/src
+2024-09-14 08:17:29,518 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /GameGUI/src/main/resources overlaps with sources folder /GameGUI/src
+2024-09-14 08:17:29,518 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /GameGUI/src/test/java because it overlaps with /GameGUI/src
+2024-09-14 08:17:29,519 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /GameGUI/src/test/resources overlaps with sources folder /GameGUI/src
+2024-09-14 08:17:29,549 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:17:30,135 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:17:30,136 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\GameGUI\src\main\resources
+2024-09-14 08:17:30,137 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:17:30,137 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\GameGUI\src\test\resources
+2024-09-14 08:17:41,938 [Worker-49: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:17:41,939 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\GameGUI\src\main\resources
+2024-09-14 08:17:41,940 [Worker-49: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:17:41,941 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\GameGUI\src\test\resources
+2024-09-14 08:17:53,447 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:17:53,448 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\GameGUI\src\main\resources
+2024-09-14 08:17:53,449 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:17:53,450 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\GameGUI\src\test\resources
+2024-09-14 08:18:04,051 [Worker-0: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Food:Food:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Food\pom.xml.
+2024-09-14 08:18:04,268 [Worker-0: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Food/src
+2024-09-14 08:18:04,269 [Worker-0: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Food/src/main/resources overlaps with sources folder /Food/src
+2024-09-14 08:18:04,270 [Worker-0: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Food/src/test/java because it overlaps with /Food/src
+2024-09-14 08:18:04,270 [Worker-0: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Food/src/test/resources overlaps with sources folder /Food/src
+2024-09-14 08:18:04,356 [Worker-0: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:18:04,439 [Worker-0: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Food:Food:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Food\pom.xml.
+2024-09-14 08:18:04,489 [Worker-0: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Food/src
+2024-09-14 08:18:04,490 [Worker-0: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Food/src/main/resources overlaps with sources folder /Food/src
+2024-09-14 08:18:04,490 [Worker-0: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Food/src/test/java because it overlaps with /Food/src
+2024-09-14 08:18:04,491 [Worker-0: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Food/src/test/resources overlaps with sources folder /Food/src
+2024-09-14 08:18:04,527 [Worker-0: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:18:04,746 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:18:04,747 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Food\src\main\resources
+2024-09-14 08:18:04,748 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:18:04,749 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Food\src\test\resources
+2024-09-14 08:18:15,361 [Worker-2: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:18:15,362 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Food\src\main\resources
+2024-09-14 08:18:15,364 [Worker-2: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:18:15,364 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Food\src\test\resources
+2024-09-14 08:18:19,495 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:18:19,496 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Food\src\main\resources
+2024-09-14 08:18:19,497 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:18:19,497 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Food\src\test\resources
+2024-09-14 08:18:26,841 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Compass:Compass:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Compass\pom.xml.
+2024-09-14 08:18:27,017 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Compass/src
+2024-09-14 08:18:27,018 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Compass/src/main/resources overlaps with sources folder /Compass/src
+2024-09-14 08:18:27,019 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Compass/src/test/java because it overlaps with /Compass/src
+2024-09-14 08:18:27,019 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Compass/src/test/resources overlaps with sources folder /Compass/src
+2024-09-14 08:18:27,069 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:18:27,099 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Compass:Compass:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Compass\pom.xml.
+2024-09-14 08:18:27,128 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Compass/src
+2024-09-14 08:18:27,129 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Compass/src/main/resources overlaps with sources folder /Compass/src
+2024-09-14 08:18:27,129 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Compass/src/test/java because it overlaps with /Compass/src
+2024-09-14 08:18:27,130 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Compass/src/test/resources overlaps with sources folder /Compass/src
+2024-09-14 08:18:27,160 [Worker-48: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:18:27,834 [Worker-2: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:18:27,834 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Compass\src\main\resources
+2024-09-14 08:18:27,836 [Worker-2: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:18:27,836 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Compass\src\test\resources
+2024-09-14 08:18:35,818 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:18:35,819 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Compass\src\main\resources
+2024-09-14 08:18:35,820 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:18:35,820 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Compass\src\test\resources
+2024-09-14 08:18:38,930 [Worker-2: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:18:38,931 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Compass\src\main\resources
+2024-09-14 08:18:38,931 [Worker-2: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:18:38,931 [Worker-2: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Compass\src\test\resources
+2024-09-14 08:18:49,816 [Worker-49: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: BoostPad:BoostPad:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\pom.xml.
+2024-09-14 08:18:50,042 [Worker-49: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Boost Pad/src
+2024-09-14 08:18:50,043 [Worker-49: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Boost Pad/src/main/resources overlaps with sources folder /Boost Pad/src
+2024-09-14 08:18:50,043 [Worker-49: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Boost Pad/src/test/java because it overlaps with /Boost Pad/src
+2024-09-14 08:18:50,044 [Worker-49: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Boost Pad/src/test/resources overlaps with sources folder /Boost Pad/src
+2024-09-14 08:18:50,111 [Worker-49: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:18:50,162 [Worker-49: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: BoostPad:BoostPad:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\pom.xml.
+2024-09-14 08:18:50,208 [Worker-49: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Boost Pad/src
+2024-09-14 08:18:50,211 [Worker-49: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Boost Pad/src/main/resources overlaps with sources folder /Boost Pad/src
+2024-09-14 08:18:50,211 [Worker-49: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Boost Pad/src/test/java because it overlaps with /Boost Pad/src
+2024-09-14 08:18:50,212 [Worker-49: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Boost Pad/src/test/resources overlaps with sources folder /Boost Pad/src
+2024-09-14 08:18:50,249 [Worker-49: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:18:50,517 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:18:50,518 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:18:50,520 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:18:50,521 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:19:01,557 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:19:01,557 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:19:01,558 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:19:01,559 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:19:03,391 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:19:03,391 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:19:03,391 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:19:03,393 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:21:06,940 [Worker-47: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: BoostPad:BoostPad:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\pom.xml.
+2024-09-14 08:21:07,016 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:21:07,017 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:21:07,018 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:21:07,018 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:21:08,249 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:21:08,250 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:21:08,251 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:21:08,251 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:21:08,336 [Worker-51: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://hub.spigotmc.org/nexus/content/repositories/snapshots/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava-javadoc.jar
+2024-09-14 08:21:08,436 [Worker-51: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava-javadoc.jar
+2024-09-14 08:21:08,441 [Worker-51: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download javadoc for com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava
+org.eclipse.core.runtime.CoreException: Could not resolve artifact com.google.guava:listenablefuture:jar:javadoc:9999.0-empty-to-avoid-conflict-with-guava
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$7(MavenImpl.java:540)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:292)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:509)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:494)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:294)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:300)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2024-09-14 08:21:58,621 [Worker-53: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:21:58,650 [Worker-53: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: BoostPad:BoostPad:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\pom.xml.
+2024-09-14 08:21:58,706 [Worker-53: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Boost Pad/src
+2024-09-14 08:21:58,706 [Worker-53: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Boost Pad/src/main/resources overlaps with sources folder /Boost Pad/src
+2024-09-14 08:21:58,706 [Worker-53: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Boost Pad/src/test/java because it overlaps with /Boost Pad/src
+2024-09-14 08:21:58,707 [Worker-53: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Boost Pad/src/test/resources overlaps with sources folder /Boost Pad/src
+2024-09-14 08:21:58,765 [Worker-53: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:21:58,918 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:21:58,919 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:21:58,920 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:21:58,920 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:22:04,842 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:22:04,843 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:22:04,843 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:22:04,843 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:22:14,398 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: BarbWire:BarbWire:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\BarbWire\pom.xml.
+2024-09-14 08:22:14,628 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /BarbWire/src
+2024-09-14 08:22:14,628 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /BarbWire/src/main/resources overlaps with sources folder /BarbWire/src
+2024-09-14 08:22:14,629 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /BarbWire/src/test/java because it overlaps with /BarbWire/src
+2024-09-14 08:22:14,629 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /BarbWire/src/test/resources overlaps with sources folder /BarbWire/src
+2024-09-14 08:22:14,678 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:22:14,707 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: BarbWire:BarbWire:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\BarbWire\pom.xml.
+2024-09-14 08:22:14,744 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /BarbWire/src
+2024-09-14 08:22:14,745 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /BarbWire/src/main/resources overlaps with sources folder /BarbWire/src
+2024-09-14 08:22:14,746 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /BarbWire/src/test/java because it overlaps with /BarbWire/src
+2024-09-14 08:22:14,746 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /BarbWire/src/test/resources overlaps with sources folder /BarbWire/src
+2024-09-14 08:22:14,788 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:22:15,056 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:22:15,057 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\BarbWire\src\main\resources
+2024-09-14 08:22:15,060 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:22:15,061 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\BarbWire\src\test\resources
+2024-09-14 08:22:22,030 [Worker-52: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:22:22,055 [Worker-52: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: BarbWire:BarbWire:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\BarbWire\pom.xml.
+2024-09-14 08:22:22,075 [Worker-52: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /BarbWire/src
+2024-09-14 08:22:22,076 [Worker-52: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /BarbWire/src/main/resources overlaps with sources folder /BarbWire/src
+2024-09-14 08:22:22,076 [Worker-52: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /BarbWire/src/test/java because it overlaps with /BarbWire/src
+2024-09-14 08:22:22,076 [Worker-52: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /BarbWire/src/test/resources overlaps with sources folder /BarbWire/src
+2024-09-14 08:22:22,101 [Worker-52: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:22:22,228 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:22:22,229 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\BarbWire\src\main\resources
+2024-09-14 08:22:22,230 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:22:22,230 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\BarbWire\src\test\resources
+2024-09-14 08:22:44,571 [Worker-56: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:22:44,572 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\BarbWire\src\main\resources
+2024-09-14 08:22:44,573 [Worker-56: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:22:44,573 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\BarbWire\src\test\resources
+2024-09-14 08:22:52,696 [Worker-49: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:22:52,697 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\BarbWire\src\main\resources
+2024-09-14 08:22:52,699 [Worker-49: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:22:52,699 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\BarbWire\src\test\resources
+2024-09-14 08:22:58,571 [Worker-52: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:22:58,573 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\BarbWire\src\main\resources
+2024-09-14 08:22:58,574 [Worker-52: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:22:58,574 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\BarbWire\src\test\resources
+2024-09-14 08:23:08,564 [Worker-55: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: LandMines:LandMines:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\pom.xml.
+2024-09-14 08:23:08,783 [Worker-55: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /LandMines/src
+2024-09-14 08:23:08,784 [Worker-55: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/main/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:23:08,785 [Worker-55: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /LandMines/src/test/java because it overlaps with /LandMines/src
+2024-09-14 08:23:08,785 [Worker-55: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/test/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:23:08,862 [Worker-55: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:23:08,927 [Worker-55: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: LandMines:LandMines:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\pom.xml.
+2024-09-14 08:23:08,977 [Worker-55: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /LandMines/src
+2024-09-14 08:23:08,978 [Worker-55: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/main/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:23:08,978 [Worker-55: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /LandMines/src/test/java because it overlaps with /LandMines/src
+2024-09-14 08:23:08,979 [Worker-55: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/test/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:23:09,027 [Worker-55: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:23:09,206 [Worker-55: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:23:09,207 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:23:09,209 [Worker-55: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:23:09,210 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:23:16,835 [Worker-55: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:23:16,861 [Worker-55: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: LandMines:LandMines:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\pom.xml.
+2024-09-14 08:23:16,880 [Worker-55: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /LandMines/src
+2024-09-14 08:23:16,881 [Worker-55: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/main/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:23:16,881 [Worker-55: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /LandMines/src/test/java because it overlaps with /LandMines/src
+2024-09-14 08:23:16,881 [Worker-55: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/test/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:23:16,908 [Worker-55: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:23:17,035 [Worker-51: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:23:17,036 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:23:17,037 [Worker-51: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:23:17,037 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:23:20,558 [Worker-55: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:23:20,559 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:23:20,560 [Worker-55: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:23:20,560 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:24:05,377 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:24:05,378 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:24:05,378 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:24:05,379 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:24:18,042 [Worker-52: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:24:18,074 [Worker-52: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: LandMines:LandMines:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\pom.xml.
+2024-09-14 08:24:18,096 [Worker-52: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /LandMines/src
+2024-09-14 08:24:18,097 [Worker-52: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/main/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:24:18,097 [Worker-52: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /LandMines/src/test/java because it overlaps with /LandMines/src
+2024-09-14 08:24:18,097 [Worker-52: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/test/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:24:18,142 [Worker-52: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:24:18,324 [Worker-56: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:24:18,325 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:24:18,326 [Worker-56: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:24:18,326 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:24:23,093 [Worker-55: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:24:23,094 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:24:23,094 [Worker-55: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:24:23,095 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:28:56,573 [Worker-58: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:28:56,574 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:28:56,575 [Worker-58: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:28:56,575 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:29:09,408 [Worker-60: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:29:09,436 [Worker-60: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: LandMines:LandMines:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\pom.xml.
+2024-09-14 08:29:09,456 [Worker-60: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /LandMines/src
+2024-09-14 08:29:09,457 [Worker-60: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/main/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:29:09,457 [Worker-60: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /LandMines/src/test/java because it overlaps with /LandMines/src
+2024-09-14 08:29:09,457 [Worker-60: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/test/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:29:09,499 [Worker-60: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:29:09,675 [Worker-58: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:29:09,676 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:29:09,677 [Worker-58: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:29:09,677 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:29:13,626 [Worker-52: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:29:13,626 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:29:13,627 [Worker-52: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:29:13,627 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:29:22,671 [Worker-58: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:29:22,671 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:29:22,672 [Worker-58: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:29:22,672 [Worker-58: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:29:28,089 [Worker-53: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:29:28,112 [Worker-53: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: LandMines:LandMines:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\pom.xml.
+2024-09-14 08:29:28,132 [Worker-53: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /LandMines/src
+2024-09-14 08:29:28,132 [Worker-53: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/main/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:29:28,132 [Worker-53: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /LandMines/src/test/java because it overlaps with /LandMines/src
+2024-09-14 08:29:28,133 [Worker-53: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/test/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:29:28,174 [Worker-53: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:29:28,304 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:29:28,304 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:29:28,305 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:29:28,306 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:31:48,721 [Worker-61: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:31:48,721 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:31:48,723 [Worker-61: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:31:48,724 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:31:53,101 [Worker-61: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:31:53,102 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:31:53,103 [Worker-61: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:31:53,103 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:32:00,234 [Worker-63: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:32:00,235 [Worker-63: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:32:00,236 [Worker-63: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:32:00,236 [Worker-63: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:32:11,233 [Worker-60: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:32:11,234 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:32:11,234 [Worker-60: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:32:11,235 [Worker-60: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:32:32,411 [Worker-9: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2024-09-14 08:33:28,307 [Worker-42: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: LandMines:LandMines:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\pom.xml.
+2024-09-14 08:33:28,548 [Worker-42: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:33:28,549 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:33:28,553 [Worker-42: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:33:28,553 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:33:28,797 [Worker-0: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:33:29,076 [Worker-0: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: LandMines:LandMines:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\pom.xml.
+2024-09-14 08:33:29,250 [Worker-0: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /LandMines/src
+2024-09-14 08:33:29,252 [Worker-0: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/main/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:33:29,252 [Worker-0: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /LandMines/src/test/java because it overlaps with /LandMines/src
+2024-09-14 08:33:29,253 [Worker-0: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/test/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:33:29,253 [Worker-0: Updating Maven Project] ERROR o.e.m.j.i.AbstractJavaProjectConfigurator - Failed to find a compatible VM for environment id 'JavaSE-21', falling back to workspace default
+2024-09-14 08:33:29,382 [Worker-0: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:33:29,863 [Worker-40: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:33:29,864 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:33:29,867 [Worker-40: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:33:29,867 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:33:36,433 [Worker-1: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:33:36,435 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:33:36,436 [Worker-1: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:33:36,437 [Worker-1: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:33:37,471 [Worker-10: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:33:37,471 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:33:37,473 [Worker-10: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:33:37,473 [Worker-10: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:36:09,000 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:36:09,001 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:36:09,003 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:36:09,004 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:36:23,892 [Worker-42: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:36:23,893 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:36:23,894 [Worker-42: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:36:23,895 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:36:31,032 [Worker-11: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: BoostPad:BoostPad:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\pom.xml.
+2024-09-14 08:36:31,098 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:36:31,098 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:36:31,100 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:36:31,101 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:36:31,115 [Worker-44: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:36:31,142 [Worker-44: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: BoostPad:BoostPad:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\pom.xml.
+2024-09-14 08:36:31,211 [Worker-44: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Boost Pad/src
+2024-09-14 08:36:31,211 [Worker-44: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Boost Pad/src/main/resources overlaps with sources folder /Boost Pad/src
+2024-09-14 08:36:31,212 [Worker-44: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Boost Pad/src/test/java because it overlaps with /Boost Pad/src
+2024-09-14 08:36:31,212 [Worker-44: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Boost Pad/src/test/resources overlaps with sources folder /Boost Pad/src
+2024-09-14 08:36:31,212 [Worker-44: Updating Maven Project] ERROR o.e.m.j.i.AbstractJavaProjectConfigurator - Failed to find a compatible VM for environment id 'JavaSE-21', falling back to workspace default
+2024-09-14 08:36:31,277 [Worker-44: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:36:32,263 [Worker-44: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:36:32,264 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:36:32,265 [Worker-44: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:36:32,266 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:36:40,502 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:36:40,503 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:36:40,504 [Worker-11: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:36:40,505 [Worker-11: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:36:44,358 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:36:44,359 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:36:44,360 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:36:44,360 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:36:59,058 [Worker-44: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:36:59,086 [Worker-44: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: LandMines:LandMines:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\pom.xml.
+2024-09-14 08:36:59,152 [Worker-44: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /LandMines/src
+2024-09-14 08:36:59,152 [Worker-44: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/main/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:36:59,152 [Worker-44: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /LandMines/src/test/java because it overlaps with /LandMines/src
+2024-09-14 08:36:59,152 [Worker-44: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /LandMines/src/test/resources overlaps with sources folder /LandMines/src
+2024-09-14 08:36:59,152 [Worker-44: Updating Maven Project] ERROR o.e.m.j.i.AbstractJavaProjectConfigurator - Failed to find a compatible VM for environment id 'JavaSE-21', falling back to workspace default
+2024-09-14 08:36:59,214 [Worker-44: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:36:59,415 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:36:59,416 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:36:59,417 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:36:59,418 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:37:06,767 [Worker-42: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:37:06,768 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:37:06,769 [Worker-42: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:37:06,769 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:37:36,659 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:37:36,659 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:37:36,660 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:37:36,661 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:38:40,425 [Worker-44: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:38:40,426 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:38:40,427 [Worker-44: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:38:40,428 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:38:57,623 [Worker-49: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:38:57,624 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:38:57,625 [Worker-49: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:38:57,626 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:39:11,004 [Worker-42: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:39:11,005 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:39:11,006 [Worker-42: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:39:11,007 [Worker-42: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:39:19,780 [Worker-44: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:39:19,781 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:39:19,783 [Worker-44: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:39:19,783 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:39:20,868 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:39:20,869 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:39:20,870 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:39:20,870 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:39:22,798 [Worker-49: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:39:22,799 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\main\resources
+2024-09-14 08:39:22,800 [Worker-49: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:39:22,800 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Boost Pad\src\test\resources
+2024-09-14 08:40:40,210 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:40:40,210 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:40:40,211 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:40:40,212 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:40:48,548 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:40:48,549 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
+2024-09-14 08:40:48,550 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:40:48,550 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-14 08:46:01,202 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: MiniGame:MiniGame:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\MiniGame\pom.xml.
+2024-09-14 08:46:01,536 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /MiniGame/src
+2024-09-14 08:46:01,537 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /MiniGame/src/main/resources overlaps with sources folder /MiniGame/src
+2024-09-14 08:46:01,538 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /MiniGame/src/test/java because it overlaps with /MiniGame/src
+2024-09-14 08:46:01,538 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /MiniGame/src/test/resources overlaps with sources folder /MiniGame/src
+2024-09-14 08:46:01,630 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:46:01,701 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: MiniGame:MiniGame:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\MiniGame\pom.xml.
+2024-09-14 08:46:01,772 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /MiniGame/src
+2024-09-14 08:46:01,773 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /MiniGame/src/main/resources overlaps with sources folder /MiniGame/src
+2024-09-14 08:46:01,773 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /MiniGame/src/test/java because it overlaps with /MiniGame/src
+2024-09-14 08:46:01,774 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /MiniGame/src/test/resources overlaps with sources folder /MiniGame/src
+2024-09-14 08:46:01,848 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:46:02,065 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:02,066 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\MiniGame\src\main\resources
+2024-09-14 08:46:02,068 [Worker-47: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:02,069 [Worker-47: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\MiniGame\src\test\resources
+2024-09-14 08:46:04,145 [Worker-52: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: MiniGame:MiniGame:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\MiniGame\pom.xml.
+2024-09-14 08:46:04,159 [Worker-52: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:04,160 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\MiniGame\src\main\resources
+2024-09-14 08:46:04,161 [Worker-52: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:04,161 [Worker-52: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\MiniGame\src\test\resources
+2024-09-14 08:46:04,174 [Worker-51: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:46:04,200 [Worker-51: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: MiniGame:MiniGame:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\MiniGame\pom.xml.
+2024-09-14 08:46:04,222 [Worker-51: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /MiniGame/src
+2024-09-14 08:46:04,222 [Worker-51: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /MiniGame/src/main/resources overlaps with sources folder /MiniGame/src
+2024-09-14 08:46:04,222 [Worker-51: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /MiniGame/src/test/java because it overlaps with /MiniGame/src
+2024-09-14 08:46:04,222 [Worker-51: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /MiniGame/src/test/resources overlaps with sources folder /MiniGame/src
+2024-09-14 08:46:04,222 [Worker-51: Updating Maven Project] ERROR o.e.m.j.i.AbstractJavaProjectConfigurator - Failed to find a compatible VM for environment id 'JavaSE-21', falling back to workspace default
+2024-09-14 08:46:04,278 [Worker-51: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:46:05,328 [Worker-50: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:05,328 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\MiniGame\src\main\resources
+2024-09-14 08:46:05,329 [Worker-50: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:05,330 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\MiniGame\src\test\resources
+2024-09-14 08:46:08,817 [Worker-51: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:08,817 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\MiniGame\src\main\resources
+2024-09-14 08:46:08,819 [Worker-51: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:08,819 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\MiniGame\src\test\resources
+2024-09-14 08:46:15,892 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Parachute:Parachute:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Parachute\pom.xml.
+2024-09-14 08:46:16,157 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Parachute/src
+2024-09-14 08:46:16,158 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Parachute/src/main/resources overlaps with sources folder /Parachute/src
+2024-09-14 08:46:16,158 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Parachute/src/test/java because it overlaps with /Parachute/src
+2024-09-14 08:46:16,159 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Parachute/src/test/resources overlaps with sources folder /Parachute/src
+2024-09-14 08:46:16,211 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:46:16,240 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Parachute:Parachute:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Parachute\pom.xml.
+2024-09-14 08:46:16,269 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Parachute/src
+2024-09-14 08:46:16,269 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Parachute/src/main/resources overlaps with sources folder /Parachute/src
+2024-09-14 08:46:16,270 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Parachute/src/test/java because it overlaps with /Parachute/src
+2024-09-14 08:46:16,270 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Parachute/src/test/resources overlaps with sources folder /Parachute/src
+2024-09-14 08:46:16,340 [Worker-53: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:46:16,475 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:16,476 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Parachute\src\main\resources
+2024-09-14 08:46:16,477 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:16,478 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Parachute\src\test\resources
+2024-09-14 08:46:29,451 [Worker-54: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Parachute:Parachute:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Parachute\pom.xml.
+2024-09-14 08:46:29,466 [Worker-54: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:29,467 [Worker-54: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Parachute\src\main\resources
+2024-09-14 08:46:29,468 [Worker-54: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:29,469 [Worker-54: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Parachute\src\test\resources
+2024-09-14 08:46:29,479 [Worker-50: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:46:29,512 [Worker-50: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Parachute:Parachute:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Parachute\pom.xml.
+2024-09-14 08:46:29,531 [Worker-50: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Parachute/src
+2024-09-14 08:46:29,532 [Worker-50: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Parachute/src/main/resources overlaps with sources folder /Parachute/src
+2024-09-14 08:46:29,532 [Worker-50: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Parachute/src/test/java because it overlaps with /Parachute/src
+2024-09-14 08:46:29,532 [Worker-50: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Parachute/src/test/resources overlaps with sources folder /Parachute/src
+2024-09-14 08:46:29,532 [Worker-50: Updating Maven Project] ERROR o.e.m.j.i.AbstractJavaProjectConfigurator - Failed to find a compatible VM for environment id 'JavaSE-21', falling back to workspace default
+2024-09-14 08:46:29,583 [Worker-50: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:46:30,600 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:30,600 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Parachute\src\main\resources
+2024-09-14 08:46:30,601 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:30,602 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Parachute\src\test\resources
+2024-09-14 08:46:42,877 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:42,877 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Parachute\src\main\resources
+2024-09-14 08:46:42,878 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:42,879 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Parachute\src\test\resources
+2024-09-14 08:46:53,358 [Worker-51: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Stats:Stats:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Stats\pom.xml.
+2024-09-14 08:46:53,590 [Worker-51: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Stats/src
+2024-09-14 08:46:53,590 [Worker-51: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Stats/src/main/resources overlaps with sources folder /Stats/src
+2024-09-14 08:46:53,591 [Worker-51: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Stats/src/test/java because it overlaps with /Stats/src
+2024-09-14 08:46:53,592 [Worker-51: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Stats/src/test/resources overlaps with sources folder /Stats/src
+2024-09-14 08:46:53,684 [Worker-51: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:46:53,782 [Worker-51: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Stats:Stats:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Stats\pom.xml.
+2024-09-14 08:46:53,842 [Worker-51: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Stats/src
+2024-09-14 08:46:53,843 [Worker-51: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Stats/src/main/resources overlaps with sources folder /Stats/src
+2024-09-14 08:46:53,843 [Worker-51: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Stats/src/test/java because it overlaps with /Stats/src
+2024-09-14 08:46:53,844 [Worker-51: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Stats/src/test/resources overlaps with sources folder /Stats/src
+2024-09-14 08:46:53,891 [Worker-51: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:46:54,145 [Worker-50: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:54,146 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Stats\src\main\resources
+2024-09-14 08:46:54,147 [Worker-50: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:46:54,148 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Stats\src\test\resources
+2024-09-14 08:47:02,825 [Worker-50: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Stats:Stats:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Stats\pom.xml.
+2024-09-14 08:47:02,839 [Worker-50: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:02,840 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Stats\src\main\resources
+2024-09-14 08:47:02,841 [Worker-50: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:02,842 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Stats\src\test\resources
+2024-09-14 08:47:02,854 [Worker-56: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:47:02,878 [Worker-56: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Stats:Stats:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Stats\pom.xml.
+2024-09-14 08:47:02,900 [Worker-56: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Stats/src
+2024-09-14 08:47:02,901 [Worker-56: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Stats/src/main/resources overlaps with sources folder /Stats/src
+2024-09-14 08:47:02,901 [Worker-56: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Stats/src/test/java because it overlaps with /Stats/src
+2024-09-14 08:47:02,901 [Worker-56: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Stats/src/test/resources overlaps with sources folder /Stats/src
+2024-09-14 08:47:02,901 [Worker-56: Updating Maven Project] ERROR o.e.m.j.i.AbstractJavaProjectConfigurator - Failed to find a compatible VM for environment id 'JavaSE-21', falling back to workspace default
+2024-09-14 08:47:02,953 [Worker-56: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:47:04,010 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:04,011 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Stats\src\main\resources
+2024-09-14 08:47:04,012 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:04,012 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Stats\src\test\resources
+2024-09-14 08:47:14,888 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:14,888 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Stats\src\main\resources
+2024-09-14 08:47:14,889 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:14,890 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Stats\src\test\resources
+2024-09-14 08:47:17,840 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:17,840 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Stats\src\main\resources
+2024-09-14 08:47:17,841 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:17,842 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Stats\src\test\resources
+2024-09-14 08:47:23,023 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Teams:Teams:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Teams\pom.xml.
+2024-09-14 08:47:23,193 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Teams/src
+2024-09-14 08:47:23,194 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Teams/src overlaps with sources folder /Teams/src
+2024-09-14 08:47:23,195 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Teams/src/test/java because it overlaps with /Teams/src
+2024-09-14 08:47:23,196 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Teams/src/test/resources overlaps with sources folder /Teams/src
+2024-09-14 08:47:23,235 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:47:23,258 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Teams:Teams:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Teams\pom.xml.
+2024-09-14 08:47:23,289 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Teams/src
+2024-09-14 08:47:23,290 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Teams/src overlaps with sources folder /Teams/src
+2024-09-14 08:47:23,292 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Teams/src/test/java because it overlaps with /Teams/src
+2024-09-14 08:47:23,292 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Teams/src/test/resources overlaps with sources folder /Teams/src
+2024-09-14 08:47:23,319 [Worker-47: Enabling Maven Dependency Management] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:47:24,043 [Worker-51: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:24,053 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src to target\classes
+2024-09-14 08:47:24,060 [Worker-51: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:24,061 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Teams\src\test\resources
+2024-09-14 08:47:28,856 [Worker-48: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Teams:Teams:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Teams\pom.xml.
+2024-09-14 08:47:28,870 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:28,872 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src to target\classes
+2024-09-14 08:47:28,872 [Worker-48: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:28,873 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Teams\src\test\resources
+2024-09-14 08:47:28,882 [Worker-50: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 08:47:28,905 [Worker-50: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: Teams:Teams:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Teams\pom.xml.
+2024-09-14 08:47:28,922 [Worker-50: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /Teams/src
+2024-09-14 08:47:28,923 [Worker-50: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Teams/src overlaps with sources folder /Teams/src
+2024-09-14 08:47:28,923 [Worker-50: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /Teams/src/test/java because it overlaps with /Teams/src
+2024-09-14 08:47:28,923 [Worker-50: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /Teams/src/test/resources overlaps with sources folder /Teams/src
+2024-09-14 08:47:28,923 [Worker-50: Updating Maven Project] ERROR o.e.m.j.i.AbstractJavaProjectConfigurator - Failed to find a compatible VM for environment id 'JavaSE-21', falling back to workspace default
+2024-09-14 08:47:28,970 [Worker-50: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 08:47:30,002 [Worker-56: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:30,004 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src to target\classes
+2024-09-14 08:47:30,006 [Worker-56: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:30,007 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Teams\src\test\resources
+2024-09-14 08:47:35,103 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:35,105 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src to target\classes
+2024-09-14 08:47:35,106 [Worker-53: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 08:47:35,107 [Worker-53: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\Teams\src\test\resources
+2024-09-14 09:13:21,522 [Worker-64: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:13:21,531 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 09:13:21,536 [Worker-64: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:13:21,539 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources
+2024-09-14 09:13:30,748 [Worker-51: Building] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Could not read pom.xml
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.IMavenToolbox.readModel(IMavenToolbox.java:245)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:587)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:487)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:366)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:318)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:146)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$0(MavenBuilder.java:84)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:83)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:192)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.apache.maven.model.io.ModelParseException: Unrecognised tag: 'dependency' (position: START_TAG seen ...</build>\r\n  \r\n<dependency>... @19:13) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:96)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:74)
+	at org.eclipse.m2e.core.internal.IMavenToolbox.readModel(IMavenToolbox.java:243)
+	... 24 common frames omitted
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: Unrecognised tag: 'dependency' (position: START_TAG seen ...</build>\r\n  \r\n<dependency>... @19:13) 
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.checkUnknownElement(MavenXpp3Reader.java:181)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2392)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:623)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:654)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:93)
+	... 26 common frames omitted
+2024-09-14 09:13:32,222 [Worker-61: Building] ERROR o.e.m.c.i.p.r.ProjectRegistryManager - Could not read pom.xml
+org.eclipse.core.runtime.CoreException: Could not read pom.xml
+	at org.eclipse.m2e.core.internal.IMavenToolbox.readModel(IMavenToolbox.java:245)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refreshPhase2(ProjectRegistryManager.java:587)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:487)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:366)
+	at org.eclipse.m2e.core.internal.project.registry.ProjectRegistryManager.refresh(ProjectRegistryManager.java:318)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.getProjectFacade(MavenBuilder.java:146)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.lambda$0(MavenBuilder.java:84)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:458)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:339)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:278)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder$BuildMethod.execute(MavenBuilder.java:83)
+	at org.eclipse.m2e.core.internal.builder.MavenBuilder.build(MavenBuilder.java:192)
+	at org.eclipse.core.internal.events.BuildManager$2.run(BuildManager.java:1077)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:296)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:352)
+	at org.eclipse.core.internal.events.BuildManager$1.run(BuildManager.java:441)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:47)
+	at org.eclipse.core.internal.events.BuildManager.basicBuild(BuildManager.java:444)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:555)
+	at org.eclipse.core.internal.events.BuildManager.basicBuildLoop(BuildManager.java:503)
+	at org.eclipse.core.internal.events.BuildManager.build(BuildManager.java:585)
+	at org.eclipse.core.internal.events.AutoBuildJob.doBuild(AutoBuildJob.java:207)
+	at org.eclipse.core.internal.events.AutoBuildJob.run(AutoBuildJob.java:300)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+Caused by: org.apache.maven.model.io.ModelParseException: Unrecognised tag: 'dependency' (position: START_TAG seen ...</build>\r\n  \r\n<dependency>... @19:13) 
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:96)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:74)
+	at org.eclipse.m2e.core.internal.IMavenToolbox.readModel(IMavenToolbox.java:243)
+	... 24 common frames omitted
+Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: Unrecognised tag: 'dependency' (position: START_TAG seen ...</build>\r\n  \r\n<dependency>... @19:13) 
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.checkUnknownElement(MavenXpp3Reader.java:181)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.parseModel(MavenXpp3Reader.java:2392)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:623)
+	at org.apache.maven.model.io.xpp3.MavenXpp3Reader.read(MavenXpp3Reader.java:654)
+	at org.apache.maven.model.io.DefaultModelReader.read(DefaultModelReader.java:93)
+	... 26 common frames omitted
+2024-09-14 09:15:09,023 [Worker-64: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: JaredEssentials:JaredEssentials:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\pom.xml.
+2024-09-14 09:15:09,055 [Worker-64: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:15:09,056 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 09:15:09,057 [Worker-64: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:15:09,058 [Worker-64: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources
+2024-09-14 09:15:11,233 [Worker-69: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: JaredEssentials:JaredEssentials:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\pom.xml.
+2024-09-14 09:15:11,249 [Worker-69: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:15:11,250 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 09:15:11,251 [Worker-69: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:15:11,251 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources
+2024-09-14 09:16:46,393 [Worker-61: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update started
+2024-09-14 09:16:46,432 [Worker-61: Updating Maven Project] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: JaredEssentials:JaredEssentials:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\pom.xml.
+2024-09-14 09:16:46,454 [Worker-61: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /JaredEssentials/src
+2024-09-14 09:16:46,455 [Worker-61: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /JaredEssentials/src/main/resources overlaps with sources folder /JaredEssentials/src
+2024-09-14 09:16:46,455 [Worker-61: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Not adding source folder /JaredEssentials/src/test/java because it overlaps with /JaredEssentials/src
+2024-09-14 09:16:46,455 [Worker-61: Updating Maven Project] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Resources folder /JaredEssentials/src/test/resources overlaps with sources folder /JaredEssentials/src
+2024-09-14 09:16:46,456 [Worker-61: Updating Maven Project] ERROR o.e.m.j.i.AbstractJavaProjectConfigurator - Failed to find a compatible VM for environment id 'JavaSE-21', falling back to workspace default
+2024-09-14 09:16:46,511 [Worker-61: Updating Maven Project] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Update completed for 1 poms: local refresh takes 0.00 sec, refresh facades takes 0.00 sec, update config takes 0.00 sec 
+2024-09-14 09:16:46,646 [Worker-61: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:16:46,648 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 09:16:46,649 [Worker-61: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:16:46,649 [Worker-61: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources
+2024-09-14 09:20:44,542 [Worker-69: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: JaredEssentials:JaredEssentials:0.0.1-SNAPSHOT @ C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\pom.xml.
+2024-09-14 09:20:44,562 [Worker-69: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:20:44,562 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 09:20:44,564 [Worker-69: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:20:44,565 [Worker-69: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources
+2024-09-14 09:21:05,142 [Worker-72: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:21:05,144 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 09:21:05,145 [Worker-72: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:21:05,146 [Worker-72: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources
+2024-09-14 09:21:10,372 [Worker-71: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:21:10,373 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 09:21:10,373 [Worker-71: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:21:10,375 [Worker-71: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources
+2024-09-14 09:26:54,001 [Worker-74: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:26:54,002 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\main\resources
+2024-09-14 09:26:54,003 [Worker-74: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
+2024-09-14 09:26:54,003 [Worker-74: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\JaredEssentials\src\test\resources

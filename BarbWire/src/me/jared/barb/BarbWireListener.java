@@ -15,6 +15,7 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.Plugin;
 
 import me.jared.BoostPad;
 import net.md_5.bungee.api.ChatColor;
@@ -144,7 +145,7 @@ public class BarbWireListener implements Listener
 	{
 		Player p = e.getPlayer();
 
-		ArrayList<String> webs = new ArrayList<String>(BoostPad.getInstance().getConfig().getStringList("webs"));
+		ArrayList<String> webs = new ArrayList<String>(((Plugin) BoostPad.getInstance()).getConfig().getStringList("webs"));
 
 		if(e.getAction() == Action.RIGHT_CLICK_BLOCK && e.getClickedBlock().getType().equals(web))
 		{
