@@ -5,11 +5,9 @@ import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.util.Vector;
 
 import me.Jared.LandMinePlugin;
 import net.md_5.bungee.api.ChatColor;
@@ -75,13 +73,8 @@ public class LandMine
 	
 	public void blowUp(Location location, Entity entity)
 	{
-		location.getWorld().createExplosion(location, 0f, false, false);
-		entity.setVelocity(new Vector(0,0.5,0));
-		
-		if(entity instanceof LivingEntity)
-		{
-			((LivingEntity) entity).damage(10);
-		}
+		ExplodeRunnable grenadeRunnable = new ExplodeRunnable(entity, 1, 8);
+		grenadeRunnable.runTaskTimer(LandMinePlugin.getInstance(), 5, 1);
 		
 		location.getBlock().setType(Material.AIR);
 	}

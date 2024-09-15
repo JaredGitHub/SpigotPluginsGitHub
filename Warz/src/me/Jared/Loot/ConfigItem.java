@@ -129,6 +129,7 @@ public class ConfigItem
 		String displayName = getDisplayName(string);
 		String itemLore = getItemDataIndex(string, 4);
 		int amount = getAmount(string);
+		int damage = getDamage(string);
 
 		if(material == null)
 			Bukkit.getConsoleSender().sendMessage("There is something messed up in the config!");
@@ -147,6 +148,8 @@ public class ConfigItem
 				lore.add(ChatColor.translateAlternateColorCodes('&', itemLore));
 				meta.setLore(lore);
 			}
+			
+			((Damageable) meta).setDamage(damage);
 			item.setItemMeta(meta);
 		}
 		return item;
@@ -273,7 +276,7 @@ public class ConfigItem
 		return Integer.parseInt(getItemDataIndex(string, 2));
 	}
 
-	public int getDurability(String string)
+	public int getDamage(String string)
 	{
 		return Integer.parseInt(getItemDataIndex(string, 3));
 	}

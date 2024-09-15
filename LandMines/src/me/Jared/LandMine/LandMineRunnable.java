@@ -64,7 +64,6 @@ public class LandMineRunnable extends BukkitRunnable
 					{
 						if(entityFootY.getType() == Material.STONE_PRESSURE_PLATE)
 						{
-
 							if(entity instanceof Player)
 							{
 								Player player = (Player) entity;
