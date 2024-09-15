@@ -25,7 +25,6 @@ import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.event.player.PlayerSignOpenEvent;
 import org.bukkit.event.server.ServerListPingEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
@@ -219,18 +218,6 @@ public class Listener1 implements Listener
 				e.setCancelled(true);
 				break;
 			}
-		}
-	}
-
-	@EventHandler
-	public void onRespawn(PlayerRespawnEvent e)
-	{
-		Player player = e.getPlayer();
-
-		if(player.getWorld().getName().equals("world"))
-		{
-			player.setRespawnLocation(new Location(player.getWorld(), 0, 0, 0));
-
 		}
 	}
 

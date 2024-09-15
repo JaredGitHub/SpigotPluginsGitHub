@@ -128,27 +128,27 @@ public class ConfigItem
 		Material material = getMaterial(string);
 		String displayName = getDisplayName(string);
 		String itemLore = getItemDataIndex(string, 4);
-		int durability = getDurability(string);
-
 		int amount = getAmount(string);
 
 		if(material == null)
 			Bukkit.getConsoleSender().sendMessage("There is something messed up in the config!");
 
 		ItemStack item = new ItemStack(material, amount);
-
 		ItemMeta meta = item.getItemMeta();
-		if(itemLore.length() >= 1)
-		{
-			List<String> lore = new ArrayList<String>();
-			lore.add(ChatColor.translateAlternateColorCodes('&', itemLore));
-			meta.setLore(lore);
-		}
-		meta.setDisplayName(displayName);
-		
-		((Damageable) meta).setDamage(durability);
 
+		meta.setDisplayName(displayName);
 		item.setItemMeta(meta);
+
+		if(itemLore.length() > 1)
+		{
+			if(itemLore.length() >= 1)
+			{
+				List<String> lore = new ArrayList<String>();
+				lore.add(ChatColor.translateAlternateColorCodes('&', itemLore));
+				meta.setLore(lore);
+			}
+			item.setItemMeta(meta);
+		}
 		return item;
 	}
 

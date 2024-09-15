@@ -147,8 +147,16 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 
 			if(cmd.getName().equalsIgnoreCase("addspawnpoint"))
 			{
-				ConfigManager.setGameSlot(player.getLocation(), ConfigManager.getGameSlotsSize());
-				player.sendMessage(ChatColor.GREEN + "Added a spawn point of your location!");
+				if(player.getWorld().equals(Bukkit.getWorld("warz")))
+				{
+					ConfigManager.setGameSlot(player.getLocation(), ConfigManager.getGameSlotsSize());
+					player.sendMessage(ChatColor.GREEN + "Added a spawn point of your location!");
+				}
+				else
+				{
+					player.sendMessage(ChatColor.RED + "You must be in the warz world noob!");
+				}
+				
 
 			}
 		}

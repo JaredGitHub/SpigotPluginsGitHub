@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="me.Jared.Manager.ConfigManager"/>
     <fullyQualifiedTypeName name="me.Jared.Duels"/>
     <fullyQualifiedTypeName name="me.Jared.Command.DuelCommands"/>
     <fullyQualifiedTypeName name="me.Jared.Managers.KitManager"/>
@@ -37,7 +36,6 @@
     <fullyQualifiedTypeName name="org.bukkit.Sound"/>
     <fullyQualifiedTypeName name="me.jared.food.Sugar"/>
     <fullyQualifiedTypeName name="me.jared.food.listeners.BleedRunnable"/>
-    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.PlayerDeathEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.inventory.ItemStack"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.SpongeAbsorbEvent"/>
@@ -58,6 +56,8 @@
     <fullyQualifiedTypeName name="java.net.URL"/>
     <fullyQualifiedTypeName name="org.bukkit.Material"/>
     <fullyQualifiedTypeName name="org.bukkit.World"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="me.jared.BoostPad"/>
+    <fullyQualifiedTypeName name="org.bukkit.Location"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
 </qualifiedTypeNameHistroy>
