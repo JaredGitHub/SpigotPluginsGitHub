@@ -1506,3 +1506,4 @@ Caused by: org.codehaus.plexus.util.xml.pull.XmlPullParserException: Unrecognise
 2024-09-15 15:10:05,212 [Worker-185: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\main\resources
 2024-09-15 15:10:05,214 [Worker-185: Building] WARN  o.a.m.s.f.DefaultMavenResourcesFiltering - Using platform encoding (UTF-8 actually) to copy filtered resources, i.e. build is platform dependent!
 2024-09-15 15:10:05,214 [Worker-185: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory C:\Users\jared\Desktop\eclipse-workspace\SpigotPluginsGitHub\LandMines\src\test\resources
+2024-09-16 08:57:13,882 [Worker-9: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.

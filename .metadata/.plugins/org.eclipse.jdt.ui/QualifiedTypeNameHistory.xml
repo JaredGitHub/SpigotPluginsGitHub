@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="me.Jared.Duels"/>
     <fullyQualifiedTypeName name="me.Jared.Command.DuelCommands"/>
     <fullyQualifiedTypeName name="me.Jared.Managers.KitManager"/>
     <fullyQualifiedTypeName name="org.bukkit.event.EventHandler"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.BlockPlaceEvent"/>
-    <fullyQualifiedTypeName name="me.Jared.LandMinePlugin"/>
     <fullyQualifiedTypeName name="me.Jared.LandMine.LandMineListener"/>
     <fullyQualifiedTypeName name="me.Jared.LandMine.LandMineRunnable"/>
     <fullyQualifiedTypeName name="org.bukkit.plugin.java.JavaPlugin"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="org.bukkit.Location"/>
     <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
+    <fullyQualifiedTypeName name="me.Jared.LandMine.ExplodeRunnable"/>
+    <fullyQualifiedTypeName name="me.Jared.LandMinePlugin"/>
 </qualifiedTypeNameHistroy>

@@ -86,7 +86,7 @@ public class Main extends JavaPlugin implements Listener
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
 		Player p = (Player) sender;
-
+		
 		if(cmd.getName().equalsIgnoreCase("r"))
 		{
 			if(requesters.containsKey(p))
