@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="me.Jared.Command.DuelCommands"/>
     <fullyQualifiedTypeName name="me.Jared.Managers.KitManager"/>
     <fullyQualifiedTypeName name="org.bukkit.event.EventHandler"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.BlockPlaceEvent"/>
@@ -23,7 +22,6 @@
     <fullyQualifiedTypeName name="org.bukkit.Statistic"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="org.bukkit.event.Listener"/>
-    <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerMoveEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.Action"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageEvent"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
@@ -45,19 +43,21 @@
     <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
     <fullyQualifiedTypeName name="org.bukkit.Color"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
-    <fullyQualifiedTypeName name="org.bukkit.map.MapRenderer"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="java.awt.image.BufferedImage"/>
-    <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
-    <fullyQualifiedTypeName name="org.bukkit.map.MapPalette"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerRespawnEvent"/>
-    <fullyQualifiedTypeName name="java.net.URL"/>
-    <fullyQualifiedTypeName name="org.bukkit.Material"/>
-    <fullyQualifiedTypeName name="org.bukkit.World"/>
     <fullyQualifiedTypeName name="me.jared.BoostPad"/>
     <fullyQualifiedTypeName name="org.bukkit.Location"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
     <fullyQualifiedTypeName name="me.Jared.LandMine.ExplodeRunnable"/>
     <fullyQualifiedTypeName name="me.Jared.LandMinePlugin"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="org.bukkit.map.MapRenderer"/>
+    <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
+    <fullyQualifiedTypeName name="org.bukkit.map.MapPalette"/>
+    <fullyQualifiedTypeName name="me.Jared.Commands.CustomMapRenderer"/>
+    <fullyQualifiedTypeName name="org.bukkit.World"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerMoveEvent"/>
+    <fullyQualifiedTypeName name="org.bukkit.Material"/>
+    <fullyQualifiedTypeName name="java.net.URL"/>
 </qualifiedTypeNameHistroy>

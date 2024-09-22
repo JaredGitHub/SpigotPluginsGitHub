@@ -57,8 +57,7 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 			if(sender instanceof Player)
 			{
 				Player player = (Player) sender;
-
-
+				
 				Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
 				if(block.getType() == Material.AIR)
 				{

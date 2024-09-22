@@ -7,10 +7,12 @@ import java.util.Random;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Drowned;
 import org.bukkit.entity.Player;
@@ -24,15 +26,21 @@ import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
+import org.bukkit.inventory.meta.MapMeta;
+import org.bukkit.map.MapView;
+import org.bukkit.map.MapView.Scale;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import me.Jared.Warz;
+import me.Jared.Commands.CustomMapRenderer;
 import me.Jared.Loot.ConfigItem;
 import me.Jared.Loot.ConfigManager;
 import me.Jared.Loot.LootManager;
@@ -170,6 +178,7 @@ public class WarzListener implements Listener
 		p.getInventory().setItem(2, new ItemStack(Material.BONE, 1));
 		p.getInventory().setItem(3, new ItemStack(Material.PAPER, 1));
 		p.getInventory().setItem(4, new ItemStack(Material.COMPASS));
+		p.getInventory().setItem(5, getMap(p.getWorld()));
 	}
 
 	@EventHandler
@@ -295,69 +304,47 @@ public class WarzListener implements Listener
 			}
 		}
 	}
-	
-	/*
-	public ItemStack getMap(World world)
-	{
-		ItemStack item = new ItemStack(Material.FILLED_MAP);
-		MapMeta mapMeta = (MapMeta) item.getItemMeta();
-
-		MapView mapView = Bukkit.createMap(world);
-		mapView.getRenderers().clear();
-		mapView.addRenderer(new MapRenderer()
-		{
-
-			@Override
-			public void render(MapView mapView, MapCanvas mapCanvas, Player player)
-			{
-				try
-				{
-					URL url = new URL("https://i.imgur.com/xaWUSlI.png");
-
-					BufferedImage image = ImageIO.read(url);
-					mapCanvas.drawImage(0, 0, MapPalette.resizeImage(image));
-
-				} catch(IOException e)
-				{
-
-					e.printStackTrace();
-				}
-
-			}
-		});
-
-		mapMeta.setMapView(mapView);
-		return item;
-	}
 
 	@EventHandler
 	public void onMove(PlayerMoveEvent e)
 	{
 		Player player = e.getPlayer();
-		if(player.getInventory().contains(Material.MAP) || player.getInventory().contains(Material.FILLED_MAP))
-			;
+
+		ItemStack mainHand = player.getInventory().getItemInMainHand();
+		if(mainHand.getType() == Material.MAP
+				|| mainHand.getType() == Material.FILLED_MAP)
 		{
-			ItemStack map = null;
-			if(player.getInventory().getItemInMainHand().getType() == Material.MAP
-					|| player.getInventory().getItemInMainHand().getType() == Material.FILLED_MAP)
+			if(!mainHand.getItemMeta().hasDisplayName())
 			{
-				map = player.getInventory().getItemInMainHand();
-			} else if(player.getInventory().getItemInOffHand().getType() == Material.MAP
-					|| player.getInventory().getItemInOffHand().getType() == Material.FILLED_MAP)
-			{
-				map = player.getInventory().getItemInOffHand();
-			}
-
-			if(map == null)
-				return;
-
-			MapMeta mapMeta = (MapMeta) map.getItemMeta();
-
-			if(getMap(Bukkit.getWorld("world")).getItemMeta().equals(mapMeta))
-			{
-				map.setItemMeta(mapMeta);
+				player.getInventory().setItemInMainHand(getMap(player.getWorld()));
 			}
 		}
 	}
-	*/
+
+	public ItemStack getMap(World world)
+	{
+		ItemStack mapItem = new ItemStack(Material.FILLED_MAP, 1);
+		ItemMeta itemMeta = mapItem.getItemMeta();
+		itemMeta.setDisplayName(ChatColor.GOLD + "Map");
+		mapItem.setItemMeta(itemMeta);
+		
+		MapMeta mapMeta = (MapMeta) mapItem.getItemMeta();
+
+		MapView mapView = Bukkit.createMap(world);
+		mapView.setScale(Scale.FARTHEST);
+		mapView.setTrackingPosition(true);
+		mapView.setCenterX(0);
+		mapView.setCenterZ(0);
+
+		CustomMapRenderer mapRenderer = new CustomMapRenderer();
+
+		mapView.getRenderers().clear();
+		mapView.addRenderer(mapRenderer);
+
+		mapMeta.setMapView(mapView);
+		mapItem.setItemMeta(mapMeta);
+
+		return mapItem;
+	}
+
 }
