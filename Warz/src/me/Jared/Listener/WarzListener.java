@@ -12,7 +12,6 @@ import org.bukkit.Color;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Drowned;
 import org.bukkit.entity.Player;
@@ -178,7 +177,7 @@ public class WarzListener implements Listener
 		p.getInventory().setItem(2, new ItemStack(Material.BONE, 1));
 		p.getInventory().setItem(3, new ItemStack(Material.PAPER, 1));
 		p.getInventory().setItem(4, new ItemStack(Material.COMPASS));
-		p.getInventory().setItem(5, getMap(p.getWorld()));
+		p.getInventory().setItem(5, getMap(p));
 	}
 
 	@EventHandler
@@ -311,26 +310,27 @@ public class WarzListener implements Listener
 		Player player = e.getPlayer();
 
 		ItemStack mainHand = player.getInventory().getItemInMainHand();
-		if(mainHand.getType() == Material.MAP
-				|| mainHand.getType() == Material.FILLED_MAP)
+
+		if(mainHand.getType() == Material.MAP || mainHand.getType() == Material.FILLED_MAP)
 		{
-			if(!mainHand.getItemMeta().hasDisplayName())
+			MapMeta mapMeta = (MapMeta) mainHand.getItemMeta();
+			if(!mapMeta.hasMapView())
 			{
-				player.getInventory().setItemInMainHand(getMap(player.getWorld()));
+				player.getInventory().setItemInMainHand(getMap(player));
 			}
 		}
 	}
 
-	public ItemStack getMap(World world)
+	public ItemStack getMap(Player player)
 	{
 		ItemStack mapItem = new ItemStack(Material.FILLED_MAP, 1);
 		ItemMeta itemMeta = mapItem.getItemMeta();
-		itemMeta.setDisplayName(ChatColor.GOLD + "Map");
+		itemMeta.setDisplayName(ChatColor.GOLD + player.getDisplayName() + "'s Map");
 		mapItem.setItemMeta(itemMeta);
-		
+
 		MapMeta mapMeta = (MapMeta) mapItem.getItemMeta();
 
-		MapView mapView = Bukkit.createMap(world);
+		MapView mapView = Bukkit.createMap(player.getWorld());
 		mapView.setScale(Scale.FARTHEST);
 		mapView.setTrackingPosition(true);
 		mapView.setCenterX(0);
