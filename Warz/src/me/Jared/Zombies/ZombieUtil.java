@@ -162,21 +162,21 @@ public class ZombieUtil
 	
 	private void lowZombie()
 	{
-		createZombie(6, 1, Material.LEATHER_HELMET, 5, ChatColor.GRAY + "Tier 1 Zombie");
+		createZombie(6, 1, Material.LEATHER_HELMET, 3, ChatColor.GRAY + "Tier 1 Zombie");
 	}
 
 	private void mediumZombie()
 	{
-		createZombie(8, 2, Material.IRON_HELMET, 8, ChatColor.WHITE + "Tier 2 Zombie");
+		createZombie(8, 2, Material.IRON_HELMET, 6, ChatColor.WHITE + "Tier 2 Zombie");
 	}
 
 	private void highZombie()
 	{
-		createZombie(10, 3, Material.DIAMOND_HELMET, 12, ChatColor.BLUE + "Tier 3 Zombie");
+		createZombie(8, 2, Material.DIAMOND_HELMET, 8, ChatColor.BLUE + "Tier 3 Zombie");
 	}
 
 	private void skyhighZombie()
 	{
-		createZombie(10, 3, Material.NETHERITE_HELMET, 15, ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Tier 4 Zombie");
+		createZombie(10, 2, Material.NETHERITE_HELMET, 10, ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Tier 4 Zombie");
 	}
 }

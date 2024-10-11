@@ -18,7 +18,6 @@ public class CustomMapRenderer extends MapRenderer
 	@Override
 	public void render(MapView map, MapCanvas canvas, Player player)
 	{
-		
 		try
 		{
 			URL url = new URL("https://i.imgur.com/xaWUSlI.png");
