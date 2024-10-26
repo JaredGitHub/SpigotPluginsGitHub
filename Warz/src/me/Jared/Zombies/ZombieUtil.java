@@ -72,21 +72,28 @@ public class ZombieUtil
 		}
 	}
 
-	private Location spawnRadius(Location loc, int radius)
+	private Location spawnRadius(Location playerLocation, int radius)
 	{
-		Location center = loc;
 		Random rand = new Random();
-		double angle = rand.nextDouble() * 360; // Generate a random angle
-		double x = center.getX() + (rand.nextDouble() * radius * Math.cos(Math.toRadians(angle)));
-		double z = center.getZ() + (rand.nextDouble() * radius * Math.sin(Math.toRadians(angle)));
-		Location newloc = new Location(loc.getWorld(), x, 0, z);
-		double y = center.getWorld().getHighestBlockYAt(newloc);
-		newloc = new Location(loc.getWorld(), x, y+1, z);
-		newloc.setYaw(center.getYaw());
-		newloc.setPitch(center.getPitch());
+		Location newloc;
+		do
+		{
+			
+			double angle = rand.nextDouble() * 360; // Generate a random angle
+			double x = playerLocation.getX() + (rand.nextDouble() * radius * Math.cos(Math.toRadians(angle)));
+			double z = playerLocation.getZ() + (rand.nextDouble() * radius * Math.sin(Math.toRadians(angle)));
 
+			newloc = new Location(playerLocation.getWorld(), x, 0, z);
+			double y = playerLocation.getWorld().getHighestBlockYAt(newloc);
+			newloc = new Location(playerLocation.getWorld(), x, y + 1, z);
+			newloc.setYaw(playerLocation.getYaw());
+			newloc.setPitch(playerLocation.getPitch());
+		}while (newloc.distance(playerLocation) < 25);
+
+		
 		return newloc;
 	}
+
 
 	private Zone getZoneFromRegion(String region)
 	{
@@ -137,7 +144,7 @@ public class ZombieUtil
 		// Give zombie helmet so that they don't burn
 		Zombie zomb = (Zombie) zombie;
 		zomb.setAdult();
-		
+
 		zomb.getEquipment().setHelmet(new ItemStack(helmet));
 
 		zombie.setCustomName(customName);
@@ -146,20 +153,20 @@ public class ZombieUtil
 		AttributeInstance attackAttribute = ((Attributable) zombie).getAttribute(Attribute.GENERIC_ATTACK_DAMAGE);
 		AttributeInstance healthAttribute = ((Attributable) zombie).getAttribute(Attribute.GENERIC_MAX_HEALTH);
 
-		//Set speed of zombie
+		// Set speed of zombie
 		PotionEffect potionEffect = new PotionEffect(PotionEffectType.SPEED, 30000, speed);
 		potionEffect.apply(zomb);
 
 		if(attackAttribute != null)
 		{
-			attackAttribute.setBaseValue(damage); 
+			attackAttribute.setBaseValue(damage);
 		}
 		if(healthAttribute != null)
 		{
-			healthAttribute.setBaseValue(health); 
+			healthAttribute.setBaseValue(health);
 		}
 	}
-	
+
 	private void lowZombie()
 	{
 		createZombie(6, 1, Material.LEATHER_HELMET, 3, ChatColor.GRAY + "Tier 1 Zombie");
@@ -177,6 +184,7 @@ public class ZombieUtil
 
 	private void skyhighZombie()
 	{
-		createZombie(10, 2, Material.NETHERITE_HELMET, 10, ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Tier 4 Zombie");
+		createZombie(10, 2, Material.NETHERITE_HELMET, 10,
+				ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Tier 4 Zombie");
 	}
 }

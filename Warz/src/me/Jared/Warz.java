@@ -42,7 +42,7 @@ public class Warz extends JavaPlugin
 		var lootManager = new LootManager();
 		lootManager.runLootRunnable(2);
 		
-		ZombieRunnable zombieRunnable = new ZombieRunnable(25, 10, 300);
+		ZombieRunnable zombieRunnable = new ZombieRunnable(50, 10, 300);
 		zombieRunnable.runTaskTimer(this, 0, 20);
 		
 		Bukkit.getPluginManager().registerEvents(new WarzListener(), this);
