@@ -54,8 +54,8 @@ public class SetChestsRunnable extends BukkitRunnable
 	@Override
 	public void run()
 	{
-		ArrayList<String> chestList = new ArrayList<String>(config.getStringList("chests"));
-		ArrayList<Location> blockLocations = new ArrayList<Location>(getChestLocationsInRegion(region, world));
+		ArrayList<String> chestList = new ArrayList<>(config.getStringList("chests"));
+		ArrayList<Location> blockLocations = new ArrayList<>(getChestLocationsInRegion(region, world));
 		var configItem = new ConfigItem();
 
 		for(int i = 0; i < chestIterations; i++)
@@ -67,7 +67,7 @@ public class SetChestsRunnable extends BukkitRunnable
 				return;
 			}
 			var block = blockLocations.get(iterations).getBlock();
-			
+
 			// If chest is already assigned a zone in the config
 			for(int idx = 0; idx < chestList.size(); idx++)
 			{
@@ -79,9 +79,9 @@ public class SetChestsRunnable extends BukkitRunnable
 					chestList.remove(idx);
 				}
 			}
-			chestList.add(block.getX() 
-					+ ":" + block.getY() 
-					+ ":" + block.getZ() + ":" 
+			chestList.add(block.getX()
+					+ ":" + block.getY()
+					+ ":" + block.getZ() + ":"
 					+ zoneString.toUpperCase() + ":");
 
 			player.sendMessage(ChatColor.GREEN + "You have set this chest to zone " + zoneString.toUpperCase() + " at "

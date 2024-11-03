@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="me.Jared.LandMine.LandMineListener"/>
-    <fullyQualifiedTypeName name="me.Jared.LandMine.LandMineRunnable"/>
-    <fullyQualifiedTypeName name="org.bukkit.plugin.java.JavaPlugin"/>
-    <fullyQualifiedTypeName name="me.Jared.Listeners.ChestListener"/>
     <fullyQualifiedTypeName name="me.Jared.Stats"/>
     <fullyQualifiedTypeName name="me.Jared.Menu.PVMenu"/>
     <fullyQualifiedTypeName name="me.Jared.PersonalVault"/>
@@ -47,17 +43,21 @@
     <fullyQualifiedTypeName name="org.bukkit.Location"/>
     <fullyQualifiedTypeName name="me.Jared.LandMine.ExplodeRunnable"/>
     <fullyQualifiedTypeName name="me.Jared.LandMinePlugin"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="org.bukkit.map.MapRenderer"/>
     <fullyQualifiedTypeName name="javax.imageio.ImageIO"/>
     <fullyQualifiedTypeName name="org.bukkit.map.MapPalette"/>
     <fullyQualifiedTypeName name="me.Jared.Commands.CustomMapRenderer"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerMoveEvent"/>
     <fullyQualifiedTypeName name="java.net.URL"/>
-    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
     <fullyQualifiedTypeName name="org.bukkit.map.MapView.Scale"/>
     <fullyQualifiedTypeName name="org.bukkit.World"/>
     <fullyQualifiedTypeName name="org.bukkit.map.MapView"/>
     <fullyQualifiedTypeName name="org.bukkit.Material"/>
     <fullyQualifiedTypeName name="java.net.URLConnection"/>
+    <fullyQualifiedTypeName name="com.sk89q.worldedit.world.World"/>
+    <fullyQualifiedTypeName name="me.Jared.Warz"/>
+    <fullyQualifiedTypeName name="org.bukkit.configuration.file.FileConfiguration"/>
+    <fullyQualifiedTypeName name="me.Jared.SQL.WarzDataAccessObject"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
 </qualifiedTypeNameHistroy>

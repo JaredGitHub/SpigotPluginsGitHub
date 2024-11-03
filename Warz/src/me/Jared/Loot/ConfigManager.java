@@ -1,7 +1,6 @@
 package me.Jared.Loot;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -21,6 +20,8 @@ import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
 
 import me.Jared.Warz;
+import me.Jared.SQL.PlayerData;
+import me.Jared.SQL.WarzDataAccessObject;
 
 public class ConfigManager
 {
@@ -52,7 +53,7 @@ public class ConfigManager
 
 	public static int getGameSlotsSize()
 	{
-		ArrayList<String> totalSpawnPoints = new ArrayList<String>();
+		ArrayList<String> totalSpawnPoints = new ArrayList<>();
 
 		if(config.contains("warz"))
 		{
@@ -96,29 +97,7 @@ public class ConfigManager
 		plugin.saveConfig();
 	}
 
-	public static void savePlayerWarzData(Player player, String world)
-	{
-		Location loc = player.getLocation();
-
-		double x = loc.getX();
-		double y = loc.getY();
-		double z = loc.getZ();
-
-		String uuid = player.getUniqueId().toString();
-
-		config.set(uuid + ".world", world);
-		config.set(uuid + ".x", x);
-		config.set(uuid + ".y", y);
-		config.set(uuid + ".z", z);
-		config.set(uuid + ".yaw", loc.getYaw());
-		config.set(uuid + ".pitch", loc.getPitch());
-		config.set(uuid + ".health", player.getHealth());
-		saveInventory(player, world);
-
-		plugin.saveConfig();
-	}
-
-	private static boolean isInRegion(Player player, String stringRegion)
+	public static boolean isInRegion(Player player, String stringRegion)
 	{
 		RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
 		World world = WorldGuardPlugin.inst().wrapPlayer(player).getWorld();
@@ -138,38 +117,32 @@ public class ConfigManager
 	{
 		if(isInRegion(player, "spawn"))
 		{
-			if(config.get(player.getUniqueId().toString() + ".world") == null)
-			{
-				Random rand = new Random();
-				Location randomLocation = ConfigManager
-						.getGameSlotLocation(rand.nextInt(1, ConfigManager.getGameSlotsSize()));
-				player.teleport(randomLocation);
-				player.getInventory().clear();
-			}
-			else
-			{
+				//Set the player in warz through SQL!!!
+
+				WarzDataAccessObject dao = new WarzDataAccessObject();
+
 				String uuid = player.getUniqueId().toString();
+				PlayerData playerData = dao.getPlayerByUUID(uuid);
 
-				String world = config.getString(uuid + ".world");
-				double x = config.getDouble(uuid + ".x");
-				double y = config.getDouble(uuid + ".y");
-				double z = config.getDouble(uuid + ".z");
-				float yaw = (float) config.getDouble(uuid + ".yaw");
-				float pitch = (float) config.getDouble(uuid + ".pitch");
-				double health = config.getDouble(uuid + ".health");
+				String world = playerData.getWorld();
+				double x = playerData.getX();
+				double y = playerData.getY();
+				double z = playerData.getZ();
+				float yaw = playerData.getYaw();
+				float pitch = playerData.getPitch();
+				double health = playerData.getHealth();
 
-				Location newLoc = new Location(Bukkit.getWorld(world), x, y, z, yaw, pitch);
+				Location newLoc = new Location(Bukkit.getWorld(world), x, y, z,yaw,pitch);
 				player.teleport(newLoc);
 				player.setHealth(health);
 
 				loadInventory(player, "warz");
 			}
-		}
+//		}
 		else
 		{
 			player.sendMessage(ChatColor.RED + "Please do this at spawn!");
 		}
-
 	}
 
 	public static void saveInventory(Player player, String world)
@@ -213,5 +186,16 @@ public class ConfigManager
 			}
 		}
 	}
+
+	public static void savePlayerWarzData(Player player, String world)
+	{
+		saveInventory(player, world);
+		WarzDataAccessObject dao = new WarzDataAccessObject();
+		if(dao.savePlayerWarzData(player) == 0)
+		{
+			Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "IT DIDN'T SEND ANYTHING TO THE SQL SERVER DANGIT!!!!");
+		}
+	}
+
 
 }

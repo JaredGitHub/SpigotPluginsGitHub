@@ -51,10 +51,10 @@ public class LootRunnable extends BukkitRunnable
 
 			var particleRunnable = new ParticleRunnable(interval);
 			particleRunnable.runTaskTimer(Warz.getInstance(), 0, 20);
-			
+
 			var timeLeftChestRunnable = new TimeLeftChestRunnable(interval);
 			timeLeftChestRunnable.runTaskTimer(Warz.getInstance(), 0, 20);
-			
+
 			for(Player online : Bukkit.getOnlinePlayers())
 			{
 				if(online.getWorld().equals(Bukkit.getWorld("warz")))

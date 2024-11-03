@@ -75,7 +75,7 @@ public class LootManager
 
 		if(Warz.getChestLocations().contains(block.getLocation()))
 		{
-			ArrayList<String> items = new ArrayList<String>(configItem.zoneListItems(zone));
+			ArrayList<String> items = new ArrayList<>(configItem.zoneListItems(zone));
 			Block otherBlock = isDoubleChest(block);
 
 			Location location = block.getLocation();

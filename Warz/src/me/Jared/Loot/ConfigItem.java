@@ -78,8 +78,8 @@ public class ConfigItem
 
 	public ArrayList<String> zoneListChests(Zone zone)
 	{
-		ArrayList<String> chestList = new ArrayList<String>(config.getStringList("chests"));
-		ArrayList<String> zoneList = new ArrayList<String>();
+		ArrayList<String> chestList = new ArrayList<>(config.getStringList("chests"));
+		ArrayList<String> zoneList = new ArrayList<>();
 		for(String chest : chestList)
 		{
 			if(getChestZone(chest).equals(zone))
@@ -92,8 +92,8 @@ public class ConfigItem
 
 	public ArrayList<String> zoneListItems(Zone zone)
 	{
-		ArrayList<String> itemList = new ArrayList<String>(config.getStringList("items"));
-		ArrayList<String> zoneList = new ArrayList<String>();
+		ArrayList<String> itemList = new ArrayList<>(config.getStringList("items"));
+		ArrayList<String> zoneList = new ArrayList<>();
 		for(String item : itemList)
 		{
 			if(getZone(item).equals(zone))
@@ -112,7 +112,9 @@ public class ConfigItem
 		int amount = getAmount(string);
 
 		if(material == null)
+		{
 			Bukkit.getConsoleSender().sendMessage("There is something messed up in the config!");
+		}
 
 		ItemStack item = new ItemStack(material, amount);
 		ItemMeta meta = item.getItemMeta();
@@ -132,7 +134,9 @@ public class ConfigItem
 		int damage = getDamage(string);
 
 		if(material == null)
+		{
 			Bukkit.getConsoleSender().sendMessage("There is something messed up in the config!");
+		}
 
 		ItemStack item = new ItemStack(material, amount);
 		ItemMeta meta = item.getItemMeta();
@@ -144,11 +148,11 @@ public class ConfigItem
 		{
 			if(itemLore.length() >= 1)
 			{
-				List<String> lore = new ArrayList<String>();
+				List<String> lore = new ArrayList<>();
 				lore.add(ChatColor.translateAlternateColorCodes('&', itemLore));
 				meta.setLore(lore);
 			}
-			
+
 			((Damageable) meta).setDamage(damage);
 			item.setItemMeta(meta);
 		}
@@ -164,7 +168,7 @@ public class ConfigItem
 		int durability = 0;
 		if(item.hasItemMeta())
 		{
-			displayName = item.getItemMeta().getDisplayName().replaceAll("§", "&");
+			displayName = item.getItemMeta().getDisplayName().replaceAll("ï¿½", "&");
 			if(item.getItemMeta() instanceof Damageable)
 			{
 				durability = ((Damageable) item.getItemMeta()).getDamage();
@@ -212,7 +216,7 @@ public class ConfigItem
 		int durability = 0;
 		if(item.hasItemMeta())
 		{
-			displayName = item.getItemMeta().getDisplayName().replaceAll("§", "&");
+			displayName = item.getItemMeta().getDisplayName().replaceAll("ï¿½", "&");
 			if(item.getItemMeta() instanceof Damageable)
 			{
 				durability = ((Damageable) item.getItemMeta()).getDamage();
@@ -229,7 +233,7 @@ public class ConfigItem
 		{
 			if(item.getItemMeta().hasLore())
 			{
-				String lore = item.getItemMeta().getLore().get(0).replaceAll("§", "&");
+				String lore = item.getItemMeta().getLore().get(0).replaceAll("ï¿½", "&");
 				stringBuilder.append(lore + ":");
 			}
 		}

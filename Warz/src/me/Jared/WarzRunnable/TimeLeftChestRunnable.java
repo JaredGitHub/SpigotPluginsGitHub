@@ -44,7 +44,7 @@ public class TimeLeftChestRunnable extends BukkitRunnable
 					location.getZ() + 0.5);
 			ArmorStand armorStand = (ArmorStand) location.getWorld().spawnEntity(loc, EntityType.ARMOR_STAND);
 			armorStand.setMarker(true);
-			
+
 			int minutes = seconds / 60;
 			int secondsLeft = seconds % 60;
 

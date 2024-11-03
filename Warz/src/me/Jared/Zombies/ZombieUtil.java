@@ -78,7 +78,7 @@ public class ZombieUtil
 		Location newloc;
 		do
 		{
-			
+
 			double angle = rand.nextDouble() * 360; // Generate a random angle
 			double x = playerLocation.getX() + (rand.nextDouble() * radius * Math.cos(Math.toRadians(angle)));
 			double z = playerLocation.getZ() + (rand.nextDouble() * radius * Math.sin(Math.toRadians(angle)));
@@ -90,7 +90,7 @@ public class ZombieUtil
 			newloc.setPitch(playerLocation.getPitch());
 		}while (newloc.distance(playerLocation) < 25);
 
-		
+
 		return newloc;
 	}
 

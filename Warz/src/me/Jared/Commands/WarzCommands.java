@@ -35,7 +35,7 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 
 	private void setConfigItem(Player player, Zone zone)
 	{
-		ArrayList<String> itemList = new ArrayList<String>(config.getStringList("items"));
+		ArrayList<String> itemList = new ArrayList<>(config.getStringList("items"));
 		ConfigItem configItem = new ConfigItem();
 
 		ItemStack playerItem = new ItemStack(player.getInventory().getItemInMainHand());
@@ -52,12 +52,13 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String str, String[] args)
 	{
+		//Warz commands
 		if(cmd.getName().equalsIgnoreCase("warz"))
 		{
 			if(sender instanceof Player)
 			{
 				Player player = (Player) sender;
-				
+
 				Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
 				if(block.getType() == Material.AIR)
 				{
@@ -155,7 +156,7 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 				{
 					player.sendMessage(ChatColor.RED + "You must be in the warz world noob!");
 				}
-				
+
 
 			}
 		}
@@ -165,7 +166,7 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command cmd, String str, String[] args)
 	{
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 
 		if(cmd.getName().equalsIgnoreCase("setzone"))
 		{

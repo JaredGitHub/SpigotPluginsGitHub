@@ -34,7 +34,6 @@ import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.MapMeta;
 import org.bukkit.map.MapView;
 import org.bukkit.map.MapView.Scale;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -44,6 +43,7 @@ import me.Jared.Loot.ConfigItem;
 import me.Jared.Loot.ConfigManager;
 import me.Jared.Loot.LootManager;
 import me.Jared.Loot.Zone;
+import me.Jared.SQL.WarzDataAccessObject;
 
 public class WarzListener implements Listener
 {
@@ -89,7 +89,11 @@ public class WarzListener implements Listener
 		{
 			if(player.getGameMode() == GameMode.SURVIVAL)
 			{
-				ConfigManager.savePlayerWarzData(player, "warz");
+				WarzDataAccessObject dao = new WarzDataAccessObject();
+				if(dao.savePlayerWarzData(player) == 0)
+				{
+					Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "IT DIDN'T SEND ANYTHING TO THE SQL SERVER DANGIT!!!!");
+				}
 			}
 		} else if(player.getWorld().getName().equals("world"))
 		{
@@ -195,7 +199,7 @@ public class WarzListener implements Listener
 			{
 				p.setGameMode(GameMode.SPECTATOR);
 				e.setRespawnLocation(deathLocation.get(p.getUniqueId()));
-				Bukkit.getScheduler().runTaskLater((Plugin) Warz.getInstance(), () ->
+				Bukkit.getScheduler().runTaskLater(Warz.getInstance(), () ->
 				{
 					if(p.isOnline())
 					{
@@ -239,7 +243,7 @@ public class WarzListener implements Listener
 	private ItemStack getItem(Zone zone)
 	{
 		var configItem = new ConfigItem();
-		ArrayList<String> items = new ArrayList<String>(configItem.zoneListItems(zone));
+		ArrayList<String> items = new ArrayList<>(configItem.zoneListItems(zone));
 
 		Random rand = new Random();
 		int randomIndex = rand.nextInt(0, items.size());
