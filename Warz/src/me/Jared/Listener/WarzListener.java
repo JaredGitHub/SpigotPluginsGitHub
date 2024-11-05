@@ -138,7 +138,7 @@ public class WarzListener implements Listener
 			Warz.getInstance().saveConfig();
 		}
 	}
-
+	
 	private void givePlayerItems(Player p)
 	{
 		Color color = null;

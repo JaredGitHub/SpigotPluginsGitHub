@@ -1,6 +1,7 @@
 package me.Jared.Loot;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -117,11 +118,13 @@ public class ConfigManager
 	{
 		if(isInRegion(player, "spawn"))
 		{
-				//Set the player in warz through SQL!!!
+			//Set the player in warz through SQL!!!
 
-				WarzDataAccessObject dao = new WarzDataAccessObject();
+			WarzDataAccessObject dao = new WarzDataAccessObject();
 
-				String uuid = player.getUniqueId().toString();
+			String uuid = player.getUniqueId().toString();
+			if(dao.getPlayerByUUID(uuid) != null)
+			{
 				PlayerData playerData = dao.getPlayerByUUID(uuid);
 
 				String world = playerData.getWorld();
@@ -138,7 +141,15 @@ public class ConfigManager
 
 				loadInventory(player, "warz");
 			}
-//		}
+			else
+			{
+		        Random rand = new Random();
+		        Location randomLocation = 
+		          getGameSlotLocation(rand.nextInt(1, getGameSlotsSize()));
+		        player.teleport(randomLocation);
+			}
+		}
+		//		}
 		else
 		{
 			player.sendMessage(ChatColor.RED + "Please do this at spawn!");
