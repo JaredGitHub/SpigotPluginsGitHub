@@ -12,7 +12,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/jared/Desktop/SERVER/plugins/Warz.jar"/>
 	<classpathentry kind="lib" path="C:/Users/jared/Desktop/SERVER/plugins/worldguard-bukkit-7.0.11-beta1-dist.jar"/>
 	<classpathentry kind="lib" path="C:/Users/jared/Desktop/SERVER/plugins/FastAsyncWorldEdit-Bukkit-2.11.2-SNAPSHOT-897.jar"/>
 	<classpathentry kind="lib" path="C:/Users/jared/Desktop/BuildTools/Spigot/Spigot-API/target/spigot-api.jar" sourcepath="/Auto Respawn/Spigot-API">
@@ -20,5 +19,6 @@
 			<attribute name="javadoc_location" value="file:/home/jared/Desktop/Spigot%201.8.8/"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/jared/Desktop/SERVER/plugins/Warz.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

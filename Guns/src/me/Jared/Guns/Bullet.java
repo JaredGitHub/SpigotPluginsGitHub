@@ -49,7 +49,7 @@ public class Bullet
 		{
 			Location loc = owner.getPlayer().getEyeLocation();
 
-			double offset = 0.2;
+			double offset = 0.3;
 			double yOffset = -0.05;
 			if(owner.getPlayer().getMainHand() == MainHand.LEFT)
 			{
@@ -68,27 +68,32 @@ public class Bullet
 				break;
 			case EAST:
 				loc.add(0, yOffset, offset);
+				loc.setYaw(90);
 				break;
 			case WEST:
 				loc.add(0, yOffset, -offset);
+				loc.setYaw(-90);
 				break;
 			case NORTHEAST:
 				loc.add(offset, yOffset, offset);
+				loc.setYaw(135);
 				break;
 			case NORTHWEST:
 				loc.add(offset, yOffset, -offset);
+				loc.setYaw(-135);
 				break;
 			case SOUTHEAST:
 				loc.add(-offset, yOffset, offset);
+				loc.setYaw(45);
 				break;
 			case SOUTHWEST:
 				loc.add(-offset, yOffset, -offset);
+				loc.setYaw(-45);
 				break;
 			}
 
 			Class<Arrow> clazz = Arrow.class;
-			loc.setYaw(0);
-			loc.setPitch(0);
+			
 			this.projectile = owner.getPlayer().launchProjectile(clazz, this.velocity);
 			this.projectile.teleport(loc);
 

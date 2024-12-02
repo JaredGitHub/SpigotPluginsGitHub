@@ -21,6 +21,7 @@ import me.Jared.Warz;
 import me.Jared.Loot.ConfigItem;
 import me.Jared.Loot.ConfigManager;
 import me.Jared.Loot.Zone;
+import me.Jared.SQL.WarzDataAccessObject;
 import me.Jared.WarzRunnable.SetChestsRunnable;
 
 public class WarzCommands implements CommandExecutor, TabCompleter
@@ -67,7 +68,7 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 				}
 				if(player.getWorld().equals(Bukkit.getWorld("world")))
 				{
-					ConfigManager.saveInventory(player, "world");
+					WarzDataAccessObject.savePlayerWorldData(player);
 					ConfigManager.setPlayerInWarz(player);
 				}
 				else

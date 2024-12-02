@@ -85,19 +85,15 @@ public class WarzListener implements Listener
 	{
 		Player player = e.getPlayer();
 
+		// Save player inventory in warz or normal world depending on which one they are
+		// in at the time of logging out
 		if(player.getWorld().getName().equals("warz"))
 		{
-			if(player.getGameMode() == GameMode.SURVIVAL)
-			{
-				WarzDataAccessObject dao = new WarzDataAccessObject();
-				if(dao.savePlayerWarzData(player) == 0)
-				{
-					Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "IT DIDN'T SEND ANYTHING TO THE SQL SERVER DANGIT!!!!");
-				}
-			}
+			WarzDataAccessObject.savePlayerWarzData(player);
+
 		} else if(player.getWorld().getName().equals("world"))
 		{
-			ConfigManager.saveInventory(player, "world");
+			WarzDataAccessObject.savePlayerWorldData(player);
 		}
 	}
 
@@ -108,7 +104,14 @@ public class WarzListener implements Listener
 
 		if(!deadPlayers.contains(player.getUniqueId()))
 		{
+			try
+			{
 			ConfigManager.loadInventory(player, "world");
+			}
+			catch(NullPointerException exception)
+			{
+				Bukkit.getConsoleSender().sendMessage(ChatColor.RED + player.getName() + " has no inventory in this world!");
+			}
 		}
 	}
 
@@ -138,7 +141,7 @@ public class WarzListener implements Listener
 			Warz.getInstance().saveConfig();
 		}
 	}
-	
+
 	private void givePlayerItems(Player p)
 	{
 		Color color = null;

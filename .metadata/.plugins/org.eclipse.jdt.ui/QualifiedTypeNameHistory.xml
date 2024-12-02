@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="me.Jared.Stats"/>
     <fullyQualifiedTypeName name="me.Jared.Menu.PVMenu"/>
     <fullyQualifiedTypeName name="me.Jared.PersonalVault"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerQuitEvent"/>
@@ -8,7 +7,6 @@
     <fullyQualifiedTypeName name="me.Jared.Kits.Main"/>
     <fullyQualifiedTypeName name="me.Jared.Kits.ConfigItem"/>
     <fullyQualifiedTypeName name="me.Jared.GunsPlugin"/>
-    <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
     <fullyQualifiedTypeName name="org.bukkit.scheduler.BukkitRunnable"/>
     <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="me.jared.barb.HurtEntityRunnable"/>
@@ -28,7 +26,6 @@
     <fullyQualifiedTypeName name="org.bukkit.event.entity.PlayerDeathEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.inventory.ItemStack"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.SpongeAbsorbEvent"/>
-    <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
     <fullyQualifiedTypeName name="me.Jared.ParticleRunnables.GrenadeRunnable"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.BlockExplodeEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityExplodeEvent"/>
@@ -50,14 +47,17 @@
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerMoveEvent"/>
     <fullyQualifiedTypeName name="java.net.URL"/>
     <fullyQualifiedTypeName name="org.bukkit.map.MapView.Scale"/>
-    <fullyQualifiedTypeName name="org.bukkit.World"/>
     <fullyQualifiedTypeName name="org.bukkit.map.MapView"/>
     <fullyQualifiedTypeName name="org.bukkit.Material"/>
     <fullyQualifiedTypeName name="java.net.URLConnection"/>
     <fullyQualifiedTypeName name="com.sk89q.worldedit.world.World"/>
     <fullyQualifiedTypeName name="me.Jared.Warz"/>
     <fullyQualifiedTypeName name="org.bukkit.configuration.file.FileConfiguration"/>
+    <fullyQualifiedTypeName name="org.bukkit.World"/>
+    <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
+    <fullyQualifiedTypeName name="me.Jared.Loot.InventorySaver"/>
     <fullyQualifiedTypeName name="me.Jared.SQL.WarzDataAccessObject"/>
+    <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
     <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
 </qualifiedTypeNameHistroy>

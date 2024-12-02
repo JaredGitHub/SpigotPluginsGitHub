@@ -150,8 +150,8 @@ public class ZombieUtil
 		zombie.setCustomName(customName);
 		zombie.setCustomNameVisible(true);
 
-		AttributeInstance attackAttribute = ((Attributable) zombie).getAttribute(Attribute.GENERIC_ATTACK_DAMAGE);
-		AttributeInstance healthAttribute = ((Attributable) zombie).getAttribute(Attribute.GENERIC_MAX_HEALTH);
+		AttributeInstance attackAttribute = ((Attributable) zombie).getAttribute(Attribute.ATTACK_DAMAGE);
+		AttributeInstance healthAttribute = ((Attributable) zombie).getAttribute(Attribute.MAX_HEALTH);
 
 		// Set speed of zombie
 		PotionEffect potionEffect = new PotionEffect(PotionEffectType.SPEED, 30000, speed);

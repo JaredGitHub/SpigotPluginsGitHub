@@ -4,22 +4,31 @@ public class PlayerData
 {
 	int id;
 	String uuid;
-	String world;
 	int x;
 	int y;
 	int z;
 	float yaw;
 	float pitch;
 	double health;
-	
-	
-	
+	String inventory;
+
+
 	@Override
 	public String toString()
 	{
-		return "PlayerData [id=" + id + ", uuid=" + uuid + ", world=" + world + ", x=" + x + ", y=" + y + ", z=" + z
-				+ ", yaw=" + yaw + ", pitch=" + pitch + ", health=" + health + "]";
+		return "PlayerData [id=" + id + ", uuid=" + uuid + ", x=" + x + ", y=" + y + ", z=" + z + ", yaw=" + yaw
+				+ ", pitch=" + pitch + ", health=" + health + ", inventory=" + inventory + "]";
 	}
+	
+	public String getInventory()
+	{
+		return inventory;
+	}
+	public void setInventory(String inventory)
+	{
+		this.inventory = inventory;
+	}
+	
 	public int getId()
 	{
 		return id;
@@ -35,14 +44,6 @@ public class PlayerData
 	public void setUuid(String uuid)
 	{
 		this.uuid = uuid;
-	}
-	public String getWorld()
-	{
-		return world;
-	}
-	public void setWorld(String world)
-	{
-		this.world = world;
 	}
 	public int getX()
 	{
