@@ -70,14 +70,13 @@ public class WarzDataAccessObject
 		try
 		{
 			Connection conn = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
-			String sqlString = "SELECT ID, uuid, health, x,y,z,yaw,pitch,inventory FROM Warz WHERE uuid = ?";
+			String sqlString = "SELECT uuid, health, x,y,z,yaw,pitch,inventory FROM Warz WHERE uuid = ?";
 			PreparedStatement preparedStatement = conn.prepareStatement(sqlString);
 			preparedStatement.setString(1, uuid);
 			ResultSet resultSet = preparedStatement.executeQuery();
 			while(resultSet.next())
 			{
 				PlayerData p = new PlayerData();
-				p.setId(resultSet.getInt("ID"));
 				p.setUuid(resultSet.getString("uuid"));
 				p.setHealth(resultSet.getDouble("health"));
 				p.setX(resultSet.getInt("x"));
@@ -103,7 +102,7 @@ public class WarzDataAccessObject
 		try
 		{
 			Connection conn = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
-			String sqlString = "SELECT id,uuid, `inventory` FROM `World` WHERE uuid = ?";
+			String sqlString = "SELECT uuid, `inventory` FROM `World` WHERE uuid = ?";
 			PreparedStatement preparedStatement = conn.prepareStatement(sqlString);
 			preparedStatement.setString(1, uuid);
 			ResultSet resultSet = preparedStatement.executeQuery();

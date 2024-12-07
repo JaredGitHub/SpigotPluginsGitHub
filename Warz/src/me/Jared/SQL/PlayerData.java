@@ -16,7 +16,7 @@ public class PlayerData
 	@Override
 	public String toString()
 	{
-		return "PlayerData [id=" + id + ", uuid=" + uuid + ", x=" + x + ", y=" + y + ", z=" + z + ", yaw=" + yaw
+		return "PlayerData [uuid=" + uuid + ", x=" + x + ", y=" + y + ", z=" + z + ", yaw=" + yaw
 				+ ", pitch=" + pitch + ", health=" + health + ", inventory=" + inventory + "]";
 	}
 	
@@ -29,14 +29,6 @@ public class PlayerData
 		this.inventory = inventory;
 	}
 	
-	public int getId()
-	{
-		return id;
-	}
-	public void setId(int id)
-	{
-		this.id = id;
-	}
 	public String getUuid()
 	{
 		return uuid;

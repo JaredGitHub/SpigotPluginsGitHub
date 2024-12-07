@@ -46,6 +46,7 @@
 		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Warz.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Guns.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\JaredEssentials.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\GunGame.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\LandMines.jar"/>
@@ -64,7 +65,6 @@
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Warp.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Teams.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\PlaceableWalls.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\PersonalVault.jar"/>
 		</list>
 		<section name="JarPackageWizard.dialogBounds">
 			<item key="DIALOG_X_ORIGIN" value="384"/>
