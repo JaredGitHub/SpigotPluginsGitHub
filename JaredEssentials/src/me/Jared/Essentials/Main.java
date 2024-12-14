@@ -17,6 +17,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.potion.PotionEffect;
 
 import me.Jared.Essentials.Runnables.TPARunnable;
 import net.md_5.bungee.api.chat.ClickEvent;
@@ -356,6 +357,10 @@ public class Main extends JavaPlugin implements Listener
 				}
 
 				p.teleport(ConfigManager.getSpawn());
+				for(PotionEffect effect : p.getActivePotionEffects())
+				{
+					p.removePotionEffect(effect.getType());
+				}
 				p.setLevel(0);
 				p.sendMessage(ChatColor.GREEN + "Successfully teleported you to spawn!");
 				p.playSound(p.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
