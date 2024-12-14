@@ -17,6 +17,10 @@ public class Boosters extends JavaPlugin
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Boosters are here!");
 		
 		Bukkit.getPluginCommand("boost").setExecutor(new BoosterCommand());
+		
+		this.getConfig().set("doublegems", false);
+		this.getConfig().set("DoubleLoot", false);
+		this.saveConfig();
 	}
 	
 	public static Boosters getInstance()
@@ -29,6 +33,7 @@ public class Boosters extends JavaPlugin
 	{
 		Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Boosters are gone now!");
 		this.getConfig().set("doublegems", false);
+		this.getConfig().set("DoubleLoot", false);
 		this.saveConfig();
 	}
 }

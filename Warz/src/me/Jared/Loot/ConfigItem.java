@@ -70,6 +70,7 @@ public class ConfigItem
 			zone = Zone.SKYHIGH;
 			break;
 		default:
+			zone = Zone.LOW;
 			break;
 		}
 
@@ -129,7 +130,7 @@ public class ConfigItem
 	{
 		Material material = getMaterial(string);
 		String displayName = getDisplayName(string);
-		String itemLore = getItemDataIndex(string, 4);
+		String itemLore = getLore(string);
 		int amount = getAmount(string);
 		int damage = getDamage(string);
 
@@ -159,7 +160,7 @@ public class ConfigItem
 		return item;
 	}
 
-	public String itemStackToString(ItemStack item, Zone zone)
+	public String itemStackToStringWithLore(ItemStack item, Zone zone, int weight)
 	{
 		String material = item.getType().name();
 		int amount = item.getAmount();
@@ -168,7 +169,7 @@ public class ConfigItem
 		int durability = 0;
 		if(item.hasItemMeta())
 		{
-			displayName = item.getItemMeta().getDisplayName().replaceAll("�", "&");
+			displayName = item.getItemMeta().getDisplayName().replace(ChatColor.COLOR_CHAR, '&');
 			if(item.getItemMeta() instanceof Damageable)
 			{
 				durability = ((Damageable) item.getItemMeta()).getDamage();
@@ -182,13 +183,14 @@ public class ConfigItem
 		stringBuilder.append(amount + ":");
 		stringBuilder.append(durability + ":");
 		stringBuilder.append(zone + ":");
-		if(item.hasItemMeta())
+		if(item.hasItemMeta() && item.getItemMeta().hasLore())
 		{
-			if(item.getItemMeta().hasLore())
-			{
-				String lore = item.getItemMeta().getLore().get(0);
-				stringBuilder.append(lore + ":");
-			}
+			String lore = item.getItemMeta().getLore().get(0).replace(ChatColor.COLOR_CHAR, '&');
+			stringBuilder.append(lore + ":");
+
+		} else
+		{
+			stringBuilder.append(":");
 		}
 
 		for(int i = 0; i < material.length(); i++)
@@ -199,53 +201,7 @@ public class ConfigItem
 				break;
 			}
 		}
-
-		return stringBuilder.toString();
-	}
-
-	public String itemStackToString(ItemStack item)
-	{
-		if(item.getType() == null)
-		{
-			return "";
-		}
-		String material = item.getType().name();
-		int amount = item.getAmount();
-
-		String displayName = "";
-		int durability = 0;
-		if(item.hasItemMeta())
-		{
-			displayName = item.getItemMeta().getDisplayName().replaceAll("�", "&");
-			if(item.getItemMeta() instanceof Damageable)
-			{
-				durability = ((Damageable) item.getItemMeta()).getDamage();
-			}
-		}
-
-		StringBuilder stringBuilder = new StringBuilder();
-
-		stringBuilder.append(material + ":");
-		stringBuilder.append(displayName + ":");
-		stringBuilder.append(amount + ":");
-		stringBuilder.append(durability + ":");
-		if(item.hasItemMeta())
-		{
-			if(item.getItemMeta().hasLore())
-			{
-				String lore = item.getItemMeta().getLore().get(0).replaceAll("�", "&");
-				stringBuilder.append(lore + ":");
-			}
-		}
-
-		for(int i = 0; i < material.length(); i++)
-		{
-			char charAt = material.charAt(i);
-			if(charAt == ':')
-			{
-				break;
-			}
-		}
+		stringBuilder.append(weight + ":");
 
 		return stringBuilder.toString();
 	}
@@ -315,5 +271,10 @@ public class ConfigItem
 	public String getLore(String string)
 	{
 		return getItemDataIndex(string, 5);
+	}
+
+	public int getWeight(String string)
+	{
+		return Integer.parseInt(getItemDataIndex(string, 6));
 	}
 }

@@ -45,26 +45,26 @@
 		<item key="JarManifestWizardPage.MANIFEST_LOCATION" value=""/>
 		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\Warz.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\Guns.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\JaredEssentials.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Booster.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Stats.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Warz.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\JaredEssential.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Guns.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Duels.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Warp.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\GameGUI.jar"/>
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\Kits.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\GunGame.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\LandMines.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\Stats.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\JaredEssential.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\TDM.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\MiniGame.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Parachute.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\GrapplingHook.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\GameGUI.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Food.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Compass.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\BoostPad.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Boosters.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\BarbWire.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\Warp.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\Teams.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\PlaceableWalls.jar"/>
 		</list>
 		<section name="JarPackageWizard.dialogBounds">
 			<item key="DIALOG_X_ORIGIN" value="384"/>

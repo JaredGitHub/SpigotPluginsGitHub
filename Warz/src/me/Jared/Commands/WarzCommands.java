@@ -34,26 +34,42 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 		Warz.getInstance().saveConfig();
 	}
 
-	private void setConfigItem(Player player, Zone zone)
+	private void setConfigItem(Player player, Zone zone, int weight)
 	{
 		ArrayList<String> itemList = new ArrayList<>(config.getStringList("items"));
 		ConfigItem configItem = new ConfigItem();
 
 		ItemStack playerItem = new ItemStack(player.getInventory().getItemInMainHand());
-		String item = configItem.itemStackToString(playerItem, zone);
+		String item = configItem.itemStackToStringWithLore(playerItem, zone, weight);
 
 		itemList.add(item);
 		config.set("items", itemList);
 		saveConfig();
 
 		player.sendMessage(ChatColor.GREEN + "You set " + playerItem.getType().name() + ChatColor.GREEN
-				+ " in your loot table as zone " + zone + ".");
+				+ " in your loot table as zone " + zone + " with a weight of " + weight + ".");
+	}
+
+	private boolean isItemRepeat(Zone zone, Player player)
+	{
+		ConfigItem configItem = new ConfigItem();
+		ArrayList<String> items = new ArrayList<>(configItem.zoneListItems(zone));
+
+		for(String item : items)
+		{
+			if(configItem.stringToItemStack(item).getType() == player.getInventory().getItemInMainHand().getType())
+			{
+				player.sendMessage(ChatColor.RED + "You already have an item of that type!");
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String str, String[] args)
 	{
-		//Warz commands
+		// Warz commands
 		if(cmd.getName().equalsIgnoreCase("warz"))
 		{
 			if(sender instanceof Player)
@@ -70,8 +86,7 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 				{
 					WarzDataAccessObject.savePlayerWorldData(player);
 					ConfigManager.setPlayerInWarz(player);
-				}
-				else
+				} else
 				{
 					player.sendMessage(ChatColor.RED + "You are already in warz noob!");
 				}
@@ -115,7 +130,7 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 			{
 				if(args.length == 0)
 				{
-					player.sendMessage(ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH");
+					player.sendMessage(ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH> <weight(1-100)>");
 					return true;
 				}
 				if(player.getInventory().getItemInMainHand().getType() == Material.AIR)
@@ -124,25 +139,62 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 					return true;
 				}
 
-				if(args.length == 1)
+				if(args.length == 2)
 				{
+					int weight = Integer.parseInt(args[1]);
 					if(args[0].equalsIgnoreCase("low"))
 					{
-						setConfigItem(player, Zone.LOW);
+						// check if there is already this item type in there!!
+						if(!isItemRepeat(Zone.LOW, player))
+						{
+							setConfigItem(player, Zone.LOW, weight);
+						}
+						else
+						{
+							return true;
+						}
+
 					} else if(args[0].equalsIgnoreCase("medium"))
 					{
-						setConfigItem(player, Zone.MEDIUM);
+						if(!isItemRepeat(Zone.MEDIUM, player))
+						{
+							setConfigItem(player, Zone.MEDIUM, weight);
+						}
+						else
+						{
+							return true;
+						}
 					} else if(args[0].equalsIgnoreCase("high"))
 					{
-						setConfigItem(player, Zone.HIGH);
+						if(!isItemRepeat(Zone.HIGH, player))
+						{
+							setConfigItem(player, Zone.HIGH, weight);
+						}
+						else
+						{
+							return true;
+						}
+
 					} else if(args[0].equalsIgnoreCase("skyhigh"))
 					{
-						setConfigItem(player, Zone.SKYHIGH);
+						if(!isItemRepeat(Zone.SKYHIGH, player))
+						{
+							setConfigItem(player, Zone.SKYHIGH, weight);
+						}
+						else
+						{
+							return true;
+						}
+
 					} else
 					{
 						player.sendMessage(ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH");
 						return true;
 					}
+				} else
+				{
+					player.sendMessage(ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH> <weight(1-100)>");
+					return true;
 				}
 			}
 
@@ -152,12 +204,10 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 				{
 					ConfigManager.setGameSlot(player.getLocation(), ConfigManager.getGameSlotsSize());
 					player.sendMessage(ChatColor.GREEN + "Added a spawn point of your location!");
-				}
-				else
+				} else
 				{
 					player.sendMessage(ChatColor.RED + "You must be in the warz world noob!");
 				}
-
 
 			}
 		}

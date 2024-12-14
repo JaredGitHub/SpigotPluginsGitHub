@@ -2,7 +2,7 @@ name: Warz
 main: me.Jared.Warz
 version: 1.0
 api-version: 1.20
-depend: [WorldEdit, WorldGuard]
+depend: [WorldEdit, WorldGuard, Boosters]
 commands:
  setzone:
   description: Sets a zone 1-6 based on the cuboid selection

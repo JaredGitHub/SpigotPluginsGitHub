@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="id"/>
+		<item key="selection" value=""/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="id"/>
-			<item value="world"/>
-			<item value="getVelocity"/>
-			<item value="velocity"/>
-			<item value="vec"/>
-			<item value="it loaded"/>
-			<item value="chatcolor.red"/>
+			<item value="active"/>
+			<item value="randNumChestSlot"/>
+			<item value="setConfigItem"/>
+			<item value="isItemRepeat"/>
 			<item value="spawn"/>
+			<item value="setloot"/>
+			<item value="you set"/>
+			<item value="getItem"/>
 		</list>
 		<list key="replacehistory">
 			<item value="getBandage"/>

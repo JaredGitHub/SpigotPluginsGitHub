@@ -363,7 +363,6 @@ public class GunsPlugin extends JavaPlugin
 		return null;
 	}
 
-	@SuppressWarnings("deprecation")
 	public static Sound getSound(String gunSound)
 	{
 		String snd = gunSound.toUpperCase().replace(" ", "_");

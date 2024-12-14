@@ -57,20 +57,18 @@ public class Bullet
 				yOffset = -0.2;
 			}
 			
-			float pitch = owner.getPlayer().getEyeLocation().getPitch();
+//			float pitch = owner.getPlayer().getEyeLocation().getPitch();
+//			
+//			if(pitch <= -45)
+//			{
+//				loc.setPitch(90);
+//			}
+//			else if(pitch  >= 20)
+//			{
+//				loc.setPitch(-90);
+//			} 
 			
-			owner.getPlayer().sendMessage("your pitch is:  " + pitch);
-			
-			if(pitch <= -45)
-			{
-				loc.setPitch(90);
-			}
-			else if(pitch  >= 20)
-			{
-				loc.setPitch(-90);
-			}
-			
-			
+			loc.setPitch(0);
 			switch(getDirection(loc))
 			{
 			case NORTH:

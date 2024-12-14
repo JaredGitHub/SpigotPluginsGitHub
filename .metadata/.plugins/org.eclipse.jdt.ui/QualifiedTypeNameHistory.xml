@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="me.Jared.Menu.PVMenu"/>
-    <fullyQualifiedTypeName name="me.Jared.PersonalVault"/>
-    <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerQuitEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerItemDamageEvent"/>
     <fullyQualifiedTypeName name="me.Jared.Kits.Main"/>
     <fullyQualifiedTypeName name="me.Jared.Kits.ConfigItem"/>
@@ -11,7 +8,6 @@
     <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="me.jared.barb.HurtEntityRunnable"/>
     <fullyQualifiedTypeName name="org.bukkit.Statistic"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="org.bukkit.event.Listener"/>
     <fullyQualifiedTypeName name="org.bukkit.event.block.Action"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageEvent"/>
@@ -30,7 +26,6 @@
     <fullyQualifiedTypeName name="org.bukkit.event.block.BlockExplodeEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityExplodeEvent"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageByEntityEvent"/>
-    <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
     <fullyQualifiedTypeName name="org.bukkit.Color"/>
     <fullyQualifiedTypeName name="java.awt.Color"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
@@ -54,10 +49,15 @@
     <fullyQualifiedTypeName name="me.Jared.Warz"/>
     <fullyQualifiedTypeName name="org.bukkit.configuration.file.FileConfiguration"/>
     <fullyQualifiedTypeName name="org.bukkit.World"/>
-    <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
     <fullyQualifiedTypeName name="me.Jared.Loot.InventorySaver"/>
     <fullyQualifiedTypeName name="me.Jared.SQL.WarzDataAccessObject"/>
     <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
     <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
     <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="me.Jared.Runnables.DoubleLootRunnable"/>
+    <fullyQualifiedTypeName name="me.Jared.Boosters"/>
 </qualifiedTypeNameHistroy>

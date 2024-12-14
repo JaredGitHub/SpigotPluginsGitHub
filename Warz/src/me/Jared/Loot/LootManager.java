@@ -11,7 +11,6 @@ import org.bukkit.block.Chest;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
@@ -21,6 +20,7 @@ import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
 
+import me.Jared.Boosters;
 import me.Jared.Warz;
 import me.Jared.WarzRunnable.LootRunnable;
 
@@ -45,8 +45,7 @@ public class LootManager
 		if(neighborBlock != null && neighborBlock.getState() instanceof Chest)
 		{
 			return neighborBlock;
-		}
-		else
+		} else
 		{
 			return null;
 		}
@@ -56,7 +55,7 @@ public class LootManager
 	{
 		// Check if the block is part of a double chest by checking its neighbors
 		BlockFace[] facesToCheck =
-			{ BlockFace.NORTH, BlockFace.EAST, BlockFace.SOUTH, BlockFace.WEST };
+		{ BlockFace.NORTH, BlockFace.EAST, BlockFace.SOUTH, BlockFace.WEST };
 
 		for(BlockFace face : facesToCheck)
 		{
@@ -69,56 +68,80 @@ public class LootManager
 		return null;
 	}
 
-	public void setItems(Zone zone, Block block)
+	private boolean setChest(Block block, Zone zone)
 	{
-		var configItem = new ConfigItem();
+		ConfigItem configItem = new ConfigItem();
+		Random random = new Random();
+		// Getting the list of items based on the zone
+		ArrayList<String> items = new ArrayList<>(configItem.zoneListItems(zone));
 
-		if(Warz.getChestLocations().contains(block.getLocation()))
+		Location location = block.getLocation();
+		Chest chest = (Chest) block.getState();
+		// Clear the chest b4 putting items into it
+		chest.getBlockInventory().clear();
+
+		// Getting the total weight of all of the items in the list
+		int totalWeight = items.stream().mapToInt(configItem::getWeight).sum();
+
+		// Making an array of randomSlots so that we can check if the item tries to go
+		// into the same slot and prevent it!
+		ArrayList<Integer> usedSlots = new ArrayList<Integer>();
+
+		// Instead of two make it find the number in the config "DoubleLoot"
+
+		int itemsPerChest = Boosters.getInstance().getConfig().get("DoubleLoot").equals(true) ? 4 : 2;
+
+		for(int itemNumber = 0; itemNumber < itemsPerChest; itemNumber++)
 		{
-			ArrayList<String> items = new ArrayList<>(configItem.zoneListItems(zone));
-			Block otherBlock = isDoubleChest(block);
+			// Get a random number based on the total weight of the items
+			int totalWeightRandom = random.nextInt(totalWeight);
+			// Initialize a running total of the weight
+			int currentWeight = 0;
 
-			Location location = block.getLocation();
-			Chest chest = (Chest) block.getState();
-
-			Random rand = new Random();
-			int numberOfElements = 2;
-
-			chest.getBlockInventory().clear();
-
-			for(int i = 0; i < numberOfElements; i++)
+			//While usedSlots contains the random chest slot find another random number
+			int randNumChestSlot;
+			do
 			{
-				int randomIndex = rand.nextInt(0, items.size());
-				String randomElement = items.get(randomIndex);
+				randNumChestSlot = random.nextInt(27);
+			}while(usedSlots.contains(randNumChestSlot));
+			usedSlots.add(randNumChestSlot);
 
-				ItemStack item = configItem.stringToItemStack(randomElement);
-
-				chest.getBlockInventory().setItem(i, item);
-				Warz.getChestLocations().remove(location);
-			}
-
-			if(otherBlock != null)
+			for(int i = 0; i < items.size(); i++)
 			{
-				location = otherBlock.getLocation();
-				chest = (Chest) otherBlock.getState();
-				rand = new Random();
 
-				chest.getBlockInventory().clear();
+				currentWeight += configItem.getWeight(items.get(i));
 
-				for(int i = 0; i < numberOfElements; i++)
+				if(totalWeightRandom < currentWeight)
 				{
-					int randomIndex = Math.abs(rand.nextInt(items.size()));
-					String randomElement = items.get(randomIndex);
+					chest.getBlockInventory().setItem(randNumChestSlot,
+							configItem.stringToItemStackWithLore(items.get(i)));
 
-					ItemStack item = configItem.stringToItemStack(randomElement);
-
-					chest.getBlockInventory().setItem(i, item);
 					Warz.getChestLocations().remove(location);
+					break;
 				}
 			}
 		}
+
+		Block otherBlock = isDoubleChest(block);
+		if(otherBlock != null)
+		{
+			return true;
+		}
+		return false;
 	}
 
+	public void setItems(Zone zone, Block block)
+	{
+
+		if(Warz.getChestLocations().contains(block.getLocation()))
+		{
+			if(setChest(block, zone))
+			{
+				Block otherBlock = isDoubleChest(block);
+				setChest(otherBlock, zone);
+			}
+		}
+	}
 
 	private void addChestsToArray(Zone zone)
 	{
@@ -152,7 +175,7 @@ public class LootManager
 				{
 					String region = getRegion(player.getLocation());
 					Zone zone = getZoneFromRegion(region);
-					Block block =  player.getOpenInventory().getTopInventory().getLocation().getBlock();
+					Block block = player.getOpenInventory().getTopInventory().getLocation().getBlock();
 
 					setItems(zone, block);
 				}
@@ -194,8 +217,7 @@ public class LootManager
 		RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
 		RegionManager regionManager = container.get(BukkitAdapter.adapt(location.getWorld()));
 
-		BlockVector3 playerLoc = BlockVector3.at(location.getX(), location.getY(),
-				location.getZ());
+		BlockVector3 playerLoc = BlockVector3.at(location.getX(), location.getY(), location.getZ());
 		for(String regions : regionManager.getApplicableRegionsIDs(playerLoc))
 		{
 			region = regions;

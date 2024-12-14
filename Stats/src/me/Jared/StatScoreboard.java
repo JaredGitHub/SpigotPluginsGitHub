@@ -117,6 +117,10 @@ public class StatScoreboard
 		{
 			objective.getScore(ChatColor.BOLD + "" + ChatColor.GREEN + " Double Gems Active!").setScore(1);
 		}
+		if(Bukkit.getPluginManager().getPlugin("Boosters").getConfig().getBoolean("DoubleLoot"))
+		{
+			objective.getScore(ChatColor.BOLD + "" + ChatColor.GREEN + " Double Loot Active!").setScore(1);
+		}
 
 		return scoreboard;
 

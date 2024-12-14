@@ -46,6 +46,7 @@ public class Warz extends JavaPlugin
 	    zombieRunnable.runTaskTimer(this, 0L, 20L);
 
 		Bukkit.getPluginManager().registerEvents(new WarzListener(), this);
+
 	}
 
 	public static Warz getInstance()
