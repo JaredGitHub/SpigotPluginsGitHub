@@ -13,3 +13,8 @@ commands:
     description: Give ranks to players.
   killstreak:
     description: Toggles whether there is killstreak rewards
+  elo:
+    description: View your own elo
+    alias: /elo <player>
+  topelo:
+    description: View top elo of everyone

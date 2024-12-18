@@ -105,6 +105,45 @@ public class Stats extends JavaPlugin
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String str, String[] args)
 	{
+		if(cmd.getName().equalsIgnoreCase("elo"))
+		{
+			if(sender instanceof Player)
+			{
+				Player player = (Player) sender;
+				
+				player.sendMessage(ChatColor.GREEN + "Your elo rank is: " + ChatColor.translateAlternateColorCodes('&', config.getString(player.getUniqueId() + ".rank"))  + " " + ChatColor.GREEN +  config.getString(player.getUniqueId() + ".elo"));
+				
+				
+				if(args.length == 1)
+				{
+					Player otherPlayer = Bukkit.getPlayer(args[0]);
+					
+					if(otherPlayer != null)
+					{
+						player.sendMessage(ChatColor.GREEN + otherPlayer.getName() + "'s elo rank is: " + ChatColor.translateAlternateColorCodes('&', config.getString(otherPlayer.getUniqueId() + ".rank"))  + " " + ChatColor.GREEN +  config.getString(otherPlayer.getUniqueId() + ".elo"));
+						
+					}
+				}
+			}
+		}
+		
+		if(cmd.getName().equalsIgnoreCase("topelo"))
+		{
+			if(sender instanceof Player)
+			{
+				Player player = (Player) sender;
+				
+				player.sendMessage(ChatColor.GRAY + "List of player's elos");
+				
+				for(Player online : Bukkit.getOnlinePlayers())
+				{
+					player.sendMessage(online.getName() + ": " + ChatColor.translateAlternateColorCodes('&',config.getString(online.getUniqueId() + ".rank")) + " " + ChatColor.GREEN + config.getString(online.getUniqueId() + ".elo"));
+				}
+			}
+		}
+		
+		
+		
 		if(cmd.getName().equalsIgnoreCase("giveGems"))
 		{
 			if(!sender.hasPermission("stats"))
