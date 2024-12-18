@@ -1,7 +1,5 @@
 package me.Jared;
 
-import java.util.UUID;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -73,7 +71,7 @@ public class StatScoreboard
 
 		// Rank calculation
 		// ELO-based ranking system
-		int elo = calculateELO(kills, deaths, config, p.getUniqueId()); // Calculate player's ELO
+		int elo = config.getInt(p.getUniqueId() + ".elo");
 		String rank = getRankByELO(elo); // Map ELO to a rank
 
 		config.set(p.getUniqueId() + ".rank",rank);
@@ -110,28 +108,6 @@ public class StatScoreboard
 
 		return scoreboard;
 
-	}
-
-	private int calculateELO(int kills, int deaths, FileConfiguration config, UUID uuid)
-	{
-		final int BASE_ELO = 1000; // Starting ELO for all players
-		final int K_FACTOR = 32; // Determines how much ELO changes per "match"
-
-		// Fetch current ELO or set default if not present
-		int currentELO = config.getInt(uuid + ".elo", BASE_ELO);
-
-		// Calculate player's score (simple win/loss based on kills and deaths)
-		double score = deaths == 0 ? 1.0 : (double) kills / (kills + deaths);
-
-		// Expected performance (Assume opponent's ELO is 1000 for simplicity)
-		double opponentELO = 1000;
-		double expected = 1 / (1 + Math.pow(10, (opponentELO - currentELO) / 400.0));
-
-		// Update ELO
-		int newELO = (int) (currentELO + K_FACTOR * (score - expected));
-		config.set(uuid + ".elo", newELO); // Save updated ELO
-		stats.saveConfig();
-		return newELO;
 	}
 
 	private String getRankByELO(int elo)

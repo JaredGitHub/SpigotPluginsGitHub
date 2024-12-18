@@ -156,32 +156,6 @@ public class EventListener implements Listener
 		}
 	}
 
-	// Method to update Elo based on the player's and opponent's Elo
-	private void updateElo(Player killer, Player victim)
-	{
-		// Retrieve the current Elo ratings for the killer and victim
-		int killerElo = config.getInt(killer.getUniqueId() + ".elo", 1200); // Default Elo if not set
-		int victimElo = config.getInt(victim.getUniqueId() + ".elo", 1200); // Default Elo if not set
-
-		// K-factor (the weight of the game outcome)
-		int kFactor = 32;
-
-		// Calculate the expected score for the killer
-		double expectedKillerScore = 1.0 / (1.0 + Math.pow(10, (victimElo - killerElo) / 400.0));
-		// Calculate the expected score for the victim
-		double expectedVictimScore = 1.0 / (1.0 + Math.pow(10, (killerElo - victimElo) / 400.0));
-
-		// Update Elo: Actual score for killer is 1 (since they won), victim gets 0
-		// (since they lost)
-		double newKillerElo = killerElo + kFactor * (1 - expectedKillerScore);
-		double newVictimElo = victimElo + kFactor * (0 - expectedVictimScore);
-
-		// Save the new Elo values back to the config
-		config.set(killer.getUniqueId() + ".elo", (int) newKillerElo);
-		config.set(victim.getUniqueId() + ".elo", (int) newVictimElo);
-		stats.saveConfig(); // Save the changes to the configuration
-	}
-
 	private int getRankGems(Player killer)
 	{
 		int rankGems = 5;
@@ -236,22 +210,32 @@ public class EventListener implements Listener
 	}
 
 	// Calculate Elo change for both the killer and the victim
-	private int calculateEloChange(Player killer, Player victim)
+	private int[] calculateEloChange(Player killer, Player victim)
 	{
 		// Retrieve the current Elo ratings for the killer and victim
-		int killerElo = config.getInt(killer.getUniqueId() + ".elo", 1200); // Default Elo if not set
-		int victimElo = config.getInt(victim.getUniqueId() + ".elo", 1200); // Default Elo if not set
+		int killerElo = config.getInt(killer.getUniqueId() + ".elo"); // Default Elo if not set
+		int victimElo = config.getInt(victim.getUniqueId() + ".elo"); // Default Elo if not set
 
 		// K-factor (the weight of the game outcome)
 		int kFactor = 32;
 
-		// Calculate the expected score for the killer
+		// Calculate the expected score for both players
 		double expectedKillerScore = 1.0 / (1.0 + Math.pow(10, (victimElo - killerElo) / 400.0));
+		double expectedVictimScore = 1.0 / (1.0 + Math.pow(10, (killerElo - victimElo) / 400.0));
+
 		// Elo change for the killer (1 point for a win)
 		double killerEloChange = kFactor * (1 - expectedKillerScore);
+		// Elo change for the victim (0 points for a loss)
+		double victimEloChange = kFactor * (0 - expectedVictimScore);
 
-		// Return the Elo change for the killer (you can also return both if needed)
-		return (int) Math.round(killerEloChange);
+		// Update both Elo ratings
+		int updatedKillerElo = (int) (killerElo + killerEloChange);
+		int updatedVictimElo = (int) (victimElo + victimEloChange);
+
+		// Return both Elo changes in an array: [killerEloChange, victimEloChange]
+		// You could also return updated ratings instead of changes if preferred
+		return new int[]
+		{ updatedKillerElo, updatedVictimElo };
 	}
 
 	private void broadcastElimination(Player killer, String eloChangeKillerString, Player victim,
@@ -280,6 +264,50 @@ public class EventListener implements Listener
 		Bukkit.spigot().broadcast(message);
 	}
 
+	private String getRankByELO(int elo)
+	{
+		if(elo < 1200)
+		{
+			return "&7Bambi";
+		} else if(elo < 1400)
+		{
+			return "&aScavenger";
+		} else if(elo < 1600)
+		{
+			return "&bCitizen";
+		} else if(elo < 1800)
+		{
+			return "&cHunter";
+		} else if(elo < 2000)
+		{
+			return "&9Survivor";
+		} else if(elo < 2200)
+		{
+			return "&6Officer";
+		} else if(elo < 2400)
+		{
+			return "&0Deputy";
+		} else if(elo < 2600)
+		{
+			return "&1Sheriff";
+		} else if(elo < 2800)
+		{
+			return "&bSoldier";
+		} else if(elo < 3000)
+		{
+			return "&dWarrior";
+		} else if(elo < 3200)
+		{
+			return "&bHero";
+		} else if(elo < 3500)
+		{
+			return "&cLegend";
+		} else
+		{
+			return "&eImmortal";
+		}
+	}
+
 	@EventHandler
 	public void onDeath(PlayerDeathEvent e)
 	{
@@ -306,22 +334,30 @@ public class EventListener implements Listener
 					}
 				}
 
-				updateElo(killer, victim);
-
 				// Get elo before kill
 				int killerEloBefore = config.getInt(killer.getUniqueId() + ".elo");
 				int victimEloBefore = config.getInt(victim.getUniqueId() + ".elo");
 
-				int eloChangeKiller = calculateEloChange(killer, victim);
-				int eloChangeVictim = calculateEloChange(victim, killer);
+				int[] eloChange = calculateEloChange(killer, victim);
 
+				// The new elo
+				int newKillerElo = eloChange[0];
+				int newVictimElo = eloChange[1];
+
+				// Modified ELO change strings with ranks
 				String eloChangeKillerString = "Elo Before: [" + ChatColor.RED + killerEloBefore + ChatColor.RESET
-						+ "]\nElo After: [" + ChatColor.GREEN + (killerEloBefore + eloChangeKiller) + ChatColor.RESET
-						+ "]";
+						+ "] " + "Rank Before: ["
+						+ ChatColor.translateAlternateColorCodes('&', getRankByELO(killerEloBefore)) + ChatColor.RESET
+						+ "]\n" + "Elo After: [" + ChatColor.GREEN + (newKillerElo) + ChatColor.RESET + "] "
+						+ "Rank After: [" + ChatColor.translateAlternateColorCodes('&', getRankByELO(newKillerElo))
+						+ ChatColor.RESET + "]";
 
-				String eloChangeVictimString = "Elo Before: [" + ChatColor.RED + victimEloBefore + ChatColor.RESET
-						+ "]\nElo After: [" + ChatColor.GREEN + (victimEloBefore + eloChangeVictim) + ChatColor.RESET
-						+ "]";
+				String eloChangeVictimString = "Elo Before: [" + ChatColor.GREEN + victimEloBefore + ChatColor.RESET
+						+ "] " + "Rank Before: ["
+						+ ChatColor.translateAlternateColorCodes('&', getRankByELO(victimEloBefore)) + ChatColor.RESET
+						+ "]\n" + "Elo After: [" + ChatColor.RED + (newVictimElo) + ChatColor.RESET + "] "
+						+ "Rank After: [" + ChatColor.translateAlternateColorCodes('&', getRankByELO(newVictimElo))
+						+ ChatColor.RESET + "]";
 
 				broadcastElimination(killer, eloChangeKillerString, victim, eloChangeVictimString);
 
@@ -350,11 +386,20 @@ public class EventListener implements Listener
 				config.set(e.getEntity().getKiller().getUniqueId() + ".killStreak", killStreak + 1);
 				config.set(e.getEntity().getUniqueId() + ".killStreak", killStreak == 0);
 
+				// Set the elo of the killer and the victim
+				config.set(killer.getUniqueId() + ".elo", newKillerElo);
+				config.set(victim.getUniqueId() + ".elo", newVictimElo);
+
+				// Setting the rank based on the new elo
+				config.set(killer.getUniqueId() + ".rank", getRankByELO(newKillerElo));
+				config.set(victim.getUniqueId() + ".rank", getRankByELO(newVictimElo));
+
 				cooldown.put(victim.getUniqueId(), System.currentTimeMillis());
 
+				stats.saveConfig();
 				new StatScoreboard(stats, killer);
 				new StatScoreboard(stats, victim);
-				stats.saveConfig();
+
 			} else
 			{
 				EntityDamageEvent lastDamageEvent = e.getEntity().getLastDamageCause();
@@ -383,7 +428,6 @@ public class EventListener implements Listener
 			new StatScoreboard(stats, victim);
 		}
 
-		
 	}
 
 	public void sendActionBar(Player player, String message)
@@ -460,15 +504,14 @@ public class EventListener implements Listener
 		if(player.getWorld().equals(Bukkit.getWorld("world")))
 		{
 			Bukkit.broadcastMessage(stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET
-					+ "[" + ChatColor.translateAlternateColorCodes('&', config.getString(player.getUniqueId() + ".rank") + ChatColor.RESET + "] "
-					+ ChatColor.RESET + player.getName() + ": " + e.getMessage()));
-		} 
-		
+					+ "[" + ChatColor.translateAlternateColorCodes('&', config.getString(player.getUniqueId() + ".rank")
+							+ ChatColor.RESET + "] " + ChatColor.RESET + player.getName() + ": " + e.getMessage()));
+		}
+
 		else if(player.getWorld().equals(Bukkit.getWorld("warz")))
 		{
 			Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "" + ChatColor.ITALIC + "[WARZ] "
-					+ stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET + " "
-					+ "["
+					+ stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET + " " + "["
 					+ ChatColor.translateAlternateColorCodes('&', config.getString(player.getUniqueId() + ".rank"))
 					+ ChatColor.RESET + "] " + ChatColor.RESET + player.getName() + ": " + e.getMessage());
 		}

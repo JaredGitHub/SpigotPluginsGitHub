@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="org.bukkit.event.player.PlayerItemDamageEvent"/>
-    <fullyQualifiedTypeName name="me.Jared.Kits.Main"/>
-    <fullyQualifiedTypeName name="me.Jared.Kits.ConfigItem"/>
-    <fullyQualifiedTypeName name="me.Jared.GunsPlugin"/>
-    <fullyQualifiedTypeName name="org.bukkit.scheduler.BukkitRunnable"/>
-    <fullyQualifiedTypeName name="java.lang.Runnable"/>
     <fullyQualifiedTypeName name="me.jared.barb.HurtEntityRunnable"/>
     <fullyQualifiedTypeName name="org.bukkit.Statistic"/>
     <fullyQualifiedTypeName name="org.bukkit.event.Listener"/>
-    <fullyQualifiedTypeName name="org.bukkit.event.block.Action"/>
     <fullyQualifiedTypeName name="org.bukkit.event.entity.EntityDamageEvent"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="org.bukkit.potion.PotionEffect"/>
@@ -52,12 +45,19 @@
     <fullyQualifiedTypeName name="me.Jared.Loot.InventorySaver"/>
     <fullyQualifiedTypeName name="me.Jared.SQL.WarzDataAccessObject"/>
     <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="org.bukkit.entity.Player"/>
     <fullyQualifiedTypeName name="java.lang.Integer"/>
-    <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
-    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
-    <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="me.Jared.Runnables.DoubleLootRunnable"/>
     <fullyQualifiedTypeName name="me.Jared.Boosters"/>
+    <fullyQualifiedTypeName name="net.md_5.bungee.api.chat.HoverEvent"/>
+    <fullyQualifiedTypeName name="org.bukkit.event.block.Action"/>
+    <fullyQualifiedTypeName name="net.md_5.bungee.api.chat.hover.content.Text"/>
+    <fullyQualifiedTypeName name="net.md_5.bungee.api.chat.TextComponent"/>
+    <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
+    <fullyQualifiedTypeName name="me.Jared.StatScoreboard"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>
