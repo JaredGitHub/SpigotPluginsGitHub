@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="spawn"/>
+		<item key="selection" value=".name"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
-			<item value="spawn"/>
-			<item value="active"/>
-			<item value="randNumChestSlot"/>
-			<item value="setConfigItem"/>
-			<item value="isItemRepeat"/>
-			<item value="setloot"/>
-			<item value="you set"/>
-			<item value="getItem"/>
+			<item value=".name"/>
+			<item value="suffix"/>
+			<item value="pre"/>
+			<item value="manager"/>
+			<item value="prefix"/>
+			<item value="join"/>
+			<item value="victim"/>
+			<item value="rank"/>
 		</list>
 		<list key="replacehistory">
 			<item value="getBandage"/>

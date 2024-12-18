@@ -131,7 +131,6 @@ public class DuelCommands implements CommandExecutor
 				{
 					PlayerListMenu menu = new PlayerListMenu(Duels.getPlayerMenuUtility(player), player);
 					menu.open();
-					player.sendMessage("I AM TRYING TO OPEN THE DAMN MENU");
 					return true;
 				}
 

@@ -1,5 +1,7 @@
 package me.Jared;
 
+import java.util.UUID;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -24,7 +26,7 @@ public class StatScoreboard
 		stats.getNametagManager().newTag(player);
 	}
 
-	public String formatNumber(long number)
+	private String formatNumber(long number)
 	{
 		if(number >= 1_000_000_000)
 		{
@@ -43,86 +45,137 @@ public class StatScoreboard
 
 	public Scoreboard getScoreboard(Player p)
 	{
+
 		Scoreboard scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
+
+		// Sidebar objective
 		Objective objective = scoreboard.registerNewObjective("Statistics", Criteria.DUMMY,
 				ChatColor.GOLD + "" + ChatColor.BOLD + "JaredServer");
-		Objective healthObjective = scoreboard.registerNewObjective("Health", Criteria.HEALTH, ChatColor.RED + "❤");
-		healthObjective.setDisplaySlot(DisplaySlot.BELOW_NAME);
-
-		for(String entry : scoreboard.getEntries())
-		{
-			scoreboard.resetScores(entry);
-		}
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 
-		objective.setDisplayName(ChatColor.GOLD + "" + ChatColor.BOLD + "JaredServer");
-
-		double kills = this.config.getInt(p.getUniqueId() + ".kills");
-		double deaths = this.config.getInt(p.getUniqueId() + ".deaths");
-
-		double kdr;
-		if(deaths < 1.0D)
+		// Health objective
+		Objective healthObjective = scoreboard.getObjective("Health");
+		if(healthObjective == null)
 		{
-			kdr = kills;
-		} else
-		{
-			kdr = kills / deaths;
+			healthObjective = scoreboard.registerNewObjective("Health", Criteria.HEALTH, ChatColor.RED + "❤");
 		}
+		healthObjective.setDisplaySlot(DisplaySlot.BELOW_NAME);
+
+		// Fetch stats
+		int kills = config.getInt(p.getUniqueId() + ".kills");
+		int deaths = config.getInt(p.getUniqueId() + ".deaths");
+		int killStreak = config.getInt(p.getUniqueId() + ".killStreak");
+		int highKS = config.getInt(p.getUniqueId() + ".highks");
+		int zombieKills = config.getInt(p.getUniqueId() + ".zombiekills");
+		int gems = config.getInt(p.getUniqueId() + ".gems");
+
+		double kdr = deaths == 0 ? kills : (double) kills / deaths;
+
+		// Rank calculation
+		// ELO-based ranking system
+		int elo = calculateELO(kills, deaths, config, p.getUniqueId()); // Calculate player's ELO
+		String rank = getRankByELO(elo); // Map ELO to a rank
+
+		config.set(p.getUniqueId() + ".rank",rank);
+
+		// Scoreboard entries
 		objective.getScore(" ").setScore(21);
+		objective.getScore(ChatColor.GOLD + "Kills: " + ChatColor.GREEN + formatNumber(kills)).setScore(20);
+		objective.getScore(ChatColor.GOLD + "Deaths: " + ChatColor.RED + formatNumber(deaths)).setScore(19);
+		objective.getScore(ChatColor.GOLD + "KDR: " + ChatColor.RESET + String.format("%.2f", kdr)).setScore(18);
+		objective.getScore(ChatColor.GOLD + "Rank: " +  ChatColor.translateAlternateColorCodes('&', rank)).setScore(17);
 
-		objective.getScore(
-				ChatColor.GOLD + "Kills: " + ChatColor.GREEN + formatNumber(config.getInt(p.getUniqueId() + ".kills")))
-				.setScore(20);
-		objective.getScore(
-				ChatColor.GOLD + "Deaths: " + ChatColor.RED + formatNumber(config.getInt(p.getUniqueId() + ".deaths")))
-				.setScore(9);
-		objective.getScore(ChatColor.GOLD + "KDR: " + ChatColor.RESET + (Math.round(kdr * 100.0D) / 100.0D))
-				.setScore(8);
+		objective.getScore("").setScore(16);
+		objective.getScore(ChatColor.GOLD + "KillStreak: " + ChatColor.RESET + killStreak).setScore(15);
+		objective.getScore(ChatColor.GOLD + "Highest KS: " + ChatColor.DARK_PURPLE + highKS).setScore(14);
+		objective.getScore(ChatColor.GOLD + "Zombie Kills: " + ChatColor.DARK_GREEN + formatNumber(zombieKills))
+				.setScore(13);
+		objective.getScore(ChatColor.GOLD + "Gems: " + ChatColor.GREEN + formatNumber(gems)).setScore(12);
 
-		int initialKillsToRankup = 10;
-		int accumulatedKillsToRankup = 0;
-		int rank = 0;
-
-		for(int i = 1; i < kills; i++)
+		// Boosters plugin
+		if(Bukkit.getPluginManager().getPlugin("Boosters") != null)
 		{
-			accumulatedKillsToRankup += initialKillsToRankup;
-			accumulatedKillsToRankup *= 1.15;
-
-			if(accumulatedKillsToRankup % i == 0)
+			FileConfiguration boosterConfig = Bukkit.getPluginManager().getPlugin("Boosters").getConfig();
+			if(boosterConfig.getBoolean("doublegems"))
 			{
-				if(accumulatedKillsToRankup >= kills)
-				{
-					break;
-				}
-				rank++;
+				objective.getScore(ChatColor.BOLD + "" + ChatColor.GREEN + " Double Gems Active!").setScore(1);
+			}
+			if(boosterConfig.getBoolean("DoubleLoot"))
+			{
+				objective.getScore(ChatColor.BOLD + "" + ChatColor.AQUA + " Double Loot Active!").setScore(0);
 			}
 		}
 
-		objective.getScore(ChatColor.GOLD + "Rank: " + ChatColor.RESET + rank).setScore(7);
-		config.set(p.getUniqueId() + ".rank", rank);
 		stats.saveConfig();
-		
-		objective.getScore("").setScore(6);
-		objective.getScore(ChatColor.GOLD + "KillStreak: " + ChatColor.RESET
-				+ config.getInt(String.valueOf(p.getUniqueId()) + ".killStreak")).setScore(5);
-		objective.getScore(ChatColor.GOLD + "Highest KS: " + ChatColor.DARK_PURPLE
-				+ config.getInt(String.valueOf(p.getUniqueId()) + ".highks")).setScore(4);
-		objective.getScore(ChatColor.GOLD + "Zombie Kills: " + ChatColor.DARK_GREEN
-				+ formatNumber(config.getInt(p.getUniqueId() + ".zombiekills"))).setScore(3);
-		objective.getScore(
-				ChatColor.GOLD + "Gems: " + ChatColor.GREEN + formatNumber(config.getInt(p.getUniqueId() + ".gems")))
-				.setScore(2);
-
-		if(Bukkit.getPluginManager().getPlugin("Boosters").getConfig().getBoolean("doublegems"))
-		{
-			objective.getScore(ChatColor.BOLD + "" + ChatColor.GREEN + " Double Gems Active!").setScore(1);
-		}
-		if(Bukkit.getPluginManager().getPlugin("Boosters").getConfig().getBoolean("DoubleLoot"))
-		{
-			objective.getScore(ChatColor.BOLD + "" + ChatColor.GREEN + " Double Loot Active!").setScore(1);
-		}
 
 		return scoreboard;
 
 	}
+
+	private int calculateELO(int kills, int deaths, FileConfiguration config, UUID uuid)
+	{
+		final int BASE_ELO = 1000; // Starting ELO for all players
+		final int K_FACTOR = 32; // Determines how much ELO changes per "match"
+
+		// Fetch current ELO or set default if not present
+		int currentELO = config.getInt(uuid + ".elo", BASE_ELO);
+
+		// Calculate player's score (simple win/loss based on kills and deaths)
+		double score = deaths == 0 ? 1.0 : (double) kills / (kills + deaths);
+
+		// Expected performance (Assume opponent's ELO is 1000 for simplicity)
+		double opponentELO = 1000;
+		double expected = 1 / (1 + Math.pow(10, (opponentELO - currentELO) / 400.0));
+
+		// Update ELO
+		int newELO = (int) (currentELO + K_FACTOR * (score - expected));
+		config.set(uuid + ".elo", newELO); // Save updated ELO
+		stats.saveConfig();
+		return newELO;
+	}
+
+	private String getRankByELO(int elo)
+	{
+		if(elo < 1200)
+		{
+			return "&7Bambi";
+		} else if(elo < 1400)
+		{
+			return "&aScavenger";
+		} else if(elo < 1600)
+		{
+			return "&bCitizen";
+		} else if(elo < 1800)
+		{
+			return "&cHunter";
+		} else if(elo < 2000)
+		{
+			return "&9Survivor";
+		} else if(elo < 2200)
+		{
+			return "&6Officer";
+		} else if(elo < 2400)
+		{
+			return "&0Deputy";
+		} else if(elo < 2600)
+		{
+			return "&1Sheriff";
+		} else if(elo < 2800)
+		{
+			return "&bSoldier";
+		} else if(elo < 3000)
+		{
+			return "&dWarrior";
+		} else if(elo < 3200)
+		{
+			return "&bHero";
+		} else if(elo < 3500)
+		{
+			return "&cLegend";
+		} else
+		{
+			return "&eImmortal";
+		}
+	}
+
 }

@@ -26,16 +26,16 @@ public class NameTagManager
 				Team team = player.getScoreboard().registerNewTeam(rank.name());
 				team.setPrefix(rank.getDisplay());
 				
-				int numberRank = stats.getConfig().getInt(player.getUniqueId() + ".rank");
-				team.setSuffix(ChatColor.BOLD + " [" + numberRank + "]");
+				String numberRank = ChatColor.translateAlternateColorCodes('&', stats.getConfig().getString(player.getUniqueId() + ".rank"));
+				team.setSuffix(" [" + numberRank + ChatColor.RESET + "]");
 			}
 			else
 			{
 				Team team = player.getScoreboard().getTeam(rank.name());
 				team.setPrefix(rank.getDisplay());
 				
-				int numberRank = stats.getConfig().getInt(player.getUniqueId() + ".rank");
-				team.setSuffix(ChatColor.BOLD + " [" + numberRank + "]");
+				String numberRank = ChatColor.translateAlternateColorCodes('&',stats.getConfig().getString(player.getUniqueId() + ".rank"));
+				team.setSuffix(" [" + numberRank + ChatColor.RESET + "]");
 
 			}
 		}
@@ -46,11 +46,11 @@ public class NameTagManager
 			{
 				player.getScoreboard().getTeam(stats.getRankManager().getRank(target.getUniqueId()).name()).addEntry(target.getName());
 				
-				int numberRank = stats.getConfig().getInt(target.getUniqueId() + ".rank");
-				player.getScoreboard().getTeam(stats.getRankManager().getRank(target.getUniqueId()).name()).setSuffix(ChatColor.BOLD + " [" + numberRank + "]");
+				String numberRank = ChatColor.translateAlternateColorCodes('&',stats.getConfig().getString(target.getUniqueId() + ".rank"));
+				player.getScoreboard().getTeam(stats.getRankManager().getRank(target.getUniqueId()).name()).setSuffix(" [" + numberRank + ChatColor.RESET + "]");
 				
-				int numberRank1 = stats.getConfig().getInt(player.getUniqueId() + ".rank");
-				target.getScoreboard().getTeam(stats.getRankManager().getRank(player.getUniqueId()).name()).setSuffix(ChatColor.BOLD + " [" + numberRank1 + "]");
+				String numberRank1 = ChatColor.translateAlternateColorCodes('&',stats.getConfig().getString(player.getUniqueId() + ".rank"));
+				target.getScoreboard().getTeam(stats.getRankManager().getRank(player.getUniqueId()).name()).setSuffix(" [" + numberRank1 + ChatColor.RESET + "]");
 			}
 		}
 	}
@@ -65,11 +65,11 @@ public class NameTagManager
 			{
 				target.getScoreboard().getTeam(rank.name()).addEntry(player.getName());
 				
-				int numberRank = stats.getConfig().getInt(target.getUniqueId() + ".rank");
-				player.getScoreboard().getTeam(stats.getRankManager().getRank(target.getUniqueId()).name()).setSuffix(ChatColor.BOLD + " [" + numberRank + "]");
+				String numberRank = ChatColor.translateAlternateColorCodes('&',stats.getConfig().getString(target.getUniqueId() + ".rank"));
+				player.getScoreboard().getTeam(stats.getRankManager().getRank(target.getUniqueId()).name()).setSuffix(" [" + numberRank + ChatColor.RESET + "]");
 				
-				int numberRank1 = stats.getConfig().getInt(player.getUniqueId() + ".rank");
-				target.getScoreboard().getTeam(stats.getRankManager().getRank(player.getUniqueId()).name()).setSuffix(ChatColor.BOLD + " [" + numberRank1 + "]");
+				String numberRank1 = ChatColor.translateAlternateColorCodes('&',stats.getConfig().getString(player.getUniqueId() + ".rank"));
+				target.getScoreboard().getTeam(stats.getRankManager().getRank(player.getUniqueId()).name()).setSuffix(" [" + numberRank1 + ChatColor.RESET + "]");
 			}
 		}
 	}

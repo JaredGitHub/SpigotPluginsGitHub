@@ -29,8 +29,9 @@ import org.bukkit.permissions.PermissionAttachment;
 import me.Jared.MenuSystem.StatsMenu;
 import me.Jared.Ranks.Rank;
 import net.md_5.bungee.api.ChatMessageType;
+import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
-
+import net.md_5.bungee.api.chat.hover.content.Text;
 
 public class EventListener implements Listener
 {
@@ -38,7 +39,7 @@ public class EventListener implements Listener
 	FileConfiguration config = stats.getConfig();
 
 	private HashMap<UUID, Long> cooldown = new HashMap<UUID, Long>();
-	private int cooldowntime = 3*1000;
+	private int cooldowntime = 3 * 1000;
 
 	private void showHealthActionBar(Player player, Entity hitEntity)
 	{
@@ -46,71 +47,79 @@ public class EventListener implements Listener
 		{
 			LivingEntity playerHit = (LivingEntity) hitEntity;
 			String name = ChatColor.YELLOW + playerHit.getName() + " ";
-			int health = (int)playerHit.getHealth();
+			int health = (int) playerHit.getHealth();
 			switch(health)
 			{
 			case 0:
 				sendActionBar(player, name + ChatColor.BLACK + "❤❤❤❤❤❤❤❤❤❤");
 				break;
 			case 1:
-				sendActionBar(player, name + ChatColor.RED + "❤"+ ChatColor.BLACK + "❤❤❤❤❤❤❤❤❤");
+				sendActionBar(player, name + ChatColor.RED + "❤" + ChatColor.BLACK + "❤❤❤❤❤❤❤❤❤");
 				break;
 			case 2:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤"+ ChatColor.BLACK + "❤❤❤❤❤❤❤❤❤");
+				sendActionBar(player, name + ChatColor.DARK_RED + "❤" + ChatColor.BLACK + "❤❤❤❤❤❤❤❤❤");
 				break;
 			case 3:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤" +ChatColor.RED + "❤"+ ChatColor.BLACK + "❤❤❤❤❤❤❤❤");
+				sendActionBar(player,
+						name + ChatColor.DARK_RED + "❤" + ChatColor.RED + "❤" + ChatColor.BLACK + "❤❤❤❤❤❤❤❤");
 				break;
 			case 4:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤"+ ChatColor.BLACK + "❤❤❤❤❤❤❤❤");
+				sendActionBar(player, name + ChatColor.DARK_RED + "❤❤" + ChatColor.BLACK + "❤❤❤❤❤❤❤❤");
 				break;
 			case 5:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤" +ChatColor.RED + "❤"+ ChatColor.BLACK + "❤❤❤❤❤❤❤");
+				sendActionBar(player,
+						name + ChatColor.DARK_RED + "❤❤" + ChatColor.RED + "❤" + ChatColor.BLACK + "❤❤❤❤❤❤❤");
 				break;
 			case 6:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤" + ChatColor.BLACK + "❤❤❤❤❤❤❤");
+				sendActionBar(player, name + ChatColor.DARK_RED + "❤❤❤" + ChatColor.BLACK + "❤❤❤❤❤❤❤");
 				break;
 			case 7:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤" + ChatColor.RED + "❤" + ChatColor.BLACK + "❤❤❤❤❤❤");
+				sendActionBar(player,
+						name + ChatColor.DARK_RED + "❤❤❤" + ChatColor.RED + "❤" + ChatColor.BLACK + "❤❤❤❤❤❤");
 				break;
 			case 8:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤❤" + ChatColor.BLACK + "❤❤❤❤❤❤");
+				sendActionBar(player, name + ChatColor.DARK_RED + "❤❤❤❤" + ChatColor.BLACK + "❤❤❤❤❤❤");
 				break;
 			case 9:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤❤" + ChatColor.RED + "❤" + ChatColor.BLACK + "❤❤❤❤❤");
+				sendActionBar(player,
+						name + ChatColor.DARK_RED + "❤❤❤❤" + ChatColor.RED + "❤" + ChatColor.BLACK + "❤❤❤❤❤");
 				break;
 			case 10:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤❤❤" + ChatColor.BLACK + "❤❤❤❤❤");
+				sendActionBar(player, name + ChatColor.DARK_RED + "❤❤❤❤❤" + ChatColor.BLACK + "❤❤❤❤❤");
 				break;
 			case 11:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤❤❤" + ChatColor.RED + "❤" + ChatColor.BLACK + "❤❤❤❤");
+				sendActionBar(player,
+						name + ChatColor.DARK_RED + "❤❤❤❤❤" + ChatColor.RED + "❤" + ChatColor.BLACK + "❤❤❤❤");
 				break;
 			case 12:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤❤❤❤" + ChatColor.BLACK + "❤❤❤❤");
+				sendActionBar(player, name + ChatColor.DARK_RED + "❤❤❤❤❤❤" + ChatColor.BLACK + "❤❤❤❤");
 				break;
 			case 13:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤❤❤❤" + ChatColor.RED + "❤" + ChatColor.BLACK + "❤❤❤");
+				sendActionBar(player,
+						name + ChatColor.DARK_RED + "❤❤❤❤❤❤" + ChatColor.RED + "❤" + ChatColor.BLACK + "❤❤❤");
 				break;
 			case 14:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤❤❤❤❤" + ChatColor.BLACK + "❤❤❤");
+				sendActionBar(player, name + ChatColor.DARK_RED + "❤❤❤❤❤❤❤" + ChatColor.BLACK + "❤❤❤");
 				break;
 			case 15:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤❤❤❤❤" + ChatColor.RED + "❤" + ChatColor.BLACK + "❤❤");
+				sendActionBar(player,
+						name + ChatColor.DARK_RED + "❤❤❤❤❤❤❤" + ChatColor.RED + "❤" + ChatColor.BLACK + "❤❤");
 				break;
 			case 16:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤❤❤❤❤❤" + ChatColor.BLACK + "❤❤");
+				sendActionBar(player, name + ChatColor.DARK_RED + "❤❤❤❤❤❤❤❤" + ChatColor.BLACK + "❤❤");
 				break;
 			case 17:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤❤❤❤❤❤" + ChatColor.RED + "❤" + ChatColor.BLACK + "❤");
+				sendActionBar(player,
+						name + ChatColor.DARK_RED + "❤❤❤❤❤❤❤❤" + ChatColor.RED + "❤" + ChatColor.BLACK + "❤");
 				break;
 			case 18:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤❤❤❤❤❤❤" + ChatColor.BLACK + "❤");
+				sendActionBar(player, name + ChatColor.DARK_RED + "❤❤❤❤❤❤❤❤❤" + ChatColor.BLACK + "❤");
 				break;
 			case 19:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤❤❤❤❤❤❤" + ChatColor.RED + "❤");
+				sendActionBar(player, name + ChatColor.DARK_RED + "❤❤❤❤❤❤❤❤❤" + ChatColor.RED + "❤");
 				break;
 			case 20:
-				sendActionBar(player,name + ChatColor.DARK_RED + "❤❤❤❤❤❤❤❤❤❤");
+				sendActionBar(player, name + ChatColor.DARK_RED + "❤❤❤❤❤❤❤❤❤❤");
 				break;
 			}
 		}
@@ -139,12 +148,136 @@ public class EventListener implements Listener
 				// Setting the config to kills deaths killstreaks and gems
 				int zombiekills = config.getInt(e.getEntity().getKiller().getUniqueId() + "." + "zombiekills");
 
-				config.set(e.getEntity().getKiller().getUniqueId()+".zombiekills", zombiekills + 1);
+				config.set(e.getEntity().getKiller().getUniqueId() + ".zombiekills", zombiekills + 1);
 
 				stats.saveConfig();
 				new StatScoreboard(stats, player);
 			}
 		}
+	}
+
+	// Method to update Elo based on the player's and opponent's Elo
+	private void updateElo(Player killer, Player victim)
+	{
+		// Retrieve the current Elo ratings for the killer and victim
+		int killerElo = config.getInt(killer.getUniqueId() + ".elo", 1200); // Default Elo if not set
+		int victimElo = config.getInt(victim.getUniqueId() + ".elo", 1200); // Default Elo if not set
+
+		// K-factor (the weight of the game outcome)
+		int kFactor = 32;
+
+		// Calculate the expected score for the killer
+		double expectedKillerScore = 1.0 / (1.0 + Math.pow(10, (victimElo - killerElo) / 400.0));
+		// Calculate the expected score for the victim
+		double expectedVictimScore = 1.0 / (1.0 + Math.pow(10, (killerElo - victimElo) / 400.0));
+
+		// Update Elo: Actual score for killer is 1 (since they won), victim gets 0
+		// (since they lost)
+		double newKillerElo = killerElo + kFactor * (1 - expectedKillerScore);
+		double newVictimElo = victimElo + kFactor * (0 - expectedVictimScore);
+
+		// Save the new Elo values back to the config
+		config.set(killer.getUniqueId() + ".elo", (int) newKillerElo);
+		config.set(victim.getUniqueId() + ".elo", (int) newVictimElo);
+		stats.saveConfig(); // Save the changes to the configuration
+	}
+
+	private int getRankGems(Player killer)
+	{
+		int rankGems = 5;
+		if(killer.hasPermission("ranks.default"))
+		{
+			if(Bukkit.getPluginManager().getPlugin("Boosters").getConfig().getBoolean("doublegems"))
+			{
+				rankGems = 10;
+			} else
+			{
+				rankGems = 5;
+			}
+		} else if(killer.hasPermission("ranks.vip"))
+		{
+			if(Bukkit.getPluginManager().getPlugin("Boosters").getConfig().getBoolean("doublegems"))
+			{
+				rankGems = 14;
+			} else
+			{
+				rankGems = 7;
+			}
+		} else if(killer.hasPermission("ranks.vipplus"))
+		{
+			if(Bukkit.getPluginManager().getPlugin("Boosters").getConfig().getBoolean("doublegems"))
+			{
+				rankGems = 20;
+			} else
+			{
+				rankGems = 10;
+			}
+		} else if(killer.hasPermission("ranks.mvp"))
+		{
+			if(Bukkit.getPluginManager().getPlugin("Boosters").getConfig().getBoolean("doublegems"))
+			{
+				rankGems = 30;
+			} else
+			{
+				rankGems = 15;
+			}
+		} else if(killer.hasPermission("ranks.mvpplus"))
+		{
+			if(Bukkit.getPluginManager().getPlugin("Boosters").getConfig().getBoolean("doublegems"))
+			{
+				rankGems = 40;
+			} else
+			{
+				rankGems = 20;
+			}
+		}
+
+		return rankGems;
+	}
+
+	// Calculate Elo change for both the killer and the victim
+	private int calculateEloChange(Player killer, Player victim)
+	{
+		// Retrieve the current Elo ratings for the killer and victim
+		int killerElo = config.getInt(killer.getUniqueId() + ".elo", 1200); // Default Elo if not set
+		int victimElo = config.getInt(victim.getUniqueId() + ".elo", 1200); // Default Elo if not set
+
+		// K-factor (the weight of the game outcome)
+		int kFactor = 32;
+
+		// Calculate the expected score for the killer
+		double expectedKillerScore = 1.0 / (1.0 + Math.pow(10, (victimElo - killerElo) / 400.0));
+		// Elo change for the killer (1 point for a win)
+		double killerEloChange = kFactor * (1 - expectedKillerScore);
+
+		// Return the Elo change for the killer (you can also return both if needed)
+		return (int) Math.round(killerEloChange);
+	}
+
+	private void broadcastElimination(Player killer, String eloChangeKillerString, Player victim,
+			String eloChangeVictimString)
+	{
+		// Create the main message component
+		TextComponent message = new TextComponent(ChatColor.GOLD + "* ");
+
+		// Create the hoverable text for the killer
+		TextComponent killerName = new TextComponent(ChatColor.GRAY + killer.getName());
+		killerName.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(eloChangeKillerString)));
+
+		// Create the "has eliminated" text
+		TextComponent middleText = new TextComponent(ChatColor.GRAY + " has eliminated ");
+
+		// Create the hoverable text for the victim
+		TextComponent victimName = new TextComponent(ChatColor.GRAY + victim.getName());
+		victimName.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, new Text(eloChangeVictimString)));
+
+		// Append all components to the main message
+		message.addExtra(killerName);
+		message.addExtra(middleText);
+		message.addExtra(victimName);
+
+		// Broadcast the message
+		Bukkit.spigot().broadcast(message);
 	}
 
 	@EventHandler
@@ -153,15 +286,18 @@ public class EventListener implements Listener
 		e.setDeathMessage(null);
 		if(e.getEntity() instanceof Player)
 		{
-			Player p = (Player) e.getEntity();
+			Player victim = (Player) e.getEntity();
 
-			//If the player died from getting killed by another player.
-			if(p.getKiller() != null)
+			// If the player died from getting killed by another player.
+			if(victim.getKiller() != null)
 			{
-				//If player is in cooldown STOP!!!
-				if(cooldown.containsKey(p.getUniqueId()))
+				Player killer = victim.getKiller();
+
+				// If player is in cooldown STOP!!!
+				if(cooldown.containsKey(victim.getUniqueId()))
 				{
-					long timeleft = ((cooldown.get(p.getUniqueId())) + cooldowntime) - (System.currentTimeMillis());
+					long timeleft = ((cooldown.get(victim.getUniqueId())) + cooldowntime)
+							- (System.currentTimeMillis());
 
 					timeleft /= 1000.0;
 					if(timeleft > 0)
@@ -170,124 +306,84 @@ public class EventListener implements Listener
 					}
 				}
 
-				Player killer = e.getEntity().getKiller();
-				Bukkit.broadcastMessage(ChatColor.GOLD + "* " + ChatColor.GRAY + killer.getName() + " has eliminated " + p.getName());
+				updateElo(killer, victim);
 
-				//sending action bars and messages in chat
-				sendActionBar(p, ChatColor.DARK_RED + "You were killed by " + e.getEntity().getKiller().getName());
-				sendActionBar(killer,ChatColor.DARK_RED + "You killed " + e.getEntity().getName() + "!!");
+				// Get elo before kill
+				int killerEloBefore = config.getInt(killer.getUniqueId() + ".elo");
+				int victimEloBefore = config.getInt(victim.getUniqueId() + ".elo");
 
+				int eloChangeKiller = calculateEloChange(killer, victim);
+				int eloChangeVictim = calculateEloChange(victim, killer);
 
-				int rankGems = 5;
-				if(killer.hasPermission("ranks.default"))
-				{
-					if(Bukkit.getPluginManager().getPlugin("Boosters").getConfig().getBoolean("doublegems"))
-					{
-						rankGems = 10;
-					}
-					else
-					{
-						rankGems = 5;
-					}
-				}
-				else if(killer.hasPermission("ranks.vip"))
-				{
-					if(Bukkit.getPluginManager().getPlugin("Boosters").getConfig().getBoolean("doublegems"))
-					{
-						rankGems = 14;
-					}
-					else
-					{
-						rankGems = 7;
-					}
-				}
-				else if(killer.hasPermission("ranks.vipplus"))
-				{
-					if(Bukkit.getPluginManager().getPlugin("Boosters").getConfig().getBoolean("doublegems"))
-					{
-						rankGems = 20;
-					}
-					else
-					{
-						rankGems = 10;
-					}
-				}
-				else if(killer.hasPermission("ranks.mvp"))
-				{
-					if(Bukkit.getPluginManager().getPlugin("Boosters").getConfig().getBoolean("doublegems"))
-					{
-						rankGems = 30;
-					}
-					else
-					{
-						rankGems = 15;
-					}
-				}
-				else if(killer.hasPermission("ranks.mvpplus"))
-				{
-					if(Bukkit.getPluginManager().getPlugin("Boosters").getConfig().getBoolean("doublegems"))
-					{
-						rankGems = 40;
-					}
-					else
-					{
-						rankGems = 20;
-					}
-				}
+				String eloChangeKillerString = "Elo Before: [" + ChatColor.RED + killerEloBefore + ChatColor.RESET
+						+ "]\nElo After: [" + ChatColor.GREEN + (killerEloBefore + eloChangeKiller) + ChatColor.RESET
+						+ "]";
 
-				killer.sendMessage(ChatColor.GREEN + "You killed " + ChatColor.WHITE + p.getName() + ChatColor.GREEN + " and received " + rankGems + " gems!");
+				String eloChangeVictimString = "Elo Before: [" + ChatColor.RED + victimEloBefore + ChatColor.RESET
+						+ "]\nElo After: [" + ChatColor.GREEN + (victimEloBefore + eloChangeVictim) + ChatColor.RESET
+						+ "]";
 
+				broadcastElimination(killer, eloChangeKillerString, victim, eloChangeVictimString);
 
+				// sending action bars and messages in chat
+				sendActionBar(victim, ChatColor.DARK_RED + "You were killed by " + e.getEntity().getKiller().getName());
+				sendActionBar(killer, ChatColor.DARK_RED + "You killed " + e.getEntity().getName() + "!!");
+
+				int rankGems = getRankGems(killer);
+				killer.sendMessage(ChatColor.GREEN + "You killed " + ChatColor.WHITE + victim.getName()
+						+ ChatColor.GREEN + " and received " + rankGems + " gems!");
 
 				// Setting the config to kills deaths killstreaks and gems
 				int deaths = config.getInt(e.getEntity().getUniqueId() + "." + "deaths");
 				int kills = config.getInt(e.getEntity().getKiller().getUniqueId() + "." + "kills");
 				int killStreak = config.getInt(e.getEntity().getKiller().getUniqueId() + ".killStreak");
-				int highKS = config.getInt(p.getKiller().getUniqueId() + ".highks");
-				int gems = config.getInt(p.getKiller().getUniqueId() + ".gems");
+				int highKS = config.getInt(victim.getKiller().getUniqueId() + ".highks");
+				int gems = config.getInt(victim.getKiller().getUniqueId() + ".gems");
 
 				if(killStreak >= highKS)
 				{
-					config.set(e.getEntity().getKiller().getUniqueId() + ".highks", killStreak+1);
+					config.set(e.getEntity().getKiller().getUniqueId() + ".highks", killStreak + 1);
 				}
 				config.set(e.getEntity().getKiller().getUniqueId() + ".gems", gems + rankGems);
-				config.set(e.getEntity().getUniqueId()+ ".deaths", deaths + 1);
-				config.set(e.getEntity().getKiller().getUniqueId()+".kills", kills + 1);
-				config.set(e.getEntity().getKiller().getUniqueId()+".killStreak", killStreak + 1);
-				config.set(e.getEntity().getUniqueId()+".killStreak", killStreak == 0);
+				config.set(e.getEntity().getUniqueId() + ".deaths", deaths + 1);
+				config.set(e.getEntity().getKiller().getUniqueId() + ".kills", kills + 1);
+				config.set(e.getEntity().getKiller().getUniqueId() + ".killStreak", killStreak + 1);
+				config.set(e.getEntity().getUniqueId() + ".killStreak", killStreak == 0);
 
-				cooldown.put(p.getUniqueId(), System.currentTimeMillis());
+				cooldown.put(victim.getUniqueId(), System.currentTimeMillis());
 
-				stats.saveConfig();
-				new StatScoreboard(stats, p);
 				new StatScoreboard(stats, killer);
-			}
-			else
+				new StatScoreboard(stats, victim);
+				stats.saveConfig();
+			} else
 			{
 				EntityDamageEvent lastDamageEvent = e.getEntity().getLastDamageCause();
-				if (lastDamageEvent != null)
+				if(lastDamageEvent != null)
 				{
 					if(lastDamageEvent.getCause().equals(DamageCause.ENTITY_ATTACK))
 					{
-						Bukkit.getServer().broadcastMessage(ChatColor.GOLD + "* " + ChatColor.GRAY + e.getEntity().getName() + " got mauled to death!");
-					}
-					else
+						Bukkit.getServer().broadcastMessage(ChatColor.GOLD + "* " + ChatColor.GRAY
+								+ e.getEntity().getName() + " got mauled to death!");
+					} else
 					{
-						Bukkit.getServer().broadcastMessage(ChatColor.GOLD + "* " + ChatColor.GRAY + e.getEntity().getName() + " has died");
+						Bukkit.getServer().broadcastMessage(
+								ChatColor.GOLD + "* " + ChatColor.GRAY + e.getEntity().getName() + " has died");
 					}
 
 					int deaths = config.getInt(e.getEntity().getUniqueId() + "." + "deaths");
 					int killStreak = config.getInt(e.getEntity().getUniqueId() + ".killStreak");
 
 					config.set(e.getEntity().getUniqueId() + ".killStreak", killStreak == 0);
-					config.set(e.getEntity().getUniqueId()+"." + "deaths", deaths + 1);
+					config.set(e.getEntity().getUniqueId() + "." + "deaths", deaths + 1);
 
-					new StatScoreboard(stats, p);
 					stats.saveConfig();
 				}
 
 			}
+			new StatScoreboard(stats, victim);
 		}
+
+		
 	}
 
 	public void sendActionBar(Player player, String message)
@@ -298,7 +394,8 @@ public class EventListener implements Listener
 	@EventHandler
 	public void onClick(InventoryClickEvent e)
 	{
-		if(e.getClickedInventory() == null) return;
+		if(e.getClickedInventory() == null)
+			return;
 
 		InventoryHolder holder = e.getInventory().getHolder();
 
@@ -311,7 +408,8 @@ public class EventListener implements Listener
 			{
 				e.setCancelled(true);
 			}
-			if(e.getCurrentItem() == null) return;
+			if(e.getCurrentItem() == null)
+				return;
 		}
 	}
 
@@ -332,8 +430,7 @@ public class EventListener implements Listener
 		if(stats.getRankManager().getPerms().containsKey(player.getUniqueId()))
 		{
 			attachment = stats.getRankManager().getPerms().get(player.getUniqueId());
-		}
-		else
+		} else
 		{
 			attachment = player.addAttachment(stats);
 			stats.getRankManager().getPerms().put(player.getUniqueId(), attachment);
@@ -343,7 +440,6 @@ public class EventListener implements Listener
 		{
 			attachment.setPermission(perm, true);
 		}
-
 		new StatScoreboard(stats, player);
 	}
 
@@ -363,11 +459,18 @@ public class EventListener implements Listener
 		Player player = e.getPlayer();
 		if(player.getWorld().equals(Bukkit.getWorld("world")))
 		{
-			Bukkit.broadcastMessage(stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET + " " + ChatColor.BOLD + "["+ config.getInt(player.getUniqueId() + ".rank") + "] " + ChatColor.RESET + player.getName() + ": " + e.getMessage());
-		}
+			Bukkit.broadcastMessage(stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET
+					+ "[" + ChatColor.translateAlternateColorCodes('&', config.getString(player.getUniqueId() + ".rank") + ChatColor.RESET + "] "
+					+ ChatColor.RESET + player.getName() + ": " + e.getMessage()));
+		} 
+		
 		else if(player.getWorld().equals(Bukkit.getWorld("warz")))
 		{
-			Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "" + ChatColor.ITALIC + "[WARZ] " + stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET + " " + ChatColor.BOLD + "["+ config.getInt(player.getUniqueId() + ".rank") + "] " + ChatColor.RESET + player.getName() + ": " + e.getMessage());
+			Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "" + ChatColor.ITALIC + "[WARZ] "
+					+ stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET + " "
+					+ "["
+					+ ChatColor.translateAlternateColorCodes('&', config.getString(player.getUniqueId() + ".rank"))
+					+ ChatColor.RESET + "] " + ChatColor.RESET + player.getName() + ": " + e.getMessage());
 		}
 	}
 }
