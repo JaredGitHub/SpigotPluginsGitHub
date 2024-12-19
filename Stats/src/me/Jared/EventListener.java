@@ -467,7 +467,8 @@ public class EventListener implements Listener
 			stats.getRankManager().setRank(player.getUniqueId(), Rank.DEFAULT, true);
 		}
 		
-		if(!config.getString(player.getUniqueId() + ".rank").contains("&"))
+		if(!config.getString(player.getUniqueId() + ".rank").contains("&")
+				|| config.getString(player.getUniqueId() + ".elo") == null)
 		{
 			stats.getConfig().set(player.getUniqueId() + ".elo", 1000);
 			stats.getConfig().set(player.getUniqueId() + ".rank", "&7Bambi");
