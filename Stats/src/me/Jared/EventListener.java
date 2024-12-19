@@ -471,6 +471,7 @@ public class EventListener implements Listener
 		{
 			stats.getConfig().set(player.getUniqueId() + ".elo", 1000);
 			stats.getConfig().set(player.getUniqueId() + ".rank", "&7Bambi");
+			stats.saveConfig();
 		}
 
 		stats.getNametagManager().setNametags(player);
