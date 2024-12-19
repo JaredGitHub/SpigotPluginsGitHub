@@ -85,6 +85,10 @@ public class StatsExpansion extends PlaceholderExpansion
 		{
 			return Stats.getInstance().getConfig().getString(player.getUniqueId() + ".highks");
 		}
+		if(params.equals("elorank"))
+		{
+			return Stats.getInstance().getConfig().getString(player.getUniqueId() + ".elo");
+		}
 		
 		return null;
 	}
