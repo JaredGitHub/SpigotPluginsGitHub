@@ -119,7 +119,8 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 					player.sendMessage(ChatColor.GREEN + "Setting all chests in zone " + ChatColor.WHITE + region
 							+ ChatColor.GREEN + " to zone " + ChatColor.WHITE + zone + "!");
 
-				} else
+				}
+				else
 				{
 					player.sendMessage(ChatColor.RED + "Usage: /setzone low <region>");
 					return true;

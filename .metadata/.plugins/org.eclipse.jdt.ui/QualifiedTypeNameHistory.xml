@@ -36,7 +36,6 @@
     <fullyQualifiedTypeName name="java.net.URL"/>
     <fullyQualifiedTypeName name="org.bukkit.map.MapView.Scale"/>
     <fullyQualifiedTypeName name="org.bukkit.map.MapView"/>
-    <fullyQualifiedTypeName name="org.bukkit.Material"/>
     <fullyQualifiedTypeName name="java.net.URLConnection"/>
     <fullyQualifiedTypeName name="com.sk89q.worldedit.world.World"/>
     <fullyQualifiedTypeName name="me.Jared.Warz"/>
@@ -54,10 +53,11 @@
     <fullyQualifiedTypeName name="net.md_5.bungee.api.chat.hover.content.Text"/>
     <fullyQualifiedTypeName name="net.md_5.bungee.api.chat.TextComponent"/>
     <fullyQualifiedTypeName name="net.md_5.bungee.api.ChatColor"/>
-    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
     <fullyQualifiedTypeName name="org.bukkit.ChatColor"/>
     <fullyQualifiedTypeName name="me.Jared.StatScoreboard"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="org.bukkit.Bukkit"/>
+    <fullyQualifiedTypeName name="org.bukkit.Material"/>
 </qualifiedTypeNameHistroy>

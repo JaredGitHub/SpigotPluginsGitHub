@@ -35,10 +35,10 @@ public class RankManager
 
 		if(!file.exists())
 		{
-			try {
+			try
+			{
 				file.createNewFile();
-			}
-			catch(IOException e)
+			} catch(IOException e)
 			{
 				e.printStackTrace();
 			}
@@ -52,12 +52,11 @@ public class RankManager
 		if(Bukkit.getOfflinePlayer(uuid).isOnline() && !firstJoin)
 		{
 			Player player = Bukkit.getPlayer(uuid);
-			PermissionAttachment attachment; 
+			PermissionAttachment attachment;
 			if(perms.containsKey(uuid))
 			{
 				attachment = perms.get(uuid);
-			}
-			else
+			} else
 			{
 				attachment = player.addAttachment(stats);
 				perms.put(uuid, attachment);
@@ -78,13 +77,11 @@ public class RankManager
 
 		}
 
-
 		config.set(uuid.toString(), rank.name());
 		try
 		{
 			config.save(file);
-		}
-		catch(IOException e)
+		} catch(IOException e)
 		{
 			e.printStackTrace();
 		}
@@ -94,15 +91,21 @@ public class RankManager
 			Player player = Bukkit.getPlayer(uuid);
 			stats.getNametagManager().removeTag(player);
 			stats.getNametagManager().newTag(player);
-			
-			
+
 		}
 	}
 
 	public Rank getRank(UUID uuid)
 	{
-		return Rank.valueOf(config.getString(uuid.toString()));
+		if(config.getString(uuid.toString()) != null)
+		{
+			return Rank.valueOf(config.getString(uuid.toString()));
+		} else
+		{
+			return Rank.DEFAULT;
+		}
 	}
+
 	public FileConfiguration getConfig()
 	{
 		return this.config;
@@ -112,7 +115,5 @@ public class RankManager
 	{
 		return perms;
 	}
-
-
 
 }

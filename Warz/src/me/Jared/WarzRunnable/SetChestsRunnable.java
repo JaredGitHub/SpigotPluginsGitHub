@@ -71,14 +71,26 @@ public class SetChestsRunnable extends BukkitRunnable
 			// If chest is already assigned a zone in the config
 			for(int idx = 0; idx < chestList.size(); idx++)
 			{
-				if(block.getX() == configItem.getChestX(chestList.get(idx))
-						&& block.getY() == configItem.getChestY(chestList.get(idx))
-						&& block.getZ() == configItem.getChestZ(chestList.get(idx)))
+				String chest = chestList.get(idx);
+				Location blockLocation = new Location(Bukkit.getWorld("warz"),configItem.getChestX(chest),configItem.getChestY(chest),configItem.getChestZ(chest));
+				
+				if(block.getLocation().equals(blockLocation))
 				{
 					player.sendMessage(ChatColor.RED + "Removing duplicate!");
+					player.playSound(player.getLocation(), Sound.ENTITY_GHAST_DEATH, 1, 1);
+					chestList.remove(idx);
+				}
+				
+				if(blockLocation.getBlock().getType() != Material.CHEST)
+				{
+					player.sendMessage(ChatColor.RED + "Removing Non Chest Location!");
+					player.playSound(player.getLocation(), Sound.ENTITY_CAT_DEATH, 1, 1);
 					chestList.remove(idx);
 				}
 			}
+			
+
+			
 			chestList.add(block.getX()
 					+ ":" + block.getY()
 					+ ":" + block.getZ() + ":"

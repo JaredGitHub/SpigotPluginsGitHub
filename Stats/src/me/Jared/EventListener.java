@@ -27,7 +27,6 @@ import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.permissions.PermissionAttachment;
 
 import me.Jared.MenuSystem.StatsMenu;
-import me.Jared.Ranks.Rank;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -462,21 +461,19 @@ public class EventListener implements Listener
 	{
 		Player player = e.getPlayer();
 
-		if(!player.hasPlayedBefore())
-		{
-			stats.getRankManager().setRank(player.getUniqueId(), Rank.DEFAULT, true);
-		}
-		
-		if(!config.getString(player.getUniqueId() + ".rank").contains("&")
-				|| config.getString(player.getUniqueId() + ".elo") == null)
+		if(config.getInt(player.getUniqueId() + ".elo") <= 0 || config.getString(player.getUniqueId() + ".rank") == null
+				|| (!config.getString(player.getUniqueId() + ".rank").contains("&")))
 		{
 			stats.getConfig().set(player.getUniqueId() + ".elo", 1000);
 			stats.getConfig().set(player.getUniqueId() + ".rank", "&7Bambi");
 			stats.saveConfig();
 		}
 
-		stats.getNametagManager().setNametags(player);
-		stats.getNametagManager().newTag(player);
+		if(config.getInt(player.getUniqueId() + ".elo") > 0)
+		{
+			stats.getNametagManager().setNametags(player);
+			stats.getNametagManager().newTag(player);
+		}
 
 		PermissionAttachment attachment;
 		if(stats.getRankManager().getPerms().containsKey(player.getUniqueId()))
