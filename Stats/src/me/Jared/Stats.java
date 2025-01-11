@@ -318,6 +318,17 @@ public class Stats extends JavaPlugin
 				return true;
 			}
 		}
+		
+		if(cmd.getName().equalsIgnoreCase("buy"))
+		{
+			if(sender instanceof Player)
+			{
+				Player player = (Player) sender;
+				
+				player.sendMessage("Click this URL to buy ---->  store.jaredcoen.com");
+			}
+		}
+		
 		return true;
 	}
 }

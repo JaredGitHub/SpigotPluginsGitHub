@@ -290,7 +290,7 @@ public class WarzListener implements Listener
 		if(e.getEntity() instanceof Player)
 		{
 			Player player = (Player) e.getEntity();
-			PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, 20 * 60, 1);
+			PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, 20 * 30, 1);
 			PotionEffect potionEffect1 = new PotionEffect(PotionEffectType.HUNGER, 20 * 60, 3);
 
 			if(player.getWorld().getName().equals("warz"))

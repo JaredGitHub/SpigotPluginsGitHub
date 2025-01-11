@@ -18,3 +18,7 @@ commands:
     alias: /elo <player>
   topelo:
     description: View top elo of everyone
+  buy:
+    description: View store.jaredcoen.com
+    
+    
