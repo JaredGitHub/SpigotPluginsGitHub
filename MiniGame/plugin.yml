@@ -11,5 +11,7 @@ commands:
    usage: /<command> [join|leave]
   spectate: 
    description: Spectate players who are playing!
-  setloot:
+  minigame:
+   description: Access certain things like setloot
   setchest:
+   description: Look at a chest to set it to a certain tier for battle royale mode

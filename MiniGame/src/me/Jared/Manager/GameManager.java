@@ -37,7 +37,7 @@ public class GameManager
 		this.plugin = plugin;
 
 		this.playerManager = new PlayerManager(this);
-		this.lootManager = new LootManager(this);
+		this.lootManager = new LootManager();
 		this.locations = new ArrayList<Location>();
 		this.chestOpen = new HashMap<Location, Boolean>();
 	}
@@ -80,12 +80,12 @@ public class GameManager
 
 			for(Location location : locations)
 			{
-				chestRunnable = new ChestRunnable(location, this);
-				chestRunnable.runTaskTimer(plugin, 0, 25);
-
 				this.chestOpen.put(location,false);
 			}
-
+			
+			chestRunnable = new ChestRunnable(locations, this);
+			chestRunnable.runTaskTimer(plugin, 0, 25);
+			
 			playerManager.sendMessage(ChatColor.GOLD + "" + ChatColor.UNDERLINE + "Be the last one standing!");
 
 			break;

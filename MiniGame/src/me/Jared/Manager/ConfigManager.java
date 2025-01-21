@@ -79,10 +79,9 @@ public class ConfigManager
 	{
 		ArrayList<Location> locations = new ArrayList<Location>();
 
-		ConfigItem configItem = new ConfigItem();
 		for(String chest : new ArrayList<String>(config.getStringList("chests")))
 		{
-			locations.add(configItem.getChestLocation(chest));
+			locations.add(ConfigItem.getChestLocation(chest));
 
 		}
 		return locations;

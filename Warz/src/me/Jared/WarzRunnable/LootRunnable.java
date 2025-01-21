@@ -29,6 +29,7 @@ public class LootRunnable extends BukkitRunnable
 				player.setLevel(seconds);
 			}
 		}
+
 		if(seconds == 60)
 		{
 			for(Player player : Bukkit.getOnlinePlayers())

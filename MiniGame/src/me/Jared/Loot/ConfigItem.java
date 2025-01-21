@@ -1,8 +1,10 @@
 package me.Jared.Loot;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -14,10 +16,10 @@ import me.Jared.MiniGame;
 
 public class ConfigItem
 {
-	private MiniGame plugin = MiniGame.getPlugin(MiniGame.class);
+	private MiniGame plugin = MiniGame.getInstance();
 	FileConfiguration config = plugin.getConfig();
 
-	private String getItemDataIndex(String string, int num)
+	private static String getItemDataIndex(String string, int num)
 	{
 		StringBuilder stringBuilder = new StringBuilder();
 
@@ -39,17 +41,34 @@ public class ConfigItem
 		return stringBuilder.toString();
 	}
 
-	public Location getChestLocation(String string)
+	public static Location getChestLocation(String string)
 	{
-		Location location = new Location(Bukkit.getWorld("world"), 
-				getChestX(string), 
-				getChestY(string), 
+		Location location = new Location(Bukkit.getWorld("world"), getChestX(string), getChestY(string),
 				getChestZ(string));
 
 		return location;
 	}
+	
+	public static Tier getChestTier(Location location)
+	{
+		Tier tier = null;
 
-	public Tier getChestTier(String string)
+		List<String> chestStringLocations = MiniGame.getInstance().getConfig().getStringList("chests");
+		
+		for(String chestLocationString : chestStringLocations)
+		{
+			Location chestLocation = getChestLocation(chestLocationString);
+			if(chestLocation.getX() == location.getX()
+					&& chestLocation.getY() == location.getY()
+					&& chestLocation.getZ() == location.getZ())
+			{
+				tier = getChestTier(chestLocationString);
+			}	
+		}
+		return tier;
+	}
+
+	public static Tier getChestTier(String string)
 	{
 		Tier tier = null;
 
@@ -70,55 +89,54 @@ public class ConfigItem
 			tier = Tier.SKYHIGH;
 			break;
 		default:
+			tier = Tier.LOW;
 			break;
 		}
 
 		return tier;
 	}
 
-
-	public ArrayList<String> tierListChests(Tier tier)
+	public static ArrayList<String> tierListChests(Tier tier)
 	{
-		ArrayList<String> itemList = new ArrayList<String>(config.getStringList("chests"));
-		ArrayList<String> tierList = new ArrayList<String>();
-		for(String item : itemList)
+		ArrayList<String> chestList = new ArrayList<>(MiniGame.getInstance().getConfig().getStringList("chests"));
+		ArrayList<String> tierList = new ArrayList<>();
+		for(String chest : chestList)
 		{
-			if(getChestTier(item).equals(tier))
+			if(getChestTier(chest).equals(tier))
 			{
-				tierList.add(item);
+				tierList.add(chest);
 			}
-
 		}
-
 		return tierList;
 	}
 
-	public ArrayList<String> tierListItems(Tier tier)
+	public static ArrayList<String> tierListItems(Tier tier)
 	{
-		ArrayList<String> itemList = new ArrayList<String>(config.getStringList("items"));
-		ArrayList<String> tierList = new ArrayList<String>();
+		List<String> itemList = MiniGame.getInstance().getConfig().getStringList("items");
+		ArrayList<String> tierList = new ArrayList<>();
 		for(String item : itemList)
 		{
 			if(getTier(item).equals(tier))
 			{
 				tierList.add(item);
 			}
-
 		}
 
 		return tierList;
 	}
 
-	public ItemStack stringToItemStack(String string)
+	public static ItemStack stringToItemStack(String string)
 	{
 		Material material = getMaterial(string);
 		String displayName = getDisplayName(string);
 		int amount = getAmount(string);
 
-		if(material == null) Bukkit.getConsoleSender().sendMessage("There is something messed up in the config!");
-		
-		ItemStack item = new ItemStack(material,amount);
+		if(material == null)
+		{
+			Bukkit.getConsoleSender().sendMessage("There is something messed up in the config!");
+		}
 
+		ItemStack item = new ItemStack(material, amount);
 		ItemMeta meta = item.getItemMeta();
 
 		meta.setDisplayName(displayName);
@@ -127,7 +145,41 @@ public class ConfigItem
 		return item;
 	}
 
-	public String itemStackToString(ItemStack item, Tier tier)
+	public static ItemStack stringToItemStackWithLore(String string)
+	{
+		Material material = getMaterial(string);
+		String displayName = getDisplayName(string);
+		String itemLore = getLore(string);
+		int amount = getAmount(string);
+		int damage = getDamage(string);
+
+		if(material == null)
+		{
+			Bukkit.getConsoleSender().sendMessage("There is something messed up in the config!");
+		}
+
+		ItemStack item = new ItemStack(material, amount);
+		ItemMeta meta = item.getItemMeta();
+
+		meta.setDisplayName(displayName);
+		item.setItemMeta(meta);
+
+		if(itemLore.length() > 1)
+		{
+			if(itemLore.length() >= 1)
+			{
+				List<String> lore = new ArrayList<>();
+				lore.add(ChatColor.translateAlternateColorCodes('&', itemLore));
+				meta.setLore(lore);
+			}
+
+			((Damageable) meta).setDamage(damage);
+			item.setItemMeta(meta);
+		}
+		return item;
+	}
+
+	public String itemStackToStringWithLore(ItemStack item, Tier tier, int weight)
 	{
 		String material = item.getType().name();
 		int amount = item.getAmount();
@@ -136,15 +188,11 @@ public class ConfigItem
 		int durability = 0;
 		if(item.hasItemMeta())
 		{
-			displayName = item.getItemMeta().getDisplayName();
+			displayName = item.getItemMeta().getDisplayName().replace(ChatColor.COLOR_CHAR, '&');
 			if(item.getItemMeta() instanceof Damageable)
 			{
-				durability = ((Damageable) item.getItemMeta()).getDamage();  
+				durability = ((Damageable) item.getItemMeta()).getDamage();
 			}
-		}
-		else
-		{
-			displayName = material.replaceAll("_", " ");
 		}
 
 		StringBuilder stringBuilder = new StringBuilder();
@@ -154,10 +202,14 @@ public class ConfigItem
 		stringBuilder.append(amount + ":");
 		stringBuilder.append(durability + ":");
 		stringBuilder.append(tier + ":");
-		if(item.getItemMeta().hasLore())
+		if(item.hasItemMeta() && item.getItemMeta().hasLore())
 		{
-			String lore = item.getItemMeta().getLore().get(0);
+			String lore = item.getItemMeta().getLore().get(0).replace(ChatColor.COLOR_CHAR, '&');
 			stringBuilder.append(lore + ":");
+
+		} else
+		{
+			stringBuilder.append(":");
 		}
 
 		for(int i = 0; i < material.length(); i++)
@@ -168,44 +220,47 @@ public class ConfigItem
 				break;
 			}
 		}
+		stringBuilder.append(weight + ":");
 
 		return stringBuilder.toString();
 	}
 
-	public double getChestX(String string)
+	public static double getChestX(String string)
 	{
 		return Double.parseDouble(getItemDataIndex(string, 0));
 	}
-	public double getChestY(String string)
+
+	public static double getChestY(String string)
 	{
 		return Double.parseDouble(getItemDataIndex(string, 1));
 	}
-	public double getChestZ(String string)
+
+	public static double getChestZ(String string)
 	{
 		return Double.parseDouble(getItemDataIndex(string, 2));
 	}
 
-	public Material getMaterial(String string)
+	public static Material getMaterial(String string)
 	{
 		return Material.getMaterial(getItemDataIndex(string, 0));
 	}
 
-	public String getDisplayName(String string)
+	public static String getDisplayName(String string)
 	{
-		return getItemDataIndex(string, 1);
+		return getItemDataIndex(ChatColor.translateAlternateColorCodes('&', string), 1);
 	}
 
-	public int getAmount(String string)
+	public static int getAmount(String string)
 	{
 		return Integer.parseInt(getItemDataIndex(string, 2));
 	}
 
-	public int getDurability(String string)
+	public static int getDamage(String string)
 	{
 		return Integer.parseInt(getItemDataIndex(string, 3));
 	}
 
-	public Tier getTier(String string)
+	public static Tier getTier(String string)
 	{
 		Tier tier = null;
 
@@ -232,8 +287,13 @@ public class ConfigItem
 		return tier;
 	}
 
-	public String getLore(String string)
+	public static String getLore(String string)
 	{
 		return getItemDataIndex(string, 5);
+	}
+
+	public static int getWeight(String string)
+	{
+		return Integer.parseInt(getItemDataIndex(string, 6));
 	}
 }

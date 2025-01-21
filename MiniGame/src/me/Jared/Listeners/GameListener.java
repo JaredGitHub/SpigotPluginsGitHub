@@ -4,6 +4,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,6 +15,9 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import me.Jared.GameState;
+import me.Jared.MiniGame;
+import me.Jared.Loot.ConfigItem;
+import me.Jared.Loot.LootManager;
 import me.Jared.Manager.ConfigManager;
 import me.Jared.Manager.GameManager;
 
@@ -124,6 +128,14 @@ public class GameListener implements Listener
 				//Set chest to open
 				Location location = e.getClickedBlock().getLocation();
 				gameManager.getChestOpen().put(location, true);
+
+				//Put items in chest
+				if(MiniGame.getChestLocations().contains(location))
+				{
+					Block chestBlock = location.getBlock();
+
+					LootManager.setItems(ConfigItem.getChestTier(location), chestBlock);
+				}
 			}
 		}
 	}

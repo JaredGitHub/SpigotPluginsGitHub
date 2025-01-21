@@ -1,99 +1,141 @@
 package me.Jared.Loot;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
-import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockState;
+import org.bukkit.block.BlockFace;
 import org.bukkit.block.Chest;
-import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.inventory.ItemStack;
 
-import me.Jared.Manager.GameManager;
+import me.Jared.MiniGame;
 
 public class LootManager
 {
-	private FileConfiguration config;
-	private ArrayList<String> chestList;
 
-	public LootManager(GameManager gameManager)
+	private static Block isDoubleChest(Block block)
 	{
-		this.config = gameManager.getConfig();
+		if(!(block.getState() instanceof Chest))
+		{
+			return null; // Not a chest block
+		}
 
-		chestList = new ArrayList<String>(config.getStringList("chests"));
+		Block neighborBlock = getNeighborChestBlock(block);
+
+		if(neighborBlock != null && neighborBlock.getState() instanceof Chest)
+		{
+			return neighborBlock;
+		} else
+		{
+			return null;
+		}
 	}
 
-	private void setItems(Tier tier)
+	private static Block getNeighborChestBlock(Block block)
 	{
-		ConfigItem configItem = new ConfigItem();
-		for(String chests : configItem.tierListChests(tier))
+		// Check if the block is part of a double chest by checking its neighbors
+		BlockFace[] facesToCheck =
+		{ BlockFace.NORTH, BlockFace.EAST, BlockFace.SOUTH, BlockFace.WEST };
+
+		for(BlockFace face : facesToCheck)
 		{
-			Block block = Bukkit.getWorld("world").getBlockAt(configItem.getChestLocation(chests));
-			BlockState state = block.getState();
-			if(state instanceof Chest)
+			Block relativeBlock = block.getRelative(face);
+			if(relativeBlock.getState() instanceof Chest)
 			{
-				Chest chest = (Chest) state;
+				return relativeBlock;
+			}
+		}
+		return null;
+	}
 
-				Random rand = new Random();
-				int numberOfElements = 4;
+	private static boolean setChest(Block block, Tier tier)
+	{
+		Random random = new Random();
+		// Getting the list of items based on the tier
+		List<String> items = MiniGame.getInstance().getConfig().getStringList("items");
 
-				ArrayList<String> items = new ArrayList<String>(configItem.tierListItems(tier));
+		Location location = block.getLocation();
+		Chest chest = (Chest) block.getState();
+		// Clear the chest b4 putting items into it
+		chest.getBlockInventory().clear();
 
-				for(int i = 0; i < numberOfElements; i++)
+		// Getting the total weight of all of the items in the list
+		int totalWeight = items.stream().mapToInt(ConfigItem::getWeight).sum();
+
+		// Making an array of randomSlots so that we can check if the item tries to go
+		// into the same slot and prevent it!
+		ArrayList<Integer> usedSlots = new ArrayList<Integer>();
+
+		// Instead of two make it find the number in the config "DoubleLoot"
+		int itemsPerChest = 4;
+
+		for(int itemNumber = 0; itemNumber < itemsPerChest; itemNumber++)
+		{
+			// Get a random number based on the total weight of the items
+			int totalWeightRandom = random.nextInt(totalWeight+1);
+			// Initialize a running total of the weight
+			int currentWeight = 0;
+
+			//While usedSlots contains the random chest slot find another random number
+			int randNumChestSlot;
+			do
+			{
+				randNumChestSlot = random.nextInt(27);
+			}while(usedSlots.contains(randNumChestSlot));
+			usedSlots.add(randNumChestSlot);
+
+			for(int i = 0; i < items.size(); i++)
+			{
+
+				currentWeight += ConfigItem.getWeight(items.get(i));
+
+				if(totalWeightRandom < currentWeight)
 				{
-					int randomIndex = Math.abs(rand.nextInt(items.size()));
-					String randomElement = items.get(randomIndex);
+					chest.getBlockInventory().setItem(randNumChestSlot,
+							ConfigItem.stringToItemStackWithLore(items.get(i)));
 
-					ItemStack item = configItem.stringToItemStack(randomElement);
-
-					chest.getBlockInventory().setItem(i, item);
+					MiniGame.getChestLocations().remove(location);
+					break;
 				}
 			}
+		}
+
+		Block otherBlock = isDoubleChest(block);
+		if(otherBlock != null)
+		{
+			return true;
+		}
+		return false;
+	}
+
+	public static void setItems(Tier tier, Block block)
+	{
+		if(MiniGame.getChestLocations().contains(block.getLocation()))
+		{
+			if(setChest(block, tier))
+			{
+				Block otherBlock = isDoubleChest(block);
+				setChest(otherBlock, tier);
+			}
+		}
+	}
+
+	private void addChestsToArray(Tier tier)
+	{
+		for(String locString : ConfigItem.tierListChests(tier))
+		{
+			Location location = ConfigItem.getChestLocation(locString);
+
+			MiniGame.getChestLocations().add(location);
 		}
 	}
 
 	public void setChests()
 	{
-		clearChests();
-		ConfigItem configItem = new ConfigItem();
-		for(String chest : chestList)
-		{
-			Tier tier = configItem.getChestTier(chest);
-			switch(tier)
-			{
-			case LOW:
-				setItems(Tier.LOW);
-				break;
-			case MEDIUM:
-				setItems(Tier.MEDIUM);
-				break;
-			case HIGH:
-				setItems(Tier.HIGH);
-				break;
-			case SKYHIGH:
-				setItems(Tier.SKYHIGH);
-				break;
-			default:
-				break;
-			}
-		}
-	}
-
-	public void clearChests()
-	{
-		ConfigItem configItem = new ConfigItem();
-		for(String chests : new ArrayList<String>(config.getStringList("chests")))
-		{
-			Block block = Bukkit.getWorld("world").getBlockAt(configItem.getChestLocation(chests));
-			BlockState state = block.getState();
-
-			if(state instanceof Chest)
-			{
-				Chest chest = (Chest) state;
-
-				chest.getBlockInventory().clear();
-			}
-		}
+		addChestsToArray(Tier.LOW);
+		addChestsToArray(Tier.MEDIUM);
+		addChestsToArray(Tier.HIGH);
+		addChestsToArray(Tier.SKYHIGH);
 	}
 }

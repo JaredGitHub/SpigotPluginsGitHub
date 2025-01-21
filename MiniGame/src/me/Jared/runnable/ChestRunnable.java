@@ -1,48 +1,73 @@
 package me.Jared.runnable;
 
+import java.util.ArrayList;
+
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import me.Jared.GameState;
+import me.Jared.Loot.ConfigItem;
+import me.Jared.Loot.Tier;
 import me.Jared.Manager.GameManager;
 
 public class ChestRunnable extends BukkitRunnable
 {
-	private Location location;
+	private ArrayList<Location> locations;
 	private GameManager gameManager;
 
-	public ChestRunnable(Location location, GameManager gameManager)
+	public ChestRunnable(ArrayList<Location> locations, GameManager gameManager)
 	{
-		this.location = location;
+		this.locations = locations;
 		this.gameManager = gameManager;
 	}
 
 	@Override
 	public void run()
 	{
-		//spawn particles
+		// spawn particles
 
 		if(gameManager.getGameState() == GameState.LIVE)
 		{
-			if(gameManager.getChestOpen().get(location) == false)
+			for(Location location : locations)
 			{
-				for(int i = 0; i < 360; i++)
+				if(gameManager.getChestOpen().get(location) == false)
 				{
-					double x = .5 * Math.cos(i) + location.getX();
-					double z = .5 * Math.sin(i) + location.getZ();
+					// Get the tier based on the location
+					Tier tier = ConfigItem.getChestTier(location);
 
-					Location loc = new Location(location.getWorld(),x+0.5,location.getY()+1.3,z+0.5);
-
-					if(i%36==0)
+					for(int i = 0; i < 360; i++)
 					{
-						location.getWorld().spawnParticle(Particle.FLAME, loc, 0,0,0,0,0);
-					}
+						double x = .5 * Math.cos(i) + location.getX();
+						double z = .5 * Math.sin(i) + location.getZ();
 
+						Location loc = new Location(location.getWorld(), x + 0.5, location.getY() + 1.3, z + 0.5);
+
+						if(i % 18 == 0)
+						{
+							switch(tier)
+							{
+							case LOW:
+								location.getWorld().spawnParticle(Particle.CRIT, loc, 0, 0, 0, 0, 0);
+								break;
+							case MEDIUM:
+								location.getWorld().spawnParticle(Particle.END_ROD, loc, 0, 0, 0, 0, 0);
+								break;
+							case HIGH:
+								location.getWorld().spawnParticle(Particle.FLAME, loc, 0, 0, 0, 0, 0);
+								break;
+							case SKYHIGH:
+								location.getWorld().spawnParticle(Particle.PORTAL, loc, 0, 0, 0, 0, 0);
+								break;
+							default:
+								break;
+							}
+
+						}
+					}
 				}
 			}
-		}
-		else
+		} else
 		{
 			this.cancel();
 		}

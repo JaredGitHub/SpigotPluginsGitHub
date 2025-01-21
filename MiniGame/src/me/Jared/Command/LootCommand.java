@@ -26,6 +26,7 @@ public class LootCommand implements CommandExecutor
 	FileConfiguration config;
 	MiniGame plugin;
 	private GameManager gameManager;
+
 	public LootCommand(GameManager gameManager)
 	{
 		this.gameManager = gameManager;
@@ -34,62 +35,67 @@ public class LootCommand implements CommandExecutor
 		this.plugin = gameManager.getPlugin();
 	}
 
-	private void setConfigItem(Player player, Tier tier)
+	private void setConfigItem(Player player, Tier tier, int weight)
 	{
 
 		ArrayList<String> itemList = new ArrayList<String>(gameManager.getConfig().getStringList("items"));
 		ConfigItem configItem = new ConfigItem();
 
 		ItemStack playerItem = new ItemStack(player.getInventory().getItemInMainHand());
-		String item = configItem.itemStackToString(playerItem, tier);
+		String item = configItem.itemStackToStringWithLore(playerItem, tier, weight);
 		itemList.add(item);
 		config.set("items", itemList);
 		plugin.saveConfig();
 
-		player.sendMessage(ChatColor.GREEN + "You set " + playerItem.getType().name() + ChatColor.GREEN + " in your loot table as " + tier + " tier.");
+		player.sendMessage(ChatColor.GREEN + "You set " + playerItem.getType().name() + ChatColor.GREEN
+				+ " in your loot table as " + tier + " tier.");
 	}
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
-		if(sender instanceof Player) 
+		if(sender instanceof Player)
 		{
 			Player player = (Player) sender;
 
 			if(player.hasPermission("hg"))
 			{
-				if(cmd.getName().equalsIgnoreCase("setloot"))
+				if(cmd.getName().equalsIgnoreCase("minigame"))
 				{
 					if(args.length == 0)
 					{
-						player.sendMessage(ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH");
+						player.sendMessage(ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH> <weight>");
 						return true;
-					}
-
-					if(args.length == 1)
+					} else if(args[0].equalsIgnoreCase("setloot"))
 					{
-						if(args[0].equalsIgnoreCase("low"))
+
+						if(args.length == 3)
 						{
-							setConfigItem(player,Tier.LOW);
-						}
-						else if(args[0].equalsIgnoreCase("medium"))
-						{
-							setConfigItem(player,Tier.MEDIUM);
-						}
-						else if(args[0].equalsIgnoreCase("high"))
-						{
-							setConfigItem(player,Tier.HIGH);
-						}
-						else if(args[0].equalsIgnoreCase("skyhigh"))
-						{
-							setConfigItem(player,Tier.SKYHIGH);
+							int weight = Integer.parseInt(args[2]);
+							if(args[1].equalsIgnoreCase("low"))
+							{
+								setConfigItem(player, Tier.LOW, weight);
+							} else if(args[1].equalsIgnoreCase("medium"))
+							{
+								setConfigItem(player, Tier.MEDIUM, weight);
+							} else if(args[1].equalsIgnoreCase("high"))
+							{
+								setConfigItem(player, Tier.HIGH, weight);
+							} else if(args[1].equalsIgnoreCase("skyhigh"))
+							{
+								setConfigItem(player, Tier.SKYHIGH, weight);
+							} else
+							{
+								player.sendMessage(
+										ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH> <weight>");
+								return true;
+							}
 						}
 						else
 						{
-							player.sendMessage(ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH");
+							player.sendMessage(ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH> <weight>");
 							return true;
 						}
-
 					}
 				}
 
@@ -102,33 +108,32 @@ public class LootCommand implements CommandExecutor
 						return true;
 					}
 
-					if(!(player.getTargetBlock((Set<Material>)null, 10).getType().equals(Material.CHEST)))
+					if(!(player.getTargetBlock((Set<Material>) null, 10).getType().equals(Material.CHEST)))
 					{
 						player.sendMessage(ChatColor.RED + "Make sure you are looking at a chest!");
 						return true;
-					}
-					else
+					} else
 					{
 						if(args.length == 1)
-						{	
-							if((args[0].equalsIgnoreCase("LOW")) 
-									|| (args[0].equalsIgnoreCase("MEDIUM") 
-											|| (args[0].equalsIgnoreCase("HIGH") 
-													|| (args[0].equalsIgnoreCase("SKYHIGH")))))
+						{
+							if((args[0].equalsIgnoreCase("LOW")) || (args[0].equalsIgnoreCase("MEDIUM")
+									|| (args[0].equalsIgnoreCase("HIGH") || (args[0].equalsIgnoreCase("SKYHIGH")))))
 							{
-								Block block = player.getTargetBlock((Set<Material>)null, 10);
+								Block block = player.getTargetBlock((Set<Material>) null, 10);
 								Location location = block.getLocation();
 
-								chestList.add(location.getX() + ":" + location.getY() + ":" + location.getZ() + ":" + args[0].toUpperCase() + ":");
+								chestList.add(location.getX() + ":" + location.getY() + ":" + location.getZ() + ":"
+										+ args[0].toUpperCase() + ":");
 
-								player.sendMessage(ChatColor.GREEN + "You have set this chest to tier " + args[0].toUpperCase());
+								player.sendMessage(
+										ChatColor.GREEN + "You have set this chest to tier " + args[0].toUpperCase());
 								player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 1, 1);
 								config.set("chests", chestList);
 								plugin.saveConfig();
-							}
-							else
+							} else
 							{
-								player.sendMessage(ChatColor.RED + "Make sure you type either LOW, MEDIUM, HIGH, or SKYHIGH");
+								player.sendMessage(
+										ChatColor.RED + "Make sure you type either LOW, MEDIUM, HIGH, or SKYHIGH");
 								return true;
 							}
 						}

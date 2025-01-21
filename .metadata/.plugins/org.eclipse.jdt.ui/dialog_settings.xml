@@ -9,6 +9,7 @@
 	<item key="TypeHierarchyViewPart.qualifiednames" value="false"/>
 	<item key="TypeHierarchyViewPart.linkeditors" value="false"/>
 	<item key="TypeHierarchyViewPart.orientation" value="3"/>
+	<item key="filters_last_used" value="filter_imports;"/>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item key="group_libraries" value="true"/>
 		<item key="layout" value="2"/>
@@ -45,6 +46,7 @@
 		<item key="JarManifestWizardPage.MANIFEST_LOCATION" value=""/>
 		<item key="JarManifestWizardPage.SEAL_JAR" value="false"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\jared\Desktop\SERVER\plugins\MiniGame.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Warz.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Stats.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\JaredEssentials.jar"/>
@@ -58,7 +60,6 @@
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\GunGame.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\LandMines.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\TDM.jar"/>
-			<item value="C:\Users\jared\Desktop\SERVER\plugins\MiniGame.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Parachute.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\GrapplingHook.jar"/>
 			<item value="C:\Users\jared\Desktop\SERVER\plugins\Food.jar"/>
@@ -178,5 +179,22 @@
 		<item key="DIALOG_WIDTH" value="508"/>
 		<item key="DIALOG_HEIGHT" value="653"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-21|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+	<section name="JavaSearchPage">
+		<item key="CASE_SENSITIVE" value="false"/>
+		<item key="INCLUDE_MASK" value="11"/>
+		<item key="HISTORY_SIZE" value="1"/>
+		<section name="HISTORY0">
+			<item key="searchFor" value="0"/>
+			<item key="scope" value="0"/>
+			<item key="pattern" value="itemStackToStringWithLore"/>
+			<item key="limitTo" value="2"/>
+			<item key="matchLocations" value="0"/>
+			<item key="javaElement" value=""/>
+			<item key="isCaseSensitive" value="false"/>
+			<item key="includeMask" value="11"/>
+			<list key="workingSets">
+			</list>
+		</section>
 	</section>
 </section>
