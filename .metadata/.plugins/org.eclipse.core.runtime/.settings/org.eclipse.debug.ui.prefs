@@ -6,4 +6,4 @@ org.eclipse.debug.ui.errorColor=0,128,0
 org.eclipse.debug.ui.inColor=0,0,0
 org.eclipse.debug.ui.outColor=0,0,0
 overriddenByCSS=,org.eclipse.debug.ui.consoleBackground,org.eclipse.debug.ui.errorColor,org.eclipse.debug.ui.inColor,org.eclipse.debug.ui.outColor,
-preferredTargets=default\:default|
+preferredTargets=default\:default|default,org.eclipse.lsp4e.debug.toggleBreakpointTarget\:default|org.eclipse.lsp4e.debug.toggleBreakpointTarget\:org.eclipse.lsp4e.debug.toggleBreakpointTarget|

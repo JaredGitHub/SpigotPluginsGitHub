@@ -58,6 +58,6 @@
     <fullyQualifiedTypeName name="me.Jared.Loot.LootManager"/>
     <fullyQualifiedTypeName name="java.lang.System"/>
     <fullyQualifiedTypeName name="me.Jared.MiniGame"/>
-    <fullyQualifiedTypeName name="me.Jared.Loot.ConfigItem"/>
     <fullyQualifiedTypeName name="me.Jared.Loot.Tier"/>
+    <fullyQualifiedTypeName name="me.Jared.Loot.ConfigItem"/>
 </qualifiedTypeNameHistroy>

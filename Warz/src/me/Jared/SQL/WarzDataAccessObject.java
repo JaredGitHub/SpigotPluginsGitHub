@@ -15,16 +15,18 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.Plugin;
 
+import io.github.cdimascio.dotenv.Dotenv;
 import me.Jared.Warz;
 import me.Jared.Loot.InventorySaver;
 
 public class WarzDataAccessObject
 {
-	static final String DATABASE_URL = "jdbc:mysql://mysql.apexhosting.gdn:3306/apexMC2060480";
+	static Dotenv dotenv = Dotenv.load();
+	static final String DATABASE_URL = dotenv.get("DATABASE_URL");
 
-	static final String USERNAME = "apexMC2060480";
+	static final String USERNAME = dotenv.get("USERNAME");
 
-	static final String PASSWORD = "vBn7s!yFHN5m8yk$hEY@4UVe";
+	static final String PASSWORD = dotenv.get("DB_PASSWORD");
 
 	Plugin plugin = (Plugin) Warz.getInstance();
 
