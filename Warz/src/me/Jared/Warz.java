@@ -24,7 +24,7 @@ public class Warz extends JavaPlugin
 
 	@Override
 	public void onEnable()
-	{
+	{		
 		saveResource("config.yml", false);
 
 		instance = this;

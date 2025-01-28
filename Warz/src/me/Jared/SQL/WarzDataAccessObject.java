@@ -15,18 +15,17 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.Plugin;
 
-import io.github.cdimascio.dotenv.Dotenv;
 import me.Jared.Warz;
 import me.Jared.Loot.InventorySaver;
 
 public class WarzDataAccessObject
 {
-	static Dotenv dotenv = Dotenv.load();
-	static final String DATABASE_URL = dotenv.get("DATABASE_URL");
+	
+	static final String DATABASE_URL = Warz.getInstance().getConfig().getString("DATABASE_URL");
 
-	static final String USERNAME = dotenv.get("USERNAME");
+	static final String USERNAME = Warz.getInstance().getConfig().getString("USERNAME");
 
-	static final String PASSWORD = dotenv.get("DB_PASSWORD");
+	static final String PASSWORD = Warz.getInstance().getConfig().getString("DB_PASSWORD");
 
 	Plugin plugin = (Plugin) Warz.getInstance();
 
