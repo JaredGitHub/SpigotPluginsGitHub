@@ -59,7 +59,7 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 		{
 			if(configItem.stringToItemStack(item).getType() == player.getInventory().getItemInMainHand().getType())
 			{
-				player.sendMessage(ChatColor.RED + "You already have an item of that type!");
+				player.sendMessage(ChatColor.RED + "You already have an item of that type!!!!!!!!!!!!!!!!");
 				return true;
 			}
 		}

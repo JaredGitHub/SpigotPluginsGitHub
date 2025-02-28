@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\Users\jared\Desktop\SERVER\plugins"/>
+	<item key="org.eclipse.jdt.ui.lastextjar" value="C:\Users\jared\Desktop\BuildTools\Spigot\Spigot-API\target"/>
 	<item key="org.eclipse.jdt.ui.codeformatter.loadpath" value="C:\Users\jared\Desktop"/>
 	<item key="org.eclipse.jdt.ui.last.selected.jre.kind2" value="2"/>
 	<item key="org.eclipse.jdt.ui.last.selected.execution.enviroment" value="JavaSE-17"/>
@@ -10,6 +10,7 @@
 	<item key="TypeHierarchyViewPart.linkeditors" value="false"/>
 	<item key="TypeHierarchyViewPart.orientation" value="3"/>
 	<item key="filters_last_used" value="filter_imports;"/>
+	<item key="ProjectSelectionDialog.show_all" value="false"/>
 	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
 		<item key="group_libraries" value="true"/>
 		<item key="layout" value="2"/>
@@ -196,5 +197,21 @@
 			<list key="workingSets">
 			</list>
 		</section>
+	</section>
+	<section name="ProblemSeveritiesConfigurationBlock">
+		<item key="expanded0" value="true"/>
+		<item key="expanded1" value="false"/>
+		<item key="expanded2" value="false"/>
+		<item key="expanded3" value="false"/>
+		<item key="expanded4" value="false"/>
+		<item key="expanded5" value="false"/>
+		<item key="expanded6" value="false"/>
+		<item key="expanded7" value="false"/>
+		<item key="expanded8" value="false"/>
+	</section>
+	<section name="JavaBuildConfigurationBlock">
+		<item key="expanded0" value="true"/>
+		<item key="expanded1" value="false"/>
+		<item key="expanded2" value="false"/>
 	</section>
 </section>

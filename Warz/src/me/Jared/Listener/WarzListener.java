@@ -64,7 +64,8 @@ public class WarzListener implements Listener
 
 		if(player.getWorld().getName().equals("warz"))
 		{
-			if(e.getAction() == Action.RIGHT_CLICK_BLOCK && e.getClickedBlock().getType() == Material.CHEST)
+			if(e.getAction() == Action.RIGHT_CLICK_BLOCK && e.getClickedBlock().getType() == Material.CHEST
+			&& Warz.getInstance().getChestLocations().contains(e.getClickedBlock().getLocation()))
 			{
 				LootManager lootManager = new LootManager();
 				String region = lootManager.getRegion(player.getLocation());

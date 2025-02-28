@@ -24,15 +24,13 @@ public class Warz extends JavaPlugin
 
 	@Override
 	public void onEnable()
-	{		
-		saveResource("config.yml", false);
-
+	{
 		instance = this;
 		chestLocations = new ArrayList<>();
 		openChestLocations = new ArrayList<>();
 		inventories = new ArrayList<>();
 
-		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Warz plugin is here!");
+		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Warz plugin is here!!!!");
 		Bukkit.getPluginCommand("setzone").setExecutor(new WarzCommands());
 		Bukkit.getPluginCommand("setloot").setExecutor(new WarzCommands());
 		Bukkit.getPluginCommand("addspawnpoint").setExecutor(new WarzCommands());

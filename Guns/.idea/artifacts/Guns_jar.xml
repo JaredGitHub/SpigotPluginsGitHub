@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Guns:jar">
+    <output-path>$PROJECT_DIR$/../../../SERVER/plugins</output-path>
+    <root id="archive" name="Guns.jar">
+      <element id="module-output" name="Guns" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../SERVER/plugins/FastAsyncWorldEdit-Bukkit-2.12.4-SNAPSHOT-1040.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../SERVER/plugins/worldguard-bukkit-7.0.12-dist.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

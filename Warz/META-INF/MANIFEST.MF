@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Main-Class: 
+Class-Path: spigot-api.jar spigot-api.jar spigot-api.jar BoostPad.jar Fa
+ stAsyncWorldEdit-Paper-2.12.3-SNAPSHOT-988.jar spigot-api.jar spigot-ap
+ i.jar spigot-api.jar spigot-api.jar PlaceholderAPI-2.11.6.jar FastAsync
+ WorldEdit-Paper-2.12.3-SNAPSHOT-988.jar worldguard-bukkit-7.0.11-beta1-
+ dist.jar PlaceholderAPI-2.11.6.jar FastAsyncWorldEdit-Paper-2.12.3-SNAP
+ SHOT-988.jar spigot-api.jar worldguard-bukkit-7.0.11-beta1-dist.jar spi
+ got-api.jar spigot-api.jar PlaceholderAPI-2.11.6.jar spigot-api.jar spi
+ got-api.jar Kits.jar FastAsyncWorldEdit-Paper-2.12.3-SNAPSHOT-988.jar S
+ tats.jar spigot-api.jar FastAsyncWorldEdit-Paper-2.12.3-SNAPSHOT-988.ja
+ r spigot-api.jar spigot-api.jar PlaceholderAPI-2.11.6.jar Kits.jar worl
+ dguard-bukkit-7.0.11-beta1-dist.jar spigot-api.jar spigot-api.jar Warz.
+ jar spigot-api.jar PlaceholderAPI-2.11.6.jar spigot-api.jar spigot-api.
+ jar worldguard-bukkit-7.0.11-beta1-dist.jar Stats.jar BoostPad.jar spig
+ ot-api.jar spigot-api.jar spigot-api.jar Booster.jar PlaceholderAPI-2.1
+ 1.6.jar Kits.jar worldguard-bukkit-7.0.11-beta1-dist.jar spigot-api.jar
+  spigot-api.jar
+

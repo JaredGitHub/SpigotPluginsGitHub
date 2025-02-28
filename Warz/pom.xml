@@ -14,12 +14,22 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
         <configuration>
-          <release>17</release>
+          <release>21</release>
         </configuration>
       </plugin>	
     </plugins>
   </build>
-  
+    <repositories>
+        <repository>
+            <id>spigotmc-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/repositories/snapshots/</url>
+        </repository>
+        <repository>
+            <id>sonatype</id>
+            <url>https://oss.sonatype.org/content/groups/public/</url>
+        </repository>
+
+    </repositories>
   	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -34,16 +44,13 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.33</version>
 		</dependency>
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.21.4-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
 
-		<dependency>
-    		<groupId>io.github.cdimascio</groupId>
-    		<artifactId>java-dotenv</artifactId>
-    		<version>5.2.2</version> <!-- Use the latest version -->
-		</dependency>
 
-
-	</dependencies>
-	
-
-  
+    </dependencies>
 </project>

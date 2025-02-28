@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Boosters:jar">
+    <output-path>$PROJECT_DIR$/../../../SERVER/plugins</output-path>
+    <root id="archive" name="Boosters.jar">
+      <element id="dir-copy" path="$PROJECT_DIR$/target/classes" />
+      <element id="file-copy" path="$PROJECT_DIR$/src/plugin.yml" />
+    </root>
+  </artifact>
+</component>

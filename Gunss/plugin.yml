@@ -1,0 +1,8 @@
+name: Guns
+main: me.Jared.GunsPlugin
+version: 1.0
+api-version: 1.21
+commands:
+ triggerswap:
+  description: Switch which mouse button shoots and aims your gun
+depend: [WorldEdit, WorldGuard]

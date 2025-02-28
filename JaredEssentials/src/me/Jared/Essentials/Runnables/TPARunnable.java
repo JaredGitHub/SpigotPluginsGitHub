@@ -1,12 +1,13 @@
 package me.Jared.Essentials.Runnables;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+
 
 public class TPARunnable extends BukkitRunnable
 {

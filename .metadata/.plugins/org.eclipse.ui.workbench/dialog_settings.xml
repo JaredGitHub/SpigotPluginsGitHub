@@ -21,13 +21,13 @@
 		<item key="DIALOG_X_ORIGIN" value="183"/>
 		<item key="DIALOG_Y_ORIGIN" value="26"/>
 		<item key="DIALOG_WIDTH" value="927"/>
-		<item key="DIALOG_HEIGHT" value="539"/>
+		<item key="DIALOG_HEIGHT" value="658"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-21|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
 	<section name="WorkbenchPreferenceDialog.dialogBounds">
 		<item key="DIALOG_X_ORIGIN" value="372"/>
 		<item key="DIALOG_Y_ORIGIN" value="49"/>
-		<item key="DIALOG_WIDTH" value="692"/>
+		<item key="DIALOG_WIDTH" value="703"/>
 		<item key="DIALOG_HEIGHT" value="692"/>
 		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-21|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 	</section>
@@ -48,5 +48,14 @@
 		<list key="textArray">
 			<item value="marketplace"/>
 		</list>
+	</section>
+	<section name="FileSystemImportWizard">
+		<section name="FileSystemImportWizard.dialogBounds">
+			<item key="DIALOG_X_ORIGIN" value="384"/>
+			<item key="DIALOG_Y_ORIGIN" value="62"/>
+			<item key="DIALOG_WIDTH" value="619"/>
+			<item key="DIALOG_HEIGHT" value="576"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-21|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
 	</section>
 </section>

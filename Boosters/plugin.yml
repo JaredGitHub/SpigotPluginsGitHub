@@ -1,9 +1,0 @@
-name: Boosters
-main: me.Jared.Boosters
-version: 1.0
-api-version: 1.21
-depend: [Stats]
-commands:
- boost:
-  description: Boosts
-  usage: /boost <doublegems> <on/off> <minutes>

@@ -1,13 +1,9 @@
 package me.Jared.Essentials;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import me.Jared.Essentials.Runnables.TPARunnable;
+import net.md_5.bungee.api.chat.ClickEvent;
+import net.md_5.bungee.api.chat.TextComponent;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.command.Command;
@@ -19,10 +15,10 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 
-import me.Jared.Essentials.Runnables.TPARunnable;
-import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.ClickEvent.Action;
-import net.md_5.bungee.api.chat.TextComponent;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+
 
 public class Main extends JavaPlugin implements Listener
 {
@@ -50,7 +46,7 @@ public class Main extends JavaPlugin implements Listener
 		playersInCooldown = new ArrayList<>();
 		instance = this;
 
-		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "My plugin has been enabled!");
+		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "My plugin has been enabled!!");
 
 		this.getServer().getPluginManager().registerEvents(new Listener1(this), this);
 		this.getServer().getPluginManager().registerEvents(this, this);
@@ -318,7 +314,7 @@ public class Main extends JavaPlugin implements Listener
 
 				TextComponent text = new TextComponent(
 						ChatColor.GRAY + "" + ChatColor.UNDERLINE + "Click me for textures!");
-				text.setClickEvent(new ClickEvent(Action.OPEN_URL,
+				text.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL,
 						"https://www.dropbox.com/scl/fi/pioj8vx7o2vdih3ruuu4j/Jared-Server-Pack.zip?rlkey=h8o9s489a89r7ljn3nl6rpvry&dl=1"));
 				p.spigot().sendMessage(text);
 				p.playSound(p, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 1);
@@ -332,7 +328,7 @@ public class Main extends JavaPlugin implements Listener
 				Player p = (Player) sender;
 				TextComponent text = new TextComponent(
 						ChatColor.DARK_PURPLE + "" + ChatColor.UNDERLINE + "Click me for the discord!");
-				text.setClickEvent(new ClickEvent(Action.OPEN_URL, "https://discord.gg/PjKDsGf69U"));
+				text.setClickEvent(new ClickEvent(ClickEvent.Action.OPEN_URL, "https://discord.gg/PjKDsGf69U"));
 				p.spigot().sendMessage(text);
 				p.playSound(p, Sound.ENTITY_EXPERIENCE_ORB_PICKUP, 1, 1);
 			}
@@ -352,6 +348,7 @@ public class Main extends JavaPlugin implements Listener
 				}
 				if(p.getWorld().getName().equals("warz"))
 				{
+					p.sendTitle(ChatColor.YELLOW + "Teleporting to spawn...", "", 5, 5, 5);
 					me.Jared.Loot.ConfigManager.savePlayerWarzData(p, "warz");
 					me.Jared.Loot.ConfigManager.loadInventory(p, "world");
 				}

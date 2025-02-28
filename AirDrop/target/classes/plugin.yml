@@ -1,0 +1,9 @@
+name: AirDrop
+version: 0.1
+main: me.Jared.Main
+api-version: 1.21
+commands:
+  airdrop:
+    description: Type /airdrop to add a location for the aidrops
+    usage: /<command> <arg>
+

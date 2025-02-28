@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="JaredEssentials:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="68ae26b9-4143-46c3-a4c3-cba888d36c7a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../AirDrop/AirDrop.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AirDrop/src/main/java/me/Jared/AirDropManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AirDrop/src/main/java/me/Jared/AirDropRunnable.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AirDrop/src/main/java/me/Jared/ConfigItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../AirDrop/src/main/java/me/Jared/LootManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../BarbWire/BarbWire.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Boost Pad/Boost Pad.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Boosters/Boosters.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Compass/Compass.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Duels/Duels.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Event/Event.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Food/Food.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GameGUI/GameGUI.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grappling Hook2/Grappling Hook2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Grenades/Grenades.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Gun Game/Gun Game.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Guns/Guns.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/JaredEssentials_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kits/Kits.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LandMines/LandMines.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MiniGame/MiniGame.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Parachute/Parachute.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PersonalVault/PersonalVault.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PlaceableWalls/PlaceableWalls.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Stats/Stats.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TeamDeathmatch/TeamDeathmatch.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Teams/Teams.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Warp/Warp.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Warz/.idea/Warz.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Warz/Warz.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.log" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/com.genuitec.eclipse.devstyle/recent.json" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/com.genuitec.eclipse.devstyle/recent.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.location" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.projects/.org.eclipse.egit.core.cmp/.location" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.projects/JaredEssentials/.indexes/properties.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.projects/JaredEssentials/.indexes/properties.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.projects/JaredEssentials/org.eclipse.egit.core/GitProjectData.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.projects/JaredEssentials/org.eclipse.egit.core/GitProjectData.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.projects/StringBuilderTesting/.indexes/properties.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.projects/StringBuilderTesting/org.eclipse.egit.core/GitProjectData.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.root/.indexes/properties.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/com.genuitec.eclipse.theming.ui.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/com.genuitec.eclipse.theming.ui.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.ui.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.debug.ui.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.launching.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.launching.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.jdt.ui.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.editors.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.editors.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.workbench.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1174387554.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1174387554.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1228519169.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1228519169.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1321108734.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1496013133.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1496013133.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1538233198.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1538233198.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1565161799.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1565161799.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1572699442.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1633816147.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1633816147.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1702646607.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1702646607.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1730922222.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1730922222.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1854901250.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1854901250.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1865797976.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1865797976.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1967442670.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/1967442670.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/2275842666.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/2275842666.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/2312618125.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/2312618125.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/2381151944.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/2455741425.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/2455741425.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/2586498716.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/2586498716.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/2684610045.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/2684610045.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/2995611184.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/2995611184.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/3188036148.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/3188036148.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/3214994531.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/3214994531.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/3295547553.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/3295547553.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/3413725848.index" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/3465411827.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/3465411827.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/3663217278.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/3663217278.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/4125937989.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/4125937989.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/4140022673.index" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/4140022673.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/externalFilesCache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/externalLibsTimeStamps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/nonChainingJarsCache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.launching/.install.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.launching/.install.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.launching/libraryInfos.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.launching/libraryInfos.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.m2e.core/workspaceState.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.m2e.core/workspaceState.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.ui.ide/dialog_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.wst.sse.core/task-tags.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/.plugins/org.eclipse.wst.sse.core/task-tags.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.metadata/version.ini" beforeDir="false" afterPath="$PROJECT_DIR$/../.metadata/version.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Auto Respawn/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../Auto Respawn/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Auto Respawn/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Auto Respawn/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Auto Respawn/bin/me/Jared/AutoRespawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Auto Respawn/bin/me/Jared/AutoRespawn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Auto Respawn/bin/me/Jared/RespawnListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Auto Respawn/bin/me/Jared/RespawnListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Boosters/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Boosters/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Boosters/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Boosters/src/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Boosters/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Boosters/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Boosters/src/me/Jared/Boosters.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Boosters/src/me/Jared/Boosters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../Event/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Event/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameGUI/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../GameGUI/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../GameGUI/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../GameGUI/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Grenades/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../Grenades/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Grenades/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Grenades/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gun Game/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../Gun Game/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gun Game/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Gun Game/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/Command/GunGameCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/Command/GunGameCommand.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/GameState.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/GameState.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/GunGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/GunGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/Listeners/GameListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/Listeners/GameListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/Manager/ConfigManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/Manager/ConfigManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/Manager/GameManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/Manager/GameManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/Manager/GunGameExpansion.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/Manager/GunGameExpansion.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/Manager/PlayerManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/Manager/PlayerManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/runnable/Countdown.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Gun Game/bin/me/Jared/runnable/Countdown.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Events/AllGunsReloadEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Events/GunsBulletCollideEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Events/GunsDamageEntityEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Events/GunsEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Events/GunsFireGunEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Events/GunsKillEntityEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Events/PlayerChangeGunValuesEvent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Guns/Bullet$Direction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Guns/Bullet.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Guns/Gun.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Guns/GunPlayer$ClickType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Guns/GunPlayer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Guns/TriggerSwap.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Guns/WeaponReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Guns/constant/GunValue.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/GunsPlugin.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Interfaces/IUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Listeners/EntityListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Listeners/PlayerListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Manager/ConfigManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Utils/Explosion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Utils/GunsCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Utils/InventoryUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Utils/LocationUtil$Vector3D.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Utils/LocationUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Utils/RemoveBullets.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Utils/UtilServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/bin/me/Jared/Utils/UtilString.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/plugin.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Events/AllGunsReloadEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Events/GunsBulletCollideEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Events/GunsDamageEntityEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Events/GunsEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Events/GunsFireGunEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Events/GunsKillEntityEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Events/PlayerChangeGunValuesEvent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Guns/Bullet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Guns/Gun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Guns/GunPlayer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Guns/TriggerSwap.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Guns/WeaponReader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Guns/constant/GunValue.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/GunsPlugin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Interfaces/IUser.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Listeners/EntityListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Listeners/PlayerListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Manager/ConfigManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Utils/Explosion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Utils/GunsCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Utils/InventoryUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Utils/LocationUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Utils/RemoveBullets.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Utils/UtilServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Guns/src/me/Jared/Utils/UtilString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.m2e.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/plugin.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/Jared/Essentials/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/Jared/Essentials/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/me/Jared/Essentials/Runnables/TPARunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me/Jared/Essentials/Runnables/TPARunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/Commands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/ConfigItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/ConfigItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/EventListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/EventListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Managers/KitManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Kits/bin/me/Jared/Managers/KitManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/MenuSystem/KitsMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Kits/bin/me/Jared/MenuSystem/KitsMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/MenuSystem/PlayerMenuUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Kits/bin/me/Jared/MenuSystem/PlayerMenuUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Menus/ItemSelectionMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Kits/bin/me/Jared/Menus/ItemSelectionMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Menus/ItemSelectionMenu2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Kits/bin/me/Jared/Menus/ItemSelectionMenu2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Menus/SelectKitMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Kits/bin/me/Jared/Menus/SelectKitMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Util/Cooldown.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Kits/bin/me/Jared/Util/Cooldown.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Util/CustomConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Kits/bin/me/Jared/Util/CustomConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MiniGame/src/me/Jared/Listeners/GameListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MiniGame/src/me/Jared/Listeners/GameListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersonalVault/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../PersonalVault/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PersonalVault/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../PersonalVault/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PlaceableWalls/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../PlaceableWalls/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PlaceableWalls/.settings/org.eclipse.core.resources.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../PlaceableWalls/.settings/org.eclipse.core.resources.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PlaceableWalls/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../PlaceableWalls/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Stats/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Stats/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Stats/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StringBuilderTesting/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StringBuilderTesting/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StringBuilderTesting/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StringBuilderTesting/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StringBuilderTesting/bin/me/Jared/ItemStackToString.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../StringBuilderTesting/src/me/Jared/ItemStackToString.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warp/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../Warp/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warp/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Warp/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/src/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/src/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/src/me/Jared/Commands/CustomMapRenderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/src/me/Jared/Commands/CustomMapRenderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/src/me/Jared/Commands/WarzCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/src/me/Jared/Commands/WarzCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/src/me/Jared/Listener/WarzListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/src/me/Jared/Listener/WarzListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/src/me/Jared/Loot/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/src/me/Jared/Loot/ConfigManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/src/me/Jared/SQL/WarzDataAccessObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/src/me/Jared/SQL/WarzDataAccessObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/src/me/Jared/Warz.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/src/me/Jared/Warz.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JaredGitHub&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JaredGitHub/SpigotPluginsGitHub.git&quot;,
+    &quot;accountId&quot;: &quot;6f56b739-2479-4563-8864-ba71a6a2e002&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="2suvQoZqz7FMXlgIXoWVjeQiXw5" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jared/Desktop/SERVER/plugins/Warz.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="68ae26b9-4143-46c3-a4c3-cba888d36c7a" name="Changes" comment="" />
+      <created>1739318261953</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1739318261953</updated>
+      <workItem from="1739318263280" duration="1072000" />
+      <workItem from="1739319351068" duration="516000" />
+      <workItem from="1739319894078" duration="373000" />
+      <workItem from="1739320279336" duration="566000" />
+      <workItem from="1739320858162" duration="832000" />
+      <workItem from="1739381455612" duration="37000" />
+      <workItem from="1740373847693" duration="283000" />
+      <workItem from="1740776474437" duration="87000" />
+      <workItem from="1740776731592" duration="86000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Auto Respawn/Auto Respawn.iml" filepath="$PROJECT_DIR$/Auto Respawn/Auto Respawn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BarbWire/BarbWire.iml" filepath="$PROJECT_DIR$/BarbWire/BarbWire.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Boost Pad/Boost Pad.iml" filepath="$PROJECT_DIR$/Boost Pad/Boost Pad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Boosters/Boosters.iml" filepath="$PROJECT_DIR$/Boosters/Boosters.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Compass/Compass.iml" filepath="$PROJECT_DIR$/Compass/Compass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Duels/Duels.iml" filepath="$PROJECT_DIR$/Duels/Duels.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Event/Event.iml" filepath="$PROJECT_DIR$/Event/Event.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Food/Food.iml" filepath="$PROJECT_DIR$/Food/Food.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GameGUI/GameGUI.iml" filepath="$PROJECT_DIR$/GameGUI/GameGUI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Grappling Hook2/Grappling Hook2.iml" filepath="$PROJECT_DIR$/Grappling Hook2/Grappling Hook2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Grenades/Grenades.iml" filepath="$PROJECT_DIR$/Grenades/Grenades.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Gun Game/Gun Game.iml" filepath="$PROJECT_DIR$/Gun Game/Gun Game.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Guns/Guns.iml" filepath="$PROJECT_DIR$/Guns/Guns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JaredEssentials/JaredEssentials.iml" filepath="$PROJECT_DIR$/JaredEssentials/JaredEssentials.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Kits/Kits.iml" filepath="$PROJECT_DIR$/Kits/Kits.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LandMines/LandMines.iml" filepath="$PROJECT_DIR$/LandMines/LandMines.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MiniGame/MiniGame.iml" filepath="$PROJECT_DIR$/MiniGame/MiniGame.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Parachute/Parachute.iml" filepath="$PROJECT_DIR$/Parachute/Parachute.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PersonalVault/PersonalVault.iml" filepath="$PROJECT_DIR$/PersonalVault/PersonalVault.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PlaceableWalls/PlaceableWalls.iml" filepath="$PROJECT_DIR$/PlaceableWalls/PlaceableWalls.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Stats/Stats.iml" filepath="$PROJECT_DIR$/Stats/Stats.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TeamDeathmatch/TeamDeathmatch.iml" filepath="$PROJECT_DIR$/TeamDeathmatch/TeamDeathmatch.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Teams/Teams.iml" filepath="$PROJECT_DIR$/Teams/Teams.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Warp/Warp.iml" filepath="$PROJECT_DIR$/Warp/Warp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Warz/Warz.iml" filepath="$PROJECT_DIR$/Warz/Warz.iml" />
+    </modules>
+  </component>
+</project>

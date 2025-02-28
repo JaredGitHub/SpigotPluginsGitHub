@@ -25,10 +25,12 @@ public class GameListener implements Listener
 {
 
 	GameManager gameManager;
+
 	public GameListener(GameManager gameManager)
 	{
 		this.gameManager = gameManager;
 	}
+
 	@EventHandler
 	public void onQuit(PlayerQuitEvent e)
 	{
@@ -76,22 +78,27 @@ public class GameListener implements Listener
 	public void onMove(PlayerMoveEvent e)
 	{
 		Player player = e.getPlayer();
-		if(gameManager.getPlayerManager().getPlayers().contains(player) && gameManager.getGameState() == GameState.COUNTDOWN)
+		if(gameManager.getPlayerManager().getPlayers().contains(player)
+				&& gameManager.getGameState() == GameState.COUNTDOWN)
 		{
 			Location newToLocation = e.getFrom().setDirection(e.getTo().getDirection());
 			e.setTo(newToLocation);
 		}
 
-		if(!(gameManager.getPlayerManager().getPlayers().contains(player)) && gameManager.getGameState() == GameState.LIVE)
+		if(!(gameManager.getPlayerManager().getPlayers().contains(player))
+				&& gameManager.getGameState() == GameState.LIVE)
 		{
 			if(!player.hasPermission("hg") && player.getGameMode() == GameMode.SPECTATOR)
 			{
 				Location pLoc = player.getLocation();
 				Location spawnLoc = ConfigManager.getLobbySpawn();
 
-				if(spawnLoc.distance(pLoc) >= 100)
+				if(spawnLoc.getWorld() == pLoc.getWorld())
 				{
-					player.teleport(spawnLoc);
+					if(spawnLoc.distance(pLoc) >= 100)
+					{
+						player.teleport(spawnLoc);
+					}
 				}
 			}
 		}
@@ -106,7 +113,8 @@ public class GameListener implements Listener
 		{
 			if(gameManager.getPlayerManager().getPlayers().contains(player))
 			{
-				if((e.getMessage().equalsIgnoreCase("/sg leave")) || (e.getMessage().equalsIgnoreCase("/survivalgames leave")))
+				if((e.getMessage().equalsIgnoreCase("/sg leave"))
+						|| (e.getMessage().equalsIgnoreCase("/survivalgames leave")))
 				{
 					return;
 				}
@@ -122,14 +130,13 @@ public class GameListener implements Listener
 	{
 		if(e.getClickedBlock() != null)
 		{
-			if(e.getClickedBlock().getType() == Material.CHEST 
-					&& gameManager.getGameState() == GameState.LIVE)
+			if(e.getClickedBlock().getType() == Material.CHEST && gameManager.getGameState() == GameState.LIVE)
 			{
-				//Set chest to open
+				// Set chest to open
 				Location location = e.getClickedBlock().getLocation();
 				gameManager.getChestOpen().put(location, true);
 
-				//Put items in chest
+				// Put items in chest
 				if(MiniGame.getChestLocations().contains(location))
 				{
 					Block chestBlock = location.getBlock();
@@ -140,4 +147,3 @@ public class GameListener implements Listener
 		}
 	}
 }
-

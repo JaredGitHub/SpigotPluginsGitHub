@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.function.Consumer;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -65,37 +66,36 @@ public class WarzDataAccessObject
 		}
 	}
 
-	public static PlayerData getPlayerByUUID(String uuid)
-	{
-		ArrayList<PlayerData> returnThese = new ArrayList<>();
-		try
-		{
-			Connection conn = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
-			String sqlString = "SELECT uuid, health, x,y,z,yaw,pitch,inventory FROM Warz WHERE uuid = ?";
-			PreparedStatement preparedStatement = conn.prepareStatement(sqlString);
-			preparedStatement.setString(1, uuid);
-			ResultSet resultSet = preparedStatement.executeQuery();
-			while(resultSet.next())
-			{
-				PlayerData p = new PlayerData();
-				p.setUuid(resultSet.getString("uuid"));
-				p.setHealth(resultSet.getDouble("health"));
-				p.setX(resultSet.getInt("x"));
-				p.setY(resultSet.getInt("y"));
-				p.setZ(resultSet.getInt("z"));
-				p.setYaw(resultSet.getFloat("yaw"));
-				p.setPitch(resultSet.getFloat("pitch"));
-				p.setInventory(resultSet.getString("inventory"));
-				returnThese.add(p);
+	public static void getPlayerByUUID(String uuid, Consumer<PlayerData> callback) {
+		Bukkit.getScheduler().runTaskAsynchronously(Warz.getInstance(), () -> {
+			PlayerData playerData = null;
+			try (Connection conn = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
+					PreparedStatement preparedStatement = conn.prepareStatement(
+							"SELECT uuid, health, x, y, z, yaw, pitch, inventory FROM Warz WHERE uuid = ?")) {
+
+				preparedStatement.setString(1, uuid);
+				ResultSet resultSet = preparedStatement.executeQuery();
+
+				if (resultSet.next()) {
+					playerData = new PlayerData();
+					playerData.setUuid(resultSet.getString("uuid"));
+					playerData.setHealth(resultSet.getDouble("health"));
+					playerData.setX(resultSet.getInt("x"));
+					playerData.setY(resultSet.getInt("y"));
+					playerData.setZ(resultSet.getInt("z"));
+					playerData.setYaw(resultSet.getFloat("yaw"));
+					playerData.setPitch(resultSet.getFloat("pitch"));
+					playerData.setInventory(resultSet.getString("inventory"));
+				}
+			} catch (SQLException e) {
+				Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Error fetching player data: " + e.getMessage());
 			}
-		} catch(SQLException e)
-		{
-			Bukkit.getConsoleSender().sendMessage(String.valueOf(ChatColor.RED) + String.valueOf(ChatColor.RED));
-		}
-		if(returnThese.size() > 0)
-			return returnThese.get(0);
-		return null;
+
+			PlayerData finalPlayerData = playerData;
+			Bukkit.getScheduler().runTask(Warz.getInstance(), () -> callback.accept(finalPlayerData));
+		});
 	}
+
 
 	public static String getPlayerWorldInventoryBase64(String uuid)
 	{

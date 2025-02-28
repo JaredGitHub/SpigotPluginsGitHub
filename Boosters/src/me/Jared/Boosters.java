@@ -1,10 +1,10 @@
 package me.Jared;
 
+
+import me.Jared.Command.BoosterCommand;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import me.Jared.Command.BoosterCommand;
 
 public class Boosters extends JavaPlugin
 {

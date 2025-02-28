@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Warz:jar">
+    <output-path>$PROJECT_DIR$/../../../SERVER/plugins</output-path>
+    <root id="archive" name="Warz.jar">
+      <element id="file-copy" path="$PROJECT_DIR$/src/plugin.yml" />
+      <element id="dir-copy" path="$PROJECT_DIR$/target/classes" />
+    </root>
+  </artifact>
+</component>

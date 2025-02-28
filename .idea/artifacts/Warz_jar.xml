@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact name="Warz:jar">
+    <output-path>$PROJECT_DIR$/../../SERVER/plugins</output-path>
+    <root id="root">
+      <element id="archive" name="Warz.jar">
+        <element id="module-output" name="Warz" />
+      </element>
+    </root>
+  </artifact>
+</component>
