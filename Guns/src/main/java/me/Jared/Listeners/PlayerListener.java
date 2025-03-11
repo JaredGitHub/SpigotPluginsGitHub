@@ -123,7 +123,7 @@ public class PlayerListener implements Listener
 
 		for(ProtectedRegion region : set)
 		{
-			if(region.getId().equalsIgnoreCase(regionName))
+			if(region.getId().contains("spawn"))
 			{
 				return true;
 			}
