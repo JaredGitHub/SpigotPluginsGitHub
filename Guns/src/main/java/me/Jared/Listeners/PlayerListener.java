@@ -3,13 +3,16 @@ package me.Jared.Listeners;
 import java.util.HashMap;
 
 import com.sk89q.worldedit.math.BlockVector3;
+import com.sk89q.worldedit.regions.Region;
 import com.sk89q.worldedit.world.World;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
+import com.sk89q.worldguard.protection.regions.RegionQuery;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Item;
@@ -106,37 +109,26 @@ public class PlayerListener implements Listener
 		lastTime.put(name, timeNow);
 	}
 
-	public boolean isInRegion(Player player, String regionName) {
-		try {
-			// Get the WorldGuard plugin instance through Bukkit
-			JavaPlugin worldGuardPlugin = (JavaPlugin) Bukkit.getPluginManager().getPlugin("WorldGuard");
-
-			// Check if WorldGuard is installed
-			if (worldGuardPlugin == null || !(worldGuardPlugin instanceof com.sk89q.worldguard.bukkit.WorldGuardPlugin)) {
-				return false;
-			}
-
-			// Don't cast directly - use WorldGuard's API properly
-			WorldGuardPlugin worldGuard = (WorldGuardPlugin) worldGuardPlugin;
-
-			// Get the WorldGuard region container
-			RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
-			RegionManager regions = container.get(BukkitAdapter.adapt(player.getWorld()));
-
-			if (regions == null) {
-				return false;
-			}
-
-			// Get the player's location as a WorldGuard vector
-			BlockVector3 position = BukkitAdapter.asBlockVector(player.getLocation());
-
-			// Check if the player is in the specified region
-			ApplicableRegionSet set = regions.getApplicableRegions(position);
-			return set.getRegions().stream().anyMatch(region -> region.getId().equalsIgnoreCase(regionName));
-		} catch (Exception e) {
-			e.printStackTrace();
+	public boolean isInRegion(Player player, String regionName)
+	{
+		if (WorldGuard.getInstance() == null) {
+			Bukkit.getLogger().severe("WorldGuard is not initialized yet!");
 			return false;
 		}
+		Location loc = player.getLocation();
+		RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
+		RegionQuery query = container.createQuery();
+
+		ApplicableRegionSet set = query.getApplicableRegions(BukkitAdapter.adapt(loc));
+
+		for(ProtectedRegion region : set)
+		{
+			if(region.getId().equalsIgnoreCase(regionName))
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 
 	@EventHandler(priority = EventPriority.MONITOR)

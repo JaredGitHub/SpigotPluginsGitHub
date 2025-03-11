@@ -102,7 +102,7 @@ public class ConfigManager
 	{
 		if(isInRegion(player, "spawn"))
 		{
-			player.teleport(new Location(Bukkit.getWorld("world"), 1965, 94, 1403));
+			player.teleport(new Location(Bukkit.getWorld("world"), 1961, 108, 1403));
 			player.sendTitle(ChatColor.GREEN + "Teleporting to warz", "", 5, 5, 5);
 			String uuid = player.getUniqueId().toString();
 			Bukkit.getScheduler().runTaskAsynchronously(Warz.getInstance(), () ->

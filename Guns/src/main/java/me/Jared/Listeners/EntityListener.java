@@ -254,7 +254,7 @@ public class EntityListener implements Listener
 		{
 			return;
 		}
-		entity.getWorld().playEffect(entity.getLocation(), Effect.STEP_SOUND, (Object) Material.REDSTONE_BLOCK);
+		entity.getWorld().playEffect(entity.getLocation(), Effect.STEP_SOUND, (Object) Material.REDSTONE);
 		bullet.getGun().doKnockback(entity, bullet.getVelocity());
 		lastBlood.put(entity.getEntityId(), System.currentTimeMillis());
 	}

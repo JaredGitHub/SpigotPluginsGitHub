@@ -96,7 +96,6 @@ public class WarzDataAccessObject
 		});
 	}
 
-
 	public static String getPlayerWorldInventoryBase64(String uuid)
 	{
 		ArrayList<String> returnThese = new ArrayList<>();
@@ -121,7 +120,7 @@ public class WarzDataAccessObject
 		}
 		return null;
 	}
-	
+
 	public static int savePlayerWorldData(Player player)
 	{
 		Inventory inventory = player.getInventory();
@@ -143,5 +142,4 @@ public class WarzDataAccessObject
 			return 0;
 		}
 	}
-	
 }

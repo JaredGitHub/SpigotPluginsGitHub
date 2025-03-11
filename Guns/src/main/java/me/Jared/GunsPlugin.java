@@ -5,6 +5,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.sk89q.worldguard.WorldGuard;
 import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -43,6 +44,14 @@ public class GunsPlugin extends JavaPlugin
 
 	public void onEnable()
 	{
+
+		Bukkit.getScheduler().runTaskLater(this, () -> {
+			if (WorldGuard.getInstance() != null) {
+				Bukkit.getLogger().info("WorldGuard is now initialized!");
+			}
+		}, 20L); // Delays by 1 second
+
+
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "The guns plugin is here!!! Best believe it! SIIIIMPLE!!!");
 
 		new RemoveBullets("world").runTaskTimer(this, 0, 20);

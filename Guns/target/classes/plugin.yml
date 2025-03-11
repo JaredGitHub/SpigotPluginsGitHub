@@ -5,5 +5,5 @@ api-version: 1.21
 commands:
   triggerswap:
     description: Switch which mouse button shoots and aims your gun
-depend: [WorldGuard]  # Use 'softdepend' if WorldGuard is optional
+depend: [WorldGuard]
 
