@@ -10,10 +10,7 @@ import org.bukkit.attribute.Attributable;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
-import org.bukkit.entity.Zombie;
+import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.potion.PotionEffect;
@@ -47,27 +44,28 @@ public class ZombieUtil
 
 	public void spawnZombie()
 	{
-		for(int i = 0; i < zombieAmount; i++)
+		if(zone != null)
 		{
-			if(zone != null)
+			switch(zone)
 			{
-				switch(zone)
-				{
-				case LOW:
-					lowZombie();
-					break;
-				case MEDIUM:
-					mediumZombie();
-					break;
-				case HIGH:
-					highZombie();
-					break;
-				case SKYHIGH:
-					skyhighZombie();
-					break;
-				default:
-					break;
-				}
+			case LOW:
+				lowZombie();
+				createCreeper(20,false, ChatColor.GRAY + "Tier 1 Creeper");
+				break;
+			case MEDIUM:
+				mediumZombie();
+				createCreeper(20,false, ChatColor.WHITE + "Tier 2 Creeper");
+				break;
+			case HIGH:
+				highZombie();
+				createCreeper(20,true, ChatColor.BLUE + "Tier 3 Creeper");
+				break;
+			case SKYHIGH:
+				skyhighZombie();
+				createCreeper(20,true, ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Tier 4 Creeper");
+				break;
+			default:
+				break;
 			}
 		}
 	}
@@ -88,12 +86,10 @@ public class ZombieUtil
 			newloc = new Location(playerLocation.getWorld(), x, y + 1, z);
 			newloc.setYaw(playerLocation.getYaw());
 			newloc.setPitch(playerLocation.getPitch());
-		}while (newloc.distance(playerLocation) < 25);
-
+		} while(newloc.distance(playerLocation) < 25);
 
 		return newloc;
 	}
-
 
 	private Zone getZoneFromRegion(String region)
 	{
@@ -139,32 +135,44 @@ public class ZombieUtil
 
 	private void createZombie(double health, int speed, Material helmet, int damage, String customName)
 	{
-		Entity zombie = player.getWorld().spawnEntity(spawnRadius(player.getLocation(), radius), EntityType.ZOMBIE);
-
-		// Give zombie helmet so that they don't burn
-		Zombie zomb = (Zombie) zombie;
-		zomb.setAdult();
-
-		zomb.getEquipment().setHelmet(new ItemStack(helmet));
-
-		zombie.setCustomName(customName);
-		zombie.setCustomNameVisible(true);
-
-		AttributeInstance attackAttribute = ((Attributable) zombie).getAttribute(Attribute.GENERIC_ATTACK_DAMAGE);
-		AttributeInstance healthAttribute = ((Attributable) zombie).getAttribute(Attribute.GENERIC_MAX_HEALTH);
-
-		// Set speed of zombie
-		PotionEffect potionEffect = new PotionEffect(PotionEffectType.SPEED, 30000, speed);
-		potionEffect.apply(zomb);
-
-		if(attackAttribute != null)
+		for(int i = 0; i < zombieAmount; i++)
 		{
-			attackAttribute.setBaseValue(damage);
+			Entity zombie = player.getWorld().spawnEntity(spawnRadius(player.getLocation(), radius), EntityType.ZOMBIE);
+
+			// Give zombie helmet so that they don't burn
+			Zombie zomb = (Zombie) zombie;
+			zomb.setAdult();
+
+			zomb.getEquipment().setHelmet(new ItemStack(helmet));
+
+			zombie.setCustomName(customName);
+			zombie.setCustomNameVisible(true);
+
+			AttributeInstance attackAttribute = ((Attributable) zombie).getAttribute(Attribute.GENERIC_ATTACK_DAMAGE);
+			AttributeInstance healthAttribute = ((Attributable) zombie).getAttribute(Attribute.GENERIC_MAX_HEALTH);
+
+			// Set speed of zombie
+			PotionEffect potionEffect = new PotionEffect(PotionEffectType.SPEED, 30000, speed);
+			potionEffect.apply(zomb);
+
+			if(attackAttribute != null)
+			{
+				attackAttribute.setBaseValue(damage);
+			}
+			if(healthAttribute != null)
+			{
+				healthAttribute.setBaseValue(health);
+			}
 		}
-		if(healthAttribute != null)
-		{
-			healthAttribute.setBaseValue(health);
-		}
+	}
+
+	private void createCreeper(double health, boolean isCharged, String customName)
+	{
+		Creeper creeper = (Creeper)player.getWorld().spawnEntity(spawnRadius(player.getLocation(), radius), EntityType.CREEPER);
+		creeper.setPowered(isCharged);
+
+		creeper.setCustomName(customName);
+		creeper.setCustomNameVisible(true);
 	}
 
 	private void lowZombie()

@@ -152,22 +152,27 @@ public class WarzListener implements Listener
 		if(p.hasPermission("ranks.default"))
 		{
 			color = null;
-		} else if(p.hasPermission("ranks.vip"))
+		}
+
+		if(p.hasPermission("ranks.vip"))
 		{
 			color = Color.LIME;
 			sword = new ItemStack(Material.STONE_SWORD);
 			food = new ItemStack(Material.LAPIS_LAZULI, 8);
-		} else if(p.hasPermission("ranks.vipplus"))
+		}
+		if(p.hasPermission("ranks.vipplus"))
 		{
 			color = Color.GREEN;
 			sword = new ItemStack(Material.STONE_SWORD);
 			food = new ItemStack(Material.YELLOW_DYE, 4);
-		} else if(p.hasPermission("ranks.mvp"))
+		}
+		if(p.hasPermission("ranks.mvp"))
 		{
 			color = Color.TEAL;
 			sword = new ItemStack(Material.IRON_SWORD);
 			food = new ItemStack(Material.YELLOW_DYE, 8);
-		} else if(p.hasPermission("ranks.mvpplus"))
+		}
+		if(p.hasPermission("ranks.mvpplus"))
 		{
 			color = Color.BLUE;
 			sword = new ItemStack(Material.IRON_SWORD);

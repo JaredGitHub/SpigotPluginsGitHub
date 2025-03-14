@@ -123,7 +123,7 @@ public class PlayerListener implements Listener
 
 		for(ProtectedRegion region : set)
 		{
-			if(region.getId().contains("spawn"))
+			if(region.getId().contains(regionName))
 			{
 				return true;
 			}
@@ -156,10 +156,10 @@ public class PlayerListener implements Listener
 		}
 		// If the player is in a protected region
 
-		if(isInRegion(player, "spawn") || isInRegion(player, "spawn2"))
+		if(isInRegion(player, "spawn"))
 		{
 			player.spigot().sendMessage(ChatMessageType.ACTION_BAR,
-					new TextComponent(ChatColor.RED + "" + ChatColor.UNDERLINE + "Not here noob!"));
+					new TextComponent(ChatColor.RED + "" + ChatColor.UNDERLINE + "No shooting guns here!"));
 			event.setCancelled(true);
 			return;
 		}
