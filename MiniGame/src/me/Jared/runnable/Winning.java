@@ -1,5 +1,6 @@
 package me.Jared.runnable;
 
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -21,9 +22,10 @@ public class Winning extends BukkitRunnable
 	@Override
 	public void run()
 	{
-		player.teleport(player.getWorld().getSpawnLocation());
-		player.getInventory().clear();
 		gameManager.setGameState(GameState.WAITING);
+		player.teleport(Bukkit.getWorld("world").getSpawnLocation());
+		player.sendMessage("YOU WON NOW YOU TELEPORTED");
+		player.getInventory().clear();
 
 		this.cancel();
 	}

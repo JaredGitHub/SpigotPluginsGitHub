@@ -3,11 +3,8 @@ package me.Jared.Manager;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import me.Jared.runnable.StormRunnable;
+import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -21,7 +18,6 @@ import me.Jared.runnable.Winning;
 
 public class GameManager
 {
-
 	private final MiniGame plugin;
 	private final PlayerManager playerManager;
 	private final LootManager lootManager;
@@ -41,6 +37,7 @@ public class GameManager
 		this.locations = new ArrayList<Location>();
 		this.chestOpen = new HashMap<Location, Boolean>();
 	}
+
 	public FileConfiguration getConfig()
 	{
 		return plugin.getConfig();
@@ -63,8 +60,10 @@ public class GameManager
 
 	public void setGameState(GameState gameState)
 	{
-		if(gameState == GameState.LIVE && gameState == GameState.COUNTDOWN) return;
-		if(this.gameState == gameState) return;
+		if(gameState == GameState.LIVE && gameState == GameState.COUNTDOWN)
+			return;
+		if(this.gameState == gameState)
+			return;
 
 		this.gameState = gameState;
 
@@ -72,31 +71,35 @@ public class GameManager
 		{
 		case LIVE:
 
-			if(this.countdown != null) this.countdown.cancel();
-			for(int i = 0; i < ConfigManager.getChestLocations().size(); i++)
-			{
-				locations.add(ConfigManager.getChestLocations().get(i));
-			}
+			if(this.countdown != null)
+				this.countdown.cancel();
+			locations.addAll(ConfigManager.getChestLocations());
 
 			for(Location location : locations)
 			{
-				this.chestOpen.put(location,false);
+				this.chestOpen.put(location, false);
 			}
-			
+
 			chestRunnable = new ChestRunnable(locations, this);
 			chestRunnable.runTaskTimer(plugin, 0, 25);
-			
+
+			// Run storm to get smaller 4 times total
+			var stormRunnable = new StormRunnable(this, plugin);
+			stormRunnable.runTaskTimer(plugin, 0, 20);
+
 			playerManager.sendMessage(ChatColor.GOLD + "" + ChatColor.UNDERLINE + "Be the last one standing!");
 
 			break;
 		case COUNTDOWN:
 			Bukkit.broadcastMessage(ChatColor.GREEN + "Survival Games has started!");
-			
+
 			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "killstreak f");
-			
+
 			lootManager.setChests();
 			for(Player player : playerManager.getPlayers())
 			{
+				Bukkit.getLogger().info("Current Spawn Location Countdown: " + player.getWorld().getSpawnLocation());
+
 				player.getInventory().clear();
 				player.getInventory().setArmorContents(null);
 				player.setHealth(20);
@@ -111,14 +114,19 @@ public class GameManager
 
 			break;
 		case RECRUITING:
+
 			for(Player player : playerManager.getPlayers())
 			{
+				Bukkit.getLogger().info("Current Spawn Location Recruiting: " + player.getWorld().getSpawnLocation());
+
 				player.teleport(player.getWorld().getSpawnLocation());
 				player.getInventory().clear();
 				player.getActivePotionEffects().clear();
 				player.setHealth(20);
 			}
-			if(this.chestRunnable != null) this.chestRunnable.cancel();
+
+			if(this.chestRunnable != null)
+				this.chestRunnable.cancel();
 			break;
 		case WAITING:
 
@@ -127,38 +135,46 @@ public class GameManager
 			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "web clear");
 			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "killstreak t");
 
-			if(this.countdown != null) this.countdown.cancel();
+			if(this.countdown != null)
+				this.countdown.cancel();
 			for(Player player : playerManager.getPlayers())
 			{
+				Bukkit.getLogger().info("Current Spawn Location Waiting: " + player.getWorld().getSpawnLocation());
+
 				player.setSneaking(true);
 
 				player.teleport(player.getWorld().getSpawnLocation());
 				player.getInventory().clear();
 			}
 			playerManager.getPlayers().clear();
-			if(this.chestRunnable != null) this.chestRunnable.cancel();
+			if(this.chestRunnable != null)
+				this.chestRunnable.cancel();
 
 			break;
 		case WINNING:
-			if(this.chestRunnable != null) this.chestRunnable.cancel();
+			if(this.chestRunnable != null)
+				this.chestRunnable.cancel();
 
 			for(Player player : playerManager.getPlayers())
 			{
-				player.setSneaking(true);
-				plugin.getConfig().set(player.getUniqueId() + ".wins", plugin.getConfig().getInt(player.getUniqueId() + ".wins") + 1);
+				Bukkit.getLogger().info("Current Spawn Location Winning: " + player.getWorld().getSpawnLocation());
+
+				plugin.getConfig().set(player.getUniqueId() + ".wins",
+						plugin.getConfig().getInt(player.getUniqueId() + ".wins") + 1);
 				plugin.saveConfig();
-				
+
 				Bukkit.broadcastMessage(ChatColor.GREEN + player.getName() + " has won the game!");
-				Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "givegems " + player.getName() + " 250");
+				Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(),
+						"givegems " + player.getName() + " 250");
 				player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
-				
+
 				player.sendTitle(ChatColor.GREEN + "You won!", null, 20, 20, 20);
-				
-				Winning winning = new Winning(this,player);
+
+				Winning winning = new Winning(this, player);
 				winning.runTaskLater(plugin, 100);
 				return;
 			}
-			
+
 			Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), "kill @e[type=item]");
 			break;
 		default:
@@ -170,6 +186,7 @@ public class GameManager
 	{
 		return playerManager;
 	}
+
 	public LootManager getLootManager()
 	{
 		return lootManager;

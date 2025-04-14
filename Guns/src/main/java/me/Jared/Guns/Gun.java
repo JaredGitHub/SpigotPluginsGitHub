@@ -1,6 +1,6 @@
 /*
  * Decompiled with CFR 0.151.
- * 
+ *
  * Could not load the following classes:
  *  org.bukkit.ChatColor
  *  org.bukkit.Location

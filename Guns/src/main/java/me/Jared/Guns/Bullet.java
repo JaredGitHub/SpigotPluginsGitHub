@@ -2,11 +2,7 @@ package me.Jared.Guns;
 
 import java.util.List;
 
-import org.bukkit.Color;
-import org.bukkit.Effect;
-import org.bukkit.Location;
-import org.bukkit.Particle;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.entity.*;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.MainHand;
@@ -48,6 +44,15 @@ public class Bullet
 
 			this.projectile = owner.getPlayer().launchProjectile(Arrow.class, this.velocity);
 			this.projectile.teleport(loc);
+
+			if(gun.getAmmoType() == Material.CLAY_BALL)
+			{
+				this.projectile.setGravity(false);
+			}
+			else
+			{
+				this.projectile.setGravity(true);
+			}
 		}
 		this.startLocation = this.projectile.getLocation();
 	}

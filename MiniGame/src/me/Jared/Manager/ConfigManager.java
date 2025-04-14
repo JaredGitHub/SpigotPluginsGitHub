@@ -31,6 +31,11 @@ public class ConfigManager
 				);
 	}
 
+	public static int getStormShrinkTime()
+	{
+		return config.getInt("stormShrinkTime");
+	}
+
 	public static void setLobbySpawn(Location location)
 	{
 		double x = location.getX();

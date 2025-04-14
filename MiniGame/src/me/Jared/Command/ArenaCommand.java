@@ -37,7 +37,7 @@ public class ArenaCommand implements CommandExecutor
 					try
 					{
 						int number = Integer.parseInt(args[1]);
-						
+
 						if(number <= 1)
 						{
 							sender.sendMessage(ChatColor.RED + "Must be 2 or more noob");
@@ -125,8 +125,7 @@ public class ArenaCommand implements CommandExecutor
 
 							gameManager.getPlayerManager().teleportPlayerInGame();
 							gameManager.setGameState(GameState.COUNTDOWN);
-						}
-						else
+						} else
 						{
 							Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
 
@@ -140,11 +139,13 @@ public class ArenaCommand implements CommandExecutor
 							gameManager.getPlayerManager().setPlayerInGame(player);
 							gameManager.setGameState(GameState.RECRUITING);
 
-							int playersNeeded = ConfigManager.getPlayersNeeded()
-									- gameManager.getPlayerManager().getPlayerCount();
 
-							gameManager.getPlayerManager().sendMessage(ChatColor.GRAY + "Waiting for " + ChatColor.UNDERLINE
-									+ playersNeeded + ChatColor.RESET + ChatColor.GRAY + " more players to join the game!");
+							int playersNeeded =
+									ConfigManager.getPlayersNeeded() - gameManager.getPlayerManager().getPlayerCount();
+
+							gameManager.getPlayerManager().sendMessage(
+									ChatColor.GRAY + "Waiting for " + ChatColor.UNDERLINE + playersNeeded
+											+ ChatColor.RESET + ChatColor.GRAY + " more players to join the game!");
 
 							Location location = ConfigManager.getLobbySpawn();
 							player.teleport(location);
@@ -222,8 +223,9 @@ public class ArenaCommand implements CommandExecutor
 							return true;
 						}
 
-						player.sendMessage(ChatColor.GREEN + "Successfully set " + ChatColor.RESET + id
-								+ ChatColor.GREEN + " to your current location!");
+						player.sendMessage(
+								ChatColor.GREEN + "Successfully set " + ChatColor.RESET + id + ChatColor.GREEN
+										+ " to your current location!");
 						ConfigManager.setGameSlot(player.getLocation(), id);
 					}
 				}

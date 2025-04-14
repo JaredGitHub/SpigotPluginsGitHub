@@ -31,7 +31,7 @@ public class ChestRunnable extends BukkitRunnable
 		{
 			for(Location location : locations)
 			{
-				if(gameManager.getChestOpen().get(location) == false)
+				if(!gameManager.getChestOpen().get(location))
 				{
 					// Get the tier based on the location
 					Tier tier = ConfigItem.getChestTier(location);
