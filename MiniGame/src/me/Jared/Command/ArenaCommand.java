@@ -34,26 +34,34 @@ public class ArenaCommand implements CommandExecutor
 			{
 				if(args.length == 2)
 				{
-					try
+					if(gameManager.getGameState() != GameState.LIVE)
 					{
-						int number = Integer.parseInt(args[1]);
-
-						if(number <= 1)
+						try
 						{
-							sender.sendMessage(ChatColor.RED + "Must be 2 or more noob");
+							int number = Integer.parseInt(args[1]);
+
+							if(number <= 1)
+							{
+								sender.sendMessage(ChatColor.RED + "Must be 2 or more noob");
+								return true;
+							}
+							ConfigManager.setPlayersNeeded(number);
+
+							for(Player players : gameManager.getPlayerManager().getPlayers())
+							{
+								players.teleport(Bukkit.getWorld("world").getSpawnLocation());
+							}
+							gameManager.getPlayerManager().getPlayers().clear();
+							Bukkit.broadcastMessage(ChatColor.GREEN + "Successfully set max players to " + number);
+						} catch(Exception e)
+						{
+							sender.sendMessage(ChatColor.RED + "Make sure your second argument is a number!");
 							return true;
 						}
-						ConfigManager.setPlayersNeeded(number);
-
-						for(Player players : gameManager.getPlayerManager().getPlayers())
-						{
-							players.teleport(Bukkit.getWorld("world").getSpawnLocation());
-						}
-						gameManager.getPlayerManager().getPlayers().clear();
-						Bukkit.broadcastMessage(ChatColor.GREEN + "Successfully set max players to " + number);
-					} catch(Exception e)
+					}
+					else
 					{
-						sender.sendMessage(ChatColor.RED + "Make sure your second argument is a number!");
+						sender.sendMessage(ChatColor.RED + "Game is live");
 						return true;
 					}
 				} else

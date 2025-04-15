@@ -24,7 +24,6 @@ public class Winning extends BukkitRunnable
 	{
 		gameManager.setGameState(GameState.WAITING);
 		player.teleport(Bukkit.getWorld("world").getSpawnLocation());
-		player.sendMessage("YOU WON NOW YOU TELEPORTED");
 		player.getInventory().clear();
 
 		this.cancel();
