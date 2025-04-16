@@ -28,7 +28,7 @@ public class FlashBangRunnable extends BukkitRunnable
 		Location entityLoc = entity.getLocation();
 		grenade.setLocation(entityLoc);
 
-		entityLoc.getWorld().spawnParticle(Particle.FLASH, entityLoc, 1, 1, 1, 0, 0);
+		entityLoc.getWorld().spawnParticle(Particle.FLASH, entityLoc, 1, 1, 1, 0, 0,null,true);
 		entity.remove();
 
 		if(seconds <= 0)

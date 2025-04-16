@@ -34,7 +34,7 @@ public class ArenaCommand implements CommandExecutor
 			{
 				if(args.length == 2)
 				{
-					if(gameManager.getGameState() != GameState.LIVE)
+					if(gameManager.getGameState() == GameState.WAITING)
 					{
 						try
 						{

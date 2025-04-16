@@ -13,7 +13,7 @@ public class StormRunnable extends BukkitRunnable
 {
 	GameManager gameManager;
 	private int seconds = ConfigManager.getStormShrinkTime();
-	private final int stormInterval = seconds / 6;
+	private final int stormInterval = seconds / 8;
 	private int secondsTillShrink = stormInterval;
 	private final World world = Bukkit.getWorld("world");
 	private final FileConfiguration config;
@@ -46,13 +46,13 @@ public class StormRunnable extends BukkitRunnable
 			@Override
 			public void run()
 			{
-				for(Player player : Bukkit.getOnlinePlayers())
+				for(Player player : gameManager.getPlayerManager().getPlayers())
 				{
 					if(isOutsideStorm(player.getLocation()))
 					{
 						player.damage(2.0); // Half a heart
 						player.sendMessage(ChatColor.RED + "You're in the storm!");
-						player.sendTitle(ChatColor.RED + "You're in the storm!", "");
+						player.sendTitle(ChatColor.RED + "You're in the storm!", "" , 20, 20, 20);
 						player.getWorld().spawnParticle(Particle.DAMAGE_INDICATOR, player.getLocation(), 5);
 						player.playSound(player.getLocation(), Sound.ENTITY_WITCH_HURT, 1f, 0.8f);
 
@@ -148,28 +148,28 @@ public class StormRunnable extends BukkitRunnable
 				{
 					//Show the player the time left till the next shrink
 					player.setLevel(secondsTillShrink);
+				}
 
-					// IF seconds and stormInterval divide evenly into each other then shrink the world border
-					if(seconds % stormInterval == 0 && seconds > 0)
-					{
-						//Set the worldsize to the amount of seconds that are left
-						startSmokeWallBorders(center, seconds);
+				// IF seconds and stormInterval divide evenly into each other then shrink the world border
+				if(seconds % stormInterval == 0 && seconds > 0)
+				{
+					//Set the worldsize to the amount of seconds that are left
+					startSmokeWallBorders(center, seconds);
+					gameManager.getPlayerManager().sendMessage(ChatColor.RED + "STORM SHRINKING");
 
-						// Resetting the seconds till the next storm shrink
-						secondsTillShrink = stormInterval;
-					}
+					// Resetting the seconds till the next storm shrink
+					secondsTillShrink = stormInterval;
+				}
+				else if(seconds == 0)
+				{
+					startSmokeWallBorders(center, 20);
 				}
 			}
-		}
-		// If it is in any other gamestate besides live cancel this runnable
-		else
-		{
-			for(Player player : gameManager.getPlayerManager().getPlayers())
+			// If it is in any other gamestate besides live cancel this runnable
+			else
 			{
-				player.setLevel(0);
+				this.cancel();
 			}
-
-			this.cancel();
 		}
 	}
 }

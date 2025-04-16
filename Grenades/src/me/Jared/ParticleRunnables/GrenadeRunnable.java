@@ -36,8 +36,8 @@ public class GrenadeRunnable extends BukkitRunnable
 			location.getWorld().createExplosion(location, power, false, false, entity);
 			entityLoc.getWorld().playSound(entityLoc, Sound.ENTITY_GENERIC_EXPLODE, 2, 0.25f);
 			
-			entityLoc.getWorld().spawnParticle(Particle.EXPLOSION, entityLoc, 10, 1, 1, 1, 1);
-			entityLoc.getWorld().spawnParticle(Particle.FLAME, entityLoc, 1, 1, 1, 0, 0);
+			entityLoc.getWorld().spawnParticle(Particle.EXPLOSION, entityLoc, 10, 1, 1, 1, 1,null,true);
+			entityLoc.getWorld().spawnParticle(Particle.FLAME, entityLoc, 1, 1, 1, 0, 0,null,true);
 			
 			this.cancel();
 			grenade.setLocation(null);

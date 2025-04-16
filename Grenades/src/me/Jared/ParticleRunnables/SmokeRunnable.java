@@ -32,7 +32,7 @@ public class SmokeRunnable extends BukkitRunnable
 
 			if(i%4==0)
 			{
-				entityLoc.getWorld().spawnParticle(Particle.LARGE_SMOKE, loc, 4,2.3,1.3,2.3,0);
+				entityLoc.getWorld().spawnParticle(Particle.LARGE_SMOKE, loc, 4,2.3,1.3,2.3,0,null,true);
 			}
 			entity.remove();
 		}

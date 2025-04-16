@@ -139,8 +139,6 @@ public class GameManager
 				this.countdown.cancel();
 			for(Player player : playerManager.getPlayers())
 			{
-				Bukkit.getLogger().info("Current Spawn Location Waiting: " + player.getWorld().getSpawnLocation());
-
 				player.setSneaking(true);
 
 				player.teleport(player.getWorld().getSpawnLocation());
@@ -169,7 +167,7 @@ public class GameManager
 				player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
 
 				player.sendTitle(ChatColor.GREEN + "You won!", null, 20, 20, 20);
-
+				player.setLevel(0);
 				Winning winning = new Winning(this, player);
 				winning.runTaskLater(plugin, 100);
 				return;

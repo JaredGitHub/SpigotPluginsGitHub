@@ -40,7 +40,7 @@ public class FireRunnable extends BukkitRunnable
 
 			Location loc = new Location(entityLoc.getWorld(),x,entityLoc.getY()+1,z);
 
-			entityLoc.getWorld().spawnParticle(Particle.FLAME, loc, 1,1,1,1,0);
+			entityLoc.getWorld().spawnParticle(Particle.FLAME, loc, 1,1,1,1,0,null,true);
 			entity.remove();
 		}
 
