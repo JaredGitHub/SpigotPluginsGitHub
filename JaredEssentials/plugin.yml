@@ -21,3 +21,5 @@ commands:
   description: Message your friends!
  tpa:
   description: Send teleport request to your friend!
+ tpyes:
+  description: Accept teleport request

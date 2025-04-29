@@ -45,6 +45,7 @@ public class Bullet
 			this.projectile = owner.getPlayer().launchProjectile(Arrow.class, this.velocity);
 			this.projectile.teleport(loc);
 
+
 			if(gun.getAmmoType() == Material.CLAY_BALL)
 			{
 				this.projectile.setGravity(false);
@@ -62,8 +63,9 @@ public class Bullet
 		double offset = (owner.getPlayer().getMainHand() == MainHand.LEFT) ? -0.2 : 0.3;
 		double yOffset = -0.05;
 
-		loc.setPitch(0);
 		String direction = getDirection(loc);
+
+		loc.setPitch(-(owner.getPlayer().getLocation().getPitch()));
 
 		switch(direction)
 		{
@@ -98,6 +100,8 @@ public class Bullet
 			loc.setYaw(-45);
 			break;
 		}
+
+
 	}
 
 	private String getDirection(Location location)
@@ -172,7 +176,6 @@ public class Bullet
 							this.velocity.multiply(0.15);
 						}
 					}
-					this.projectile.setVelocity(this.velocity);
 				}
 			} else
 			{

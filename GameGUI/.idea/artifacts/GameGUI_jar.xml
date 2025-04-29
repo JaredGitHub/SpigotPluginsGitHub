@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GameGUI:jar">
+    <output-path>$PROJECT_DIR$/../../../SERVER/plugins</output-path>
+    <root id="archive" name="GameGUI.jar">
+      <element id="module-output" name="GameGUI" />
+    </root>
+  </artifact>
+</component>

@@ -13,6 +13,7 @@ import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Creeper;
 import org.bukkit.entity.Drowned;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Zombie;
@@ -265,6 +266,14 @@ public class WarzListener implements Listener
 	@EventHandler
 	public void onZombieKill(EntityDeathEvent e)
 	{
+		//If the entity is a creeper
+		if(e.getEntity() instanceof Creeper)
+		{
+			e.getDrops().clear();
+			e.getDrops().add(getItem(Zone.SKYHIGH));
+		}
+
+		//If the entity is a zombie or a drowned
 		if(e.getEntity() instanceof Zombie || e.getEntity() instanceof Drowned)
 		{
 			Zombie zombie = (Zombie) e.getEntity();

@@ -26,7 +26,7 @@ public class AirDrop
 		Location randomLocation = getRandomLocation();
 		for(Player player : Bukkit.getOnlinePlayers())
 		{
-			createFakeBeaconBeam(randomLocation, 20);
+			createFakeBeaconBeam(randomLocation, 100);
 			if(player.getWorld().equals(Bukkit.getWorld("warz")))
 			{
 				player.sendMessage(
@@ -74,7 +74,8 @@ public class AirDrop
 					{
 						if(player.getWorld().equals(loc.getWorld()))
 						{
-							player.sendMessage(ChatColor.GOLD + "Only " + remainingSeconds + " seconds till the airdrop disappears!");
+							player.sendMessage(ChatColor.GOLD + "Only " + remainingSeconds
+									+ " seconds till the airdrop disappears!");
 						}
 					}
 				}
@@ -84,10 +85,10 @@ public class AirDrop
 				{
 					Location particleLoc = centerLoc.clone().add(0, i + 2.5, 0); // Only adjust vertically
 
-					loc.getWorld().spawnParticle(Particle.ELECTRIC_SPARK, particleLoc, 50, 0, 0, 0);
+					loc.getWorld().spawnParticle(Particle.ELECTRIC_SPARK, particleLoc, 50, 0, 0, 0,0,null,true);
 					if(i % 2 == 0)
 					{
-						loc.getWorld().spawnParticle(Particle.SONIC_BOOM, particleLoc, 1, 0, 0, 0);
+						loc.getWorld().spawnParticle(Particle.SONIC_BOOM, particleLoc, 1, 0, 0, 0,0,null,true);
 					}
 				}
 
@@ -146,4 +147,3 @@ public class AirDrop
 		return random.nextInt(1, getGameSlotsSize());
 	}
 }
-
