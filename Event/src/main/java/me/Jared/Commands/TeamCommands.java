@@ -34,8 +34,16 @@ public class TeamCommands implements CommandExecutor, TabCompleter
 	@Override
 	public List<String> onTabComplete(CommandSender sender, Command cmd, String str, String[] args)
 	{
-		ArrayList<String> list = new ArrayList<String>();
-		return list;
+		List<String> completions = new ArrayList<>();
+
+		// If typing /team invite <playername>
+		if (args.length == 2 && args[0].equalsIgnoreCase("invite")) {
+			for (Player player : Bukkit.getOnlinePlayers()) {
+				completions.add(player.getName());
+			}
+		}
+
+		return completions;
 	}
 
 	public void cmdArgs(Player p)
@@ -247,12 +255,12 @@ public class TeamCommands implements CommandExecutor, TabCompleter
 							ChatColor.RED + "You have left team " + config.get("players." + p.getName() + ".team"));
 					p.playSound(p.getLocation(), Sound.ENTITY_GHAST_DEATH, 5, 0.5F);
 
-					config.set("team." + teamName + ".Leader", configList.get(0));
 					configList.remove(p.getName());
 					config.set("team." + teamName + ".Members", configList);
 					config.getBoolean("team." + teamName + ".FriendlyFire");
 					config.set("team." + teamName + ".FriendlyFire", false);
 					config.set("players." + p.getName(), null);
+					config.set("team." + teamName + ".Leader", configList.getFirst());
 
 					for(Player p1 : Bukkit.getOnlinePlayers())
 					{
