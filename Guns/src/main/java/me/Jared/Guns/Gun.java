@@ -108,8 +108,9 @@ public class Gun
 						Sound sound = GunsPlugin.getSound(this.gunSound.get(i));
 						if(sound != null)
 						{
-							this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(), sound,
-									(float) this.gunVolume, 2.0f);
+							this.owner.getPlayer().getWorld()
+									.playSound(this.owner.getPlayer().getLocation(), sound, (float) this.gunVolume,
+											2.0f);
 						}
 						++i;
 					}
@@ -146,8 +147,8 @@ public class Gun
 				} else
 				{
 					String noammo = ChatColor.RED + "Out of ammo! " + ChatColor.GOLD;
-					this.owner.getPlayer().playSound(this.owner.getPlayer().getLocation(), Sound.ENTITY_ITEM_BREAK,
-							60.0f, 60.0f);
+					this.owner.getPlayer()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.ENTITY_ITEM_BREAK, 60.0f, 60.0f);
 					if(this.ammoType == Material.CLAY_BALL)
 					{
 						this.owner.getPlayer().sendMessage(String.valueOf(noammo) + "You need Sniper Bullets");
@@ -275,54 +276,55 @@ public class Gun
 			{
 				if(amtReload == 6)
 				{
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_WOODEN_DOOR_OPEN, 2.0f, 1.5f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_WOODEN_DOOR_OPEN, 2.0f, 1.5f);
 				}
 				if(amtReload == this.reloadTime - 4)
 				{
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_WOODEN_DOOR_CLOSE, 1.0f, 1.5f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_WOODEN_DOOR_CLOSE, 1.0f, 1.5f);
 				}
 			} else if(this.reloadType.equalsIgnoreCase("pump"))
 			{
 				int rep = (this.reloadTime - 10) / this.maxClipSize;
 				if(amtReload >= 5 && amtReload <= this.reloadTime - 5 && amtReload % rep == 0)
 				{
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_NOTE_BLOCK_HAT, 1.0f, 1.0f);
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_NOTE_BLOCK_BASEDRUM, 1.0f, 2.0f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_NOTE_BLOCK_HAT, 1.0f, 1.0f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_NOTE_BLOCK_BASEDRUM, 1.0f,
+									2.0f);
 				}
 				if(amtReload == this.reloadTime - 3)
 				{
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_PISTON_EXTEND, 1.0f, 2.0f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_PISTON_EXTEND, 1.0f, 2.0f);
 				}
 				if(amtReload == this.reloadTime - 1)
 				{
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_PISTON_CONTRACT, 1.0f, 2.0f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_PISTON_CONTRACT, 1.0f, 2.0f);
 				}
 			} else
 			{
 				if(amtReload == 6)
 				{
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_FIRE_AMBIENT, 2.0f, 2.0f);
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_WOODEN_DOOR_OPEN, 1.0f, 2.0f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_FIRE_AMBIENT, 2.0f, 2.0f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_WOODEN_DOOR_OPEN, 1.0f, 2.0f);
 				}
 				if(amtReload == this.reloadTime / 2)
 				{
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_PISTON_CONTRACT, 0.33f, 2.0f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_PISTON_CONTRACT, 0.33f, 2.0f);
 				}
 				if(amtReload == this.reloadTime - 4)
 				{
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_FIRE_AMBIENT, 2.0f, 2.0f);
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_WOODEN_DOOR_CLOSE, 1.0f, 2.0f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_FIRE_AMBIENT, 2.0f, 2.0f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_WOODEN_DOOR_CLOSE, 1.0f, 2.0f);
 				}
 			}
 		} else
@@ -331,26 +333,27 @@ public class Gun
 			{
 				if(this.timer == 8)
 				{
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_PISTON_EXTEND, 1.0f, 2.0f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_PISTON_EXTEND, 1.0f, 2.0f);
 				}
 				if(this.timer == 6)
 				{
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_PISTON_CONTRACT, 1.0f, 2.0f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_PISTON_CONTRACT, 1.0f, 2.0f);
 				}
 			}
 			if(this.reloadType.equalsIgnoreCase("bolt"))
 			{
 				if(this.timer == this.bulletDelayTime - 4)
 				{
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_WOODEN_DOOR_OPEN, 2.0f, 1.25f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_WOODEN_DOOR_OPEN, 2.0f, 1.25f);
 				}
 				if(this.timer == 6)
 				{
-					this.owner.getPlayer().getWorld().playSound(this.owner.getPlayer().getLocation(),
-							Sound.BLOCK_WOODEN_DOOR_CLOSE, 1.0f, 1.25f);
+					this.owner.getPlayer().getWorld()
+							.playSound(this.owner.getPlayer().getLocation(), Sound.BLOCK_WOODEN_DOOR_CLOSE, 1.0f,
+									1.25f);
 				}
 			}
 		}
@@ -475,7 +478,11 @@ public class Gun
 	{
 		this.bulletSpeed = parseDouble;
 	}
-	public double getBulletSpeed() { return this.bulletSpeed;}
+
+	public double getBulletSpeed()
+	{
+		return this.bulletSpeed;
+	}
 
 	public void setAccuracy(double parseDouble)
 	{

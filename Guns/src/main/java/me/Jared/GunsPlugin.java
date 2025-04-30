@@ -45,12 +45,6 @@ public class GunsPlugin extends JavaPlugin
 	public void onEnable()
 	{
 
-		Bukkit.getScheduler().runTaskLater(this, () -> {
-			if (WorldGuard.getInstance() != null) {
-				Bukkit.getLogger().info("WorldGuard is now initialized!");
-			}
-		}, 20L); // Delays by 1 second
-
 
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "The guns plugin is here!!! Best believe it! SIIIIMPLE!!!");
 

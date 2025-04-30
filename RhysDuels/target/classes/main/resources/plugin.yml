@@ -1,0 +1,8 @@
+name: RhysDuels
+main: me.Jared.Duels
+version: 0.1
+api-version: 1.21
+depend: [Kits, Stats]
+commands:
+  duel:
+    description: /duel <join|leave|accept|deny|list|remove|set>

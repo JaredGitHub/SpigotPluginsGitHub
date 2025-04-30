@@ -42,15 +42,13 @@ public class Bullet
 			Location loc = owner.getPlayer().getEyeLocation();
 			adjustLocationForHand(loc, owner);
 
-			this.projectile = owner.getPlayer().launchProjectile(Arrow.class, this.velocity);
+			this.projectile = owner.getPlayer().launchProjectile(Snowball.class, this.velocity);
 			this.projectile.teleport(loc);
-
 
 			if(gun.getAmmoType() == Material.CLAY_BALL)
 			{
 				this.projectile.setGravity(false);
-			}
-			else
+			} else
 			{
 				this.projectile.setGravity(true);
 			}
@@ -101,7 +99,6 @@ public class Bullet
 			break;
 		}
 
-
 	}
 
 	private String getDirection(Location location)
@@ -142,11 +139,11 @@ public class Bullet
 			if(this.projectile != null)
 			{
 				this.lastLocation = this.projectile.getLocation();
-				if(this.ticks > this.releaseTime)
-				{
-					this.dead = true;
-					return;
-				}
+//				if(this.ticks > this.releaseTime)
+//				{
+//					this.dead = true;
+//					return;
+//				}
 				if(this.shotFrom.hasSmokeTrail())
 				{
 					this.lastLocation.getWorld().playEffect(this.lastLocation, Effect.SMOKE, 1);

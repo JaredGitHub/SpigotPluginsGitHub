@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="RhysDuels:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c96e5c38-9280-4bae-90c5-b06b52832a2f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Duels/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Duels/.idea/artifacts/Duels_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Duels/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Duels/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Duels/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Duels/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Duels/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Duels/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Duels/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Duels/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kits/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kits/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kits/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kits/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kits/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kits/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kits/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kits/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Kits/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/RhysDuels_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RhysDuels.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Manager/ConfigItem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Manager/KitManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Menus/ArmorMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/Duels.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/Duels.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/config.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/plugin.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/Command/DuelCommands.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/DuelMenuSystem/DuelsMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/DuelMenuSystem/PlayerMenuUtility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/Duels.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/Listeners/DuelListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/Manager/ConfigManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/Menus/MapMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/Menus/PlayerListMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/PlaceHolders/DuelsExpansion.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Event/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/.classpath" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/.project" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/Kits.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Kits/Kits.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/Commands.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/ConfigItem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/EventListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Managers/KitManager.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/MenuSystem/KitsMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/MenuSystem/PlayerMenuUtility.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Menus/ItemSelectionMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Menus/ItemSelectionMenu2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Menus/SelectKitMenu$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Menus/SelectKitMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Util/Cooldown.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Util/CustomConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/plugin.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Kits/Commands.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Kits/ConfigItem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Kits/EventListener.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Kits/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Managers/KitManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/MenuSystem/KitsMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/MenuSystem/PlayerMenuUtility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Menus/ItemSelectionMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Menus/ItemSelectionMenu2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Menus/SelectKitMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Util/Cooldown.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Util/CustomConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/src/me/Jared/Zombies/ZombieUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/src/me/Jared/Zombies/ZombieUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/src/plugin.yml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JaredGitHub&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JaredGitHub/SpigotPluginsGitHub.git&quot;,
+    &quot;accountId&quot;: &quot;6f56b739-2479-4563-8864-ba71a6a2e002&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2wPUsWrODr5afM0rlodi6MylJbV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.21724138",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c96e5c38-9280-4bae-90c5-b06b52832a2f" name="Changes" comment="" />
+      <created>1745942910012</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1745942910012</updated>
+      <workItem from="1745942911163" duration="145000" />
+      <workItem from="1745943129577" duration="9241000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

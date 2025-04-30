@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="RhysDuels:jar">
+    <output-path>$PROJECT_DIR$/../../../SERVER/plugins</output-path>
+    <root id="archive" name="RhysDuels.jar">
+      <element id="module-output" name="RhysDuels" />
+    </root>
+  </artifact>
+</component>

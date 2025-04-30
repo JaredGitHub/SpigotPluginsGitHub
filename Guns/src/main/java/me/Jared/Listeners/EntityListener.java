@@ -1,4 +1,3 @@
-
 package me.Jared.Listeners;
 
 import java.util.HashMap;
