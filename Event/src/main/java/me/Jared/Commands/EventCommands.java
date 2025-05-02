@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import me.Jared.Manager.PlayerManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -56,7 +57,7 @@ public class EventCommands implements CommandExecutor, TabCompleter
 		return list;
 	}
 
-	private Location spawnRadius(Location loc, int radius)
+	private static Location spawnRadius(Location loc, int radius)
 	{
 		Location center = loc;
 		Random rand = new Random();
@@ -67,6 +68,47 @@ public class EventCommands implements CommandExecutor, TabCompleter
 		newloc.setYaw(center.getYaw());
 		newloc.setPitch(center.getPitch());
 		return newloc;
+	}
+
+	public static ArrayList<Player> noMovePlayers = new ArrayList<>();
+	public static void teleportPlayers(PlayerManager playerManager)
+	{
+		noMovePlayers.clear();
+		// Teleport players in game
+		for(Player p : playerManager.getPlayers())
+		{
+			int teamIndex = ConfigManager.getTeamIndex(p);
+
+			// Only include team 0 and 1
+			if(teamIndex != 0 && teamIndex != 1)
+				continue;
+
+			// Normalize team index to 1 or 2 (for spawn)
+			int spawnIndex = (teamIndex % 2 == 0) ? 2 : 1;
+
+			Location location = ConfigManager.getEventSpawn(spawnIndex);
+			p.teleport(spawnRadius(location, 3));
+			noMovePlayers.add(p);
+			p.getInventory().clear();
+			p.getActivePotionEffects().clear();
+			p.setHealth(20);
+
+			if(me.Jared.Kits.Main.getInstance().getConfig()
+					.get("PlayerUniqueID." + p.getUniqueId()) != null)
+			{
+				KitManager.playerCustomHotBar(p);
+				KitManager.diamondKit(p);
+				KitManager.giveAmmo(p);
+			} else
+			{
+				KitManager.diamondKit(p);
+				KitManager.defaultHotBar(p.getUniqueId());
+				for(int i = 0; i < 9; i++)
+					p.getInventory().addItem(new ItemStack[] { KitManager.sniperAmmo(128) });
+				p.getInventory().addItem(new ItemStack[] { KitManager.shotgunAmmo(128) });
+				p.getInventory().addItem(new ItemStack[] { KitManager.autoAmmo(128) });
+			}
+		}
 	}
 
 	@Override
@@ -113,11 +155,10 @@ public class EventCommands implements CommandExecutor, TabCompleter
 							player.sendMessage(ChatColor.GREEN + "Set event mode to active!");
 							player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
 							gameManager.setGameState(GameState.RECRUITING);
+//							ConfigManager.clearTeams();
 							return true;
 						}
-					}
-
-					else if(gameManager.getGameState() == GameState.RECRUITING)
+					} else if(gameManager.getGameState() == GameState.RECRUITING)
 					{
 						if(args[0].equalsIgnoreCase("start"))
 						{
@@ -132,45 +173,8 @@ public class EventCommands implements CommandExecutor, TabCompleter
 
 								gameManager.setGameState(GameState.COUNTDOWN);
 
-								// Teleport players in game
-								for(Player p : gameManager.getPlayerManager().getPlayers())
-								{
-									int teamIndex = ConfigManager.getTeamIndex(p);
-									if(teamIndex % 2 == 0)
-									{
-										teamIndex = 2;
-									} else
-									{
-										teamIndex = 1;
-									}
+								teleportPlayers(gameManager.getPlayerManager());
 
-									Location location = ConfigManager.getEventSpawn(teamIndex);
-									p.teleport(spawnRadius(location, 3));
-
-									p.getInventory().clear();
-									p.getActivePotionEffects().clear();
-									p.setHealth(20);
-
-									// Giving the player a diamond kit
-									if(me.Jared.Kits.Main.getInstance().getConfig()
-											.get("PlayerUniqueID." + p.getUniqueId()) != null)
-									{
-										KitManager.playerCustomHotBar(p);
-										KitManager.diamondKit(p);
-										KitManager.giveAmmo(p);
-									} else
-									{
-										KitManager.diamondKit(p);
-										KitManager.defaultHotBar(p.getUniqueId());
-										for(int i = 0; i < 9; i++)
-											p.getInventory().addItem(new ItemStack[]
-											{ KitManager.sniperAmmo(128) });
-										p.getInventory().addItem(new ItemStack[]
-										{ KitManager.shotgunAmmo(128) });
-										p.getInventory().addItem(new ItemStack[]
-										{ KitManager.autoAmmo(128) });
-									}
-								}
 							}
 						}
 					}
@@ -195,12 +199,14 @@ public class EventCommands implements CommandExecutor, TabCompleter
 
 					if(args[0].equalsIgnoreCase("help"))
 					{
-						player.sendMessage(ChatColor.GRAY + "------------" + ChatColor.GOLD + "Event Help"
-								+ ChatColor.GRAY + "------------");
+						player.sendMessage(
+								ChatColor.GRAY + "------------" + ChatColor.GOLD + "Event Help" + ChatColor.GRAY
+										+ "------------");
 						player.sendMessage(ChatColor.GOLD + "- " + ChatColor.GRAY + "/event setlobby" + ChatColor.WHITE
 								+ " - Sets the lobby of the event to where you are standing");
-						player.sendMessage(ChatColor.GOLD + "- " + ChatColor.GRAY + "/event set <1 or 2>"
-								+ ChatColor.WHITE + " - Sets the spawn for team 1 and team 2");
+						player.sendMessage(
+								ChatColor.GOLD + "- " + ChatColor.GRAY + "/event set <1 or 2>" + ChatColor.WHITE
+										+ " - Sets the spawn for team 1 and team 2");
 						return true;
 					} else if(args[0].equalsIgnoreCase("setlobby"))
 					{

@@ -21,13 +21,9 @@ public class ConfigManager
 
 	public static Location getLobbySpawn()
 	{
-		return new Location(Bukkit.getWorld(config.getString("lobby-spawn.world")),
-				config.getDouble("lobby-spawn.x"),
-				config.getDouble("lobby-spawn.y"),
-				config.getDouble("lobby-spawn.z"),
-				(float) config.getDouble("lobby-spawn.yaw"),
-				(float) config.getDouble("lobby-spawn.pitch")
-				);
+		return new Location(Bukkit.getWorld(config.getString("lobby-spawn.world")), config.getDouble("lobby-spawn.x"),
+				config.getDouble("lobby-spawn.y"), config.getDouble("lobby-spawn.z"),
+				(float) config.getDouble("lobby-spawn.yaw"), (float) config.getDouble("lobby-spawn.pitch"));
 	}
 
 	public static void setLobbySpawn(Location location)
@@ -36,10 +32,10 @@ public class ConfigManager
 		double y = location.getY();
 		double z = location.getZ();
 
-		config.set("lobby-spawn.world",location.getWorld().getName());
+		config.set("lobby-spawn.world", location.getWorld().getName());
 		config.set("lobby-spawn.x", x);
-		config.set("lobby-spawn.y",y);
-		config.set("lobby-spawn.z",z);
+		config.set("lobby-spawn.y", y);
+		config.set("lobby-spawn.z", z);
 		config.set("lobby-spawn.yaw", location.getYaw());
 		config.set("lobby-spawn.pitch", location.getPitch());
 		saveConfig();
@@ -54,7 +50,7 @@ public class ConfigManager
 		float yaw = (float) config.getDouble("event." + i + ".yaw");
 		float pitch = (float) config.getDouble("event." + i + ".pitch");
 
-		return new Location(Bukkit.getWorld("world"),x,y,z,yaw,pitch);
+		return new Location(Bukkit.getWorld("world"), x, y, z, yaw, pitch);
 	}
 
 	public static void setEventSpawn(Location loc, int i)
@@ -63,7 +59,7 @@ public class ConfigManager
 		double y = loc.getY();
 		double z = loc.getZ();
 
-		config.set("event.world",loc.getWorld().getName());
+		config.set("event.world", loc.getWorld().getName());
 		config.set("event." + i + ".x", x);
 		config.set("event." + i + ".y", y);
 		config.set("event." + i + ".z", z);
@@ -78,7 +74,7 @@ public class ConfigManager
 		String team = config.getString("players." + player.getName() + ".team");
 		return team;
 	}
-	
+
 	public static String getTeamName(int i)
 	{
 		var list = config.getStringList("teams");
@@ -134,48 +130,49 @@ public class ConfigManager
 
 	public static void setCountdown(int number)
 	{
-		config.set("countdown-seconds",number);
+		config.set("countdown-seconds", number);
 		saveConfig();
 	}
 
 	public static boolean playerInTeam(Player player)
 	{
-		return config.getConfigurationSection("players").contains(player.getName()) ? true : false;
+		return config.getConfigurationSection("players").contains(player.getName());
 	}
 
 	public static boolean teamExists(String team)
 	{
-		return config.getStringList("teams").contains(team) ? true: false;
+		return config.getStringList("teams").contains(team) ? true : false;
 	}
 
 	public static void removeTeam(Player player)
 	{
 		final String teamName = config.getString("players." + player.getName() + ".team");
+		if(teamName == null)
+			return;
 
-		ArrayList<String> configList = new ArrayList<String>(config.getStringList("team." + teamName + ".Members"));
+		List<String> configList = new ArrayList<>(config.getStringList("team." + teamName + ".Members"));
+		if(configList.isEmpty())
+			return;
 
-		if (configList.size() <= 1)
+		configList.remove(player.getName());
+
+		if(configList.isEmpty())
 		{
-
+			// Delete team entirely
 			config.set("team." + teamName, null);
-			ArrayList<String> teamList = new ArrayList<String>(config.getStringList("teams"));
+			List<String> teamList = new ArrayList<>(config.getStringList("teams"));
 			teamList.remove(teamName);
-
-			config.set("players." + player.getName(), null);
 			config.set("teams", teamList);
-
-			saveConfig();
-		}
-		else
+		} else
 		{
-
-			config.set("team." + teamName + ".Leader",configList.get(0));
-			configList.remove(player.getName());
+			// Set new leader and update members
+			config.set("team." + teamName + ".Leader", configList.get(0));
 			config.set("team." + teamName + ".Members", configList);
-			config.getBoolean("team." + teamName + ".FriendlyFire");
 			config.set("team." + teamName + ".FriendlyFire", false);
-			config.set("players." + player.getName(),null);
-			saveConfig();
 		}
+
+		config.set("players." + player.getName(), null);
+		saveConfig();
 	}
+
 }

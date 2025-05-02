@@ -1,5 +1,6 @@
 package me.Jared.Manager;
 
+import me.Jared.Commands.EventCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Sound;
@@ -25,10 +26,6 @@ public class GameManager
 		this.playerManager = new PlayerManager(this);
 	}
 
-	public FileConfiguration getConfig()
-	{
-		return plugin.getConfig();
-	}
 	public Event getPlugin()
 	{
 		return plugin;
@@ -36,7 +33,6 @@ public class GameManager
 
 	public void setGameState(GameState gameState)
 	{
-		if(gameState == GameState.LIVE && gameState == GameState.COUNTDOWN) return;
 		if(this.gameState == gameState) return;
 
 		this.gameState = gameState;
@@ -61,7 +57,7 @@ public class GameManager
 			if(this.countdown != null) this.countdown.cancel();
 			
 			Bukkit.broadcastMessage(ChatColor.WHITE + "Event is now done!");
-			
+			ConfigManager.clearTeams();
 			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "killstreak t");
 
 			for(Player player : playerManager.getPlayers())
@@ -79,7 +75,9 @@ public class GameManager
 		case COUNTDOWN:
 			
 			Bukkit.getServer().dispatchCommand(Bukkit.getConsoleSender(), "killstreak f");
-			
+
+			EventCommands.teleportPlayers(playerManager);
+
 			var teams = ConfigManager.getTeams();
 			Bukkit.broadcastMessage(ChatColor.WHITE + "" + ChatColor.BOLD 
 					+ "IT IS " + ConfigManager.getTeamName(teams.get(0)) 
@@ -91,6 +89,7 @@ public class GameManager
 			break;
 		case WINNING:
 
+			ConfigManager.clearTeams();
 			Bukkit.broadcastMessage(ChatColor.GREEN + "Team " + ChatColor.GOLD +  ConfigManager.getTeam(playerManager.getPlayers().get(0)) + ChatColor.GREEN + " has won the event!");
 			for(Player player : playerManager.getPlayers())
 			{

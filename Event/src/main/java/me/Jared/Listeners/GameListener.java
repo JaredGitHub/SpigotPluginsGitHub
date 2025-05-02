@@ -1,20 +1,20 @@
 package me.Jared.Listeners;
 
+import me.Jared.Commands.EventCommands;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerMoveEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
+import org.bukkit.event.player.*;
 
 import me.Jared.Event;
 import me.Jared.GameState;
@@ -24,21 +24,12 @@ import me.Jared.Manager.GameManager;
 public class GameListener implements Listener
 {
 	GameManager gameManager;
+
 	public GameListener(GameManager gameManager)
 	{
 		this.gameManager = gameManager;
 	}
-	
-	@EventHandler
-	public void onCommand(PlayerCommandPreprocessEvent e)
-	{
-		if(gameManager.getGameState() == GameState.LIVE)
-		{
-			e.getPlayer().sendMessage(ChatColor.RED + "No commands at this time!");
-			e.setCancelled(true);
-		}
-	}
-	
+
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e)
 	{
@@ -46,43 +37,42 @@ public class GameListener implements Listener
 		{
 			Bukkit.getScheduler().runTaskLater(gameManager.getPlugin(), new Runnable()
 			{
-				
+
 				@Override
 				public void run()
 				{
 					e.getPlayer().teleport(ConfigManager.getLobbySpawn());
-					e.getPlayer().sendTitle("EVENT TIME", "EVENT TIME", 0, 0, 0);
-					
+					gameManager.getPlayerManager().setPlayerInGame(e.getPlayer());
+					e.getPlayer().sendTitle(ChatColor.DARK_GREEN + "EVENT TIME", "", 20, 20, 20);
+
 				}
 			}, 20);
 		}
 	}
-	
+
 	@EventHandler
 	public void onQuit(PlayerQuitEvent e)
 	{
 		Player player = e.getPlayer();
 
 		if(gameManager.getGameState() == GameState.LIVE)
-		{	
+		{
 			if(gameManager.getPlayerManager().getPlayers().contains(player))
 			{
 				gameManager.getPlayerManager().removePlayer(player);
 				String teamName = ConfigManager.getTeam(player);
-							
+
 				player.teleport(ConfigManager.getLobbySpawn());
-				
+
 				if(ConfigManager.playerInTeam(player))
 				{
 					ConfigManager.removeTeam(player);
 				}
-				
+
 				if(ConfigManager.getTeams().size() <= 1)
 				{
 					gameManager.setGameState(GameState.WINNING);
-				}
-				
-				else if(!ConfigManager.teamExists(teamName))
+				} else if(!ConfigManager.teamExists(teamName))
 				{
 					gameManager.setGameState(GameState.COUNTDOWN);
 				}
@@ -96,25 +86,21 @@ public class GameListener implements Listener
 		Player player = e.getEntity();
 
 		if(gameManager.getGameState() == GameState.LIVE)
-		{	
+		{
 			if(gameManager.getPlayerManager().getPlayers().contains(player))
 			{
 				gameManager.getPlayerManager().removePlayer(player);
 				String teamName = ConfigManager.getTeam(player);
-							
-				player.teleport(ConfigManager.getLobbySpawn());
-				
+
 				if(ConfigManager.playerInTeam(player))
 				{
 					ConfigManager.removeTeam(player);
 				}
-				
+
 				if(ConfigManager.getTeams().size() <= 1)
 				{
 					gameManager.setGameState(GameState.WINNING);
-				}
-				
-				else if(!ConfigManager.teamExists(teamName))
+				} else if(!ConfigManager.teamExists(teamName))
 				{
 					gameManager.setGameState(GameState.COUNTDOWN);
 				}
@@ -123,70 +109,81 @@ public class GameListener implements Listener
 		}
 	}
 
+	//Making sure that the player teleports back up to the event area when they die and the event is still going on.
 	@EventHandler
-	public void onDamage(EntityDamageByEntityEvent e)
+	public void onRespawn(PlayerRespawnEvent e)
 	{
-		FileConfiguration config = Event.getInstance().getConfig();
-
+		Player player = e.getPlayer();
 		if(gameManager.getGameState() != GameState.INACTIVE)
 		{
-			if(e.getEntity() instanceof Player && e.getDamager() instanceof Player)
+			player.teleport(ConfigManager.getLobbySpawn());
+			e.setRespawnLocation(ConfigManager.getLobbySpawn());
+		}
+	}
+
+	@EventHandler
+	public void onEntityDamage(EntityDamageEvent e)
+	{
+		if(e.getEntity() instanceof Player)
+		{
+			Player damaged = (Player) e.getEntity();
+			FileConfiguration config = Event.getInstance().getConfig();
+
+			if(gameManager.getGameState() != GameState.INACTIVE)
 			{
-				Player p = (Player) e.getEntity();
-				Player pdamager = (Player) e.getDamager();
+				String damagedTeam = config.getString("players." + damaged.getName() + ".team");
 
-				String damagedTeam = config.getString("players." + p.getName() + ".team");
-				String damagerTeam = config.getString("players." + pdamager.getName() + ".team");
-
-				if(damagedTeam.equals(damagerTeam))
+				// Try casting to EntityDamageByEntityEvent
+				if(e instanceof EntityDamageByEntityEvent)
 				{
-					boolean friendlyFire = config.getBoolean(damagedTeam + ".FriendlyFire");
-					if(friendlyFire == false)
+					Entity damager = ((EntityDamageByEntityEvent) e).getDamager();
+					Player attacker = null;
+
+					if(damager instanceof Player)
 					{
-						pdamager.sendMessage(ChatColor.RED + "You cannot hurt your teammates!");
-						e.setCancelled(true);
+						attacker = (Player) damager;
+					} else if(damager instanceof Projectile)
+					{
+						Projectile projectile = (Projectile) damager;
+						if(projectile.getShooter() instanceof Player)
+						{
+							attacker = (Player) projectile.getShooter();
+						}
 					}
-				}
-			}
 
-			if(e.getDamager() instanceof Projectile && e.getEntity() instanceof Player)
-			{
-				Projectile projectile = (Projectile) e.getDamager();
-				Player p = (Player) e.getEntity();
-
-				String damagedTeam = config.getString("players." + p.getName() + ".team");
-				Player pdamager = (Player) projectile.getShooter();
-				String damagerTeam = config.getString("players." + pdamager.getName() + ".team");
-
-				if(damagedTeam == null || damagerTeam == null) return;
-				if(damagedTeam.equals(damagerTeam))
-				{
-					boolean friendlyFire = config.getBoolean(damagedTeam + ".FriendlyFire");
-					if(friendlyFire == false)
+					if(attacker != null)
 					{
-						pdamager.sendMessage(ChatColor.RED + "You cannot hurt your teammates!");
+						String damagerTeam = config.getString("players." + attacker.getName() + ".team");
 
-						e.setCancelled(true);
+						if(damagedTeam != null && damagerTeam != null && damagedTeam.equals(damagerTeam))
+						{
+							boolean friendlyFire = config.getBoolean(damagedTeam + ".FriendlyFire");
+							if(!friendlyFire)
+							{
+								attacker.sendMessage(ChatColor.RED + "You cannot hurt your teammates!");
+								e.setCancelled(true);
+							}
+						}
 					}
 				}
 			}
 		}
 	}
 
-
 	@EventHandler
 	public void onMove(PlayerMoveEvent e)
 	{
 		Player player = e.getPlayer();
-		if(gameManager.getPlayerManager().getPlayers().contains(player) && gameManager.getGameState() == GameState.COUNTDOWN)
+		if(EventCommands.noMovePlayers.contains(player) && gameManager.getGameState() == GameState.COUNTDOWN)
 		{
 			Location newToLocation = e.getFrom().setDirection(e.getTo().getDirection());
 			e.setTo(newToLocation);
 		}
 
-		if(!(gameManager.getPlayerManager().getPlayers().contains(player)) && gameManager.getGameState() == GameState.LIVE)
+		if(!(gameManager.getPlayerManager().getPlayers().contains(player))
+				&& gameManager.getGameState() == GameState.LIVE)
 		{
-			if(!player.hasPermission("hg") && player.getGameMode() == GameMode.SPECTATOR)
+			if(!player.hasPermission("event") && player.getGameMode() == GameMode.SPECTATOR)
 			{
 				Location pLoc = player.getLocation();
 				Location spawnLoc = ConfigManager.getLobbySpawn();
@@ -203,15 +200,15 @@ public class GameListener implements Listener
 	public void onCommandExecute(PlayerCommandPreprocessEvent e)
 	{
 		Player player = e.getPlayer();
+		String command = e.getMessage().split(" ")[0]; // Extracts the command part of the message
 
-		if(!player.hasPermission("event"))
+		// Check if the player does not have permission or tries to execute a command other than "/team"
+		if(!player.hasPermission("event") && !command.equalsIgnoreCase("/team")
+				&& gameManager.getGameState() != GameState.INACTIVE)
 		{
-			if(gameManager.getPlayerManager().getPlayers().contains(player))
-			{
-				e.setCancelled(true);
-				player.sendMessage(ChatColor.RED + "You cannot do commands right now!");
-
-			}
+			e.setCancelled(true);
+			player.sendMessage(ChatColor.RED + "You can only use the /team command right now!");
 		}
 	}
+
 }
