@@ -1,10 +1,12 @@
+
+
 package me.Jared.Command;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
-import me.Jared.Manager.KitManager;
-import me.Jared.Menus.ArmorMenu;
+import me.Jared.Menus.KitMenu;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -14,6 +16,7 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
@@ -22,7 +25,7 @@ import me.Jared.Manager.ConfigManager;
 import me.Jared.Menus.MapMenu;
 import me.Jared.Menus.PlayerListMenu;
 
-public class DuelCommands implements CommandExecutor
+public class DuelCommands implements CommandExecutor, TabCompleter
 {
 	public static Player duelPlayer;
 
@@ -33,9 +36,8 @@ public class DuelCommands implements CommandExecutor
 	{
 		// Have commands such as /duel, /duel accept, /duel deny
 
-		if(sender instanceof Player)
+		if(sender instanceof Player player)
 		{
-			Player player = (Player) sender;
 			Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
 			if(cmd.getName().equalsIgnoreCase("duel"))
 			{
@@ -44,10 +46,11 @@ public class DuelCommands implements CommandExecutor
 					player.sendMessage(ChatColor.RED + "Stay still");
 					return true;
 				}
-				if(player.hasPermission("duels"))
+				if(player.hasPermission("rhysduels"))
 				{
 					if(args.length >= 1)
 					{
+
 
 						if(args[0].equalsIgnoreCase("list"))
 						{
@@ -60,6 +63,68 @@ public class DuelCommands implements CommandExecutor
 								player.sendMessage(ChatColor.GOLD + "-" + string);
 							}
 							return true;
+						} else if(args[0].equalsIgnoreCase("kit"))
+						{
+
+							if(args[1].equalsIgnoreCase("set"))
+							{
+
+								if(args.length < 3)
+								{
+									sender.sendMessage(ChatColor.GRAY + "Usage: /duel kit set [kitName]");
+									return true;
+								} else if(args.length == 3)
+								{
+									String kitName = args[2];
+									ConfigManager.setDuelKit(player, kitName);
+									player.sendMessage(
+											ChatColor.GREEN + "Successfully set " + ChatColor.RESET + kitName + ChatColor.GREEN
+													+ " to your current inventory");
+									return true;
+
+								} else
+								{
+									sender.sendMessage(ChatColor.GRAY + "Usage: /duel kit set [kitName]");
+									return true;
+								}
+							}
+
+							if(args[1].equalsIgnoreCase("get"))
+							{
+								if(args.length == 3)
+								{
+									String duelKitName = args[2];
+
+									ConfigManager.getDuelKit(player, duelKitName);
+									player.sendMessage(
+											ChatColor.GREEN + "You have received the '" + duelKitName + "' kit.");
+									return true;
+
+								} else
+								{
+									player.sendMessage(ChatColor.GRAY + "Usage: /duel kit get [kitName]");
+									return true;
+								}
+							}
+
+							if(args[1].equalsIgnoreCase("list"))
+							{
+								player.sendMessage(
+										ChatColor.WHITE + "" + ChatColor.UNDERLINE + "List of the duel kits:");
+								for(String kit : ConfigManager.getKitList())
+								{
+									player.sendMessage(ChatColor.GOLD + "-" + kit);
+								}
+							}
+
+							if(args[1].equalsIgnoreCase("remove") && args.length == 3)
+							{
+								String kitName = args[2];
+								ConfigManager.removeKit(kitName);
+								player.sendMessage(ChatColor.RED + "Successfully removed " + kitName
+										+ " from the list of duel kits!");
+								return true;
+							}
 						}
 
 						if(args[0].equalsIgnoreCase("set"))
@@ -74,8 +139,9 @@ public class DuelCommands implements CommandExecutor
 									{
 										String mapName = args[1];
 										ConfigManager.setMapLocation(player.getLocation(), mapName, number);
-										player.sendMessage(ChatColor.GREEN + "Successfully set " + ChatColor.RESET
-												+ number + ChatColor.GREEN + " to your current location");
+										player.sendMessage(
+												ChatColor.GREEN + "Successfully set " + ChatColor.RESET + number
+														+ ChatColor.GREEN + " to your current location");
 
 									} else
 									{
@@ -131,12 +197,10 @@ public class DuelCommands implements CommandExecutor
 				}
 				if(args.length == 0)
 				{
-					PlayerListMenu menu = new PlayerListMenu(Duels.getPlayerMenuUtility(player),player);
+					PlayerListMenu menu = new PlayerListMenu(Duels.getPlayerMenuUtility(player), player);
 					menu.open();
 					return true;
-				}
-
-				else if(args.length == 1)
+				} else if(args.length == 1)
 				{
 					if(args[0].equalsIgnoreCase("leave"))
 					{
@@ -145,11 +209,11 @@ public class DuelCommands implements CommandExecutor
 							int indexMinusOne = (MapMenu.playersInDuel.indexOf(player) - 1);
 							int indexPlusOne = (MapMenu.playersInDuel.indexOf(player) + 1);
 
-							boolean inBoundsMinusOne = (indexMinusOne >= 0)
-									&& (indexMinusOne < MapMenu.playersInDuel.size());
+							boolean inBoundsMinusOne =
+									(indexMinusOne >= 0) && (indexMinusOne < MapMenu.playersInDuel.size());
 
-							boolean inBoundsPlusOne = (indexPlusOne >= 0)
-									&& (indexPlusOne < MapMenu.playersInDuel.size());
+							boolean inBoundsPlusOne =
+									(indexPlusOne >= 0) && (indexPlusOne < MapMenu.playersInDuel.size());
 
 							if(inBoundsPlusOne)
 							{
@@ -236,27 +300,19 @@ public class DuelCommands implements CommandExecutor
 									requester.getActivePotionEffects().clear();
 									requester.setHealth(20);
 
-									if(ArmorMenu.getArmorNumber() == 1)
-									{
-										KitManager.chainmailKit(player);
-										KitManager.chainmailKit(requester);
-									}
-									else if(ArmorMenu.getArmorNumber() == 2)
-									{
-										KitManager.ironKit(player);
-										KitManager.ironKit(requester);
-									}
-									else if(ArmorMenu.getArmorNumber() == 3)
-									{
-										KitManager.diamondKit(player);
-										KitManager.diamondKit(requester);
-									}
+									//Get the player's duel kit from the config file'
+									int armorNumber = KitMenu.getArmorNumber();
+									List<String> kitList = ConfigManager.getKitList();
+									String kitName = kitList.get(armorNumber);
+
+									ConfigManager.getDuelKit(player, kitName);
+									ConfigManager.getDuelKit(requester, kitName);
 
 									// start the game
-									player.teleport(ConfigManager
-											.getMapLocation(ConfigManager.getMaps().get(MapMenu.getMapNumber()), 1));
-									requester.teleport(ConfigManager
-											.getMapLocation(ConfigManager.getMaps().get(MapMenu.getMapNumber()), 2));
+									player.teleport(ConfigManager.getMapLocation(
+											ConfigManager.getMaps().get(MapMenu.getMapNumber()), 1));
+									requester.teleport(ConfigManager.getMapLocation(
+											ConfigManager.getMaps().get(MapMenu.getMapNumber()), 2));
 
 									Bukkit.getScheduler().runTaskLater(Duels.getInstance(), new Runnable()
 									{
@@ -271,16 +327,18 @@ public class DuelCommands implements CommandExecutor
 										}
 									}, 5);
 
-									player.sendMessage(ChatColor.GREEN + "You are now in a duel against "
-											+ requester.getName() + " with a bet of " + betAmount.get(requester) + "!");
+									player.sendMessage(
+											ChatColor.GREEN + "You are now in a duel against " + requester.getName()
+													+ " with a bet of " + betAmount.get(requester) + "!");
 
-									Bukkit.getServer().broadcastMessage(ChatColor.GREEN + player.getName()
-											+ " is now in a duel with " + requester.getName() + "!");
+									Bukkit.getServer().broadcastMessage(
+											ChatColor.GREEN + player.getName() + " is now in a duel with "
+													+ requester.getName() + "!");
 
 									betAmount.put(player, betAmount.get(requester));
 									player.getActivePotionEffects().clear();
 									requester.getActivePotionEffects().clear();
-								
+
 								} else
 								{
 									player.sendMessage(ChatColor.RED + "You haven't been invited!");
@@ -362,11 +420,12 @@ public class DuelCommands implements CommandExecutor
 							}
 						} else
 						{
-							player.sendMessage(ChatColor.RED + "That bet is too much! " + argPlayer.getName()
-									+ " only has " + ChatColor.GREEN
-									+ statsConfig.getInt(argPlayer.getUniqueId() + ".gems") + ChatColor.RED + " gems! "
-									+ "And you have " + ChatColor.GREEN
-									+ statsConfig.getInt(player.getUniqueId() + ".gems") + ChatColor.RED + " gems!");
+							player.sendMessage(
+									ChatColor.RED + "That bet is too much! " + argPlayer.getName() + " only has "
+											+ ChatColor.GREEN + statsConfig.getInt(argPlayer.getUniqueId() + ".gems")
+											+ ChatColor.RED + " gems! " + "And you have " + ChatColor.GREEN
+											+ statsConfig.getInt(player.getUniqueId() + ".gems") + ChatColor.RED
+											+ " gems!");
 
 							player.playSound(player, Sound.ENTITY_GHAST_DEATH, 1, 1);
 							return true;
@@ -380,11 +439,79 @@ public class DuelCommands implements CommandExecutor
 				}
 			}
 			return true;
-		} else
+		} else if(args[0].equalsIgnoreCase("kit"))
 		{
-			System.out.println("Be a player OKAY!");
+			if(args[1].equalsIgnoreCase("set"))
+			{
+
+				if(args.length < 3)
+				{
+					sender.sendMessage(ChatColor.GRAY + "Usage: /duel kit set [kitName]");
+					return true;
+				} else if(args.length == 3)
+				{
+					String kitName = args[2];
+					Player player = Bukkit.getPlayer(kitName);
+					ConfigManager.setDuelKit(player, kitName);
+					player.sendMessage(
+							ChatColor.GREEN + "Successfully set " + ChatColor.RESET + kitName + ChatColor.GREEN
+									+ " to your current inventory");
+					return true;
+
+				} else
+				{
+					sender.sendMessage(ChatColor.GRAY + "Usage: /duel kit set [kitName]");
+					return true;
+				}
+			}
 		}
 		return true;
 	}
 
+	public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args)
+	{
+		List<String> completions = new ArrayList<>();
+
+		if(sender.hasPermission("rhysduels"))
+		{
+			if(args.length == 1)
+			{
+				if("kit".startsWith(args[0].toLowerCase()))
+				{
+					completions.add("kit");
+				}
+			} else if(args.length == 2 && args[0].equalsIgnoreCase("kit"))
+			{
+				String[] subCommands = { "set", "get", "list", "remove" };
+				for(String sub : subCommands)
+				{
+					if(sub.startsWith(args[1].toLowerCase()))
+					{
+						completions.add(sub);
+					}
+				}
+			} else if(args.length == 3 && args[0].equalsIgnoreCase("kit"))
+			{
+				if(args[1].equalsIgnoreCase("get") || args[1].equalsIgnoreCase("remove"))
+				{
+					// Suggest available kits
+					for(String kit : ConfigManager.getKitList())
+					{
+						if(kit.toLowerCase().startsWith(args[2].toLowerCase()))
+						{
+							completions.add(kit);
+						}
+					}
+				} else if(args[1].equalsIgnoreCase("set"))
+				{
+					// For set command, no specific suggestions - just return empty list
+					return completions;
+				}
+			}
+		}
+
+		return completions;
+	}
 }
+
+

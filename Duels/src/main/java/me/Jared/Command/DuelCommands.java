@@ -232,7 +232,7 @@ public class DuelCommands implements CommandExecutor
 									requester.getInventory().clear();
 									requester.getActivePotionEffects().clear();
 									requester.setHealth(20);
-									
+
 									KitManager.diamondKit(player);
 									KitManager.diamondKit(requester);
 
@@ -264,7 +264,7 @@ public class DuelCommands implements CommandExecutor
 									betAmount.put(player, betAmount.get(requester));
 									player.getActivePotionEffects().clear();
 									requester.getActivePotionEffects().clear();
-								
+
 								} else
 								{
 									player.sendMessage(ChatColor.RED + "You haven't been invited!");

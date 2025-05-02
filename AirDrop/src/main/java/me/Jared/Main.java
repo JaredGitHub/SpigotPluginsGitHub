@@ -30,7 +30,7 @@ public final class Main extends JavaPlugin
 		//If config doesn't contain interval give it interval of 5 minutes 300 seconds
 		if(!(this.getConfig().contains("interval")))
 		{
-			getConfig().set("interval", 300);
+			getConfig().set("interval", 900);
 		}
 
 		//Looping through each of the chests that may or may not be placed and removing them
@@ -38,13 +38,15 @@ public final class Main extends JavaPlugin
 		if(this.getConfig().contains("airdrops"))
 		{
 			ConfigurationSection airdropsSection = this.getConfig().getConfigurationSection("airdrops");
-			for (String key : airdropsSection.getKeys(false)) {
+			for(String key : airdropsSection.getKeys(false))
+			{
 				double x = airdropsSection.getDouble(key + ".x");
 				double y = airdropsSection.getDouble(key + ".y");
 				double z = airdropsSection.getDouble(key + ".z");
 
 				World world = Bukkit.getWorld("warz"); // Replace with your world name or reference
-				if (world != null) {
+				if(world != null)
+				{
 					Location airdropLocation = new Location(world, x, y, z);
 					airdropLocation.getBlock().setType(Material.AIR);
 				}
@@ -84,7 +86,10 @@ public final class Main extends JavaPlugin
 				}
 			} else
 			{
-				if(player.getWorld().equals(Bukkit.getWorld("warz")))
+				if(!(player.hasPermission("airdrop.use") || player.isOp() || player.hasPermission("airdrop.*")))
+				{
+					return true;
+				} else if(player.getWorld().equals(Bukkit.getWorld("warz")))
 				{
 					player.sendMessage(ChatColor.GREEN + "You have placed a new drop on your location!");
 

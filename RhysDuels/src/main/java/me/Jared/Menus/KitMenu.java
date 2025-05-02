@@ -3,24 +3,31 @@ package me.Jared.Menus;
 import me.Jared.Command.DuelCommands;
 import me.Jared.DuelMenuSystem.DuelsMenu;
 import me.Jared.DuelMenuSystem.PlayerMenuUtility;
+import me.Jared.Duels;
 import me.Jared.Manager.ConfigManager;
-import me.Jared.Manager.KitManager;
 import net.md_5.bungee.api.chat.ClickEvent;
 import net.md_5.bungee.api.chat.HoverEvent;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.chat.hover.content.Text;
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.Sound;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class ArmorMenu extends DuelsMenu
+import java.util.ArrayList;
+import java.util.UUID;
+
+import static me.Jared.Manager.ConfigManager.iconCreate;
+
+public class KitMenu extends DuelsMenu
 {
 	protected PlayerMenuUtility playerMenuUtility;
 
-	public ArmorMenu(PlayerMenuUtility playerMenuUtility)
+	public KitMenu(PlayerMenuUtility playerMenuUtility)
 	{
 		super(playerMenuUtility);
 
@@ -29,7 +36,7 @@ public class ArmorMenu extends DuelsMenu
 	@Override
 	public String getMenuName()
 	{
-		return "Choose your armor!";
+		return "Choose your kit!";
 	}
 
 	@Override
@@ -44,35 +51,16 @@ public class ArmorMenu extends DuelsMenu
 		return armorNumber;
 	}
 
+	FileConfiguration config = Duels.getInstance().getConfig();
+
 	@Override
 	public void handleMenu(InventoryClickEvent e)
 	{
 
 		Player player = (Player) e.getWhoClicked();
 		String mapName = ConfigManager.getMaps().get(MapMenu.getMapNumber());
-		String kit = "Chainmail";
-		switch(e.getSlot())
-		{
-		case 3:
-			//Chainmail armor
-			armorNumber = 1;
-			kit = "Chainmail";
-			break;
-		case 4:
-			//Iron armor
-			armorNumber = 2;
-			kit = "Iron";
-			break;
-		case 5:
-			//Diamond armor
-			armorNumber = 3;
-			kit = "Diamond";
-			break;
-
-		default:
-			break;
-		}
-
+		String kit = e.getCurrentItem().getItemMeta().getDisplayName();
+		armorNumber = e.getSlot();
 
 
 		TextComponent text = new TextComponent(ChatColor.GREEN + player.getName() + " is inviting you to a duel in map " + ChatColor.WHITE + "'" + mapName + "'" + ChatColor.GREEN + " with a kit of " + kit + " and a bet of " + DuelCommands.betAmount.get(player));
@@ -103,8 +91,24 @@ public class ArmorMenu extends DuelsMenu
 	@Override
 	public void setMenuItems()
 	{
-		ConfigManager.iconCreate(new ItemStack(Material.CHAINMAIL_CHESTPLATE), ChatColor.GRAY + "Chain", inventory, 3);
-		ConfigManager.iconCreate(new ItemStack(Material.IRON_CHESTPLATE), ChatColor.WHITE + "Iron", inventory, 4);
-		ConfigManager.iconCreate(new ItemStack(Material.DIAMOND_CHESTPLATE), ChatColor.BLUE + "Diamond", inventory, 5);
+		ArrayList<String> kitNames = new ArrayList<String>(config.getStringList("kits"));
+
+		int i = 0;
+		for(String kitName : kitNames)
+		{
+			if(kitName.contains("-"))
+			{
+				UUID uuid = UUID.fromString(kitName);
+				Player player = Bukkit.getPlayer(uuid);
+				assert player != null;
+				iconCreate(new ItemStack(Material.DIAMOND_SWORD), player.getName() + "'s kit", inventory, i);
+			}
+			else
+			{
+				iconCreate(new ItemStack(Material.DIAMOND_SWORD), kitName, inventory, i);
+			}
+
+			i++;
+		}
 	}
 }

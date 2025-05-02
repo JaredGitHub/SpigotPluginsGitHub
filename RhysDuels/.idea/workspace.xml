@@ -10,90 +10,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c96e5c38-9280-4bae-90c5-b06b52832a2f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Duels/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Duels/.idea/artifacts/Duels_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Duels/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Duels/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Duels/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Duels/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Duels/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Duels/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Duels/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Duels/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Kits/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Kits/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Kits/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Kits/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Kits/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Kits/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Kits/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Kits/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Kits/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/RhysDuels_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RhysDuels.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Manager/ConfigItem.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Manager/KitManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Menus/ArmorMenu.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/Duels.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/Duels.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/config.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/plugin.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/Command/DuelCommands.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/DuelMenuSystem/DuelsMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/DuelMenuSystem/PlayerMenuUtility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/Duels.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/Listeners/DuelListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/Manager/ConfigManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/Menus/MapMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/Menus/PlayerListMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/src/me/Jared/PlaceHolders/DuelsExpansion.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Event/.idea/material_theme_project_new.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Event/.idea/material_theme_project_new.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/Kits.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Kits/Kits.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/Commands.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/ConfigItem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/EventListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Kits/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Managers/KitManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/MenuSystem/KitsMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/MenuSystem/PlayerMenuUtility.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Menus/ItemSelectionMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Menus/ItemSelectionMenu2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Menus/SelectKitMenu$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Menus/SelectKitMenu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Util/Cooldown.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/bin/me/Jared/Util/CustomConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/plugin.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Kits/Commands.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Kits/ConfigItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Kits/EventListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Kits/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Managers/KitManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/MenuSystem/KitsMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/MenuSystem/PlayerMenuUtility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Menus/ItemSelectionMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Menus/ItemSelectionMenu2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Menus/SelectKitMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Util/Cooldown.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Kits/src/me/Jared/Util/CustomConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Warz/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Warz/src/me/Jared/Zombies/ZombieUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/src/me/Jared/Zombies/ZombieUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Warz/src/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/src/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Menus/CustomKit/ChooseArmor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Menus/CustomKit/ChooseFood.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Menus/CustomKit/ChooseFoodOrWeapon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Menus/CustomKit/ChooseMisc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Menus/CustomKit/ChooseWeapon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../AirDrop/src/main/java/me/Jared/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AirDrop/src/main/java/me/Jared/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/.idea/artifacts/Duels_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/.idea/artifacts/Duels_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/src/main/java/me/Jared/Command/DuelCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/src/main/java/me/Jared/Command/DuelCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/src/main/java/me/Jared/Duels.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/src/main/java/me/Jared/Duels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/target/classes/me/Jared/Duels.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/target/classes/me/Jared/Duels.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Duels/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/target/classes/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event/src/main/java/me/Jared/Commands/EventCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Event/src/main/java/me/Jared/Commands/EventCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Event/target/classes/me/Jared/Commands/EventCommands.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Event/target/classes/me/Jared/Commands/EventCommands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MiniGame/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MiniGame/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Command/DuelCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Command/DuelCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Duels.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Duels.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Listeners/DuelListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Listeners/DuelListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Manager/ConfigItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Manager/ConfigItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Manager/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Manager/ConfigManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Menus/ArmorMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Menus/KitMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Menus/MapMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Menus/MapMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Menus/PlayerListMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Menus/PlayerListMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/resources/plugin.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Command/DuelCommands$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Command/DuelCommands$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Command/DuelCommands.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Command/DuelCommands.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Duels.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Duels.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Listeners/DuelListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Listeners/DuelListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Manager/ConfigItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Manager/ConfigItem.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Manager/ConfigManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Manager/ConfigManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Manager/KitManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Manager/KitManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Menus/ArmorMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Menus/MapMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Menus/MapMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Menus/PlayerListMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Menus/PlayerListMenu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,25 +83,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.21724138",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.21724138&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -166,6 +119,8 @@
       <updated>1745942910012</updated>
       <workItem from="1745942911163" duration="145000" />
       <workItem from="1745943129577" duration="9241000" />
+      <workItem from="1746118685811" duration="21249000" />
+      <workItem from="1746152279134" duration="597000" />
     </task>
     <servers />
   </component>

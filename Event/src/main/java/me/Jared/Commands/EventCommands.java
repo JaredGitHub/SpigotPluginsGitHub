@@ -42,6 +42,7 @@ public class EventCommands implements CommandExecutor, TabCompleter
 				Player player = (Player) sender;
 				if(player.hasPermission("event"))
 				{
+					list.add("start");
 					list.add("setlobby");
 					list.add("set");
 					list.add("setcountdown");

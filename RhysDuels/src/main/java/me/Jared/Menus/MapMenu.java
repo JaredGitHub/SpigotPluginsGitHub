@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.Sound;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -16,11 +15,6 @@ import me.Jared.Duels;
 import me.Jared.Command.DuelCommands;
 import me.Jared.DuelMenuSystem.DuelsMenu;
 import me.Jared.DuelMenuSystem.PlayerMenuUtility;
-import net.md_5.bungee.api.chat.ClickEvent;
-import net.md_5.bungee.api.chat.HoverEvent;
-import net.md_5.bungee.api.chat.HoverEvent.Action;
-import net.md_5.bungee.api.chat.TextComponent;
-import net.md_5.bungee.api.chat.hover.content.Text;
 
 public class MapMenu extends DuelsMenu
 {
@@ -67,7 +61,7 @@ public class MapMenu extends DuelsMenu
 
 		String itemName = e.getCurrentItem().getItemMeta().getDisplayName();
 
-		if(config.getStringList("maps").size() == 0)
+		if(config.getStringList("maps").isEmpty())
 		{
 			p.sendMessage(ChatColor.RED + "There are no maps yet, add one with /duel set [mapName] [1 or 2]");
 		}
@@ -79,7 +73,7 @@ public class MapMenu extends DuelsMenu
 				playersToDuel.add(DuelCommands.duelPlayer);
 				playersInDuel.add(p);
 
-				ArmorMenu menu = new ArmorMenu(Duels.getPlayerMenuUtility(p));
+				KitMenu menu = new KitMenu(Duels.getPlayerMenuUtility(p));
 				menu.open();
 				
 				mapNumber = config.getStringList("maps").indexOf(mapName);

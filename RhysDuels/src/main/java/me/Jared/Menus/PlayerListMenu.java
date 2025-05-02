@@ -1,5 +1,9 @@
 package me.Jared.Menus;
 
+import me.Jared.Duels;
+import me.Jared.Menus.CustomKit.ChooseArmor;
+import me.Jared.Menus.CustomKit.ChooseFoodOrWeapon;
+import me.Jared.Menus.CustomKit.ChooseMisc;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -40,6 +44,12 @@ public class PlayerListMenu extends DuelsMenu
 	{
 		Player player = (Player) e.getWhoClicked();
 
+		if(e.getSlot() == 30)new ChooseArmor(Duels.getPlayerMenuUtility(player)).open();
+		if(e.getSlot() == 31)new ChooseFoodOrWeapon(Duels.getPlayerMenuUtility(player)).open();
+		if(e.getSlot() == 32)new ChooseMisc(Duels.getPlayerMenuUtility(player)).open();
+		if(e.getSlot() == 33) ConfigManager.clearKit(player);
+
+
 		for(int i = 0; i < 27; i++)
 		{
 			if(e.getSlot() == i)
@@ -59,6 +69,18 @@ public class PlayerListMenu extends DuelsMenu
 	{
 		ConfigManager.iconCreate(new ItemStack(Material.ARROW), ChatColor.GRAY + "Back", inventory, 27);
 		ConfigManager.iconCreate(new ItemStack(Material.ARROW), ChatColor.GRAY + "Next", inventory, 35);
+
+		//Customize different parts of your kit
+		//Armor
+		ConfigManager.iconCreate(new ItemStack(Material.NETHERITE_CHESTPLATE), ChatColor.GOLD + "Customize Armor", inventory, 30);
+		//Hotbar
+		ConfigManager.iconCreate(new ItemStack(Material.STICK), ChatColor.GOLD + "Customize Hotbar", inventory, 31);
+		//Inventory
+		ConfigManager.iconCreate(new ItemStack(Material.STONE), ChatColor.GOLD + "Customize Inventory", inventory, 32);
+		//Clear kit
+		ConfigManager.iconCreate(new ItemStack(Material.BARRIER), ChatColor.RED + "Clear Kit!", inventory, 33);
+
+		//Inventory
 
 		if(Bukkit.getOnlinePlayers().size() <= 1)
 		{

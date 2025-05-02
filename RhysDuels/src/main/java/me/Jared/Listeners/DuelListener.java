@@ -90,6 +90,7 @@ public class DuelListener implements Listener
 					"removegems " + player.getName() + " " + DuelCommands.betAmount.get(player.getKiller()));
 
 			player.getKiller().teleport(player.getWorld().getSpawnLocation());
+			player.getKiller().getInventory().clear();
 		}
 		MapMenu.playersInDuel.remove(player.getKiller());
 		MapMenu.playersInDuel.remove(player);
@@ -133,18 +134,16 @@ public class DuelListener implements Listener
 				DuelCommands.betAmount.remove(dueler);
 				MapMenu.playersInDuel.remove(player);
 				DuelCommands.betAmount.remove(player);
-				return;
 			}
 			else if(inBoundsMinusOne)
 			{
 				Player dueler = MapMenu.playersInDuel.get(indexMinusOne);
 				dueler.teleport(dueler.getWorld().getSpawnLocation());
-				dueler.getInventory().clear();
+				dueler.setHealth(0);
 				MapMenu.playersInDuel.remove(dueler);
 				DuelCommands.betAmount.remove(dueler);
 				MapMenu.playersInDuel.remove(player);
 				DuelCommands.betAmount.remove(player);
-				return;
 			}
 		}
 	}

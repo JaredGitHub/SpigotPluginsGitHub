@@ -21,7 +21,7 @@ public class Duels extends JavaPlugin
 	{
 		instance = this;
 		
-		Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Duels plugin is here now!");
+		Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "RhysDuels plugin is here now!");
 		
 		getConfig().options().copyDefaults(true);
 		saveDefaultConfig();
@@ -35,7 +35,7 @@ public class Duels extends JavaPlugin
 	@Override
 	public void onDisable()
 	{
-		Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "Duels plugin is gone now!");
+		Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.RED + "RhysDuels plugin is gone now!");
 	}
 
 	public static Duels getInstance()

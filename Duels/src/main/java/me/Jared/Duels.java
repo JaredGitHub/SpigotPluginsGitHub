@@ -12,28 +12,29 @@ import me.Jared.DuelMenuSystem.PlayerMenuUtility;
 import me.Jared.Listeners.DuelListener;
 import me.Jared.Manager.ConfigManager;
 import me.Jared.PlaceHolders.DuelsExpansion;
+import org.bukkit.scheduler.BukkitRunnable;
 
 public class Duels extends JavaPlugin
 {
 	private static Duels instance;
-	
+
 	@Override
 	public void onEnable()
 	{
 		instance = this;
-		
+
 		Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Duels plugin is here now!");
-		
+
 		getConfig().options().copyDefaults(true);
 		saveDefaultConfig();
 		ConfigManager.setupConfig(this);
-		
+
 		Bukkit.getServer().getPluginManager().registerEvents(new DuelListener(), instance);
 		this.getCommand("duel").setExecutor(new DuelCommands());
-		
+
 		new DuelsExpansion().register();
 	}
-	
+
 	@Override
 	public void onDisable()
 	{
@@ -44,22 +45,21 @@ public class Duels extends JavaPlugin
 	{
 		return instance;
 	}
-	
+
 	private static final HashMap<Player, PlayerMenuUtility> playerMenuUtilityMap = new HashMap<>();
 
 	public static PlayerMenuUtility getPlayerMenuUtility(Player p)
 	{
 		PlayerMenuUtility playerMenuUtility;
-		
+
 		if(playerMenuUtilityMap.containsKey(p))
 		{
 			return playerMenuUtilityMap.get(p);
-		}
-		else
+		} else
 		{
 			playerMenuUtility = new PlayerMenuUtility(p);
 			playerMenuUtilityMap.put(p, playerMenuUtility);
-			
+
 			return playerMenuUtility;
 		}
 	}

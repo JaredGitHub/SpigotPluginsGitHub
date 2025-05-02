@@ -1,21 +1,18 @@
 package me.Jared.Manager;
 
 import me.Jared.Duels;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class ConfigItem
 {
-	private Duels main = Duels.getPlugin(Duels.class);
-	FileConfiguration config = main.getConfig();
 
-	private String getItemDataIndex(String string, int num)
+	private static String getItemDataIndex(String string, int num)
 	{
 		StringBuilder stringBuilder = new StringBuilder();
-
 		int count = 0;
 		for(int i = 0; i < string.length(); i++)
 		{
@@ -30,101 +27,100 @@ public class ConfigItem
 				stringBuilder.append(string.charAt(i));
 			}
 		}
-
 		return stringBuilder.toString();
 	}
 
-	public ItemStack stringToItemStack(String string)
+	public static ItemStack stringToItemStack(String string)
 	{
-		//Getting each of the pieces of item data from the string
+		// Getting each of the pieces of item data from the string
 		Material material = getMaterial(string);
-		if(material == null) return new ItemStack(Material.AIR);
+		if(material == null)
+			return new ItemStack(Material.AIR);
+
 		String displayName = getDisplayName(string);
 		int amount = getAmount(string);
 		int durability = getDurability(string);
 
-
-		//Setting the material and the amount
-		ItemStack item = new ItemStack(material,amount);
-
+		// Setting the material and the amount
+		ItemStack item = new ItemStack(material, amount);
 		ItemMeta meta = item.getItemMeta();
 
-		//Setting displayname
+		// Apply color codes to display name
+		displayName = ChatColor.translateAlternateColorCodes('&', displayName);
 		meta.setDisplayName(displayName);
 		item.setItemMeta(meta);
 
-		//Setting durability
-		Damageable damage = (Damageable) item.getItemMeta();
-		damage.setDamage(durability);
+		// Setting durability
+		ItemMeta updatedMeta = item.getItemMeta();
+		if(updatedMeta instanceof Damageable)
+		{
+			((Damageable) updatedMeta).setDamage(durability);
+			item.setItemMeta(updatedMeta);
+		}
 
 		return item;
-
 	}
 
-	String toTitleCase(String phrase)
+	private static String toTitleCase(String phrase)
 	{
-		StringBuilder sb= new StringBuilder(phrase);
-		for (int i=0; i<phrase.length(); i++) {
-			if(i==0 || phrase.charAt(i-1)==' ') {
-				sb.replace(i,i+1,phrase.substring(i,i+1).toUpperCase());
+		StringBuilder sb = new StringBuilder(phrase);
+		for(int i = 0; i < phrase.length(); i++)
+		{
+			if(i == 0 || phrase.charAt(i - 1) == ' ')
+			{
+				sb.replace(i, i + 1, phrase.substring(i, i + 1).toUpperCase());
 			}
 		}
 		return sb.toString();
 	}
 
-	public String itemStackToString(ItemStack item)
+	public static String itemStackToString(ItemStack item)
 	{
+		if(item == null || item.getType() == Material.AIR)
+			return null;
+
 		String material = item.getType().name();
 		int amount = item.getAmount();
-		Damageable damage = (Damageable) item.getItemMeta();
-		int durability = damage.getDamage();
 
-		String displayName = "";
-		if(item.hasItemMeta())
+		int durability = 0;
+		ItemMeta meta = item.getItemMeta();
+		if(meta instanceof Damageable)
 		{
-			displayName = item.getItemMeta().getDisplayName();
+			durability = ((Damageable) meta).getDamage();
 		}
-		else
+
+		String displayName;
+		if(meta != null && meta.hasDisplayName())
 		{
-			displayName = material.replaceAll("_", " ");
-			displayName = displayName.toLowerCase();
+			displayName = meta.getDisplayName();
+		} else
+		{
+			displayName = material.replaceAll("_", " ").toLowerCase();
 			displayName = toTitleCase(displayName);
 		}
 
-		StringBuilder stringBuilder = new StringBuilder();
+		// Replace § with & for serialization
+		displayName = displayName.replace("§", "&");
 
-		stringBuilder.append(material + ":");
-		stringBuilder.append(displayName + ":");
-		stringBuilder.append(amount + ":");
-		stringBuilder.append(durability + ":");
-
-		for(int i = 0; i < material.length(); i++)
-		{
-			char charAt = material.charAt(i);
-			if(charAt == ':')
-			{
-				break;
-			}
-		}
-		return stringBuilder.toString();
+		return material + ":" + displayName + ":" + amount + ":" + durability + ":";
 	}
 
-	public Material getMaterial(String string)
+	public static Material getMaterial(String string)
 	{
 		return Material.getMaterial(getItemDataIndex(string, 0));
 	}
 
-	public String getDisplayName(String string)
+	public static String getDisplayName(String string)
 	{
 		return getItemDataIndex(string, 1);
 	}
 
-	public int getAmount(String string)
+	public static int getAmount(String string)
 	{
 		return Integer.parseInt(getItemDataIndex(string, 2));
 	}
 
-	public short getDurability(String string)
+	public static short getDurability(String string)
 	{
 		return Short.parseShort(getItemDataIndex(string, 3));
 	}

@@ -33,7 +33,7 @@ public class AirDrop
 						ChatColor.GREEN + "There is an air drop at X: " + ChatColor.GRAY + (int) randomLocation.getX()
 								+ ChatColor.GREEN + " Y: " + ChatColor.GRAY + (int) randomLocation.getY()
 								+ ChatColor.GREEN + " Z: " + ChatColor.GRAY + (int) randomLocation.getZ()
-								+ ChatColor.GREEN + " you only have 2 minutes!");
+								+ ChatColor.GREEN + " you only have 15 minutes!");
 				player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1, 1);
 			}
 		}
@@ -57,7 +57,7 @@ public class AirDrop
 			@Override
 			public void run()
 			{
-				int totalDurationTicks = 20 * 120; // 1200 ticks = 1 minute
+				int totalDurationTicks = 20 * 300; // 6000 ticks = 5 minutes
 				int remainingSeconds = (totalDurationTicks - ticksElapsed) / 20;
 
 				if(ticksElapsed >= totalDurationTicks)
