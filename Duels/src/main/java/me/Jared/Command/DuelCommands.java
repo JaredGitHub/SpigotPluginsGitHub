@@ -239,9 +239,11 @@ public class DuelCommands implements CommandExecutor
 									// start the game
 									player.teleport(ConfigManager
 											.getMapLocation(ConfigManager.getMaps().get(MapMenu.getMapNumber()), 1));
-									requester.teleport(ConfigManager
-											.getMapLocation(ConfigManager.getMaps().get(MapMenu.getMapNumber()), 2));
 
+									//Sneak the requester so that if they are flying with a chicken they stop and they can actualy teleport
+									requester.setSneaking(true);
+
+									//TEleport the requester after 5 ticks and kill all ground items and boostpads and landmines and walls
 									Bukkit.getScheduler().runTaskLater(Duels.getInstance(), new Runnable()
 									{
 
@@ -252,6 +254,9 @@ public class DuelCommands implements CommandExecutor
 											Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "boostpad clear");
 											Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "landmines clear");
 											Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "web clear");
+											requester.teleport(ConfigManager
+													.getMapLocation(ConfigManager.getMaps().get(MapMenu.getMapNumber()), 2));
+
 										}
 									}, 5);
 
