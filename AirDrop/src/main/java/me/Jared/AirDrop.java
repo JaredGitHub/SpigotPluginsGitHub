@@ -33,7 +33,7 @@ public class AirDrop
 						ChatColor.GREEN + "There is an air drop at X: " + ChatColor.GRAY + (int) randomLocation.getX()
 								+ ChatColor.GREEN + " Y: " + ChatColor.GRAY + (int) randomLocation.getY()
 								+ ChatColor.GREEN + " Z: " + ChatColor.GRAY + (int) randomLocation.getZ()
-								+ ChatColor.GREEN + " you only have 15 minutes!");
+								+ ChatColor.GREEN + " you only have 5 minutes!");
 				player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1, 1);
 			}
 		}

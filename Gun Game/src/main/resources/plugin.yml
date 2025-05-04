@@ -1,0 +1,11 @@
+name: GunGame
+main: me.Jared.GunGame
+version: 0.1
+depend: [PlaceholderAPI]
+commands:
+  gungame:
+    description: GunGame command!!
+    usage: "/<command> [join|leave]"
+  gg:
+    description: GunGame command!!
+    usage: "/<command> [join|leave]}"

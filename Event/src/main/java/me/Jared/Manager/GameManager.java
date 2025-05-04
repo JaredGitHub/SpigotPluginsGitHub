@@ -42,6 +42,7 @@ public class GameManager
 
 		case RECRUITING:
 
+			ConfigManager.clearTeams();
 			playerManager.teleportPlayers(ConfigManager.getLobbySpawn());
 
 			for(Player player : Bukkit.getOnlinePlayers())
