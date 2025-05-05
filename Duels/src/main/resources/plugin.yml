@@ -2,6 +2,7 @@ name: Duels
 main: me.Jared.Duels
 version: 0.1
 depend: [PlaceholderAPI]
+api-version: 1.20
 commands:
   duel:
     description: Duels command!!

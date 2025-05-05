@@ -30,38 +30,38 @@ public class DuelListener implements Listener
 	{
 		Player player = e.getEntity();
 
-		if(MapMenu.playersInDuel.contains(player) || DuelCommands.betAmount.containsKey(player))
+		if(DuelCommands.playersInDuel.contains(player) || DuelCommands.betAmount.containsKey(player))
 		{
 			if(player.getKiller() == null)
 			{
-				int indexMinusOne = (MapMenu.playersInDuel.indexOf(player) - 1);
-				int indexPlusOne = (MapMenu.playersInDuel.indexOf(player) + 1);
+				int indexMinusOne = (DuelCommands.playersInDuel.indexOf(player) - 1);
+				int indexPlusOne = (DuelCommands.playersInDuel.indexOf(player) + 1);
 
 				boolean inBoundsMinusOne = (indexMinusOne >= 0) 
-						&& (indexMinusOne < MapMenu.playersInDuel.size());
+						&& (indexMinusOne < DuelCommands.playersInDuel.size());
 
 				boolean inBoundsPlusOne = (indexPlusOne >= 0) 
-						&& (indexPlusOne < MapMenu.playersInDuel.size());
+						&& (indexPlusOne < DuelCommands.playersInDuel.size());
 
 				if(inBoundsPlusOne)
 				{
-					Player dueler = MapMenu.playersInDuel.get(indexPlusOne);
+					Player dueler = DuelCommands.playersInDuel.get(indexPlusOne);
 					dueler.teleport(dueler.getWorld().getSpawnLocation());
 					dueler.getInventory().clear();
-					MapMenu.playersInDuel.remove(dueler);
+					DuelCommands.playersInDuel.remove(dueler);
 					DuelCommands.betAmount.remove(dueler);
-					MapMenu.playersInDuel.remove(player);
+					DuelCommands.playersInDuel.remove(player);
 					DuelCommands.betAmount.remove(player);
 					return;
 				}
 				else if(inBoundsMinusOne)
 				{
-					Player dueler = MapMenu.playersInDuel.get(indexMinusOne);
+					Player dueler = DuelCommands.playersInDuel.get(indexMinusOne);
 					dueler.teleport(dueler.getWorld().getSpawnLocation());
 					dueler.getInventory().clear();
-					MapMenu.playersInDuel.remove(dueler);
+					DuelCommands.playersInDuel.remove(dueler);
 					DuelCommands.betAmount.remove(dueler);
-					MapMenu.playersInDuel.remove(player);
+					DuelCommands.playersInDuel.remove(player);
 					DuelCommands.betAmount.remove(player);
 					return;
 				}
@@ -91,10 +91,12 @@ public class DuelListener implements Listener
 
 			player.getKiller().teleport(player.getWorld().getSpawnLocation());
 		}
-		MapMenu.playersInDuel.remove(player.getKiller());
-		MapMenu.playersInDuel.remove(player);
+		DuelCommands.playersInDuel.remove(player.getKiller());
+		DuelCommands.playersInDuel.remove(player);
 		DuelCommands.betAmount.remove(player);
 		DuelCommands.betAmount.remove(player.getKiller());
+		DuelCommands.mapNumber.remove(player);
+		DuelCommands.mapNumber.remove(player.getKiller());
 	}
 
 	private TextComponent clickableText(String chatText, String hoverText)
@@ -113,36 +115,36 @@ public class DuelListener implements Listener
 	{
 		Player player = e.getPlayer();
 
-		if((MapMenu.playersInDuel.contains(player)) || DuelCommands.betAmount.containsKey(player))
+		if((DuelCommands.playersInDuel.contains(player)) || DuelCommands.betAmount.containsKey(player))
 		{
-			int indexMinusOne = (MapMenu.playersInDuel.indexOf(player) -1);
-			int indexPlusOne = (MapMenu.playersInDuel.indexOf(player) +1);
+			int indexMinusOne = (DuelCommands.playersInDuel.indexOf(player) -1);
+			int indexPlusOne = (DuelCommands.playersInDuel.indexOf(player) +1);
 
 			boolean inBoundsMinusOne = (indexMinusOne >= 0) 
-					&& (indexMinusOne < MapMenu.playersInDuel.size());
+					&& (indexMinusOne < DuelCommands.playersInDuel.size());
 
 			boolean inBoundsPlusOne = (indexPlusOne >= 0) 
-					&& (indexPlusOne < MapMenu.playersInDuel.size());
+					&& (indexPlusOne < DuelCommands.playersInDuel.size());
 
 			if(inBoundsPlusOne)
 			{
-				Player dueler = MapMenu.playersInDuel.get(indexPlusOne);
+				Player dueler = DuelCommands.playersInDuel.get(indexPlusOne);
 				dueler.teleport(dueler.getWorld().getSpawnLocation());
 				dueler.getInventory().clear();
-				MapMenu.playersInDuel.remove(dueler);
+				DuelCommands.playersInDuel.remove(dueler);
 				DuelCommands.betAmount.remove(dueler);
-				MapMenu.playersInDuel.remove(player);
+				DuelCommands.playersInDuel.remove(player);
 				DuelCommands.betAmount.remove(player);
 				return;
 			}
 			else if(inBoundsMinusOne)
 			{
-				Player dueler = MapMenu.playersInDuel.get(indexMinusOne);
+				Player dueler = DuelCommands.playersInDuel.get(indexMinusOne);
 				dueler.teleport(dueler.getWorld().getSpawnLocation());
 				dueler.getInventory().clear();
-				MapMenu.playersInDuel.remove(dueler);
+				DuelCommands.playersInDuel.remove(dueler);
 				DuelCommands.betAmount.remove(dueler);
-				MapMenu.playersInDuel.remove(player);
+				DuelCommands.playersInDuel.remove(player);
 				DuelCommands.betAmount.remove(player);
 				return;
 			}
@@ -175,7 +177,7 @@ public class DuelListener implements Listener
 	public void onCommandEvent(PlayerCommandPreprocessEvent e)
 	{
 		Player player = e.getPlayer();
-		if(MapMenu.playersInDuel.contains(player) 
+		if(DuelCommands.playersInDuel.contains(player) 
 				|| DuelCommands.betAmount.containsKey(player))
 		{
 			if(!player.hasPermission("duels"))

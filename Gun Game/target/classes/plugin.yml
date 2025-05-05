@@ -2,6 +2,7 @@ name: GunGame
 main: me.Jared.GunGame
 version: 0.1
 depend: [PlaceholderAPI]
+api-version: 1.20
 commands:
   gungame:
     description: GunGame command!!
