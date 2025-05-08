@@ -1,0 +1,25 @@
+name: JaredPlugin
+main: me.Jared.Essentials.Main
+version: 1.0
+api-version: 1.21
+commands:
+ spawn:
+  description: Teleports player to spawn!
+ setspawn:
+  description: Sets spawn location to player's current location.
+ sudo:
+  description: Sudo player
+  usage: /<command>
+ tutorial:
+  description: Save your location to the tutorial area.
+  usage: /<command>
+ texture:
+  description: Gives you the texture pack
+ discord:
+  description: Gives you the discord
+ msg:
+  description: Message your friends!
+ tpa:
+  description: Send teleport request to your friend!
+ tpyes:
+  description: Accept teleport request

@@ -66,7 +66,7 @@ public class Bullet
 		Vector directionVector = owner.getPlayer().getLocation().getDirection().normalize();
 
 		// Apply backward offset first (this moves the location backward along the player's look direction)
-		loc.add(directionVector.multiply(-0.5));
+		loc.add(directionVector.multiply(-0.3));
 		switch(direction)
 		{
 		case "NORTH":

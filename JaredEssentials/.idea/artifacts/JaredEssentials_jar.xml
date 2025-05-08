@@ -2,8 +2,7 @@
   <artifact type="jar" name="JaredEssentials:jar">
     <output-path>$PROJECT_DIR$/../../../SERVER/plugins</output-path>
     <root id="archive" name="JaredEssentials.jar">
-      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
-      <element id="dir-copy" path="$PROJECT_DIR$/out/production/JaredEssentials" />
+      <element id="module-output" name="JaredEssentials" />
     </root>
   </artifact>
 </component>
