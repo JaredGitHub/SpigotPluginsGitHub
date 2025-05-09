@@ -106,6 +106,8 @@ public class WarzListener implements Listener
 				ConfigManager.clearPlayerData(player.getUniqueId().toString());
 			} else
 			{
+				//Remove them from list of players spectating if they are not in spectator mode anymore
+				playerSpectating.remove(player.getName());
 				//If the player is in any other gamemode besides spectator
 				// save them to the database for their location and inventory
 				ConfigManager.savePlayerWarzData(player, player.getLocation(), player.getInventory());
@@ -121,11 +123,11 @@ public class WarzListener implements Listener
 	{
 		Player player = e.getPlayer();
 
-		if(!deadPlayers.contains(player.getUniqueId()))
-		{
-			player.getInventory().clear();
-			ConfigManager.loadInventory(player, "world");
-		}
+		//Clearing inventory and setting level to 0 then loading the "world" inventory and telepoting them to spawn
+		player.getInventory().clear();
+		player.setLevel(0);
+		ConfigManager.loadInventory(player, "world");
+		player.teleport(Bukkit.getWorld("world").getSpawnLocation());
 	}
 
 	@EventHandler
@@ -162,6 +164,7 @@ public class WarzListener implements Listener
 					p.teleport(randomLocation);
 					deathLocation.remove(p.getUniqueId());
 					deadPlayers.remove(p.getUniqueId());
+					playerSpectating.remove(p.getName());
 
 				}, 100L);
 			}
@@ -175,6 +178,17 @@ public class WarzListener implements Listener
 
 		if(player.getWorld().equals(Bukkit.getWorld("warz")))
 		{
+			if(e.getMessage().equalsIgnoreCase("/spawn"))
+			{
+				if(player.getWorld().getName().equals("warz"))
+				{
+					player.sendTitle(ChatColor.YELLOW + "Teleporting to spawn...", "", 5, 5, 5);
+					ConfigManager.savePlayerWarzData(player,player.getLocation(), player.getInventory());
+					player.getInventory().clear();
+					ConfigManager.loadInventory(player, "world");
+				}
+			}
+
 			if(!player.hasPermission("jared"))
 			{
 				switch(e.getMessage())

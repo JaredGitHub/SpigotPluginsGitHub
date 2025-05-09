@@ -34,7 +34,7 @@ public class Stats extends JavaPlugin
 
 	private RankManager rankManager;
 	private NameTagManager nametagManager;
-	private StatScoreboard statScoreboard;
+	private me.Jared.StatScoreboard statScoreboard;
 
 	private static Stats stats;
 

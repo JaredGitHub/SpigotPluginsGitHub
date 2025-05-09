@@ -46,6 +46,7 @@ public class RankCommand implements CommandExecutor
 								
 								stats.getNametagManager().setNametags(target.getPlayer());
 								stats.getNametagManager().newTag(target.getPlayer());
+								stats.getRankManager().setRank(target.getPlayer().getUniqueId(), rank, true);
 							}
 							
 							return false;

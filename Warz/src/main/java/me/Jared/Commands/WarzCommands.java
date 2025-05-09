@@ -85,8 +85,8 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 				}
 				if(player.getWorld().equals(Bukkit.getWorld("world")))
 				{
-
 					WarzDataAccessObject.savePlayerWorldData(player);
+					player.getInventory().clear();
 					ConfigManager.setPlayerInWarz(player);
 
 				} else

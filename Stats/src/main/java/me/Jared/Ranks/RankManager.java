@@ -62,21 +62,39 @@ public class RankManager
 				perms.put(uuid, attachment);
 			}
 
-			for(String perm : getRank(uuid).getPermissions())
+			// Unset all possible rank permissions
+			for(Rank r : Rank.values())
 			{
-				if(player.hasPermission(perm))
+				for(String perm : r.getPermissions())
 				{
 					attachment.unsetPermission(perm);
 				}
 			}
 
+			// Add permissions for the new rank
+			if(rank == Rank.OWNER)
+			{
+				// OWNER gets permissions from all other ranks
+				for(Rank r : Rank.values())
+				{
+					if(r != Rank.OWNER)
+					{
+						for(String perm : r.getPermissions())
+						{
+							attachment.setPermission(perm, true);
+						}
+					}
+				}
+			}
+
+			// Always apply the base rank's permissions too
 			for(String perm : rank.getPermissions())
 			{
 				attachment.setPermission(perm, true);
 			}
-
 		}
 
+		// Save rank in config
 		config.set(uuid.toString(), rank.name());
 		try
 		{
@@ -86,12 +104,12 @@ public class RankManager
 			e.printStackTrace();
 		}
 
+		// Update nametag if player is online
 		if(Bukkit.getOfflinePlayer(uuid).isOnline())
 		{
 			Player player = Bukkit.getPlayer(uuid);
 			stats.getNametagManager().removeTag(player);
 			stats.getNametagManager().newTag(player);
-
 		}
 	}
 
@@ -104,11 +122,6 @@ public class RankManager
 		{
 			return Rank.DEFAULT;
 		}
-	}
-
-	public FileConfiguration getConfig()
-	{
-		return this.config;
 	}
 
 	public HashMap<UUID, PermissionAttachment> getPerms()

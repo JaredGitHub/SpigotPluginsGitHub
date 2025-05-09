@@ -2,8 +2,7 @@
   <artifact type="jar" name="Stats:jar">
     <output-path>$PROJECT_DIR$/../../../SERVER/plugins</output-path>
     <root id="archive" name="Stats.jar">
-      <element id="dir-copy" path="$PROJECT_DIR$/target/classes" />
-      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
+      <element id="module-output" name="Stats" />
     </root>
   </artifact>
 </component>

@@ -1,6 +1,5 @@
 package me.Jared.Essentials;
 
-import me.Jared.Loot.ConfigManager;
 import org.bukkit.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.EnderPearl;
@@ -38,8 +37,6 @@ import com.sk89q.worldguard.protection.regions.RegionContainer;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 
-import java.util.Random;
-
 public class Listener1 implements Listener
 {
 	FileConfiguration config = Main.getInstance().getConfig();
@@ -67,6 +64,7 @@ public class Listener1 implements Listener
 		}
 
 		Player p = e.getPlayer();
+		p.setLevel(0);
 		p.teleport(Bukkit.getWorld("world").getSpawnLocation());
 
 		if(!(p.hasPermission("jared")))
@@ -107,8 +105,8 @@ public class Listener1 implements Listener
 		}
 
 		Player p = e.getPlayer();
-
 		p.setLevel(0);
+
 		if(!(p.hasPermission("jared")))
 		{
 			e.setQuitMessage(ChatColor.GRAY + p.getName() + " has left!");
@@ -116,7 +114,6 @@ public class Listener1 implements Listener
 		{
 			e.setQuitMessage(ChatColor.GREEN + "" + ChatColor.BOLD + "SERVER OPERATOR HAS LEFT");
 		}
-
 	}
 
 	// Makes the chat look better

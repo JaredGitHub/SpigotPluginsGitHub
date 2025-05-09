@@ -18,8 +18,6 @@ import org.bukkit.potion.PotionEffect;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
-
 public class Main extends JavaPlugin implements Listener
 {
 	private HashMap<Player, Player> requesters;
@@ -53,8 +51,9 @@ public class Main extends JavaPlugin implements Listener
 
 		for(Player p : Bukkit.getOnlinePlayers())
 		{
-			PacketUtils.sendTabHF(p, ChatColor.GOLD + "JaredServer", ChatColor.GOLD + "store.jaredcoen.com\n"
-					+ ChatColor.GREEN + "Players Online: " + ChatColor.WHITE + Bukkit.getOnlinePlayers().size());
+			PacketUtils.sendTabHF(p, ChatColor.GOLD + "JaredServer",
+					ChatColor.GOLD + "store.jaredcoen.com\n" + ChatColor.GREEN + "Players Online: " + ChatColor.WHITE
+							+ Bukkit.getOnlinePlayers().size());
 		}
 
 		loadConfig();
@@ -108,8 +107,9 @@ public class Main extends JavaPlugin implements Listener
 
 						if(Bukkit.getPlayer(playerName) != null)
 						{
-							Bukkit.getPlayer(playerName).sendMessage(ChatColor.WHITE + playerName + ChatColor.GRAY
-									+ " ---> You: " + ChatColor.WHITE + message);
+							Bukkit.getPlayer(playerName).sendMessage(
+									ChatColor.WHITE + playerName + ChatColor.GRAY + " ---> You: " + ChatColor.WHITE
+											+ message);
 							p.sendMessage(ChatColor.GRAY + "You --> " + ChatColor.WHITE + playerName + ": " + message);
 						} else
 						{
@@ -153,8 +153,9 @@ public class Main extends JavaPlugin implements Listener
 
 					if(Bukkit.getPlayer(playerName) != null)
 					{
-						Bukkit.getPlayer(playerName).sendMessage(ChatColor.WHITE + playerName + ChatColor.GRAY
-								+ " ---> You: " + ChatColor.WHITE + message);
+						Bukkit.getPlayer(playerName).sendMessage(
+								ChatColor.WHITE + playerName + ChatColor.GRAY + " ---> You: " + ChatColor.WHITE
+										+ message);
 						p.sendMessage(ChatColor.GRAY + "You --> " + ChatColor.WHITE + playerName + ": " + message);
 					} else
 					{
@@ -171,8 +172,9 @@ public class Main extends JavaPlugin implements Listener
 
 					if(Bukkit.getPlayer(playerName) != null)
 					{
-						Bukkit.getPlayer(playerName).sendMessage(ChatColor.WHITE + playerName + ChatColor.GRAY
-								+ " ---> You: " + ChatColor.WHITE + message);
+						Bukkit.getPlayer(playerName).sendMessage(
+								ChatColor.WHITE + playerName + ChatColor.GRAY + " ---> You: " + ChatColor.WHITE
+										+ message);
 						sender.sendMessage(ChatColor.GRAY + "You --> " + ChatColor.WHITE + playerName + ": " + message);
 					} else
 					{
@@ -248,32 +250,37 @@ public class Main extends JavaPlugin implements Listener
 							{
 								int seconds = cooldown1min.getCooldownSeconds(p);
 								int minutes = seconds / 60;
-								p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m "
-										+ seconds % 60 + "s");
+								p.sendMessage(
+										ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m " + seconds % 60
+												+ "s");
 							} else if(p.hasPermission("ranks.mvp"))
 							{
 								int seconds = cooldown2min.getCooldownSeconds(p);
 								int minutes = seconds / 60;
-								p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m "
-										+ seconds % 60 + "s");
+								p.sendMessage(
+										ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m " + seconds % 60
+												+ "s");
 							} else if(p.hasPermission("ranks.vipplus"))
 							{
 								int seconds = cooldown3min.getCooldownSeconds(p);
 								int minutes = seconds / 60;
-								p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m "
-										+ seconds % 60 + "s");
+								p.sendMessage(
+										ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m " + seconds % 60
+												+ "s");
 							} else if(p.hasPermission("ranks.vip"))
 							{
 								int seconds = cooldown4min.getCooldownSeconds(p);
 								int minutes = seconds / 60;
-								p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m "
-										+ seconds % 60 + "s");
+								p.sendMessage(
+										ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m " + seconds % 60
+												+ "s");
 							} else
 							{
 								int seconds = cooldown5min.getCooldownSeconds(p);
 								int minutes = seconds / 60;
-								p.sendMessage(ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m "
-										+ seconds % 60 + "s");
+								p.sendMessage(
+										ChatColor.RED + "You cannot teleport now! Wait " + minutes + "m " + seconds % 60
+												+ "s");
 							}
 
 							return true;
@@ -339,29 +346,26 @@ public class Main extends JavaPlugin implements Listener
 			if(sender instanceof Player)
 			{
 				Player p = (Player) sender;
-				Block block = p.getLocation().getBlock().getRelative(BlockFace.DOWN);
-
-				if(block.getType() == Material.AIR)
+				if(p.getWorld().getName().equalsIgnoreCase("world"))
 				{
-					p.sendMessage(ChatColor.RED + "Stay still");
+					Block block = p.getLocation().getBlock().getRelative(BlockFace.DOWN);
+
+					if(block.getType() == Material.AIR)
+					{
+						p.sendMessage(ChatColor.RED + "Stay still");
+						return true;
+					}
+
+					p.teleport(ConfigManager.getSpawn());
+					for(PotionEffect effect : p.getActivePotionEffects())
+					{
+						p.removePotionEffect(effect.getType());
+					}
+					p.setLevel(0);
+					p.sendMessage(ChatColor.GREEN + "Successfully teleported you to spawn!");
+					p.playSound(p.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
 					return true;
 				}
-				if(p.getWorld().getName().equals("warz"))
-				{
-					p.sendTitle(ChatColor.YELLOW + "Teleporting to spawn...", "", 5, 5, 5);
-					me.Jared.Loot.ConfigManager.savePlayerWarzData(p,p.getLocation(), p.getInventory());
-					me.Jared.Loot.ConfigManager.loadInventory(p, "world");
-				}
-
-				p.teleport(ConfigManager.getSpawn());
-				for(PotionEffect effect : p.getActivePotionEffects())
-				{
-					p.removePotionEffect(effect.getType());
-				}
-				p.setLevel(0);
-				p.sendMessage(ChatColor.GREEN + "Successfully teleported you to spawn!");
-				p.playSound(p.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
-				return true;
 			}
 		}
 		if(sender instanceof Player)
