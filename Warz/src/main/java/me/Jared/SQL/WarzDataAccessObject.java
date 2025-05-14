@@ -28,7 +28,7 @@ public class WarzDataAccessObject
 
 	static final String PASSWORD = Warz.getInstance().getConfig().getString("DB_PASSWORD");
 
-	public static boolean clearPlayerData(String uuid)
+	public static boolean clearPlayerWarzData(String uuid)
 	{
 		try(Connection conn = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD))
 		{

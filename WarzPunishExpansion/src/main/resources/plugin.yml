@@ -1,0 +1,4 @@
+name: WarzPunishExpansion
+version: '0.1'
+main: me.Jared.warzPunishExpansion.WarzPunishExpansion
+api-version: '1.21'

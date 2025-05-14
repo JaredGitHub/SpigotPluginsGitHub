@@ -2,3 +2,4 @@ name: Compass
 main: me.jared.Compass.Compass
 version: 0.1
 api-version: 1.20
+depend: [AirDrop]

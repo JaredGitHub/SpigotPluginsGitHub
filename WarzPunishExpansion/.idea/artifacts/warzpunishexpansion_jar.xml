@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="warzpunishexpansion:jar">
+    <output-path>$PROJECT_DIR$/../../../SERVER/plugins/CombatLogX/expansions</output-path>
+    <root id="archive" name="warzpunishexpansion.jar">
+      <element id="module-output" name="warzpunishexpansion" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../SERVER/plugins/CombatLogX.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -2,11 +2,7 @@ package me.Jared.Listeners;
 
 import java.util.HashMap;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Effect;
-import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.Sound;
+import org.bukkit.*;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Damageable;
 import org.bukkit.entity.Entity;
@@ -233,29 +229,9 @@ public class EntityListener implements Listener
 						}
 						hurt.setHealth(newHealth);
 					}
-					this.doBlood((Entity) hurt, bullet);
 				}
 			}
 		}
-	}
-
-	@SuppressWarnings("deprecation")
-	@EventHandler
-	public void onArrowPickUp(PlayerPickupArrowEvent e)
-	{
-		e.setCancelled(true);
-	}
-
-	public void doBlood(Entity entity, Bullet bullet)
-	{
-		if(lastBlood.containsKey(entity.getEntityId())
-				&& System.currentTimeMillis() - lastBlood.get(entity.getEntityId()) < 100L)
-		{
-			return;
-		}
-		entity.getWorld().playEffect(entity.getLocation(), Effect.STEP_SOUND, (Object) Material.REDSTONE_BLOCK);
-		bullet.getGun().doKnockback(entity, bullet.getVelocity());
-		lastBlood.put(entity.getEntityId(), System.currentTimeMillis());
 	}
 
 	private boolean isNear(Location location, Location eyeLocation, double d)

@@ -103,7 +103,7 @@ public class WarzListener implements Listener
 			if(playerSpectating.contains(player.getName()))
 			{
 				//Clear the dat aof the player so that they spawn with new items based on their rank
-				ConfigManager.clearPlayerData(player.getUniqueId().toString());
+				ConfigManager.clearPlayerWarzData(player.getUniqueId().toString());
 			} else
 			{
 				//Remove them from list of players spectating if they are not in spectator mode anymore
@@ -124,10 +124,12 @@ public class WarzListener implements Listener
 		Player player = e.getPlayer();
 
 		//Clearing inventory and setting level to 0 then loading the "world" inventory and telepoting them to spawn
+
 		player.getInventory().clear();
 		player.setLevel(0);
 		ConfigManager.loadInventory(player, "world");
 		player.teleport(Bukkit.getWorld("world").getSpawnLocation());
+
 	}
 
 	@EventHandler
@@ -183,7 +185,7 @@ public class WarzListener implements Listener
 				if(player.getWorld().getName().equals("warz"))
 				{
 					player.sendTitle(ChatColor.YELLOW + "Teleporting to spawn...", "", 5, 5, 5);
-					ConfigManager.savePlayerWarzData(player,player.getLocation(), player.getInventory());
+					ConfigManager.savePlayerWarzData(player, player.getLocation(), player.getInventory());
 					player.getInventory().clear();
 					ConfigManager.loadInventory(player, "world");
 				}
@@ -197,6 +199,7 @@ public class WarzListener implements Listener
 				case "/tpa":
 				case "/spawn":
 				case "/r":
+				case "/airdrop":
 					break;
 				default:
 					e.setCancelled(true);

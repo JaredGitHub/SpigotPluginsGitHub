@@ -3,6 +3,7 @@ main: me.Jared.Warz
 version: 1.0
 api-version: 1.21
 depend: [WorldEdit, WorldGuard, Boosters]
+softdepend: [CombatLogX]
 commands:
  setzone:
   description: Sets a zone 1-6 based on the cuboid selection

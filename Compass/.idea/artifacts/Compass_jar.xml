@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Compass:jar">
+    <output-path>$PROJECT_DIR$/../../../SERVER/plugins</output-path>
+    <root id="archive" name="Compass.jar">
+      <element id="module-output" name="Compass" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/../../../SERVER/plugins/AirDrop.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -150,13 +150,6 @@ public class Bullet
 				{
 					this.lastLocation.getWorld().playEffect(this.lastLocation, Effect.SMOKE, 1);
 				}
-				if(this.shotFrom.getRay())
-				{
-					Particle.DustOptions dustOptions = new Particle.DustOptions(Color.RED, 3);
-					this.lastLocation.getWorld()
-							.spawnParticle(Particle.ASH, this.lastLocation.getX(), this.lastLocation.getY(),
-									this.lastLocation.getZ(), 1, 0.5, 0, 0.5, 0, dustOptions);
-				}
 				if(this.shotFrom.isThrowable() && this.ticks == 90)
 				{
 					this.remove();

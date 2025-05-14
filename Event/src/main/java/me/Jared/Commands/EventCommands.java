@@ -116,7 +116,7 @@ public class EventCommands implements CommandExecutor, TabCompleter
 	{
 		if(cmd.getName().equalsIgnoreCase("event"))
 		{
-			if(sender instanceof Player)
+			if(sender instanceof Player && !sender.isOp() && !sender.hasPermission("event"))
 			{
 				Player player = (Player) sender;
 				if(!player.hasPermission("event"))

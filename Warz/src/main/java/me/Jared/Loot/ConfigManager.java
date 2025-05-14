@@ -173,13 +173,14 @@ public class ConfigManager
 		}
 	}
 
-	public static void clearPlayerData(String uuid)
+	public static void clearPlayerWarzData(String uuid)
 	{
-		WarzDataAccessObject.clearPlayerData(uuid);
+		WarzDataAccessObject.clearPlayerWarzData(uuid);
 	}
 
 	public static void giveFreshStartItems(Player p)
 	{
+		p.getInventory().clear();
 		Color color = null;
 		ItemStack sword = new ItemStack(Material.WOODEN_SWORD);
 		ItemStack food = new ItemStack(Material.LAPIS_LAZULI, 4);
@@ -259,6 +260,7 @@ public class ConfigManager
 		{
 			PlayerInventory inventory = player.getInventory();
 			ItemStack[] items = InventorySaver.fromBase64(inventoryString);
+			/*Dont deal with nothing null*/if(items == null) return;
 
 			// Clear the inventory
 			inventory.clear();

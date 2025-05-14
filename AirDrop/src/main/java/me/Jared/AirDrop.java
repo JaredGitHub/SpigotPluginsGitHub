@@ -24,6 +24,7 @@ public class AirDrop
 	public void drop()
 	{
 		Location randomLocation = getRandomLocation();
+
 		for(Player player : Bukkit.getOnlinePlayers())
 		{
 			createFakeBeaconBeam(randomLocation, 100);
@@ -33,7 +34,7 @@ public class AirDrop
 						ChatColor.GREEN + "There is an air drop at X: " + ChatColor.GRAY + (int) randomLocation.getX()
 								+ ChatColor.GREEN + " Y: " + ChatColor.GRAY + (int) randomLocation.getY()
 								+ ChatColor.GREEN + " Z: " + ChatColor.GRAY + (int) randomLocation.getZ()
-								+ ChatColor.GREEN + " you only have 5 minutes!");
+								+ ChatColor.GREEN + " you only have 10 minutes!");
 				player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1, 1);
 			}
 		}
@@ -57,7 +58,7 @@ public class AirDrop
 			@Override
 			public void run()
 			{
-				int totalDurationTicks = 20 * 300; // 6000 ticks = 5 minutes
+				int totalDurationTicks = 20 * 600; //10 minutes
 				int remainingSeconds = (totalDurationTicks - ticksElapsed) / 20;
 
 				if(ticksElapsed >= totalDurationTicks)
@@ -104,10 +105,23 @@ public class AirDrop
 
 	private Location getRandomLocation()
 	{
-		return getGameSlotLocation(getRandomGameSlot());
+		int randomGameSlot = getRandomGameSlot();
+		setRandomLocationTemporary(randomGameSlot);
+		return getGameSlotLocation(randomGameSlot);
 	}
 
-	private Location getGameSlotLocation(int i)
+	private void setRandomLocationTemporary(int airdrop)
+	{
+		config.set("airdrop", airdrop);
+		plugin.saveConfig();
+	}
+
+	public int getRandomLocationTemporary()
+	{
+		return config.getInt("airdrop");
+	}
+
+	public Location getGameSlotLocation(int i)
 	{
 		double x = config.getDouble("airdrops." + i + ".x");
 		double y = config.getDouble("airdrops." + i + ".y");

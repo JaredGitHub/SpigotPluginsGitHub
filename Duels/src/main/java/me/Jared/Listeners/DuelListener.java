@@ -2,6 +2,7 @@ package me.Jared.Listeners;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -86,6 +87,9 @@ public class DuelListener implements Listener
 			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), 
 					"givegems " + player.getKiller().getName() + " " + DuelCommands.betAmount.get(player.getKiller()));
 
+			//clear any chickens on their head
+			removeChickenOnHead(player.getKiller());
+
 			Bukkit.dispatchCommand(Bukkit.getServer().getConsoleSender(), 
 					"removegems " + player.getName() + " " + DuelCommands.betAmount.get(player.getKiller()));
 
@@ -97,6 +101,16 @@ public class DuelListener implements Listener
 		DuelCommands.betAmount.remove(player.getKiller());
 		DuelCommands.mapNumber.remove(player);
 		DuelCommands.mapNumber.remove(player.getKiller());
+	}
+
+	private void removeChickenOnHead(Player killer)
+	{
+		if (killer != null) {
+			for (Entity passenger : killer.getPassengers()) {
+				killer.removePassenger(passenger); // Detach passenger
+				passenger.remove(); // Optional: remove from world if you want to kill the chicken
+			}
+		}
 	}
 
 	private TextComponent clickableText(String chatText, String hoverText)

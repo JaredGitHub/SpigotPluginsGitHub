@@ -20,6 +20,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 import me.Jared.Duels;
@@ -263,7 +264,7 @@ public class DuelCommands implements CommandExecutor, TabCompleter
 											ConfigManager.getMaps().get(mapNumber.get(requester)), 1));
 
 									//Sneak the requester so that if they are flying with a chicken they stop and they can actualy teleport
-									requester.setSneaking(true);
+									removeChickenOnHead(requester);
 
 									//TEleport the requester after 5 ticks and kill all ground items and boostpads and landmines and walls
 									Bukkit.getScheduler().runTaskLater(Duels.getInstance(), new Runnable()
@@ -452,6 +453,18 @@ public class DuelCommands implements CommandExecutor, TabCompleter
 			System.out.println("Be a player OKAY!");
 		}
 		return true;
+	}
+
+	private void removeChickenOnHead(Player requester)
+	{
+		if(requester != null)
+		{
+			for(Entity passenger : requester.getPassengers())
+			{
+				requester.removePassenger(passenger); // Detach passenger
+				passenger.remove(); // Optional: remove from world if you want to kill the chicken
+			}
+		}
 	}
 
 	@Override

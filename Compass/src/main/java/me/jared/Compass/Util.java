@@ -8,8 +8,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 
 public class Util
-{	
-
+{
 	//Method to make the compass spin
 	private HashMap<UUID, Long> cooldown = new HashMap<UUID, Long>();
 	private int cooldowntime = 5;
@@ -25,8 +24,7 @@ public class Util
 				return;
 			}
 		}
-		
-		
+
 		switch(baba)
 		{
 		case 1: 

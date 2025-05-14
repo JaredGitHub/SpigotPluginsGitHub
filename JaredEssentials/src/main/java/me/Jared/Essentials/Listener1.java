@@ -17,12 +17,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.hanging.HangingBreakByEntityEvent;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
-import org.bukkit.event.player.PlayerCommandPreprocessEvent;
-import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
-import org.bukkit.event.player.PlayerSignOpenEvent;
+import org.bukkit.event.player.*;
 import org.bukkit.event.server.ServerListPingEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
 
@@ -36,6 +31,11 @@ import com.sk89q.worldguard.protection.regions.RegionContainer;
 
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Listener1 implements Listener
 {
@@ -59,8 +59,9 @@ public class Listener1 implements Listener
 		}
 		for(Player p : Bukkit.getOnlinePlayers())
 		{
-			PacketUtils.sendTabHF(p, ChatColor.GOLD + "JaredServer", ChatColor.GOLD + "store.jaredcoen.com\n"
-					+ ChatColor.GREEN + "Players Online: " + ChatColor.WHITE + Bukkit.getOnlinePlayers().size());
+			PacketUtils.sendTabHF(p, ChatColor.GOLD + "JaredServer",
+					ChatColor.GOLD + "store.jaredcoen.com\n" + ChatColor.GREEN + "Players Online: " + ChatColor.WHITE
+							+ Bukkit.getOnlinePlayers().size());
 		}
 
 		Player p = e.getPlayer();
@@ -72,8 +73,9 @@ public class Listener1 implements Listener
 			e.setJoinMessage(ChatColor.GRAY + p.getName() + " is here :)");
 		} else
 		{
-			e.setJoinMessage(ChatColor.DARK_RED + "" + ChatColor.BOLD + "[!!ALERT!!] " + ChatColor.GREEN + ""
-					+ ChatColor.BOLD + "PLEASE WELCOME THE SERVER OPERATOR, " + p.getName() + "!");
+			e.setJoinMessage(
+					ChatColor.DARK_RED + "" + ChatColor.BOLD + "[!!ALERT!!] " + ChatColor.GREEN + "" + ChatColor.BOLD
+							+ "PLEASE WELCOME THE SERVER OPERATOR, " + p.getName() + "!");
 		}
 
 		if(!(p.hasPlayedBefore()))
@@ -100,8 +102,9 @@ public class Listener1 implements Listener
 
 		for(Player online : Bukkit.getOnlinePlayers())
 		{
-			PacketUtils.sendTabHF(online, ChatColor.GOLD + "JaredServer", ChatColor.GOLD + "store.jaredcoen.com\n"
-					+ ChatColor.GREEN + "Players Online: " + ChatColor.WHITE + size);
+			PacketUtils.sendTabHF(online, ChatColor.GOLD + "JaredServer",
+					ChatColor.GOLD + "store.jaredcoen.com\n" + ChatColor.GREEN + "Players Online: " + ChatColor.WHITE
+							+ size);
 		}
 
 		Player p = e.getPlayer();
@@ -157,9 +160,22 @@ public class Listener1 implements Listener
 			if(!(e.getPlayer().hasPermission("jared")))
 			{
 				e.setCancelled(true);
-				e.getPlayer().sendMessage(ChatColor.WHITE + "Plugins (2): " + ChatColor.GREEN + "Die" + ChatColor.WHITE
-						+ ", " + ChatColor.GREEN + "Noob");
+				e.getPlayer().sendMessage(
+						ChatColor.WHITE + "Plugins (2): " + ChatColor.GREEN + "Die" + ChatColor.WHITE + ", "
+								+ ChatColor.GREEN + "Noob");
 			}
+		}
+	}
+
+	@EventHandler
+	public void onPlayerCommandSend(PlayerCommandSendEvent event)
+	{
+		if(!event.getPlayer().hasPermission("jared"))
+		{
+			Set<String> allowedCommands = new HashSet<>(
+					Arrays.asList("airdrop","shop","kit", "spawn", "warz", "duel", "gg", "sg", "vote", "discord", "texture", "warp"));
+
+			event.getCommands().retainAll(allowedCommands);
 		}
 	}
 

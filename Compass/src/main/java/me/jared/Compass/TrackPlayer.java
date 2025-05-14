@@ -2,13 +2,13 @@ package me.jared.Compass;
 
 import org.bukkit.entity.Player;
 
-public class Tracker implements Runnable
+public class TrackPlayer implements Runnable
 {
 	Util util = new Util();
 
 	private Player p;
 
-	public Tracker(Player p)
+	public TrackPlayer(Player p)
 	{
 		this.p = p;
 	}
