@@ -1,0 +1,8 @@
+name: EventRSVP
+version: '0.1'
+main: me.Jared.eventRSVP.EventRSVP
+api-version: '1.21'
+commands:
+  eventrsvp:
+    description: RSVP for the upcoming event
+    usage: /eventrsvp

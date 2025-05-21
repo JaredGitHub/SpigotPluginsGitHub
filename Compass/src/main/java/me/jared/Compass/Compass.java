@@ -99,8 +99,7 @@ public class Compass extends JavaPlugin implements Listener
 			{
 				//Airdrop location
 				Location airDropLocation = getAirDropLocation();
-				p.sendMessage(ChatColor.GREEN + "Airdrop location: " + ChatColor.GRAY + "X: " + airDropLocation.getBlockX() + " Y: " + airDropLocation.getBlockY() + " Z: " + airDropLocation.getBlockZ());
-
+				p.sendMessage(ChatColor.GREEN + "Tracking airdrop location...");
 				Bukkit.getServer().getScheduler().cancelTask(trackPlayerID);
 				trackLocationID = Bukkit.getServer().getScheduler()
 						.runTaskTimer(this, new TrackLocation(p, airDropLocation), 0L, 1L)

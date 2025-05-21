@@ -173,7 +173,7 @@ public class Listener1 implements Listener
 		if(!event.getPlayer().hasPermission("jared"))
 		{
 			Set<String> allowedCommands = new HashSet<>(
-					Arrays.asList("airdrop","shop","kit", "spawn", "warz", "duel", "gg", "sg", "vote", "discord", "texture", "warp"));
+					Arrays.asList("eventrsvp","airdrop","shop","kit", "spawn", "warz", "duel", "gg", "sg", "vote", "discord", "texture", "warp"));
 
 			event.getCommands().retainAll(allowedCommands);
 		}

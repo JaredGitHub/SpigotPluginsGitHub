@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="EventRSVP:jar">
+    <output-path>$PROJECT_DIR$/../../../SERVER/plugins</output-path>
+    <root id="archive" name="EventRSVP.jar">
+      <element id="module-output" name="EventRSVP" />
+    </root>
+  </artifact>
+</component>

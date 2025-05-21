@@ -71,6 +71,7 @@ public class EventCommands implements CommandExecutor, TabCompleter
 	}
 
 	public static ArrayList<Player> noMovePlayers = new ArrayList<>();
+
 	public static void teleportPlayers(PlayerManager playerManager)
 	{
 		noMovePlayers.clear();
@@ -93,8 +94,7 @@ public class EventCommands implements CommandExecutor, TabCompleter
 			p.getActivePotionEffects().clear();
 			p.setHealth(20);
 
-			if(me.Jared.Kits.Main.getInstance().getConfig()
-					.get("PlayerUniqueID." + p.getUniqueId()) != null)
+			if(me.Jared.Kits.Main.getInstance().getConfig().get("PlayerUniqueID." + p.getUniqueId()) != null)
 			{
 				KitManager.playerCustomHotBar(p);
 				KitManager.diamondKit(p);
@@ -116,26 +116,26 @@ public class EventCommands implements CommandExecutor, TabCompleter
 	{
 		if(cmd.getName().equalsIgnoreCase("event"))
 		{
-			if(sender instanceof Player && !sender.isOp() && !sender.hasPermission("event"))
+			Player player = (Player) sender;
+			if(!player.hasPermission("event"))
 			{
-				Player player = (Player) sender;
-				if(!player.hasPermission("event"))
+				if(args.length == 1)
 				{
-					if(args.length == 1)
+					if(args[0].equalsIgnoreCase("leave"))
 					{
-						if(args[0].equalsIgnoreCase("leave"))
-						{
 
-							player.sendMessage(ChatColor.RED + "No Permission!");
-							return true;
-						}
-					} else if(gameManager.getGameState() != GameState.INACTIVE)
-					{
-						player.teleport(ConfigManager.getLobbySpawn());
-						gameManager.getPlayerManager().setPlayerInGame(player);
+						player.sendMessage(ChatColor.RED + "No Permission!");
+						return true;
 					}
+				} else if(gameManager.getGameState() != GameState.INACTIVE)
+				{
+					player.teleport(ConfigManager.getLobbySpawn());
+					gameManager.getPlayerManager().setPlayerInGame(player);
 				}
+			}
 
+			if(sender.isOp() && sender.hasPermission("event"))
+			{
 				if(args.length == 0)
 				{
 					if(gameManager.getGameState() != GameState.INACTIVE)
@@ -155,7 +155,7 @@ public class EventCommands implements CommandExecutor, TabCompleter
 							player.sendMessage(ChatColor.GREEN + "Set event mode to active!");
 							player.playSound(player.getLocation(), Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
 							gameManager.setGameState(GameState.RECRUITING);
-//							ConfigManager.clearTeams();
+							//							ConfigManager.clearTeams();
 							return true;
 						}
 					} else if(gameManager.getGameState() == GameState.RECRUITING)

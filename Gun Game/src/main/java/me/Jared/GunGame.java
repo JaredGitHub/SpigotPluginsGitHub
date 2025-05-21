@@ -43,7 +43,7 @@ public class GunGame extends JavaPlugin
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Gun Game Plugin Is Gone!");
 		gameManager.setGameState(GameState.WAITING);
 	}
-	
+
 	public static GunGame getInstance()
 	{
 		return instance;
