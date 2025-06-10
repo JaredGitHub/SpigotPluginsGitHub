@@ -101,6 +101,7 @@ public class GunPlayer
 		}
 	}
 
+
 	private void fireGun(Gun gun)
 	{
 		if (gun.timer <= 0)
@@ -117,7 +118,7 @@ public class GunPlayer
 			ItemStack hand;
 			this.lastHeldItem = hand = this.controller.getInventory().getItemInMainHand();
 			Gun g2 =GunsPlugin.getPlugin.getGun(hand.getType(), this.gunValue);
-			
+
 			if (hand != null && (g2) == null)
 			{
 				this.controller.removePotionEffect(PotionEffectType.SLOWNESS);

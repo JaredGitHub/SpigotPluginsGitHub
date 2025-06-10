@@ -85,6 +85,7 @@ public class Listener1 implements Listener
 			int z = plugin.getConfig().getInt("tutorial.z");
 			Location location = new Location(Bukkit.getWorld("world"), x, y, z);
 			p.teleport(location);
+			p.sendMessage(ChatColor.GREEN + "Welcome to the server!");
 		}
 	}
 

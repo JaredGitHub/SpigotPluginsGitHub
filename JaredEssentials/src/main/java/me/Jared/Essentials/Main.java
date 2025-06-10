@@ -65,6 +65,11 @@ public class Main extends JavaPlugin implements Listener
 	@Override
 	public void onDisable()
 	{
+		for(Player online : Bukkit.getOnlinePlayers())
+		{
+			online.kickPlayer(ChatColor.RED + "Be back soon!!!");
+		}
+
 		Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "Bye bye birdie!");
 	}
 
@@ -357,14 +362,28 @@ public class Main extends JavaPlugin implements Listener
 					return true;
 				}
 
-				p.teleport(ConfigManager.getSpawn());
-				for(PotionEffect effect : p.getActivePotionEffects())
+
+				if(p.getWorld().getName().equals("warz"))
 				{
-					p.removePotionEffect(effect.getType());
+					p.sendTitle(ChatColor.YELLOW + "Teleporting to spawn...", "", 5, 5, 5);
+					me.Jared.Loot.ConfigManager.savePlayerWarzData(p, p.getLocation(), p.getInventory());
+					p.getInventory().clear();
+					p.teleport(ConfigManager.getSpawn());
+					me.Jared.Loot.ConfigManager.loadInventory(p, "world");
 				}
-				p.setLevel(0);
-				p.sendMessage(ChatColor.GREEN + "Successfully teleported you to spawn!");
-				p.playSound(p.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
+				else
+				{
+					p.teleport(ConfigManager.getSpawn());
+					for(PotionEffect effect : p.getActivePotionEffects())
+					{
+						p.removePotionEffect(effect.getType());
+					}
+					p.setLevel(0);
+					p.sendMessage(ChatColor.GREEN + "Successfully teleported you to spawn!");
+					p.playSound(p.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
+				}
+
+
 				return true;
 			}
 

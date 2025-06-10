@@ -23,6 +23,9 @@ import net.md_5.bungee.api.ChatColor;
 
 public class Compass extends JavaPlugin implements Listener
 {
+	private int trackPlayerID = -1;
+	private int trackLocationID = -1;
+
 	@Override
 	public void onEnable()
 	{
@@ -32,7 +35,7 @@ public class Compass extends JavaPlugin implements Listener
 
 		for(Player p : Bukkit.getOnlinePlayers())
 		{
-			Bukkit.getServer().getScheduler().runTaskTimer(this, new TrackPlayer(p), 0, 1);
+			trackPlayerID = Bukkit.getServer().getScheduler().runTaskTimer(this, new TrackPlayer(p), 0L, 1L).getTaskId();
 		}
 	}
 
@@ -42,16 +45,6 @@ public class Compass extends JavaPlugin implements Listener
 		Bukkit.getServer().getConsoleSender().sendMessage(ChatColor.GREEN + "Compass plugin is going down!");
 	}
 
-	private int trackPlayerID = -1;
-	private int trackLocationID = -1;
-
-	@EventHandler
-	public void onJoin(PlayerJoinEvent e)
-	{
-		Player p = e.getPlayer();
-
-		trackPlayerID = Bukkit.getServer().getScheduler().runTaskTimer(this, new TrackPlayer(p), 0L, 1L).getTaskId();
-	}
 
 	private Location getAirDropLocation()
 	{
@@ -89,22 +82,23 @@ public class Compass extends JavaPlugin implements Listener
 
 			if(trackLocationID != -1)
 			{
+				p.sendMessage(ChatColor.GREEN + "Nearest Player Tracking...");
 				Bukkit.getServer().getScheduler().cancelTask(trackLocationID);
+				trackLocationID = -1;
 				trackPlayerID = Bukkit.getServer().getScheduler().runTaskTimer(this, new TrackPlayer(p), 0L, 1L)
 						.getTaskId();
-				trackLocationID = -1;
-
-				p.sendMessage(ChatColor.GREEN + "Nearest Player Tracking...");
 			} else
 			{
 				//Airdrop location
 				Location airDropLocation = getAirDropLocation();
 				p.sendMessage(ChatColor.GREEN + "Tracking airdrop location...");
+				//Cancel the task and turn it to -1
 				Bukkit.getServer().getScheduler().cancelTask(trackPlayerID);
+				trackPlayerID = -1;
 				trackLocationID = Bukkit.getServer().getScheduler()
 						.runTaskTimer(this, new TrackLocation(p, airDropLocation), 0L, 1L)
 						.getTaskId();
-				trackPlayerID = -1;
+
 			}
 		}
 	}

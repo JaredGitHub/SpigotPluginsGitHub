@@ -3,6 +3,7 @@ package me.Jared.eventRSVP;
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -51,11 +52,20 @@ public class EventRSVPExpansion extends PlaceholderExpansion
 			int index = Integer.parseInt(params) - 1;
 
 			List<String> names = new ArrayList<>();
-			for (String uuidStr : EventRSVP.getInstance().getConfig().getConfigurationSection("RSVP").getKeys(false)) {
-				UUID uuid = UUID.fromString(uuidStr);
-				OfflinePlayer p = Bukkit.getOfflinePlayer(uuid);
-				if (p.getName() != null) {
-					names.add(p.getName());
+			ConfigurationSection rsvpSection = EventRSVP.getInstance().getConfig().getConfigurationSection("RSVP");
+
+			if (rsvpSection != null) {
+				for (String uuidStr : rsvpSection.getKeys(false)) {
+					try {
+						UUID uuid = UUID.fromString(uuidStr);
+						OfflinePlayer p = Bukkit.getOfflinePlayer(uuid);
+						if (p.getName() != null) {
+							names.add(p.getName());
+						}
+					} catch (IllegalArgumentException e) {
+						// Skip invalid UUIDs
+						Bukkit.getLogger().warning("Invalid UUID in RSVP section: " + uuidStr);
+					}
 				}
 			}
 
@@ -66,6 +76,7 @@ public class EventRSVPExpansion extends PlaceholderExpansion
 			}
 		}
 
-		return null;
+		return "";
 	}
+
 }

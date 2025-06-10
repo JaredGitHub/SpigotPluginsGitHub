@@ -47,7 +47,9 @@ public class Grenade
 	public enum GrenadeType
 	{
 		MOLOTOV, GRENADE, FLASHBANG, SMOKE, STICKY
-	};
+	}
+
+	;
 
 	public Grenade(Material item, String name, GrenadeType type, float power, long cooldownSeconds)
 	{
@@ -111,8 +113,11 @@ public class Grenade
 
 	private void blowUpMolotov(Entity entity)
 	{
+		//if it hits the ground do this
+
 		FireRunnable fireRunnable = new FireRunnable(this, entity, 2, 7 * 20);
-		fireRunnable.runTaskTimer(GrenadesMain.getInstance(), 50l, 1);
+		fireRunnable.runTaskTimer(GrenadesMain.getInstance(), 0, 1);
+
 	}
 
 	private void blowUpSmoke(Entity entity)
@@ -182,17 +187,18 @@ public class Grenade
 		{
 			if(cooldown.containsKey(player.getUniqueId()))
 			{
-				long ticksleft = ((Long) cooldown.get(player.getUniqueId())).longValue() / 50L + (this.cooldownSeconds * 20)
-						- System.currentTimeMillis() / 50L;
+				long ticksleft =
+						((Long) cooldown.get(player.getUniqueId())).longValue() / 50L + (this.cooldownSeconds * 20)
+								- System.currentTimeMillis() / 50L;
 				long milliseconds = ticksleft * 50;
 				if(ticksleft > 0L)
 
 				{
-					
+
 					double seconds = milliseconds / 1000.0;
-					
-					thrower.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
-							ChatColor.RED + "" + ChatColor.UNDERLINE + "" + seconds + "s"));
+
+					thrower.spigot().sendMessage(ChatMessageType.ACTION_BAR,
+							new TextComponent(ChatColor.RED + "" + ChatColor.UNDERLINE + "" + seconds + "s"));
 					return;
 				}
 			}

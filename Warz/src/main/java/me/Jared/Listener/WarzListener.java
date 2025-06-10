@@ -180,17 +180,6 @@ public class WarzListener implements Listener
 
 		if(player.getWorld().equals(Bukkit.getWorld("warz")))
 		{
-			if(e.getMessage().equalsIgnoreCase("/spawn"))
-			{
-				if(player.getWorld().getName().equals("warz"))
-				{
-					player.sendTitle(ChatColor.YELLOW + "Teleporting to spawn...", "", 5, 5, 5);
-					ConfigManager.savePlayerWarzData(player, player.getLocation(), player.getInventory());
-					player.getInventory().clear();
-					ConfigManager.loadInventory(player, "world");
-				}
-			}
-
 			if(!player.hasPermission("jared"))
 			{
 				switch(e.getMessage())
@@ -200,6 +189,8 @@ public class WarzListener implements Listener
 				case "/spawn":
 				case "/r":
 				case "/airdrop":
+				case "/elo":
+				case "/topelo":
 					break;
 				default:
 					e.setCancelled(true);

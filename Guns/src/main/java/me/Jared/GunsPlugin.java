@@ -125,14 +125,6 @@ public class GunsPlugin extends JavaPlugin
 		return this.getDataFolder().getAbsolutePath();
 	}
 
-	public static boolean isProtect(Player pl)
-	{
-		if (pl.hasPotionEffect(PotionEffectType.INVISIBILITY))
-		{
-			return true;
-		}
-		return pl.getLocation().distance(new Location((World) Bukkit.getWorlds().get(0), -731.0, 27.0, -188.0)) < 140.0;
-	}
 
 	private void loadProjectile()
 	{

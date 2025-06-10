@@ -27,8 +27,6 @@ public class GrenadeCommand implements CommandExecutor
 				}
 			}
 		}
-
 		return true;
 	}
-
 }

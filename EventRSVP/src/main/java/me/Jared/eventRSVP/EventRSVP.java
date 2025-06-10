@@ -1,10 +1,12 @@
 package me.Jared.eventRSVP;
 
 import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.event.ClickEvent;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.minimessage.MiniMessage;
 import net.kyori.adventure.title.Title;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Sound;
 import org.bukkit.command.TabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -23,6 +25,7 @@ public final class EventRSVP extends JavaPlugin implements Listener, CommandExec
 {
 
 	private static EventRSVP instance;
+
 	@Override
 	public void onEnable()
 	{
@@ -46,7 +49,6 @@ public final class EventRSVP extends JavaPlugin implements Listener, CommandExec
 	{
 		return instance;
 	}
-
 
 	@EventHandler
 	public void onPlayerJoin(PlayerJoinEvent event)
@@ -83,50 +85,50 @@ public final class EventRSVP extends JavaPlugin implements Listener, CommandExec
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
 	{
-		if(!(sender instanceof Player player))
-		{
-			return false;
-		}
-
 		if(command.getName().equalsIgnoreCase("eventrsvp"))
 		{
 			if(args.length > 0)
 			{
-				if(args[0].equalsIgnoreCase("clear")
-						&& sender.hasPermission("eventrsvp"))
-				{
-					//Clear all players who RSVP'd for the event
-					clearRSVPPlayers();
-					player.sendMessage(Component.text("All players have been cleared!", NamedTextColor.GREEN));
-				}
-				else if(args[0].equalsIgnoreCase("list"))
+				if(args[0].equalsIgnoreCase("list"))
 				{
 					//Show all players who RSVP'd for the event
-					showRSVPPlayers(player);
+					showRSVPPlayers(sender);
 				}
 
-			} else
-			{
-				//Add the player to the config in eventRSVP
-				player.sendMessage(Component.text("You have RSVP'd for the event!", NamedTextColor.GREEN));
-				addPlayerRSVP(player);
-				return true;
-			}
+				if(sender.hasPermission("eventrsvp.use"))
+				{
+					if(args[0].equalsIgnoreCase("clear"))
+					{
 
+						//Clear all players who RSVP'd for the event
+						clearRSVPPlayers();
+						sender.sendMessage(Component.text("All players have been cleared!", NamedTextColor.GREEN));
+
+					} else if(sender.hasPermission("eventrsvp.use"))
+					{
+						//Add the player to the config in eventRSVP
+						Player player = Bukkit.getPlayer(args[0]);
+						sender.sendMessage(
+								Component.text(player.getName() + " has RSVP'd for the event!", NamedTextColor.GREEN));
+						addPlayerRSVP(player);
+						return true;
+					}
+				}
+			}
 		}
 		return true;
 	}
 
-	private void showRSVPPlayers(Player player)
+	private void showRSVPPlayers(CommandSender sender)
 	{
 		FileConfiguration config = getConfig();
 		Component header = Component.text("Players who RSVP'd:", NamedTextColor.GOLD);
 
-		player.sendMessage(header);
+		sender.sendMessage(header);
 
 		if(config.getConfigurationSection("RSVP") == null)
 		{
-			player.sendMessage(Component.text("No players have RSVP'd!", NamedTextColor.RED));
+			sender.sendMessage(Component.text("No players have RSVP'd!", NamedTextColor.RED));
 			return;
 		}
 
@@ -138,7 +140,7 @@ public final class EventRSVP extends JavaPlugin implements Listener, CommandExec
 				if(playerName != null)
 				{
 					Component playerEntry = Component.text("- " + playerName, NamedTextColor.YELLOW);
-					player.sendMessage(playerEntry);
+					sender.sendMessage(playerEntry);
 				}
 			}
 		}
@@ -165,7 +167,7 @@ public final class EventRSVP extends JavaPlugin implements Listener, CommandExec
 		{
 			java.util.List<String> suggestions = new java.util.ArrayList<>();
 			suggestions.add("list");
-			if(sender.hasPermission("eventrsvp"))
+			if(sender.hasPermission("eventrsvp.use"))
 			{
 				suggestions.add("clear");
 			}
