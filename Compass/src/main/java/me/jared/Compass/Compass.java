@@ -77,6 +77,7 @@ public class Compass extends JavaPlugin implements Listener
 			if(!p.getWorld().getName().equals("warz"))
 			{
 				p.sendMessage(ChatColor.RED + "Airdrop finder only works in warz");
+
 				return;
 			}
 
@@ -107,6 +108,11 @@ public class Compass extends JavaPlugin implements Listener
 	public void onMove(PlayerMoveEvent e)
 	{
 		Player p = e.getPlayer();
+
+		if(trackPlayerID == -1)
+		{
+			trackPlayerID = Bukkit.getServer().getScheduler().runTaskTimer(this, new TrackPlayer(p), 0L, 1L).getTaskId();
+		}
 
 		for(ItemStack item : p.getInventory().getContents())
 		{

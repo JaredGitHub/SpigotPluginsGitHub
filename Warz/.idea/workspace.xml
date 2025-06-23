@@ -9,15 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f54dff8d-41b6-4012-8a4c-bf2b5f4ee552" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Duels/target/classes/me/Jared/Command/DuelCommands.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/target/classes/me/Jared/Command/DuelCommands.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EventRSVP/src/main/java/me/Jared/eventRSVP/EventRSVP.java" beforeDir="false" afterPath="$PROJECT_DIR$/../EventRSVP/src/main/java/me/Jared/eventRSVP/EventRSVP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EventRSVP/src/main/resources/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../EventRSVP/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EventRSVP/target/classes/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../EventRSVP/target/classes/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../EventRSVP/target/classes/me/Jared/eventRSVP/EventRSVP.class" beforeDir="false" afterPath="$PROJECT_DIR$/../EventRSVP/target/classes/me/Jared/eventRSVP/EventRSVP.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Warz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Warz.java" afterDir="false" />
-    </list>
+    <list default="true" id="f54dff8d-41b6-4012-8a4c-bf2b5f4ee552" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -103,6 +95,7 @@
       <workItem from="1748459924967" duration="127000" />
       <workItem from="1748460259364" duration="599000" />
       <workItem from="1750105574017" duration="1548000" />
+      <workItem from="1750639412449" duration="3000" />
     </task>
     <servers />
   </component>
