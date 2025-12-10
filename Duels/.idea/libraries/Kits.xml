@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Kits">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../SERVER/plugins/Kits.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

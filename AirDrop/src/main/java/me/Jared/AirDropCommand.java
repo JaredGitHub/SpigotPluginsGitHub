@@ -33,6 +33,11 @@ public class AirDropCommand implements CommandExecutor
 		}
 		if(command.getName().equalsIgnoreCase("airdrop"))
 		{
+			if(config.getInt("airdrop") <= 0)
+			{
+				player.sendMessage(ChatColor.RED + "There is currently no AirDrop on the map!");
+				return true;
+			}
 			// Anyone can do this
 			int locationNumber = airDrop.getRandomLocationTemporary();
 			Location randomLocation = airDrop.getGameSlotLocation(locationNumber);

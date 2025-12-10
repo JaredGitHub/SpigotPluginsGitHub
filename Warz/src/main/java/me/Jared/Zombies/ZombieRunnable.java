@@ -13,28 +13,28 @@ public class ZombieRunnable extends BukkitRunnable
 	private int interval;
 	private int seconds;
 
-	public ZombieRunnable(int radius, int zombieAmount, int interval)
+	public ZombieRunnable(int radius, int interval)
 	{
 		this.radius = radius;
-		this.zombieAmount = zombieAmount;
 		this.interval = interval;
 		this.seconds = 0;
 	}
 
-	Random random = new Random();
 	@Override
 	public void run()
 	{
 		seconds++;
-		int randomNumber = random.nextInt(10,interval+1);
-		if(seconds % randomNumber == 0)
+
+		if(seconds % interval == 0)
 		{
+			Random random = new Random();
+			zombieAmount = random.nextInt(6) + 5;
 			//Loop through all players and spawn zombie at a radius of 10 on em and make the zombie buffer or weaker depending on the zone
 			for(Player player : Bukkit.getOnlinePlayers())
 			{
 				if(player.getWorld().equals(Bukkit.getWorld("warz")))
 				{
-					me.Jared.Zombies.ZombieUtil zombieUtil = new me.Jared.Zombies.ZombieUtil(player, radius, zombieAmount);
+					ZombieUtil zombieUtil = new ZombieUtil(player, radius, zombieAmount);
 					zombieUtil.spawnZombie();
 				}
 			}

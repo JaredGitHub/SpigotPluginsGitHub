@@ -58,50 +58,30 @@ public class Bullet
 
 	private void adjustLocationForHand(Location loc, GunPlayer owner)
 	{
-		double offset = (owner.getPlayer().getMainHand() == MainHand.LEFT) ? -0.3 : 0.3;
+		double offset = 0.3;
+		offset = (owner.getPlayer().getMainHand() == MainHand.LEFT) ? -offset : offset;
 
 		String direction = getDirection(loc);
 
-		// Get player's direction vector
 		Vector directionVector = owner.getPlayer().getLocation().getDirection().normalize();
 
-		// Apply backward offset first (this moves the location backward along the player's look direction)
-		loc.add(directionVector.multiply(-0.3));
+
 		switch(direction)
 		{
-		case "NORTH":
-			loc.add(offset, 0, 0);
-			break;
-		case "SOUTH":
-			loc.add(-offset, 0, 0);
-			break;
-		case "EAST":
-			loc.add(0, 0, offset);
-			loc.setYaw(90);
-			break;
-		case "WEST":
-			loc.add(0, 0, -offset);
-			loc.setYaw(-90);
-			break;
-		case "NORTHEAST":
-			loc.add(offset, 0, offset);
-			loc.setYaw(135);
-			break;
-		case "NORTHWEST":
-			loc.add(offset, 0, -offset);
-			loc.setYaw(-135);
-			break;
-		case "SOUTHEAST":
-			loc.add(-offset, 0, offset);
-			loc.setYaw(45);
-			break;
-		case "SOUTHWEST":
-			loc.add(-offset, 0, -offset);
-			loc.setYaw(-45);
-			break;
+		case "NORTH":      loc.add(offset, 0, 0); break;
+		case "SOUTH":      loc.add(-offset, 0, 0); break;
+		case "EAST":       loc.add(0, 0, offset);  loc.setYaw(90); break;
+		case "WEST":       loc.add(0, 0, -offset); loc.setYaw(-90); break;
+		case "NORTHEAST":  loc.add(offset, 0, offset);  loc.setYaw(135); break;
+		case "NORTHWEST":  loc.add(offset, 0, -offset); loc.setYaw(-135); break;
+		case "SOUTHEAST":  loc.add(-offset, 0, offset); loc.setYaw(45); break;
+		case "SOUTHWEST":  loc.add(-offset, 0, -offset); loc.setYaw(-45); break;
 		}
 
+		// ⭐ NEW: Move bullet slightly forward in the direction the player is looking
+		loc.add(directionVector.clone().multiply(0.2));
 	}
+
 
 	private String getDirection(Location location)
 	{

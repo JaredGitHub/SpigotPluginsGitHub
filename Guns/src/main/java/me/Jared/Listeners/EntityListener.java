@@ -1,23 +1,19 @@
 package me.Jared.Listeners;
 
 import java.util.HashMap;
+import java.util.UUID;
 
 import org.bukkit.*;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Damageable;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Projectile;
+import org.bukkit.entity.*;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.*;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
-import org.bukkit.event.entity.EntityDeathEvent;
-import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerPickupArrowEvent;
+import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.BlockIterator;
 
 import me.Jared.GunsPlugin;
@@ -27,6 +23,7 @@ import me.Jared.Events.GunsKillEntityEvent;
 import me.Jared.Guns.Bullet;
 import me.Jared.Guns.Gun;
 import me.Jared.Guns.GunPlayer;
+import org.bukkit.util.Vector;
 
 public class EntityListener implements Listener
 {
@@ -66,6 +63,94 @@ public class EntityListener implements Listener
 			default:
 				break;
 			}
+		}
+	}
+
+	//Stop bullets on cobwebs/barbwire
+
+	@EventHandler
+	public void onProjectileLaunch(ProjectileLaunchEvent event)
+	{
+		if(!(event.getEntity() instanceof Snowball))
+			return;
+
+		Snowball snowball = (Snowball) event.getEntity();
+		final UUID snowballUUID = snowball.getUniqueId();
+
+		new BukkitRunnable()
+		{
+			private Location lastLocation = snowball.getLocation().clone();
+
+			@Override
+			public void run()
+			{
+				Entity entity = Bukkit.getEntity(snowballUUID);
+				if(!(entity instanceof Snowball) || entity.isDead())
+				{
+					this.cancel();
+					return;
+				}
+
+				Snowball currentSnowball = (Snowball) entity;
+				Location currentLoc = currentSnowball.getLocation();
+
+				// Check all blocks along the path for cobwebs
+				if(checkCobwebCollision(lastLocation, currentLoc))
+				{
+					currentSnowball.setVelocity(new Vector(0, 0, 0));
+					handleCobwebCollision(currentSnowball, currentLoc);
+					this.cancel();
+					return;
+				}
+
+				lastLocation = currentLoc.clone();
+			}
+		}.runTaskTimer(GunsPlugin.getPlugin, 0L, 1L);
+	}
+
+	private boolean checkCobwebCollision(Location from, Location to)
+	{
+		Vector direction = to.toVector().subtract(from.toVector());
+		double distance = direction.length();
+		direction.normalize();
+
+		// Check every block along the path
+		for(double d = 0; d <= distance; d += 0.25)
+		{
+			Location checkLoc = from.clone().add(direction.clone().multiply(d));
+
+			// Expand check to include the entire block space (like a solid block)
+			for(double x = -0.3; x <= 0.3; x += 0.3)
+			{
+				for(double y = -0.3; y <= 0.3; y += 0.3)
+				{
+					for(double z = -0.3; z <= 0.3; z += 0.3)
+					{
+						Location expandedCheck = checkLoc.clone().add(x, y, z);
+						if(isCobweb(expandedCheck.getBlock()))
+						{
+							return true;
+						}
+					}
+				}
+			}
+		}
+		return false;
+	}
+
+	private boolean isCobweb(Block block)
+	{
+		return block.getType() == Material.COBWEB || block.getType() == Material.TRIPWIRE;
+	}
+
+	private void handleCobwebCollision(Snowball snowball, Location location)
+	{
+		snowball.setVelocity(new Vector(0, 0, 0));
+		location.getWorld().playEffect(location, Effect.STEP_SOUND, Material.COBWEB);
+
+		if(!snowball.isDead())
+		{
+			snowball.remove();
 		}
 	}
 

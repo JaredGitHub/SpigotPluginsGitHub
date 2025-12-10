@@ -1,11 +1,9 @@
-
 package me.Jared;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Random;
 
-import com.sk89q.worldguard.WorldGuard;
 import org.bukkit.*;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
@@ -14,7 +12,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.potion.PotionEffectType;
 
 import com.sk89q.worldedit.WorldEdit;
 
@@ -26,7 +23,6 @@ import me.Jared.Guns.WeaponReader;
 import me.Jared.Guns.constant.GunValue;
 import me.Jared.Listeners.EntityListener;
 import me.Jared.Listeners.PlayerListener;
-import me.Jared.Utils.RemoveBullets;
 import me.Jared.Utils.UtilServer;
 
 public class GunsPlugin extends JavaPlugin
@@ -44,12 +40,8 @@ public class GunsPlugin extends JavaPlugin
 
 	public void onEnable()
 	{
-
-
-		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "The guns plugin is here!!! Best believe it! SIIIIMPLE!!!");
-
-		new RemoveBullets("world").runTaskTimer(this, 0, 20);
-		new RemoveBullets("warz").runTaskTimer(this, 0, 20);
+		Bukkit.getConsoleSender()
+				.sendMessage(ChatColor.GREEN + "The guns plugin is here!!! Best believe it! SIIIIMPLE!!!");
 
 		//Register trigger swap command
 		Bukkit.getPluginCommand("triggerswap").setExecutor(new TriggerSwap(this));
@@ -61,7 +53,7 @@ public class GunsPlugin extends JavaPlugin
 			pm.registerEvents((Listener) new PlayerListener(), (Plugin) this);
 			pm.registerEvents((Listener) new EntityListener(), (Plugin) getPlugin);
 			this.startup(true);
-		} catch (Exception e)
+		} catch(Exception e)
 		{
 			e.printStackTrace();
 		}
@@ -70,15 +62,15 @@ public class GunsPlugin extends JavaPlugin
 	public void clearMemory(boolean init)
 	{
 		Bukkit.getScheduler().cancelTasks((Plugin) getPlugin);
-		for (Bullet b : this.bullets)
+		for(Bullet b : this.bullets)
 		{
 			b.remove();
 		}
-		for (GunPlayer gp : this.players)
+		for(GunPlayer gp : this.players)
 		{
 			gp.unload();
 		}
-		if (init)
+		if(init)
 		{
 			this.loadedGuns.clear();
 		}
@@ -89,20 +81,20 @@ public class GunsPlugin extends JavaPlugin
 	public void startup(boolean init)
 	{
 		random = new Random();
-		UtilServer.runTaskTimerAsync(this::UpdateTimer, 20L, 0L);
-		if (!new File(this.getPluginFolder()).exists())
+		UtilServer.runTaskTimer(this::UpdateTimer, 20L, 0L);
+		if(!new File(this.getPluginFolder()).exists())
 		{
 			new File(this.getPluginFolder()).mkdir();
 		}
-		if (!new File(String.valueOf(this.getPluginFolder()) + "/guns").exists())
+		if(!new File(String.valueOf(this.getPluginFolder()) + "/guns").exists())
 		{
 			new File(String.valueOf(this.getPluginFolder()) + "/guns").mkdir();
 		}
-		if (!new File(String.valueOf(this.getPluginFolder()) + "/projectile").exists())
+		if(!new File(String.valueOf(this.getPluginFolder()) + "/projectile").exists())
 		{
 			new File(String.valueOf(this.getPluginFolder()) + "/projectile").mkdir();
 		}
-		if (init)
+		if(init)
 		{
 			this.loadGuns();
 			this.loadWarzGuns();
@@ -113,7 +105,7 @@ public class GunsPlugin extends JavaPlugin
 
 	public WorldEdit getWorldEdit()
 	{
-		if (WorldEdit.getInstance() == null)
+		if(WorldEdit.getInstance() == null)
 		{
 			throw new NullPointerException();
 		}
@@ -125,22 +117,21 @@ public class GunsPlugin extends JavaPlugin
 		return this.getDataFolder().getAbsolutePath();
 	}
 
-
 	private void loadProjectile()
 	{
 		String path = String.valueOf(this.getPluginFolder()) + "/projectile";
 		File dir = new File(path);
 		String[] children = dir.list();
-		if (children != null)
+		if(children != null)
 		{
 			String[] stringArray = children;
 			int n = children.length;
 			int n2 = 0;
-			while (n2 < n)
+			while(n2 < n)
 			{
 				String fName = stringArray[n2];
 				WeaponReader f = new WeaponReader(this, new File(String.valueOf(path) + "/" + fName), "gun");
-				if (f.loaded)
+				if(f.loaded)
 				{
 					f.ret.node = "guns." + fName.toLowerCase();
 					this.loadedGuns.add(f.ret);
@@ -160,16 +151,16 @@ public class GunsPlugin extends JavaPlugin
 		File dir = new File(path);
 		String[] children = dir.list();
 		this.loadedGuns.clear();
-		if (children != null)
+		if(children != null)
 		{
 			String[] stringArray = children;
 			int n = children.length;
 			int n2 = 0;
-			while (n2 < n)
+			while(n2 < n)
 			{
 				String fName = stringArray[n2];
 				WeaponReader f = new WeaponReader(this, new File(String.valueOf(path) + "/" + fName), "gun");
-				if (f.loaded)
+				if(f.loaded)
 				{
 					f.ret.node = "guns." + fName.toLowerCase();
 					this.loadedGuns.add(f.ret);
@@ -187,16 +178,16 @@ public class GunsPlugin extends JavaPlugin
 		String path = String.valueOf(this.getPluginFolder()) + "/warzguns";
 		File dir = new File(path);
 		String[] children = dir.list();
-		if (children != null)
+		if(children != null)
 		{
 			String[] stringArray = children;
 			int n = children.length;
 			int n2 = 0;
-			while (n2 < n)
+			while(n2 < n)
 			{
 				String fName = stringArray[n2];
 				WeaponReader f = new WeaponReader(this, new File(String.valueOf(path) + "/" + fName), "gun");
-				if (f.loaded)
+				if(f.loaded)
 				{
 					f.ret.node = "guns." + fName.toLowerCase();
 				} else
@@ -221,7 +212,7 @@ public class GunsPlugin extends JavaPlugin
 
 	public void getOnlinePlayers()
 	{
-		for (Player pl : Bukkit.getOnlinePlayers())
+		for(Player pl : Bukkit.getOnlinePlayers())
 		{
 			GunPlayer g = new GunPlayer(this, pl);
 			this.players.add(g);
@@ -231,20 +222,20 @@ public class GunsPlugin extends JavaPlugin
 	public void UpdateTimer()
 	{
 		int i = this.players.size() - 1;
-		while (i >= 0)
+		while(i >= 0)
 		{
 			GunPlayer gp = this.players.get(i);
-			if (gp != null)
+			if(gp != null)
 			{
 				UtilServer.runTask(gp::tick);
 			}
 			--i;
 		}
 		i = this.bullets.size() - 1;
-		while (i >= 0)
+		while(i >= 0)
 		{
 			Bullet t = this.bullets.get(i);
-			if (t != null)
+			if(t != null)
 			{
 				UtilServer.runTask(t::tick);
 			}
@@ -254,9 +245,9 @@ public class GunsPlugin extends JavaPlugin
 
 	public GunPlayer getGunPlayer(Player player)
 	{
-		for (GunPlayer gp : this.players)
+		for(GunPlayer gp : this.players)
 		{
-			if (gp.getPlayer() != player)
+			if(gp.getPlayer() != player)
 				continue;
 			return gp;
 		}
@@ -265,13 +256,13 @@ public class GunsPlugin extends JavaPlugin
 
 	public Gun getGun(Material mat, GunValue gunValue)
 	{
-		if (mat == null)
+		if(mat == null)
 		{
 			return null;
 		}
-		for (Gun g : this.loadedGuns)
+		for(Gun g : this.loadedGuns)
 		{
-			if (g.getGunType() != mat)
+			if(g.getGunType() != mat)
 				continue;
 			return g.copy();
 		}
@@ -281,9 +272,9 @@ public class GunsPlugin extends JavaPlugin
 	public Gun getGun(String gunName)
 	{
 		String lowerCased = gunName.toLowerCase();
-		for (Gun gun : this.loadedGuns)
+		for(Gun gun : this.loadedGuns)
 		{
-			if (!gun.getName().toLowerCase().equals(lowerCased) && !gun.getFilename().toLowerCase().equals(lowerCased))
+			if(!gun.getName().toLowerCase().equals(lowerCased) && !gun.getFilename().toLowerCase().equals(lowerCased))
 				continue;
 			return gun;
 		}
@@ -292,7 +283,7 @@ public class GunsPlugin extends JavaPlugin
 
 	public void onJoin(Player player)
 	{
-		if (this.getGunPlayer(player) == null)
+		if(this.getGunPlayer(player) == null)
 		{
 			GunPlayer gp = new GunPlayer(this, player);
 			this.players.add(gp);
@@ -301,9 +292,9 @@ public class GunsPlugin extends JavaPlugin
 
 	public void onQuit(Player pl)
 	{
-		for (GunPlayer d : this.players)
+		for(GunPlayer d : this.players)
 		{
-			if (d.getPlayer().getEntityId() != pl.getEntityId())
+			if(d.getPlayer().getEntityId() != pl.getEntityId())
 				continue;
 			this.players.remove(d);
 			return;
@@ -313,7 +304,7 @@ public class GunsPlugin extends JavaPlugin
 	public ArrayList<Gun> getLoadedGuns()
 	{
 		ArrayList<Gun> ret = new ArrayList<Gun>();
-		for (Gun g : this.loadedGuns)
+		for(Gun g : this.loadedGuns)
 		{
 			ret.add(g.copy());
 		}
@@ -333,9 +324,9 @@ public class GunsPlugin extends JavaPlugin
 	public Bullet getBullet(Entity proj)
 	{
 		int id = proj.getEntityId();
-		for (Bullet b : this.bullets)
+		for(Bullet b : this.bullets)
 		{
-			if (b.getProjectile().getEntityId() != id)
+			if(b.getProjectile().getEntityId() != id)
 				continue;
 			return b;
 		}
@@ -344,9 +335,9 @@ public class GunsPlugin extends JavaPlugin
 
 	public Bullet getBullet(int id)
 	{
-		for (Bullet b : this.bullets)
+		for(Bullet b : this.bullets)
 		{
-			if (b.getProjectile().getEntityId() - id != 0)
+			if(b.getProjectile().getEntityId() - id != 0)
 				continue;
 			return b;
 		}
@@ -362,9 +353,9 @@ public class GunsPlugin extends JavaPlugin
 	public Gun getGunByType(ItemStack item)
 	{
 		Material mat = item.getType();
-		for (Gun g : this.loadedGuns)
+		for(Gun g : this.loadedGuns)
 		{
-			if (g.getGunType() != mat)
+			if(g.getGunType() != mat)
 				continue;
 			return g;
 		}
@@ -373,25 +364,25 @@ public class GunsPlugin extends JavaPlugin
 
 	public static String getReloadingTime(Gun gun)
 	{
-		if (gun.reloading)
+		if(gun.reloading)
 		{
 			StringBuilder reload = new StringBuilder();
 			int scale = 40;
 			int bars = Math.round(scale - (float) (gun.gunReloadTimer * scale) / gun.getReloadTime());
 			int i = 0;
-			while (i < bars)
+			while(i < bars)
 			{
 				reload.append("\u00a7a\u00a7l|");
 				++i;
 			}
 			int left = scale - bars;
 			int ii = 0;
-			while (ii < left)
+			while(ii < left)
 			{
 				reload.append("\u00a7c\u00a7l|");
 				++ii;
 			}
-			if (!reload.toString().contains("\u00a7c"))
+			if(!reload.toString().contains("\u00a7c"))
 			{
 				return "\u00a78\u00a7l\u00a7aReloaded!";
 			}

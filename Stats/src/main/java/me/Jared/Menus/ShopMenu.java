@@ -21,10 +21,12 @@ public class ShopMenu extends StatsMenu
 
 	private Stats stats = Stats.getPlugin(Stats.class);
 	FileConfiguration config = stats.getConfig();
+	final String shopString;
 
-	public ShopMenu(PlayerMenuUtility playerMenuUtility)
+	public ShopMenu(PlayerMenuUtility playerMenuUtility, String shopString)
 	{
 		super(playerMenuUtility);
+		this.shopString = shopString;
 	}
 
 	@Override
@@ -48,30 +50,38 @@ public class ShopMenu extends StatsMenu
 
 		Player player = (Player) e.getWhoClicked();
 
-		if(e.getCurrentItem() == null) return;
-		if(e.getCurrentItem().getItemMeta() == null) return;
-		if(e.getCurrentItem().getItemMeta().getLore() == null) return;
+		if(e.getCurrentItem() == null)
+			return;
+		if(e.getCurrentItem().getItemMeta() == null)
+			return;
+		if(e.getCurrentItem().getItemMeta().getLore() == null)
+			return;
 
-		/*List of items from config*/ArrayList<String> itemList = new ArrayList<String>(config.getStringList("shopItems"));
-		/* Lore of item clicked in shop */ArrayList<String> lore = new ArrayList<String>(e.getCurrentItem().getItemMeta().getLore());
-		/* Price of item clicked in shop*/ int price = Integer.parseInt(lore.get(0).substring(9));		
+		/*List of items from config*/
+		ArrayList<String> itemList = new ArrayList<String>(config.getStringList(shopString));
+		/* Lore of item clicked in shop */
+		ArrayList<String> lore = new ArrayList<String>(e.getCurrentItem().getItemMeta().getLore());
+		/* Price of item clicked in shop*/
+		int price = Integer.parseInt(lore.get(0).substring(9));
 
 		for(int i = 0; i < itemList.size(); i++)
 		{
 			Damageable damage = (Damageable) e.getCurrentItem().getItemMeta();
-			
+
 			if(damage.getDamage() == configItem.getDurability(itemList.get(i))
 					&& e.getCurrentItem().getType() == configItem.getMaterial(itemList.get(i)))
 			{
 				int gems = config.getInt(player.getUniqueId() + ".gems");
 				if(!(gems < price))
 				{
-					player.sendMessage(ChatColor.GREEN + "You bought " + e.getCurrentItem().getItemMeta().getDisplayName() + ChatColor.GREEN + " for " + price + " gems!");
+					player.sendMessage(
+							ChatColor.GREEN + "You bought " + e.getCurrentItem().getItemMeta().getDisplayName()
+									+ ChatColor.GREEN + " for " + price + " gems!");
 					player.playSound(player.getLocation(), Sound.ENTITY_ITEM_PICKUP, 1, 1);
 
 					ItemStack item = configItem.stringToItemStack(itemList.get(i));
 					item.setItemMeta(null);
-					
+
 					ItemMeta meta = item.getItemMeta();
 
 					meta.setDisplayName(configItem.getDisplayName(itemList.get(i)));
@@ -81,12 +91,12 @@ public class ShopMenu extends StatsMenu
 
 					config.set(player.getUniqueId() + ".gems", gems - price);
 					stats.saveConfig();
-					
+
 					new StatScoreboard(stats, player);
-				}
-				else
+				} else
 				{
-					if(gems < 0) config.set(player.getUniqueId() + ".gems", 0);
+					if(gems < 0)
+						config.set(player.getUniqueId() + ".gems", 0);
 					player.sendMessage(ChatColor.RED + "You do not have enough gems noob!");
 					player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_SCREAM, 1, 1);
 
@@ -98,7 +108,7 @@ public class ShopMenu extends StatsMenu
 	@Override
 	public void setMenuItems()
 	{
-		for(String str : config.getStringList("shopItems"))
+		for(String str : config.getStringList(shopString))
 		{
 			inventory.addItem(configItem.stringToItemStack(str));
 		}

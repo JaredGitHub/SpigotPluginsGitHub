@@ -461,6 +461,7 @@ public class EventListener implements Listener
 	{
 		Player player = e.getPlayer();
 
+
 		if(config.getInt(player.getUniqueId() + ".elo") <= 0 || config.getString(player.getUniqueId() + ".rank") == null
 				|| (!config.getString(player.getUniqueId() + ".rank").contains("&")))
 		{
@@ -475,20 +476,7 @@ public class EventListener implements Listener
 			stats.getNametagManager().newTag(player);
 		}
 
-		PermissionAttachment attachment;
-		if(stats.getRankManager().getPerms().containsKey(player.getUniqueId()))
-		{
-			attachment = stats.getRankManager().getPerms().get(player.getUniqueId());
-		} else
-		{
-			attachment = player.addAttachment(stats);
-			stats.getRankManager().getPerms().put(player.getUniqueId(), attachment);
-		}
-
-		for(String perm : stats.getRankManager().getRank(player.getUniqueId()).getPermissions())
-		{
-			attachment.setPermission(perm, true);
-		}
+		stats.getRankManager().applySavedRank(player, player.hasPlayedBefore());
 		new StatScoreboard(stats, player);
 	}
 

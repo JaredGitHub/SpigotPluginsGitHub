@@ -8,7 +8,6 @@ import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
-import org.bukkit.Color;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -24,19 +23,12 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.*;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.PlayerInventory;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.inventory.meta.MapMeta;
-import org.bukkit.map.MapView;
-import org.bukkit.map.MapView.Scale;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import me.Jared.Warz;
-import me.Jared.Commands.CustomMapRenderer;
 import me.Jared.Loot.ConfigItem;
 import me.Jared.Loot.ConfigManager;
 import me.Jared.Loot.LootManager;
@@ -191,6 +183,9 @@ public class WarzListener implements Listener
 				case "/airdrop":
 				case "/elo":
 				case "/topelo":
+				case "/shop":
+				case "/tpyes":
+				case "tpaccept":
 					break;
 				default:
 					e.setCancelled(true);

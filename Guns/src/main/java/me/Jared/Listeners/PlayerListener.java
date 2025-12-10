@@ -2,12 +2,8 @@ package me.Jared.Listeners;
 
 import java.util.HashMap;
 
-import com.sk89q.worldedit.math.BlockVector3;
-import com.sk89q.worldedit.regions.Region;
-import com.sk89q.worldedit.world.World;
 import com.sk89q.worldguard.protection.ApplicableRegionSet;
 import com.sk89q.worldguard.protection.regions.RegionQuery;
-import me.Jared.Guns.constant.GunValue;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -22,14 +18,11 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
-import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.inventory.ItemStack;
 
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import com.sk89q.worldguard.WorldGuard;
-import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
-import com.sk89q.worldguard.protection.managers.RegionManager;
 import com.sk89q.worldguard.protection.regions.ProtectedRegion;
 import com.sk89q.worldguard.protection.regions.RegionContainer;
 
@@ -40,7 +33,6 @@ import me.Jared.Events.PlayerChangeGunValuesEvent;
 import me.Jared.Guns.Gun;
 import me.Jared.Guns.GunPlayer;
 import me.Jared.Utils.UtilString;
-import org.bukkit.plugin.java.JavaPlugin;
 
 public class PlayerListener implements Listener
 {
@@ -110,7 +102,8 @@ public class PlayerListener implements Listener
 
 	public boolean isInRegion(Player player, String regionName)
 	{
-		if (WorldGuard.getInstance() == null) {
+		if(WorldGuard.getInstance() == null)
+		{
 			Bukkit.getLogger().severe("WorldGuard is not initialized yet!");
 			return false;
 		}

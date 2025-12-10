@@ -35,7 +35,7 @@ public class RankCommand implements CommandExecutor
 					{
 						if(rank.name().equalsIgnoreCase(args[1]))
 						{
-							stats.getRankManager().setRank(target.getUniqueId(), rank, false);
+							stats.getRankManager().setRank(target.getUniqueId(), rank);
 							
 							sender.sendMessage(ChatColor.GREEN + target.getName() + " is now " + rank.getDisplay() + ChatColor.GREEN + " rank!");
 							
@@ -46,7 +46,7 @@ public class RankCommand implements CommandExecutor
 								
 								stats.getNametagManager().setNametags(target.getPlayer());
 								stats.getNametagManager().newTag(target.getPlayer());
-								stats.getRankManager().setRank(target.getPlayer().getUniqueId(), rank, true);
+								stats.getRankManager().setRank(target.getPlayer().getUniqueId(), rank);
 							}
 							
 							return false;

@@ -8,7 +8,6 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -17,9 +16,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.potion.PotionEffect;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 
 public class Main extends JavaPlugin implements Listener
 {
@@ -54,8 +51,8 @@ public class Main extends JavaPlugin implements Listener
 
 		for(Player p : Bukkit.getOnlinePlayers())
 		{
-			PacketUtils.sendTabHF(p, ChatColor.GOLD + "JaredServer",
-					ChatColor.GOLD + "store.jaredcoen.com\n" + ChatColor.GREEN + "Players Online: " + ChatColor.WHITE
+			PacketUtils.sendTabHF(p, ChatColor.GOLD + "MCWARZ",
+					ChatColor.GOLD + "mcwarz.store\n" + ChatColor.GREEN + "Players Online: " + ChatColor.WHITE
 							+ Bukkit.getOnlinePlayers().size());
 		}
 
@@ -221,13 +218,19 @@ public class Main extends JavaPlugin implements Listener
 						return true;
 					}
 
-					if(Bukkit.getPlayer(playerName) != null)
+					Player player = Bukkit.getPlayer(playerName);
+					if(player == null)
+					{
+						p.sendMessage(ChatColor.RED + "Player not online!");
+						return true;
+					}
+					else
 					{
 						if(!(cooldown5min.isOnCooldown(p)) && !(cooldown4min.isOnCooldown(p))
 								&& !(cooldown3min.isOnCooldown(p)) && !(cooldown2min.isOnCooldown(p))
 								&& !(cooldown1min.isOnCooldown(p)))
 						{
-							Bukkit.getPlayer(playerName).sendMessage(
+							player.sendMessage(
 									ChatColor.GRAY + p.getName() + " has sent you a TPA request. (/tpyes)");
 							p.sendMessage(ChatColor.GRAY + "You have sent a TPA request to " + playerName);
 							requesters.put(Bukkit.getPlayer(playerName), p);
@@ -294,10 +297,6 @@ public class Main extends JavaPlugin implements Listener
 							return true;
 						}
 
-					} else
-					{
-						p.sendMessage(ChatColor.RED + "Player not online!");
-						return true;
 					}
 				}
 			}

@@ -19,7 +19,6 @@ import me.Jared.Stats;
 import me.Jared.Menus.ConfigItem;
 import me.Jared.Menus.ShopMenu;
 
-
 public class Commands implements CommandExecutor, TabCompleter
 {
 	private Stats stats = Stats.getPlugin(Stats.class);
@@ -27,7 +26,7 @@ public class Commands implements CommandExecutor, TabCompleter
 	ConfigItem configItem = new ConfigItem();
 
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) 
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
 		if(!(sender instanceof Player))
 		{
@@ -42,10 +41,19 @@ public class Commands implements CommandExecutor, TabCompleter
 
 			if(args.length == 0)
 			{
-				//Open gui inventory
-				ShopMenu menu = new ShopMenu(stats.getPlayerMenuUtility(p));
-				menu.open();
-				return true;
+				if(p.getWorld().getName().equals("world"))
+				{
+					//Open gui inventory
+					ShopMenu menu = new ShopMenu(stats.getPlayerMenuUtility(p), "shopItems");
+					menu.open();
+					return true;
+				}
+				else if(p.getWorld().getName().contains("warz"))
+				{
+					ShopMenu menu = new ShopMenu(stats.getPlayerMenuUtility(p), "warzItems");
+					menu.open();
+					return true;
+				}
 			}
 			if(!p.hasPermission("stats"))
 			{
@@ -68,11 +76,12 @@ public class Commands implements CommandExecutor, TabCompleter
 					{
 						if(item.hasItemMeta())
 						{
-							p.sendMessage(ChatColor.RED + "You have removed " + item.getItemMeta().getDisplayName() + ChatColor.RED + " from the shop!");
-						}
-						else
+							p.sendMessage(ChatColor.RED + "You have removed " + item.getItemMeta().getDisplayName()
+									+ ChatColor.RED + " from the shop!");
+						} else
 						{
-							p.sendMessage(ChatColor.RED + "You have removed " + ChatColor.RESET + item.getType().name() + ChatColor.RED + " from the shop!");
+							p.sendMessage(ChatColor.RED + "You have removed " + ChatColor.RESET + item.getType().name()
+									+ ChatColor.RED + " from the shop!");
 
 						}
 						p.playSound(p.getLocation(), Sound.ENTITY_GHAST_DEATH, 1, 1);
@@ -92,10 +101,7 @@ public class Commands implements CommandExecutor, TabCompleter
 				stats.saveConfig();
 				return true;
 
-
-			}
-
-			else if (args.length == 2)
+			} else if(args.length == 2)
 			{
 				if(args[0].equalsIgnoreCase("add"))
 				{
@@ -105,9 +111,11 @@ public class Commands implements CommandExecutor, TabCompleter
 						p.sendMessage(ChatColor.RED + "Hold an item to add to the shop!");
 						return true;
 					}
-					try {
+					try
+					{
 
-						try {
+						try
+						{
 
 							int price = Integer.parseInt(args[1]);
 							ItemStack item = new ItemStack(p.getInventory().getItemInMainHand());
@@ -116,8 +124,9 @@ public class Commands implements CommandExecutor, TabCompleter
 
 							for(int i = 0; i < itemList.size(); i++)
 							{
-								Damageable damage = (Damageable)item.getItemMeta();
-								if(configItem.getMaterial(itemList.get(i)).equals(item.getType()) && configItem.getDurability(itemList.get(i)) == damage.getDamage())
+								Damageable damage = (Damageable) item.getItemMeta();
+								if(configItem.getMaterial(itemList.get(i)).equals(item.getType())
+										&& configItem.getDurability(itemList.get(i)) == damage.getDamage())
 								{
 									p.sendMessage(ChatColor.RED + "You cannot add duplicate items!");
 									return true;
@@ -126,26 +135,28 @@ public class Commands implements CommandExecutor, TabCompleter
 
 							if(item.hasItemMeta())
 							{
-								p.sendMessage(ChatColor.GREEN + "You have added " + item.getItemMeta().getDisplayName() + ChatColor.GREEN + " to the shop for " + price + " gems!");
-							}
-							else
+								p.sendMessage(ChatColor.GREEN + "You have added " + item.getItemMeta().getDisplayName()
+										+ ChatColor.GREEN + " to the shop for " + price + " gems!");
+							} else
 							{
-								p.sendMessage(ChatColor.GREEN + "You have added " + ChatColor.RESET + item.getType().name() + ChatColor.GREEN + " to the shop for " + price + " gems!");
+								p.sendMessage(
+										ChatColor.GREEN + "You have added " + ChatColor.RESET + item.getType().name()
+												+ ChatColor.GREEN + " to the shop for " + price + " gems!");
 							}
-							p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1); 
+							p.playSound(p.getLocation(), Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
 
 							itemList.add(configItem.itemStackToString(item, price));
 							config.set("shopItems", itemList);
 							stats.saveConfig();
 							return true;
 
-						}catch(NumberFormatException e)
+						} catch(NumberFormatException e)
 						{
 							p.sendMessage(ChatColor.GRAY + "Usage: /shop add (price)");
 							return true;
 						}
 
-					} catch (NullPointerException e)
+					} catch(NullPointerException e)
 					{
 						p.sendMessage(ChatColor.RED + "Hold an item to add to the shop!");
 						return true;

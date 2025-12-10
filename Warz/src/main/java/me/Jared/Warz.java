@@ -34,13 +34,12 @@ public class Warz extends JavaPlugin
 		Bukkit.getPluginCommand("setzone").setExecutor(new WarzCommands());
 		Bukkit.getPluginCommand("setloot").setExecutor(new WarzCommands());
 		Bukkit.getPluginCommand("addspawnpoint").setExecutor(new WarzCommands());
-
 		Bukkit.getPluginCommand("warz").setExecutor(new WarzCommands());
 
 		LootManager lootManager = new LootManager();
 		lootManager.runLootRunnable(2);
 
-	    ZombieRunnable zombieRunnable = new ZombieRunnable(50, 10, 1);
+	    ZombieRunnable zombieRunnable = new ZombieRunnable(50, 120);
 	    zombieRunnable.runTaskTimer(this, 0L, 20L);
 
 		Bukkit.getPluginManager().registerEvents(new WarzListener(), this);

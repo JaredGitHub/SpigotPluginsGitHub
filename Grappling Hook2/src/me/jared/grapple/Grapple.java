@@ -61,57 +61,72 @@ public class Grapple extends JavaPlugin implements Listener
 	{
 		Player p = e.getPlayer();
 
-		if(!(cooldown.contains(p)) && (e.getState() == State.IN_GROUND)
-				|| !(cooldown.contains(p)) && (e.getState() == State.CAUGHT_ENTITY))
+		switch(e.getState())
 		{
-			new GrappleCooldownTask(p, getConfig().getInt("grappleCooldown") * 20).runTaskTimer(this, 0, 1);
+		case REEL_IN:
+			break;
+		case BITE:
+		case CAUGHT_FISH:
+		case FAILED_ATTEMPT:
 
-			for(Player online : Bukkit.getOnlinePlayers())
-			{
-				online.playSound(p.getLocation(), Sound.ENTITY_MAGMA_CUBE_JUMP, 1, 1);
-			}
-			
-			if(p.getInventory().getItemInOffHand().getType() == Material.FISHING_ROD)
-			{
-				p.sendMessage(ChatColor.RED + "No offhand noob!");
-				return;
-			}
-
-			ItemStack item = new ItemStack(p.getInventory().getItemInMainHand());
-			Damageable meta = (Damageable) item.getItemMeta();
-
-			String strLore = meta.getLore().get(0);
-			String loreUses = strLore.substring(16);
-			Integer number = Integer.valueOf(loreUses);
-			meta.setDamage(30);
-
-			if(number <= 1)
-			{
-				p.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
-				p.playSound(p.getLocation(), Sound.ENTITY_ITEM_BREAK, 1, 1);
-			}
-
-			number--;
-			ArrayList<String> lore = new ArrayList<String>();
-			lore.add(ChatColor.GRAY + "Uses Left - " + ChatColor.GREEN + number);
-			meta.setLore(lore);
-			p.getInventory().getItemInMainHand().setItemMeta(meta);
-
-			Location target = e.getHook().getLocation();
-			Vector v = getVectorForPoints(p.getLocation(), target);
-			p.setVelocity(v);
-			addNoFall((Entity) p, 60);
-
-			Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable()
-			{
-				@Override
-				public void run()
-				{
-					cooldown.remove(p);
-				}
-			}, getConfig().getInt("grappleCooldown") * 20);
-			cooldown.add(p);
+			e.setCancelled(true);
+			break;
 		}
+
+		if(!(cooldown.contains(p)))
+		{
+			if((e.getState() == State.IN_GROUND) || (e.getState() == State.CAUGHT_ENTITY))
+			{
+				new GrappleCooldownTask(p, getConfig().getInt("grappleCooldown") * 20).runTaskTimer(this, 0, 1);
+
+				for(Player online : Bukkit.getOnlinePlayers())
+				{
+					online.playSound(p.getLocation(), Sound.ENTITY_MAGMA_CUBE_JUMP, 1, 1);
+				}
+
+				if(p.getInventory().getItemInOffHand().getType() == Material.FISHING_ROD)
+				{
+					p.sendMessage(ChatColor.RED + "No offhand noob!");
+					return;
+				}
+
+				ItemStack item = new ItemStack(p.getInventory().getItemInMainHand());
+				Damageable meta = (Damageable) item.getItemMeta();
+
+				String strLore = meta.getLore().get(0);
+				String loreUses = strLore.substring(16);
+				Integer number = Integer.valueOf(loreUses);
+				meta.setDamage(30);
+
+				if(number <= 1)
+				{
+					p.getInventory().setItemInMainHand(new ItemStack(Material.AIR));
+					p.playSound(p.getLocation(), Sound.ENTITY_ITEM_BREAK, 1, 1);
+				}
+
+				number--;
+				ArrayList<String> lore = new ArrayList<String>();
+				lore.add(ChatColor.GRAY + "Uses Left - " + ChatColor.GREEN + number);
+				meta.setLore(lore);
+				p.getInventory().getItemInMainHand().setItemMeta(meta);
+
+				Location target = e.getHook().getLocation();
+				Vector v = getVectorForPoints(p.getLocation(), target);
+				p.setVelocity(v);
+				addNoFall((Entity) p, 60);
+
+				Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable()
+				{
+					@Override
+					public void run()
+					{
+						cooldown.remove(p);
+					}
+				}, getConfig().getInt("grappleCooldown") * 20);
+				cooldown.add(p);
+			}
+		}
+
 	}
 
 	int grappleUses;
@@ -145,8 +160,8 @@ public class Grapple extends JavaPlugin implements Listener
 	@EventHandler
 	public void onEntityDamageEvent(EntityDamageEvent event)
 	{
-		if(event.getCause() == EntityDamageEvent.DamageCause.FALL
-				&& this.noFallEntities.containsKey(Integer.valueOf(event.getEntity().getEntityId())))
+		if(event.getCause() == EntityDamageEvent.DamageCause.FALL && this.noFallEntities.containsKey(
+				Integer.valueOf(event.getEntity().getEntityId())))
 			event.setCancelled(true);
 	}
 

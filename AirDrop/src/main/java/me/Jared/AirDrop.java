@@ -2,6 +2,7 @@ package me.Jared;
 
 import org.bukkit.*;
 import org.bukkit.block.Block;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -14,6 +15,7 @@ public class AirDrop
 	private Plugin plugin;
 
 	private FileConfiguration config;
+	private int airdropTask;
 
 	public AirDrop(Plugin plugin)
 	{
@@ -23,11 +25,13 @@ public class AirDrop
 
 	public void drop()
 	{
-		Location randomLocation = getRandomLocation();
 
+		removeAirdrop(airdropTask);
+		Location randomLocation = getRandomLocation();
+		airdropTask = createFakeBeaconBeam(randomLocation, 100);
 		for(Player player : Bukkit.getOnlinePlayers())
 		{
-			createFakeBeaconBeam(randomLocation, 100);
+
 			if(player.getWorld().equals(Bukkit.getWorld("warz")))
 			{
 				player.sendMessage(
@@ -46,47 +50,48 @@ public class AirDrop
 
 	}
 
-	private void createFakeBeaconBeam(Location loc, int height)
+	private void removeAirdrop(int id)
+	{
+		Bukkit.getScheduler().cancelTask(id);
+		if(config.contains("airdrops"))
+		{
+			ConfigurationSection airdropsSection = config.getConfigurationSection("airdrops");
+			for(String key : airdropsSection.getKeys(false))
+			{
+				double x = airdropsSection.getDouble(key + ".x");
+				double y = airdropsSection.getDouble(key + ".y");
+				double z = airdropsSection.getDouble(key + ".z");
+
+				World world = Bukkit.getWorld("warz"); // Replace with your world name or reference
+				if(world != null)
+				{
+					Location airdropLocation = new Location(world, x, y, z);
+					airdropLocation.getBlock().setType(Material.AIR);
+				}
+			}
+		}
+	}
+
+	private int createFakeBeaconBeam(Location loc, int height)
 	{
 		// Align to the center of the block
 		Location centerLoc = new Location(loc.getWorld(), loc.getBlockX() + 0.5, loc.getY(), loc.getBlockZ() + 0.5);
 
-		new BukkitRunnable()
+
+		return new BukkitRunnable()
 		{
 			int ticksElapsed = 0; // Tracks elapsed time
 
 			@Override
 			public void run()
 			{
-				int totalDurationTicks = 20 * 600; //10 minutes
-				int remainingSeconds = (totalDurationTicks - ticksElapsed) / 20;
-
-				if(ticksElapsed >= totalDurationTicks)
-				{
-					this.cancel(); // Stop after a minute
-					loc.getBlock().setType(Material.AIR);
-					return;
-				}
-
-				// Send countdown messages during the last 10 seconds
-				if(remainingSeconds <= 10 && ticksElapsed % 20 == 0)
-				{
-					for(Player player : Bukkit.getOnlinePlayers())
-					{
-						if(player.getWorld().equals(loc.getWorld()))
-						{
-							player.sendMessage(ChatColor.GOLD + "Only " + remainingSeconds
-									+ " seconds till the airdrop disappears!");
-						}
-					}
-				}
 
 				// Spawn particles to form a constant vertical pillar
 				for(int i = 0; i <= height; i++)
 				{
 					Location particleLoc = centerLoc.clone().add(0, i + 2.5, 0); // Only adjust vertically
 
-					loc.getWorld().spawnParticle(Particle.ELECTRIC_SPARK, particleLoc, 50, 0, 0, 0,0,null,true);
+					loc.getWorld().spawnParticle(Particle.SONIC_BOOM, particleLoc, 50, 0, 0, 0,0,null,true);
 					if(i % 2 == 0)
 					{
 						loc.getWorld().spawnParticle(Particle.SONIC_BOOM, particleLoc, 1, 0, 0, 0,0,null,true);
@@ -100,7 +105,7 @@ public class AirDrop
 
 				ticksElapsed += 2;
 			}
-		}.runTaskTimer(plugin, 0L, 2L);
+		}.runTaskTimer(plugin, 0L, 2L).getTaskId();
 	}
 
 	private Location getRandomLocation()

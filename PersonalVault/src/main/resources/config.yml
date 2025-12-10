@@ -1,0 +1,6 @@
+#Type in the amount of rows in the inventory you want each rank to have!
+default: 1
+vip: 2
+vipplus: 3
+mvp: 4
+mvpplus: 5

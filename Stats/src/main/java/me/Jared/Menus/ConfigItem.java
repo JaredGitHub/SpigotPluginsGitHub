@@ -59,7 +59,7 @@ public class ConfigItem
 		meta.setLore(lore);
 
 		//Setting displayname
-		meta.setDisplayName(displayName);
+		meta.setDisplayName(ChatColor.translateAlternateColorCodes('&',displayName));
 		item.setItemMeta(meta);
 
 		//Setting durability

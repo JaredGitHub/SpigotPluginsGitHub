@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Compass.iml" filepath="$PROJECT_DIR$/Compass.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Compass.iml" filepath="$PROJECT_DIR$/.idea/Compass.iml" />
     </modules>
   </component>
 </project>

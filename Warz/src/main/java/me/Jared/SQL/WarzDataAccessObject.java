@@ -11,10 +11,8 @@ import java.util.function.Consumer;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.plugin.Plugin;
 
 import me.Jared.Warz;
 import me.Jared.Loot.InventorySaver;

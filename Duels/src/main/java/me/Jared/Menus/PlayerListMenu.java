@@ -43,7 +43,7 @@ public class PlayerListMenu extends DuelsMenu
 		{
 			if(e.getSlot() == i)
 			{
-				Bukkit.dispatchCommand(player, "duel " + e.getCurrentItem().getItemMeta().getDisplayName().toString());
+				Bukkit.dispatchCommand(player, "duel " + e.getCurrentItem().getItemMeta().getDisplayName());
 			}
 		}
 
@@ -71,7 +71,8 @@ public class PlayerListMenu extends DuelsMenu
 		int numberOfPlayers = 0;
 		for(Player player : Bukkit.getOnlinePlayers())
 		{		
-			if(player.equals(playerViewer))
+			if(player.equals(playerViewer)
+			|| !(player.getWorld().getName().equals("world")))
 			{
 				continue;
 			}

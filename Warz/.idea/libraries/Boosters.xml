@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Boosters">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../SERVER/plugins/Boosters.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

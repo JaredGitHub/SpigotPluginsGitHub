@@ -3,7 +3,6 @@ package me.Jared.Commands;
 import java.util.ArrayList;
 import java.util.List;
 
-import me.Jared.Listener.WarzListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;

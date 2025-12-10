@@ -207,6 +207,13 @@ public class DuelCommands implements CommandExecutor, TabCompleter
 							Player argPlayer = Bukkit.getPlayer(args[0]);
 							duelPlayer = argPlayer;
 
+							assert duelPlayer != null;
+							if(!duelPlayer.getWorld().getName().equals("world"))
+							{
+								player.sendMessage(ChatColor.RED + "That player is in warz world!");
+								return true;
+							}
+
 							if(!(argPlayer.equals(null)) && !(argPlayer.equals(player)))
 							{
 
@@ -243,6 +250,13 @@ public class DuelCommands implements CommandExecutor, TabCompleter
 						try
 						{
 							Player requester = Bukkit.getPlayer(args[1].toString());
+
+							if(block.getType() == Material.AIR)
+							{
+								requester.sendMessage(ChatColor.RED + "Stay still");
+								player.sendMessage(ChatColor.RED + "Wait for player to stay still");
+								return true;
+							}
 
 							if(!playersInDuel.contains(player) || !betAmount.containsKey(player))
 							{

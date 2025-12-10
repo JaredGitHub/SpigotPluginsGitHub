@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="GrapplingHook2:jar">
+    <output-path>$PROJECT_DIR$/../../../SERVER/plugins</output-path>
+    <root id="archive" name="GrapplingHook2.jar">
+      <element id="module-output" name="GrapplingHook2" />
+      <element id="file-copy" path="$PROJECT_DIR$/plugin.yml" />
+    </root>
+  </artifact>
+</component>

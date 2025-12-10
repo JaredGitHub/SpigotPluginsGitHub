@@ -4,6 +4,7 @@ version: 1.0
 api-version: 1.21
 commands:
  spawn:
+  aliases: [log,logout]
   description: Teleports player to spawn!
  setspawn:
   description: Sets spawn location to player's current location.

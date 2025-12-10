@@ -6,6 +6,9 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -21,11 +24,14 @@ public class Main extends JavaPlugin
 	public void onEnable()
 	{
 		instance = this;
+		this.getConfig().set("aidrop", 0);
+		this.saveConfig();
+
 		// Plugin startup logic
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Airdrop Enabled");
 
 		Bukkit.getPluginCommand("airdrop").setExecutor(new AirDropCommand());
-		
+
 		AirDropManager airDropManager = new AirDropManager();
 		// 10 second timer before airdrop
 		airDropManager.runAirDropRunnable(airDrop, 10);
@@ -68,6 +74,4 @@ public class Main extends JavaPlugin
 		// Plugin shutdown logic
 		Bukkit.getConsoleSender().sendMessage(ChatColor.RED + "AirDrop Disabled");
 	}
-
 }
-

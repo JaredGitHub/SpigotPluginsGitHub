@@ -17,6 +17,7 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.FoodLevelChangeEvent;
 import org.bukkit.event.entity.ProjectileLaunchEvent;
 import org.bukkit.event.hanging.HangingBreakByEntityEvent;
+import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.player.*;
 import org.bukkit.event.server.ServerListPingEvent;
 import org.bukkit.event.weather.WeatherChangeEvent;
@@ -59,8 +60,8 @@ public class Listener1 implements Listener
 		}
 		for(Player p : Bukkit.getOnlinePlayers())
 		{
-			PacketUtils.sendTabHF(p, ChatColor.GOLD + "JaredServer",
-					ChatColor.GOLD + "store.jaredcoen.com\n" + ChatColor.GREEN + "Players Online: " + ChatColor.WHITE
+			PacketUtils.sendTabHF(p, ChatColor.GOLD + "MCWARZ",
+					ChatColor.GOLD + "mcwarz.store\n" + ChatColor.GREEN + "Players Online: " + ChatColor.WHITE
 							+ Bukkit.getOnlinePlayers().size());
 		}
 
@@ -103,9 +104,8 @@ public class Listener1 implements Listener
 
 		for(Player online : Bukkit.getOnlinePlayers())
 		{
-			PacketUtils.sendTabHF(online, ChatColor.GOLD + "JaredServer",
-					ChatColor.GOLD + "store.jaredcoen.com\n" + ChatColor.GREEN + "Players Online: " + ChatColor.WHITE
-							+ size);
+			PacketUtils.sendTabHF(online, ChatColor.GOLD + "MCWARZ",
+					ChatColor.GOLD + "mcwarz.store\n" + ChatColor.GREEN + "Players Online: " + ChatColor.WHITE + size);
 		}
 
 		Player p = e.getPlayer();
@@ -174,7 +174,8 @@ public class Listener1 implements Listener
 		if(!event.getPlayer().hasPermission("jared"))
 		{
 			Set<String> allowedCommands = new HashSet<>(
-					Arrays.asList("eventrsvp","airdrop","shop","kit", "spawn", "warz", "duel", "gg", "sg", "vote", "discord", "texture", "warp"));
+					Arrays.asList("eventrsvp", "airdrop", "kit", "shop", "spawn", "warz", "duel", "gg", "sg", "vote",
+							"discord", "texture", "warp"));
 
 			event.getCommands().retainAll(allowedCommands);
 		}
@@ -411,6 +412,34 @@ public class Listener1 implements Listener
 					}
 				}, 0, 20);
 			}
+		}
+	}
+
+	//Make hunger go down slower
+	@EventHandler
+	public void onHunger(FoodLevelChangeEvent event)
+	{
+		if(event.getEntity() instanceof Player player)
+		{
+			int current = player.getFoodLevel();
+			int newLevel = event.getFoodLevel();
+
+			// Make hunger go down slower (e.g. cancel every other hunger loss)
+			if(newLevel < current && Math.random() < 0.3)
+			{
+				event.setCancelled(true);
+			}
+		}
+	}
+
+	@EventHandler
+	public void onCraft(CraftItemEvent event)
+	{
+		event.setCancelled(true);
+
+		if(event.getWhoClicked() instanceof Player player)
+		{
+			player.sendMessage(ChatColor.RED + "Crafting is disabled.");
 		}
 	}
 

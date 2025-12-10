@@ -12,6 +12,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
+import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
@@ -187,7 +189,7 @@ public class KillstreakListener implements Listener
 		cooldown.put(p.getUniqueId(), System.currentTimeMillis());
 	}
 
-	private HashMap<UUID, ItemStack[]> oldInventory = new HashMap<UUID, ItemStack[]>();
+	private final HashMap<UUID, ItemStack[]> oldInventory = new HashMap<UUID, ItemStack[]>();
 	public void giveMinigun(Player p, int duration)
 	{
 		oldInventory.put(p.getUniqueId(), p.getInventory().getContents());
@@ -199,16 +201,31 @@ public class KillstreakListener implements Listener
 		{
 			inventory.setItem(i, new ItemStack(Material.FLINT,64));
 		}
-
-		Bukkit.getScheduler().scheduleSyncDelayedTask(stats, new Runnable() {
-			@Override
-			public void run()
+		if(p.isOnline())
+		{
+			Bukkit.getScheduler().scheduleSyncDelayedTask(stats, () ->
 			{
 				p.getInventory().setContents(oldInventory.get(p.getUniqueId()));
 
 				oldInventory.remove(p.getUniqueId());
 
-			}
-		},20 * duration);
+			}, 20L * duration);
+		}
+		else
+		{
+			Bukkit.broadcastMessage("TESTING");
+		}
+	}
+
+	@EventHandler
+	public void onJoin(PlayerJoinEvent e)
+	{
+		Player p = e.getPlayer();
+		if(oldInventory.containsKey(p.getUniqueId()))
+		{
+			p.getInventory().setContents(oldInventory.get(p.getUniqueId()));
+			oldInventory.remove(p.getUniqueId());
+
+		}
 	}
 }

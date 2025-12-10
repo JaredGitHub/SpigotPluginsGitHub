@@ -325,7 +325,7 @@ public class Stats extends JavaPlugin
 			{
 				Player player = (Player) sender;
 				
-				player.sendMessage("Click this URL to buy ---->  store.jaredcoen.com");
+				player.sendMessage("Click this URL to buy ---->  mcwarz.store");
 			}
 		}
 		

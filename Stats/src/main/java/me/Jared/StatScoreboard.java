@@ -48,7 +48,7 @@ public class StatScoreboard
 
 		// Sidebar objective
 		Objective objective = scoreboard.registerNewObjective("Statistics", Criteria.DUMMY,
-				ChatColor.GOLD + "" + ChatColor.BOLD + "JaredServer");
+				ChatColor.GOLD + "" + ChatColor.BOLD + "MCWARZ");
 		objective.setDisplaySlot(DisplaySlot.SIDEBAR);
 
 		// Health objective

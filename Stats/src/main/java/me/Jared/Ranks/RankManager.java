@@ -47,69 +47,108 @@ public class RankManager
 
 	}
 
-	public void setRank(UUID uuid, Rank rank, boolean firstJoin)
+	public void setRank(UUID uuid, Rank rank)
 	{
-		if(Bukkit.getOfflinePlayer(uuid).isOnline() && !firstJoin)
+		// Always save the rank to config regardless of online status
+		try
 		{
-			Player player = Bukkit.getPlayer(uuid);
-			PermissionAttachment attachment;
-			if(perms.containsKey(uuid))
-			{
-				attachment = perms.get(uuid);
-			} else
-			{
-				attachment = player.addAttachment(stats);
-				perms.put(uuid, attachment);
-			}
+			config.set(uuid.toString(), rank.name());
+			config.save(file);
+		} catch(IOException e)
+		{
+			e.printStackTrace();
+			return; // Don't proceed if save failed
+		}
 
-			// Unset all possible rank permissions
+		// Only update permissions and nametag if player is online
+		Player player = Bukkit.getPlayer(uuid);
+		if(player != null && player.isOnline())
+		{
+			updatePlayerPermissions(player, rank);
+		}
+		// If player isn't online, the permissions will be applied when they join
+	}
+
+	// Separate method to update permissions for online players
+	private void updatePlayerPermissions(Player player, Rank rank)
+	{
+		PermissionAttachment attachment;
+		UUID uuid = player.getUniqueId();
+
+		if(perms.containsKey(uuid))
+		{
+			attachment = perms.get(uuid);
+		} else
+		{
+			attachment = player.addAttachment(stats);
+			perms.put(uuid, attachment);
+		}
+
+		// Clear all previous permissions from this attachment
+		for(String permission : attachment.getPermissions().keySet())
+		{
+			attachment.unsetPermission(permission);
+		}
+
+		// OWNER gets all permissions from all ranks
+		if(rank == Rank.OWNER)
+		{
 			for(Rank r : Rank.values())
 			{
-				for(String perm : r.getPermissions())
+				if(r != Rank.OWNER)
 				{
-					attachment.unsetPermission(perm);
-				}
-			}
-
-			// Add permissions for the new rank
-			if(rank == Rank.OWNER)
-			{
-				// OWNER gets permissions from all other ranks
-				for(Rank r : Rank.values())
-				{
-					if(r != Rank.OWNER)
+					for(String perm : r.getPermissions())
 					{
-						for(String perm : r.getPermissions())
+						if(perm != null && !perm.trim().isEmpty())
 						{
 							attachment.setPermission(perm, true);
 						}
 					}
 				}
 			}
+		}
 
-			// Always apply the base rank's permissions too
-			for(String perm : rank.getPermissions())
+		// Set permissions for the current rank
+		for(String perm : rank.getPermissions())
+		{
+			if(perm != null && !perm.trim().isEmpty())
 			{
 				attachment.setPermission(perm, true);
 			}
 		}
 
-		// Save rank in config
-		config.set(uuid.toString(), rank.name());
-		try
-		{
-			config.save(file);
-		} catch(IOException e)
-		{
-			e.printStackTrace();
-		}
+		// Recalculate permissions
+		player.recalculatePermissions();
 
-		// Update nametag if player is online
-		if(Bukkit.getOfflinePlayer(uuid).isOnline())
+		// Update nametag if available
+		if(stats.getNametagManager() != null)
 		{
-			Player player = Bukkit.getPlayer(uuid);
 			stats.getNametagManager().removeTag(player);
 			stats.getNametagManager().newTag(player);
+		}
+	}
+
+	// Call this method when a player joins to apply their saved rank
+	public void applySavedRank(Player player, boolean firstJoin)
+	{
+		UUID uuid = player.getUniqueId();
+
+		if(config.contains(uuid.toString()))
+		{
+			try
+			{
+				String rankName = config.getString(uuid.toString());
+				Rank rank = Rank.valueOf(rankName);
+				updatePlayerPermissions(player, rank);
+			} catch(IllegalArgumentException e)
+			{
+				// Handle invalid rank in config
+				e.printStackTrace();
+			}
+		} else if(firstJoin)
+		{ // You might want to set a default rank for first join
+			// Set default rank for new players
+			setRank(uuid, Rank.DEFAULT); // Replace DEFAULT with your default rank
 		}
 	}
 
