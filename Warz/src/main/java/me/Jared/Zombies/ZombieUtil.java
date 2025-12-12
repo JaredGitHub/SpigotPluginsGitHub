@@ -42,7 +42,7 @@ public class ZombieUtil
 		this.radius = radius;
 		this.zombieAmount = zombieAmount;
 
-		LootManager lootManager = new LootManager();
+		LootManager lootManager = new LootManager(player.getWorld().getName());
 		this.zone = getZoneFromRegion(lootManager.getRegion(player.getLocation()));
 	}
 	public void spawnZombie()

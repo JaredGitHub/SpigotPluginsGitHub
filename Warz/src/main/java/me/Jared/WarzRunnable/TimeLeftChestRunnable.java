@@ -15,12 +15,14 @@ import me.Jared.Warz;
 public class TimeLeftChestRunnable extends BukkitRunnable
 {
 	private int seconds;
+	private final String warzWorld;
 	private ArrayList<ArmorStand> armorStands;
 
-	public TimeLeftChestRunnable(int seconds)
+	public TimeLeftChestRunnable(int seconds, String warzWorld)
 	{
 		this.armorStands = new ArrayList<>();
 		this.seconds = seconds;
+		this.warzWorld = warzWorld;
 	}
 
 	@Override
@@ -36,9 +38,10 @@ public class TimeLeftChestRunnable extends BukkitRunnable
 		if(seconds <= 0)
 		{
 			this.cancel();
+			return;
 		}
 
-		for(Location location : Warz.getOpenChestLocations())
+		for(Location location : Warz.getOpenChestLocations(warzWorld))
 		{
 			Location loc = new Location(location.getWorld(), location.getX() + 0.5, location.getY() + 1,
 					location.getZ() + 0.5);

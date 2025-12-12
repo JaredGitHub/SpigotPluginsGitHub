@@ -101,14 +101,7 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 		{
 			if(args.length == 2)
 			{
-				if(player.getWorld().getName().equalsIgnoreCase("warz"))
-				{
-					setzone(args, player, "warz");
-
-				} else if (player.getWorld().getName().equalsIgnoreCase("warz2"))
-				{
-					setzone(args, player, "warz2");
-				}
+				setzone(args, player, player.getWorld().getName());
 
 			} else
 			{

@@ -13,10 +13,12 @@ import me.Jared.Loot.LootManager;
 public class LootRunnable extends BukkitRunnable
 {
 	private int seconds;
+	private final String warzWorld;
 
-	public LootRunnable(int seconds)
+	public LootRunnable(int seconds, String warzWorld)
 	{
 		this.seconds = seconds;
+		this.warzWorld = warzWorld;
 	}
 
 	@Override
@@ -24,7 +26,7 @@ public class LootRunnable extends BukkitRunnable
 	{
 		for(Player player : Bukkit.getOnlinePlayers())
 		{
-			if(player.getWorld().equals(Bukkit.getWorld("warz")))
+			if(player.getWorld().equals(Bukkit.getWorld(warzWorld)))
 			{
 				player.setLevel(seconds);
 			}
@@ -34,7 +36,7 @@ public class LootRunnable extends BukkitRunnable
 		{
 			for(Player player : Bukkit.getOnlinePlayers())
 			{
-				if(player.getWorld().equals(Bukkit.getWorld("warz")))
+				if(player.getWorld().equals(Bukkit.getWorld(warzWorld)))
 				{
 					player.sendMessage(ChatColor.GOLD + "There is one more minute before the chests reset!");
 				}
@@ -46,19 +48,19 @@ public class LootRunnable extends BukkitRunnable
 			this.cancel();
 
 			int interval = 300;
-			var lootManager = new LootManager();
+			var lootManager = new LootManager(warzWorld);
 			lootManager.setChests();
-			lootManager.runLootRunnable(interval);
+			lootManager.runLootRunnable(interval, warzWorld);
 
-			var particleRunnable = new ParticleRunnable(interval);
+			var particleRunnable = new ParticleRunnable(interval,warzWorld, lootManager);
 			particleRunnable.runTaskTimer(Warz.getInstance(), 0, 20);
 
-			var timeLeftChestRunnable = new TimeLeftChestRunnable(interval);
+			var timeLeftChestRunnable = new TimeLeftChestRunnable(interval,warzWorld);
 			timeLeftChestRunnable.runTaskTimer(Warz.getInstance(), 0, 20);
 
 			for(Player online : Bukkit.getOnlinePlayers())
 			{
-				if(online.getWorld().equals(Bukkit.getWorld("warz")))
+				if(online.getWorld().equals(Bukkit.getWorld(warzWorld)))
 				{
 					online.playSound(online, Sound.ENTITY_PLAYER_LEVELUP, 1, 1);
 					online.sendMessage(ChatColor.GREEN + "Chests have been refilled!");

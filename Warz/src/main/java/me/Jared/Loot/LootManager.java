@@ -1,6 +1,7 @@
 package me.Jared.Loot;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
@@ -27,10 +28,12 @@ import me.Jared.WarzRunnable.LootRunnable;
 public class LootManager
 {
 	private FileConfiguration config;
+	private final String warzWorld;
 
-	public LootManager()
+	public LootManager(String warzWorld)
 	{
 		this.config = Warz.getInstance().getConfig();
+		this.warzWorld = warzWorld;
 	}
 
 	private Block isDoubleChest(Block block)
@@ -115,8 +118,7 @@ public class LootManager
 					chest.getBlockInventory()
 							.setItem(randNumChestSlot, configItem.stringToItemStackWithLore(items.get(i)));
 
-					Warz.getChestLocations().remove(location);
-					break;
+					Warz.getChestLocations(warzWorld).remove(location);
 				}
 			}
 		}
@@ -132,7 +134,7 @@ public class LootManager
 	public void setItems(Zone zone, Block block)
 	{
 
-		if(Warz.getChestLocations().contains(block.getLocation()))
+		if(Warz.getChestLocations(block.getWorld().getName()).contains(block.getLocation()))
 		{
 			if(setChest(block, zone))
 			{
@@ -142,25 +144,25 @@ public class LootManager
 		}
 	}
 
-	private void addChestsToArray(Zone zone)
+	private void addChestsToArray(Zone zone, String warzWorld)
 	{
 		ConfigItem configItem = new ConfigItem();
-		for(String locString : configItem.zoneListChests(zone))
+		for(String locString : configItem.zoneListChests(zone, warzWorld))
 		{
-			Location location = configItem.getChestLocation(locString);
+			Location location = configItem.getChestLocation(locString, warzWorld);
 
-			Warz.getChestLocations().add(location);
+			Warz.getChestLocations(warzWorld).add(location);
 		}
 	}
 
 	public void setChests()
 	{
-		Warz.getChestLocations().clear();
-		Warz.getOpenChestLocations().clear();
-		addChestsToArray(Zone.LOW);
-		addChestsToArray(Zone.MEDIUM);
-		addChestsToArray(Zone.HIGH);
-		addChestsToArray(Zone.SKYHIGH);
+		Warz.getChestLocations(warzWorld).clear();
+		Warz.getOpenChestLocations(warzWorld).clear();
+		addChestsToArray(Zone.LOW, warzWorld);
+		addChestsToArray(Zone.MEDIUM, warzWorld);
+		addChestsToArray(Zone.HIGH, warzWorld);
+		addChestsToArray(Zone.SKYHIGH, warzWorld);
 		setOpenChests();
 	}
 
@@ -214,9 +216,11 @@ public class LootManager
 		}
 
 		RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
-		RegionManager regionManager = container.get(BukkitAdapter.adapt(location.getWorld()));
+		RegionManager regionManager = container.get(BukkitAdapter.adapt(Objects.requireNonNull(location.getWorld())));
 
 		BlockVector3 playerLoc = BlockVector3.at(location.getX(), location.getY(), location.getZ());
+		if(regionManager == null) Bukkit.broadcastMessage("Region manager is NULL OH NOOO!");
+		assert regionManager != null;
 		for(String regions : regionManager.getApplicableRegionsIDs(playerLoc))
 		{
 			region = regions;
@@ -224,9 +228,9 @@ public class LootManager
 		return region;
 	}
 
-	public void runLootRunnable(int seconds)
+	public void runLootRunnable(int seconds, String warzWorld)
 	{
-		var lootRunnable = new LootRunnable(seconds);
+		var lootRunnable = new LootRunnable(seconds, warzWorld);
 		lootRunnable.runTaskTimer(Warz.getInstance(), 0, 20);
 	}
 }

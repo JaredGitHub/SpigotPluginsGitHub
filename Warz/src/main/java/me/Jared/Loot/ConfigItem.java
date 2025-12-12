@@ -41,9 +41,9 @@ public class ConfigItem
 		return stringBuilder.toString();
 	}
 
-	public Location getChestLocation(String string)
+	public Location getChestLocation(String string, String warzWorld)
 	{
-		Location location = new Location(Bukkit.getWorld("warz"), getChestX(string), getChestY(string),
+		Location location = new Location(Bukkit.getWorld(warzWorld), getChestX(string), getChestY(string),
 				getChestZ(string));
 
 		return location;
@@ -77,9 +77,9 @@ public class ConfigItem
 		return zone;
 	}
 
-	public ArrayList<String> zoneListChests(Zone zone)
+	public ArrayList<String> zoneListChests(Zone zone, String warzWorld)
 	{
-		ArrayList<String> chestList = new ArrayList<>(config.getStringList("chests"));
+		ArrayList<String> chestList = new ArrayList<>(config.getStringList("chests." + warzWorld));
 		ArrayList<String> zoneList = new ArrayList<>();
 		for(String chest : chestList)
 		{

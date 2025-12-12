@@ -54,7 +54,7 @@ public class SetChestsRunnable extends BukkitRunnable
 	@Override
 	public void run()
 	{
-		ArrayList<String> chestList = new ArrayList<>(config.getStringList("chests"));
+		ArrayList<String> chestList = new ArrayList<>(config.getStringList("chests." + world.getName()));
 		ArrayList<Location> blockLocations = new ArrayList<>(getChestLocationsInRegion(region, world));
 		var configItem = new ConfigItem();
 
@@ -72,7 +72,7 @@ public class SetChestsRunnable extends BukkitRunnable
 			for(int idx = 0; idx < chestList.size(); idx++)
 			{
 				String chest = chestList.get(idx);
-				Location blockLocation = new Location(Bukkit.getWorld("warz"), configItem.getChestX(chest),
+				Location blockLocation = new Location(world, configItem.getChestX(chest),
 						configItem.getChestY(chest), configItem.getChestZ(chest));
 
 				if(block.getLocation().equals(blockLocation))
@@ -98,7 +98,7 @@ public class SetChestsRunnable extends BukkitRunnable
 							+ block.getX() + " Y: " + block.getY() + " Z: " + block.getZ());
 
 			player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 1, 1);
-			config.set("chests", chestList);
+			config.set("chests." + world.getName(), chestList);
 			saveConfig();
 
 			iterations++;

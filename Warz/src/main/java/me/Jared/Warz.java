@@ -1,6 +1,7 @@
 package me.Jared;
 
-import java.util.ArrayList;
+import java.util.*;
+
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -16,16 +17,18 @@ import me.Jared.Zombies.ZombieRunnable;
 public class Warz extends JavaPlugin
 {
 	private static Warz instance;
-	private static ArrayList<Location> chestLocations;
-	private static ArrayList<Location> openChestLocations;
-	private LootManager lootManager;
+	private static Map<String, Set<Location>> chestLocationsPerWorld;
+	private static Map<String, Set<Location>> openChestLocationsPerWorld;
+
+	private LootManager lootManagerWarz;
+	private LootManager lootManagerWarz2;
 
 	@Override
 	public void onEnable()
 	{
 		instance = this;
-		chestLocations = new ArrayList<>();
-		openChestLocations = new ArrayList<>();
+		chestLocationsPerWorld = new HashMap<>();
+		openChestLocationsPerWorld = new HashMap<>();
 
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Warz plugin is here!!!!");
 		Bukkit.getPluginCommand("setzone").setExecutor(new WarzCommands());
@@ -34,14 +37,16 @@ public class Warz extends JavaPlugin
 		Bukkit.getPluginCommand("warz").setExecutor(new WarzCommands());
 		Bukkit.getPluginCommand("warz2").setExecutor(new WarzCommands());
 
-		lootManager = new LootManager();
-		lootManager.runLootRunnable(2);
-//		lootManager.runLootRunnable(2, "warz2");
+		lootManagerWarz = new LootManager("warz");
+		lootManagerWarz.runLootRunnable(2, "warz");
 
-	    ZombieRunnable zombieRunnable = new ZombieRunnable(50, 120, "warz");
-	    zombieRunnable.runTaskTimer(this, 0L, 20L);
+		lootManagerWarz2 = new LootManager("warz2");
+		lootManagerWarz2.runLootRunnable(2, "warz2");
 
-		ZombieRunnable zombieRunnable2 = new ZombieRunnable(50, 1, "warz2");
+		ZombieRunnable zombieRunnable = new ZombieRunnable(50, 120, "warz");
+		zombieRunnable.runTaskTimer(this, 0L, 20L);
+
+		ZombieRunnable zombieRunnable2 = new ZombieRunnable(50, 90, "warz2");
 		zombieRunnable2.runTaskTimer(this, 0L, 20L);
 
 		Bukkit.getPluginManager().registerEvents(new WarzListener(), this);
@@ -52,14 +57,15 @@ public class Warz extends JavaPlugin
 		return instance;
 	}
 
-	public static ArrayList<Location> getChestLocations()
+	public static Set<Location> getChestLocations(String warzWorld)
 	{
-		return chestLocations;
+		return chestLocationsPerWorld.computeIfAbsent(warzWorld, k -> new HashSet<>());
 	}
 
-	public static ArrayList<Location> getOpenChestLocations()
+	public static Set<Location> getOpenChestLocations(String warzWorld)
 	{
-		return openChestLocations;
+		return openChestLocationsPerWorld.computeIfAbsent(warzWorld, k -> new HashSet<>());
+
 	}
 
 	@Override
@@ -81,11 +87,6 @@ public class Warz extends JavaPlugin
 				entity.remove();
 			}
 		}
-	}
-
-	public LootManager getLootManager()
-	{
-		return lootManager;
 	}
 }
 

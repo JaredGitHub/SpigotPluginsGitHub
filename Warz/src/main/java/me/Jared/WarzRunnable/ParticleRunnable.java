@@ -1,5 +1,6 @@
 package me.Jared.WarzRunnable;
 
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.World;
@@ -12,10 +13,14 @@ import me.Jared.Loot.LootManager;
 public class ParticleRunnable extends BukkitRunnable
 {
 	private int seconds;
+	private final String warzWorld;
+	private final LootManager lootManager;
 
-	public ParticleRunnable(int seconds)
+	public ParticleRunnable(int seconds, String warzWorld, LootManager lootManager)
 	{
 		this.seconds = seconds;
+		this.lootManager = lootManager;
+		this.warzWorld = warzWorld;
 	}
 
 	@Override
@@ -24,9 +29,10 @@ public class ParticleRunnable extends BukkitRunnable
 		if(seconds <= 0)
 		{
 			this.cancel();
+			return;
 		}
 
-		for(Location location : Warz.getChestLocations())
+		for(Location location : Warz.getChestLocations(warzWorld))
 		{
 			for(int i = 0; i < 12; i++)
 			{
@@ -35,8 +41,8 @@ public class ParticleRunnable extends BukkitRunnable
 
 				Location loc = new Location(location.getWorld(), x + 0.5, location.getY() + 1.3, z + 0.5);
 
-				var lootManager = new LootManager();
 				var region = lootManager.getRegion(location);
+				if(region == null || region.equals("")) break;
 				var zone = lootManager.getZoneFromRegion(region);
 				switch(zone)
 				{
