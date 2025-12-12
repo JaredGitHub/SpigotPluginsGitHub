@@ -12,28 +12,8 @@
     <list default="true" id="f54dff8d-41b6-4012-8a4c-bf2b5f4ee552" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../JaredEssentials/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JaredEssentials/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Commands/WarzCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Commands/WarzCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Listener/WarzListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Listener/WarzListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Loot/ConfigItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Loot/ConfigItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Loot/LootManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Loot/LootManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Warz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Warz.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/WarzRunnable/LootRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/WarzRunnable/LootRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/WarzRunnable/ParticleRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/WarzRunnable/ParticleRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/WarzRunnable/SetChestsRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/WarzRunnable/SetChestsRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/WarzRunnable/TimeLeftChestRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/WarzRunnable/TimeLeftChestRunnable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Zombies/ZombieUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Zombies/ZombieUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Commands/WarzCommands.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Commands/WarzCommands.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Listener/WarzListener$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Listener/WarzListener.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Loot/ConfigItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Loot/ConfigItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Loot/LootManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Warz.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Warz.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/WarzRunnable/LootRunnable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/WarzRunnable/LootRunnable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/WarzRunnable/ParticleRunnable$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/WarzRunnable/ParticleRunnable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/WarzRunnable/SetChestsRunnable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/WarzRunnable/SetChestsRunnable.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/WarzRunnable/TimeLeftChestRunnable.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Zombies/ZombieUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Zombies/ZombieUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Loot/LootManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Loot/LootManager.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,7 +125,7 @@
       <workItem from="1765409061928" duration="3353000" />
       <workItem from="1765432230196" duration="1663000" />
       <workItem from="1765434642371" duration="7392000" />
-      <workItem from="1765496659423" duration="25834000" />
+      <workItem from="1765496659423" duration="26528000" />
     </task>
     <servers />
   </component>

@@ -119,6 +119,7 @@ public class LootManager
 							.setItem(randNumChestSlot, configItem.stringToItemStackWithLore(items.get(i)));
 
 					Warz.getChestLocations(warzWorld).remove(location);
+					break;
 				}
 			}
 		}
