@@ -72,15 +72,16 @@ public class SetChestsRunnable extends BukkitRunnable
 			for(int idx = 0; idx < chestList.size(); idx++)
 			{
 				String chest = chestList.get(idx);
-				Location blockLocation = new Location(Bukkit.getWorld("warz"),configItem.getChestX(chest),configItem.getChestY(chest),configItem.getChestZ(chest));
-				
+				Location blockLocation = new Location(Bukkit.getWorld("warz"), configItem.getChestX(chest),
+						configItem.getChestY(chest), configItem.getChestZ(chest));
+
 				if(block.getLocation().equals(blockLocation))
 				{
 					player.sendMessage(ChatColor.RED + "Removing duplicate!");
 					player.playSound(player.getLocation(), Sound.ENTITY_GHAST_DEATH, 1, 1);
 					chestList.remove(idx);
 				}
-				
+
 				if(blockLocation.getBlock().getType() != Material.CHEST)
 				{
 					player.sendMessage(ChatColor.RED + "Removing Non Chest Location!");
@@ -88,16 +89,13 @@ public class SetChestsRunnable extends BukkitRunnable
 					chestList.remove(idx);
 				}
 			}
-			
 
-			
-			chestList.add(block.getX()
-					+ ":" + block.getY()
-					+ ":" + block.getZ() + ":"
-					+ zoneString.toUpperCase() + ":");
+			chestList.add(
+					block.getX() + ":" + block.getY() + ":" + block.getZ() + ":" + zoneString.toUpperCase() + ":");
 
-			player.sendMessage(ChatColor.GREEN + "You have set this chest to zone " + zoneString.toUpperCase() + " at "
-					+ "X: " + block.getX() + " Y: " + block.getY() + " Z: " + block.getZ());
+			player.sendMessage(
+					ChatColor.GREEN + "You have set this chest to zone " + zoneString.toUpperCase() + " at " + "X: "
+							+ block.getX() + " Y: " + block.getY() + " Z: " + block.getZ());
 
 			player.playSound(player.getLocation(), Sound.BLOCK_NOTE_BLOCK_BASS, 1, 1);
 			config.set("chests", chestList);

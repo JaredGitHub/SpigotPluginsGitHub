@@ -1,7 +1,6 @@
 package me.Jared.Commands;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -69,30 +68,27 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String str, String[] args)
 	{
+
+		Player player = null;
+		if(sender instanceof Player)
+		{
+			player = (Player) sender;
+		}
+		else
+		{
+			sender.sendMessage("Only players can use this command.");
+			return true;
+		}
+
 		// Warz commands
 		if(cmd.getName().equalsIgnoreCase("warz"))
 		{
-			if(sender instanceof Player)
-			{
-				Player player = (Player) sender;
-
-				Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
-				if(block.getType() == Material.AIR)
-				{
-					player.sendMessage(ChatColor.RED + "Stay still");
-					return true;
-				}
-				if(player.getWorld().equals(Bukkit.getWorld("world")))
-				{
-
-					WarzDataAccessObject.savePlayerWorldData(player);
-					ConfigManager.setPlayerInWarz(player);
-
-				} else
-				{
-					player.sendMessage(ChatColor.RED + "You are already in warz noob!");
-				}
-			}
+			sendPlayerToWarz(player, "warz");
+			return true;
+		}
+		if(cmd.getName().equalsIgnoreCase("warz2"))
+		{
+			sendPlayerToWarz(player, "warz2");
 			return true;
 		}
 
@@ -101,116 +97,145 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 			sender.sendMessage(ChatColor.RED + "Not for you noob!");
 			return true;
 		}
-		if(sender instanceof Player)
+		if(cmd.getName().equalsIgnoreCase("setzone"))
 		{
-			Player player = (Player) sender;
-			if(cmd.getName().equalsIgnoreCase("setzone"))
+			if(args.length == 2)
 			{
-				if(args.length == 2)
+				if(player.getWorld().getName().equalsIgnoreCase("warz"))
 				{
-					String zone = args[0].toUpperCase();
-					String region = args[1];
-					World world = Bukkit.getWorld("warz");
+					setzone(args, player, "warz");
 
-					config.set("towns." + region, zone);
-					saveConfig();
-
-					var setChestsRunnable = new SetChestsRunnable(zone, region, world, player, 50);
-					setChestsRunnable.runTaskTimer(Warz.getInstance(), 1, 5);
-
-					player.sendMessage(
-							ChatColor.GREEN + "Setting all chests in zone " + ChatColor.WHITE + region + ChatColor.GREEN
-									+ " to zone " + ChatColor.WHITE + zone + "!");
-
-				} else
+				} else if (player.getWorld().getName().equalsIgnoreCase("warz2"))
 				{
-					player.sendMessage(ChatColor.RED + "Usage: /setzone low <region>");
-					return true;
+					setzone(args, player, "warz2");
 				}
-			}
 
-			if(cmd.getName().equalsIgnoreCase("setloot"))
+			} else
 			{
-				if(args.length == 0)
-				{
-					player.sendMessage(ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH> <weight(1-100)>");
-					return true;
-				}
-				if(player.getInventory().getItemInMainHand().getType() == Material.AIR)
-				{
-					player.sendMessage(ChatColor.RED + "Make sure you are holding an item!");
-					return true;
-				}
-
-				if(args.length == 2)
-				{
-					int weight = Integer.parseInt(args[1]);
-					if(args[0].equalsIgnoreCase("low"))
-					{
-						// check if there is already this item type in there!!
-						if(!isItemRepeat(Zone.LOW, player))
-						{
-							setConfigItem(player, Zone.LOW, weight);
-						} else
-						{
-							return true;
-						}
-
-					} else if(args[0].equalsIgnoreCase("medium"))
-					{
-						if(!isItemRepeat(Zone.MEDIUM, player))
-						{
-							setConfigItem(player, Zone.MEDIUM, weight);
-						} else
-						{
-							return true;
-						}
-					} else if(args[0].equalsIgnoreCase("high"))
-					{
-						if(!isItemRepeat(Zone.HIGH, player))
-						{
-							setConfigItem(player, Zone.HIGH, weight);
-						} else
-						{
-							return true;
-						}
-
-					} else if(args[0].equalsIgnoreCase("skyhigh"))
-					{
-						if(!isItemRepeat(Zone.SKYHIGH, player))
-						{
-							setConfigItem(player, Zone.SKYHIGH, weight);
-						} else
-						{
-							return true;
-						}
-
-					} else
-					{
-						player.sendMessage(ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH");
-						return true;
-					}
-				} else
-				{
-					player.sendMessage(ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH> <weight(1-100)>");
-					return true;
-				}
-			}
-
-			if(cmd.getName().equalsIgnoreCase("addspawnpoint"))
-			{
-				if(player.getWorld().equals(Bukkit.getWorld("warz")))
-				{
-					ConfigManager.setGameSlot(player.getLocation(), ConfigManager.getGameSlotsSize());
-					player.sendMessage(ChatColor.GREEN + "Added a spawn point of your location!");
-				} else
-				{
-					player.sendMessage(ChatColor.RED + "You must be in the warz world noob!");
-				}
-
+				player.sendMessage(ChatColor.RED + "Usage: /setzone low <region>");
+				return true;
 			}
 		}
+
+		if(cmd.getName().equalsIgnoreCase("setloot"))
+		{
+			if(args.length == 0)
+			{
+				player.sendMessage(ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH> <weight(1-100)>");
+				return true;
+			}
+			if(player.getInventory().getItemInMainHand().getType() == Material.AIR)
+			{
+				player.sendMessage(ChatColor.RED + "Make sure you are holding an item!");
+				return true;
+			}
+
+			if(args.length == 2)
+			{
+				int weight = Integer.parseInt(args[1]);
+				if(args[0].equalsIgnoreCase("low"))
+				{
+					// check if there is already this item type in there!!
+					if(!isItemRepeat(Zone.LOW, player))
+					{
+						setConfigItem(player, Zone.LOW, weight);
+					} else
+					{
+						return true;
+					}
+
+				} else if(args[0].equalsIgnoreCase("medium"))
+				{
+					if(!isItemRepeat(Zone.MEDIUM, player))
+					{
+						setConfigItem(player, Zone.MEDIUM, weight);
+					} else
+					{
+						return true;
+					}
+				} else if(args[0].equalsIgnoreCase("high"))
+				{
+					if(!isItemRepeat(Zone.HIGH, player))
+					{
+						setConfigItem(player, Zone.HIGH, weight);
+					} else
+					{
+						return true;
+					}
+
+				} else if(args[0].equalsIgnoreCase("skyhigh"))
+				{
+					if(!isItemRepeat(Zone.SKYHIGH, player))
+					{
+						setConfigItem(player, Zone.SKYHIGH, weight);
+					} else
+					{
+						return true;
+					}
+
+				} else
+				{
+					player.sendMessage(ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH");
+					return true;
+				}
+			} else
+			{
+				player.sendMessage(ChatColor.GRAY + "Type /setloot <LOW, MEDIUM, HIGH, SKYHIGH> <weight(1-100)>");
+				return true;
+			}
+		}
+
+		if(cmd.getName().equalsIgnoreCase("addspawnpoint"))
+		{
+			if(!player.getWorld().equals(Bukkit.getWorld("world")))
+			{
+				String warzWorld = player.getWorld().getName();
+				ConfigManager.setGameSlot(player.getLocation(), warzWorld, ConfigManager.getGameSlotsSize(warzWorld));
+				player.sendMessage(ChatColor.GREEN + "Added a spawn point of your location!");
+			}
+			else
+			{
+				player.sendMessage(ChatColor.RED + "You must be in the warz world noob!");
+			}
+
+		}
+
 		return true;
+	}
+
+	private void setzone(String[] args, Player player, String warzWorld)
+	{
+		String zone = args[0].toUpperCase();
+		String region = args[1];
+		World world = Bukkit.getWorld(warzWorld);
+
+		config.set("towns." + region, zone);
+		saveConfig();
+
+		var setChestsRunnable = new SetChestsRunnable(zone, region, world, player, 50);
+		setChestsRunnable.runTaskTimer(Warz.getInstance(), 1, 5);
+
+		player.sendMessage(
+				ChatColor.GREEN + "Setting all chests in zone " + ChatColor.WHITE + region + ChatColor.GREEN
+						+ " to zone " + ChatColor.WHITE + zone + "!");
+	}
+
+	private void sendPlayerToWarz(Player player, String warzWorld)
+	{
+		Block block = player.getLocation().getBlock().getRelative(BlockFace.DOWN);
+		if(block.getType() == Material.AIR)
+		{
+			player.sendMessage(ChatColor.RED + "Stay still");
+		}
+		if(player.getWorld().equals(Bukkit.getWorld("world")))
+		{
+			WarzDataAccessObject.savePlayerWorldData(player);
+			ConfigManager.setPlayerInWarz(player, warzWorld);
+
+		} else
+		{
+			player.sendMessage(ChatColor.RED + "You are already in warz noob!");
+		}
 	}
 
 	@Override

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Warz">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../../../SERVER/plugins/Warz.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

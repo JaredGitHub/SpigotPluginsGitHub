@@ -51,10 +51,10 @@ public class WarzListener implements Listener
 	{
 		Player player = e.getPlayer();
 
-		if(player.getWorld().getName().equals("warz"))
+		if(!player.getWorld().getName().equals("world"))
 		{
 			if(e.getAction() == Action.RIGHT_CLICK_BLOCK && e.getClickedBlock().getType() == Material.CHEST
-					&& Warz.getInstance().getChestLocations().contains(e.getClickedBlock().getLocation()))
+					&& Warz.getChestLocations().contains(e.getClickedBlock().getLocation()))
 			{
 				LootManager lootManager = new LootManager();
 				String region = lootManager.getRegion(player.getLocation());
@@ -89,20 +89,21 @@ public class WarzListener implements Listener
 	{
 		Player player = event.getPlayer();
 
-		if(player.getWorld().getName().equals("warz"))
+		if(!player.getWorld().getName().equals("world"))
 		{
+			String warzWorld = player.getWorld().getName();
 			//If player is in spectator
 			if(playerSpectating.contains(player.getName()))
 			{
 				//Clear the dat aof the player so that they spawn with new items based on their rank
-				ConfigManager.clearPlayerWarzData(player.getUniqueId().toString());
+				ConfigManager.clearPlayerWarzData(player.getUniqueId().toString(), warzWorld);
 			} else
 			{
 				//Remove them from list of players spectating if they are not in spectator mode anymore
 				playerSpectating.remove(player.getName());
 				//If the player is in any other gamemode besides spectator
 				// save them to the database for their location and inventory
-				ConfigManager.savePlayerWarzData(player, player.getLocation(), player.getInventory());
+				ConfigManager.savePlayerWarzData(player, player.getLocation(), player.getInventory(), warzWorld);
 			}
 		} else if(player.getWorld().getName().equals("world"))
 		{
@@ -138,11 +139,12 @@ public class WarzListener implements Listener
 	{
 		Player p = e.getPlayer();
 
-		if(p.getWorld().equals(Bukkit.getWorld("warz")))
+		if(!p.getWorld().equals(Bukkit.getWorld("world")))
 		{
+			String warzWorld = p.getWorld().getName();
 			Random rand = new Random();
 			Location randomLocation = ConfigManager.getGameSlotLocation(
-					rand.nextInt(1, ConfigManager.getGameSlotsSize()));
+					rand.nextInt(1, ConfigManager.getGameSlotsSize(warzWorld)), warzWorld);
 			deathLocation.put(p.getUniqueId(), p.getEyeLocation());
 
 			if(deathLocation.get(p.getUniqueId()) != null)
@@ -170,7 +172,7 @@ public class WarzListener implements Listener
 	{
 		Player player = e.getPlayer();
 
-		if(player.getWorld().equals(Bukkit.getWorld("warz")))
+		if(!player.getWorld().equals(Bukkit.getWorld("world")))
 		{
 			if(!player.hasPermission("jared"))
 			{
@@ -253,7 +255,7 @@ public class WarzListener implements Listener
 			PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, 20 * 30, 1);
 			PotionEffect potionEffect1 = new PotionEffect(PotionEffectType.HUNGER, 20 * 60, 3);
 
-			if(player.getWorld().getName().equals("warz"))
+			if(!player.getWorld().getName().equals("world"))
 			{
 				if(e.getDamager() instanceof Zombie)
 				{
@@ -267,23 +269,6 @@ public class WarzListener implements Listener
 						potionEffect1.apply(player);
 					}
 				}
-			}
-		}
-	}
-
-	@EventHandler
-	public void onMove(PlayerMoveEvent e)
-	{
-		Player player = e.getPlayer();
-
-		ItemStack mainHand = player.getInventory().getItemInMainHand();
-
-		if(mainHand.getType() == Material.MAP || mainHand.getType() == Material.FILLED_MAP)
-		{
-			MapMeta mapMeta = (MapMeta) mainHand.getItemMeta();
-			if(!mapMeta.hasMapView())
-			{
-				player.getInventory().setItemInMainHand(ConfigManager.getMap(player));
 			}
 		}
 	}

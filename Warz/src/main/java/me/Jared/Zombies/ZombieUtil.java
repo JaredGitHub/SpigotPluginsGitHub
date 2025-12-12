@@ -1,7 +1,9 @@
 package me.Jared.Zombies;
 
+import java.util.Objects;
 import java.util.Random;
 
+import me.Jared.Loot.LootManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -39,9 +41,10 @@ public class ZombieUtil
 		this.player = player;
 		this.radius = radius;
 		this.zombieAmount = zombieAmount;
-		this.zone = getZoneFromRegion(getRegion(player.getLocation()));
-	}
 
+		LootManager lootManager = new LootManager();
+		this.zone = getZoneFromRegion(lootManager.getRegion(player.getLocation()));
+	}
 	public void spawnZombie()
 	{
 		if(zone != null)
@@ -50,19 +53,19 @@ public class ZombieUtil
 			{
 			case LOW:
 				lowZombie();
-				createCreeper(20,false, ChatColor.GRAY + "Tier 1 Creeper");
+				createCreeper(false, ChatColor.GRAY + "Tier 1 Creeper");
 				break;
 			case MEDIUM:
 				mediumZombie();
-				createCreeper(20,false, ChatColor.WHITE + "Tier 2 Creeper");
+				createCreeper(false, ChatColor.WHITE + "Tier 2 Creeper");
 				break;
 			case HIGH:
 				highZombie();
-				createCreeper(20,true, ChatColor.BLUE + "Tier 3 Creeper");
+				createCreeper(true, ChatColor.BLUE + "Tier 3 Creeper");
 				break;
 			case SKYHIGH:
 				skyhighZombie();
-				createCreeper(20,true, ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Tier 4 Creeper");
+				createCreeper(true, ChatColor.DARK_PURPLE + "" + ChatColor.BOLD + "Tier 4 Creeper");
 				break;
 			default:
 				break;
@@ -110,29 +113,6 @@ public class ZombieUtil
 		}
 	}
 
-	private String getRegion(Location location)
-	{
-		Plugin plugin = Bukkit.getServer().getPluginManager().getPlugin("WorldGuard");
-
-		String region = "";
-
-		if(!(plugin instanceof WorldGuardPlugin))
-		{
-			// WorldGuard plugin not found
-			return null;
-		}
-
-		RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
-		RegionManager regionManager = container.get(BukkitAdapter.adapt(location.getWorld()));
-
-		BlockVector3 playerLoc = BlockVector3.at(location.getX(), location.getY(), location.getZ());
-		for(String regions : regionManager.getApplicableRegionsIDs(playerLoc))
-		{
-			region = regions;
-		}
-		return region;
-	}
-
 	private void createZombie(double health, int speed, Material helmet, int damage, String customName)
 	{
 		for(int i = 0; i < zombieAmount; i++)
@@ -166,9 +146,10 @@ public class ZombieUtil
 		}
 	}
 
-	private void createCreeper(double health, boolean isCharged, String customName)
+	private void createCreeper(boolean isCharged, String customName)
 	{
-		Creeper creeper = (Creeper)player.getWorld().spawnEntity(spawnRadius(player.getLocation(), radius), EntityType.CREEPER);
+		Creeper creeper = (Creeper) player.getWorld()
+				.spawnEntity(spawnRadius(player.getLocation(), radius), EntityType.CREEPER);
 		creeper.setPowered(isCharged);
 
 		creeper.setCustomName(customName);

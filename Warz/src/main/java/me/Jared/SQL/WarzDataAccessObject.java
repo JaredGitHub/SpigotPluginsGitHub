@@ -26,12 +26,12 @@ public class WarzDataAccessObject
 
 	static final String PASSWORD = Warz.getInstance().getConfig().getString("DB_PASSWORD");
 
-	public static boolean clearPlayerWarzData(String uuid)
+	public static boolean clearPlayerWarzData(String uuid, String warzWorld)
 	{
 		try(Connection conn = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD))
 		{
 			// Delete from Warz table
-			try(PreparedStatement warzStmt = conn.prepareStatement("DELETE FROM Warz WHERE uuid = ?"))
+			try(PreparedStatement warzStmt = conn.prepareStatement("DELETE FROM " + warzWorld + " WHERE uuid = ?"))
 			{
 				warzStmt.setString(1, uuid);
 				warzStmt.executeUpdate();
@@ -45,7 +45,7 @@ public class WarzDataAccessObject
 		}
 	}
 
-	public static int savePlayerWarzData(Player player, Location overrideLocation, Inventory overrideInventory)
+	public static int savePlayerWarzData(Player player, Location overrideLocation, Inventory overrideInventory, String warzWorld)
 	{
 		Inventory inventory = overrideInventory != null ? overrideInventory : player.getInventory();
 		Location loc = overrideLocation != null ? overrideLocation : player.getLocation();
@@ -61,7 +61,7 @@ public class WarzDataAccessObject
 		try
 		{
 			Connection conn = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
-			String updateString = "INSERT INTO Warz (uuid, x, y, z, yaw, pitch, health, inventory) "
+			String updateString = "INSERT INTO "+ warzWorld +" (uuid, x, y, z, yaw, pitch, health, inventory) "
 					+ "VALUES (?, ?, ?, ?, ?, ?, ?, ?) "
 					+ "ON DUPLICATE KEY UPDATE x = VALUES(x), y = VALUES(y), z = VALUES(z), "
 					+ "health = VALUES(health), yaw = VALUES(yaw), pitch = VALUES(pitch), inventory = VALUES(inventory)";
@@ -82,14 +82,14 @@ public class WarzDataAccessObject
 		}
 	}
 
-	public static void getPlayerByUUID(String uuid, Consumer<PlayerData> callback)
+	public static void getPlayerByUUID(String uuid, String warzWorld, Consumer<PlayerData> callback)
 	{
 		Bukkit.getScheduler().runTaskAsynchronously(Warz.getInstance(), () ->
 		{
 			PlayerData playerData = null;
 			try(Connection conn = DriverManager.getConnection(DATABASE_URL, USERNAME, PASSWORD);
 					PreparedStatement preparedStatement = conn.prepareStatement(
-							"SELECT uuid, health, x, y, z, yaw, pitch, inventory FROM Warz WHERE uuid = ?"))
+							"SELECT uuid, health, x, y, z, yaw, pitch, inventory FROM " + warzWorld +" WHERE uuid = ?"))
 			{
 
 				preparedStatement.setString(1, uuid);

@@ -10,148 +10,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f54dff8d-41b6-4012-8a4c-bf2b5f4ee552" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Compass/.idea/Compass.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Compass/.idea/libraries/AirDrop.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Duels/.idea/Duels.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Duels/.idea/libraries/Kits.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Duels/.idea/libraries/PlaceholderAPI_2_11_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Grappling Hook2/GrapplingHook2.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../JaredEssentials/.idea/JaredEssentials.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../JaredEssentials/.idea/libraries/Warz.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../PersonalVault/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Stats/.idea/Stats.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Stats/.idea/libraries/PlaceholderAPI_2_11_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Stats/.idea/libraries/PlaceholderAPI_2_11_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Teams/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Teams/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Teams/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Teams/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Teams/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/Warz.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Boosters.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AirDrop/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Teams/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AirDrop/src/main/java/me/Jared/AirDrop.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AirDrop/src/main/java/me/Jared/AirDrop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AirDrop/src/main/java/me/Jared/AirDropCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AirDrop/src/main/java/me/Jared/AirDropCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AirDrop/src/main/java/me/Jared/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../AirDrop/src/main/java/me/Jared/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AirDrop/target/classes/me/Jared/AirDrop$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AirDrop/target/classes/me/Jared/AirDrop$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AirDrop/target/classes/me/Jared/AirDrop.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AirDrop/target/classes/me/Jared/AirDrop.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AirDrop/target/classes/me/Jared/AirDropCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AirDrop/target/classes/me/Jared/AirDropCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../AirDrop/target/classes/me/Jared/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../AirDrop/target/classes/me/Jared/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compass/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Compass/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compass/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Compass/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compass/src/main/java/me/jared/Compass/Compass.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Compass/src/main/java/me/jared/Compass/Compass.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compass/src/main/java/me/jared/Compass/TrackLocation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Compass/src/main/java/me/jared/Compass/TrackLocation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compass/target/classes/me/jared/Compass/Compass.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Compass/target/classes/me/jared/Compass/Compass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Compass/target/classes/me/jared/Compass/TrackLocation.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Compass/target/classes/me/jared/Compass/TrackLocation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/src/main/java/me/Jared/Command/DuelCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/src/main/java/me/Jared/Command/DuelCommands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/src/main/java/me/Jared/Menus/PlayerListMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/src/main/java/me/Jared/Menus/PlayerListMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/target/classes/me/Jared/Command/DuelCommands$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/target/classes/me/Jared/Command/DuelCommands$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/target/classes/me/Jared/Command/DuelCommands.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/target/classes/me/Jared/Command/DuelCommands.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Duels/target/classes/me/Jared/Menus/PlayerListMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Duels/target/classes/me/Jared/Menus/PlayerListMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Grappling Hook2/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Grappling Hook2/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Grappling Hook2/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Grappling Hook2/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Guns/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/src/main/java/me/Jared/Guns/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Guns/src/main/java/me/Jared/Guns/Bullet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/src/main/java/me/Jared/GunsPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Guns/src/main/java/me/Jared/GunsPlugin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/src/main/java/me/Jared/Listeners/EntityListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Guns/src/main/java/me/Jared/Listeners/EntityListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/src/main/java/me/Jared/Listeners/PlayerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Guns/src/main/java/me/Jared/Listeners/PlayerListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/src/main/java/me/Jared/Utils/RemoveBullets.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Guns/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/target/classes/me/Jared/Guns/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Guns/target/classes/me/Jared/Guns/Bullet.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/target/classes/me/Jared/GunsPlugin.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Guns/target/classes/me/Jared/GunsPlugin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/target/classes/me/Jared/Listeners/EntityListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Guns/target/classes/me/Jared/Listeners/EntityListener$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/target/classes/me/Jared/Listeners/EntityListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Guns/target/classes/me/Jared/Listeners/EntityListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/target/classes/me/Jared/Listeners/PlayerListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Guns/target/classes/me/Jared/Listeners/PlayerListener$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/target/classes/me/Jared/Listeners/PlayerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Guns/target/classes/me/Jared/Listeners/PlayerListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/target/classes/me/Jared/Utils/RemoveBullets.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Guns/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../Guns/target/classes/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JaredEssentials/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JaredEssentials/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JaredEssentials/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JaredEssentials/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../JaredEssentials/.idea/libraries/Warz.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../JaredEssentials/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../JaredEssentials/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JaredEssentials/src/main/java/me/Jared/Essentials/Listener1.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JaredEssentials/src/main/java/me/Jared/Essentials/Listener1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JaredEssentials/src/main/java/me/Jared/Essentials/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../JaredEssentials/src/main/java/me/Jared/Essentials/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JaredEssentials/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../JaredEssentials/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JaredEssentials/target/classes/me/Jared/Essentials/Listener1$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../JaredEssentials/target/classes/me/Jared/Essentials/Listener1$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JaredEssentials/target/classes/me/Jared/Essentials/Listener1$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/../JaredEssentials/target/classes/me/Jared/Essentials/Listener1$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JaredEssentials/target/classes/me/Jared/Essentials/Listener1$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/../JaredEssentials/target/classes/me/Jared/Essentials/Listener1$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JaredEssentials/target/classes/me/Jared/Essentials/Listener1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../JaredEssentials/target/classes/me/Jared/Essentials/Listener1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../JaredEssentials/target/classes/me/Jared/Essentials/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../JaredEssentials/target/classes/me/Jared/Essentials/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../JaredEssentials/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../JaredEssentials/target/classes/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/.settings/org.eclipse.core.resources.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/PersonalVault.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../PersonalVault/PersonalVault.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../PersonalVault/src/main/resources/config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../PersonalVault/src/main/resources/plugin.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/src/me/Jared/ConfigItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/src/me/Jared/Listeners/VaultListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/src/me/Jared/Menu/PVMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/src/me/Jared/MenuSystem/PersonalVaultMenu.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/src/me/Jared/MenuSystem/PlayerMenuUtility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/src/me/Jared/PersonalVault.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/src/me/Jared/VaultCommand/VaultCommand.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PersonalVault/src/me/Jared/VaultUtil.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/EventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/KillstreakListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/KillstreakListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/Menus/ConfigItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/Menus/ConfigItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/Menus/ShopMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/Menus/ShopMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/Ranks/RankCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/Ranks/RankCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/Ranks/RankManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/Ranks/RankManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/Shop/Commands.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/Shop/Commands.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/StatScoreboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/StatScoreboard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/Stats.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/src/main/java/me/Jared/Stats.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/EventListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/EventListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/KillstreakListener$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/KillstreakListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/KillstreakListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/Menus/ConfigItem.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/Menus/ConfigItem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/Menus/ShopMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/Menus/ShopMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/Ranks/RankCommand.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/Ranks/RankCommand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/Ranks/RankManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/Ranks/RankManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/Shop/Commands.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/Shop/Commands.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/StatScoreboard.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/StatScoreboard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/Stats.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Stats/target/classes/me/Jared/Stats.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Teams/.classpath" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Teams/.project" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Teams/Teams.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../Teams/Teams.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Teams/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Teams/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Commands/CustomMapRenderer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Commands/WarzCommands.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Listener/WarzListener.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Loot/ConfigItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Loot/ConfigManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Loot/InventorySaver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Loot/LootManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Loot/Zone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/SQL/InventoryData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/SQL/PlayerData.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/SQL/WarzDataAccessObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Warz.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/WarzRunnable/LootRunnable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/WarzRunnable/ParticleRunnable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/WarzRunnable/SetChestsRunnable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/WarzRunnable/TimeLeftChestRunnable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Zombies/ZombieRunnable.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Zombies/ZombieUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Commands/WarzCommands.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Commands/WarzCommands.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Listener/WarzListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Listener/WarzListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Loot/ConfigManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Loot/ConfigManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Loot/LootManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Loot/LootManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/Warz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/Warz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/Jared/WarzRunnable/SetChestsRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/Jared/WarzRunnable/SetChestsRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Commands/WarzCommands.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Commands/WarzCommands.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Listener/WarzListener$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Listener/WarzListener$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Listener/WarzListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Listener/WarzListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Loot/ConfigManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Loot/ConfigManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Loot/LootManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Loot/LootManager.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/SQL/WarzDataAccessObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/SQL/WarzDataAccessObject.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Warz.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Warz.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/WarzRunnable/SetChestsRunnable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/WarzRunnable/SetChestsRunnable.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Zombies/ZombieRunnable.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Zombies/ZombieRunnable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Zombies/ZombieUtil$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Zombies/ZombieUtil$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/me/Jared/Zombies/ZombieUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/me/Jared/Zombies/ZombieUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,6 +77,7 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
@@ -259,6 +142,10 @@
       <workItem from="1763673804633" duration="13000" />
       <workItem from="1763701358055" duration="554000" />
       <workItem from="1763966677609" duration="77000" />
+      <workItem from="1765409061928" duration="3353000" />
+      <workItem from="1765432230196" duration="1663000" />
+      <workItem from="1765434642371" duration="7392000" />
+      <workItem from="1765496659423" duration="17785000" />
     </task>
     <servers />
   </component>

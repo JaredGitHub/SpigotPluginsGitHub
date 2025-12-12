@@ -1,13 +1,11 @@
 package me.Jared;
 
 import java.util.ArrayList;
-
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
-import org.bukkit.inventory.Inventory;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import me.Jared.Commands.WarzCommands;
@@ -20,7 +18,7 @@ public class Warz extends JavaPlugin
 	private static Warz instance;
 	private static ArrayList<Location> chestLocations;
 	private static ArrayList<Location> openChestLocations;
-	private static ArrayList<Inventory> inventories;
+	private LootManager lootManager;
 
 	@Override
 	public void onEnable()
@@ -28,19 +26,23 @@ public class Warz extends JavaPlugin
 		instance = this;
 		chestLocations = new ArrayList<>();
 		openChestLocations = new ArrayList<>();
-		inventories = new ArrayList<>();
 
 		Bukkit.getConsoleSender().sendMessage(ChatColor.GREEN + "Warz plugin is here!!!!");
 		Bukkit.getPluginCommand("setzone").setExecutor(new WarzCommands());
 		Bukkit.getPluginCommand("setloot").setExecutor(new WarzCommands());
 		Bukkit.getPluginCommand("addspawnpoint").setExecutor(new WarzCommands());
 		Bukkit.getPluginCommand("warz").setExecutor(new WarzCommands());
+		Bukkit.getPluginCommand("warz2").setExecutor(new WarzCommands());
 
-		LootManager lootManager = new LootManager();
+		lootManager = new LootManager();
 		lootManager.runLootRunnable(2);
+//		lootManager.runLootRunnable(2, "warz2");
 
-	    ZombieRunnable zombieRunnable = new ZombieRunnable(50, 120);
+	    ZombieRunnable zombieRunnable = new ZombieRunnable(50, 120, "warz");
 	    zombieRunnable.runTaskTimer(this, 0L, 20L);
+
+		ZombieRunnable zombieRunnable2 = new ZombieRunnable(50, 1, "warz2");
+		zombieRunnable2.runTaskTimer(this, 0L, 20L);
 
 		Bukkit.getPluginManager().registerEvents(new WarzListener(), this);
 	}
@@ -60,11 +62,6 @@ public class Warz extends JavaPlugin
 		return openChestLocations;
 	}
 
-	public static ArrayList<Inventory> getInventories()
-	{
-		return inventories;
-	}
-
 	@Override
 	public void onDisable()
 	{
@@ -77,6 +74,18 @@ public class Warz extends JavaPlugin
 				entity.remove();
 			}
 		}
+		for(Entity entity : Bukkit.getWorld("warz2").getEntities())
+		{
+			if(entity instanceof ArmorStand)
+			{
+				entity.remove();
+			}
+		}
+	}
+
+	public LootManager getLootManager()
+	{
+		return lootManager;
 	}
 }
 

@@ -54,8 +54,7 @@ public class LootManager
 	private Block getNeighborChestBlock(Block block)
 	{
 		// Check if the block is part of a double chest by checking its neighbors
-		BlockFace[] facesToCheck =
-		{ BlockFace.NORTH, BlockFace.EAST, BlockFace.SOUTH, BlockFace.WEST };
+		BlockFace[] facesToCheck = { BlockFace.NORTH, BlockFace.EAST, BlockFace.SOUTH, BlockFace.WEST };
 
 		for(BlockFace face : facesToCheck)
 		{
@@ -103,7 +102,7 @@ public class LootManager
 			do
 			{
 				randNumChestSlot = random.nextInt(27);
-			}while(usedSlots.contains(randNumChestSlot));
+			} while(usedSlots.contains(randNumChestSlot));
 			usedSlots.add(randNumChestSlot);
 
 			for(int i = 0; i < items.size(); i++)
@@ -113,8 +112,8 @@ public class LootManager
 
 				if(totalWeightRandom < currentWeight)
 				{
-					chest.getBlockInventory().setItem(randNumChestSlot,
-							configItem.stringToItemStackWithLore(items.get(i)));
+					chest.getBlockInventory()
+							.setItem(randNumChestSlot, configItem.stringToItemStackWithLore(items.get(i)));
 
 					Warz.getChestLocations().remove(location);
 					break;

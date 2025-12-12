@@ -13,3 +13,5 @@ commands:
   descriptoin: Adds a spawnpoint to the config
  warz:
   description: Puts you in warz!
+ warz2:
+  description: Puts you in warz2!

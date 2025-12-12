@@ -223,15 +223,13 @@ public class Main extends JavaPlugin implements Listener
 					{
 						p.sendMessage(ChatColor.RED + "Player not online!");
 						return true;
-					}
-					else
+					} else
 					{
 						if(!(cooldown5min.isOnCooldown(p)) && !(cooldown4min.isOnCooldown(p))
 								&& !(cooldown3min.isOnCooldown(p)) && !(cooldown2min.isOnCooldown(p))
 								&& !(cooldown1min.isOnCooldown(p)))
 						{
-							player.sendMessage(
-									ChatColor.GRAY + p.getName() + " has sent you a TPA request. (/tpyes)");
+							player.sendMessage(ChatColor.GRAY + p.getName() + " has sent you a TPA request. (/tpyes)");
 							p.sendMessage(ChatColor.GRAY + "You have sent a TPA request to " + playerName);
 							requesters.put(Bukkit.getPlayer(playerName), p);
 							requesters.put(p, Bukkit.getPlayer(playerName));
@@ -361,14 +359,13 @@ public class Main extends JavaPlugin implements Listener
 					return true;
 				}
 
-
 				if(p.getWorld().getName().equals("warz"))
 				{
-					p.sendTitle(ChatColor.YELLOW + "Teleporting to spawn...", "", 5, 5, 5);
-					me.Jared.Loot.ConfigManager.savePlayerWarzData(p, p.getLocation(), p.getInventory());
-					p.getInventory().clear();
-					p.teleport(ConfigManager.getSpawn());
-					me.Jared.Loot.ConfigManager.loadInventory(p, "world");
+					teleportToSpawn(p, "warz");
+				}
+				else if(p.getWorld().getName().equals("warz2"))
+				{
+					teleportToSpawn(p, "warz2");
 				}
 				else
 				{
@@ -381,7 +378,6 @@ public class Main extends JavaPlugin implements Listener
 					p.sendMessage(ChatColor.GREEN + "Successfully teleported you to spawn!");
 					p.playSound(p.getLocation(), Sound.ENTITY_CHICKEN_EGG, 1, 1);
 				}
-
 
 				return true;
 			}
@@ -471,5 +467,14 @@ public class Main extends JavaPlugin implements Listener
 			}
 		}
 		return true;
+	}
+
+	private void teleportToSpawn(Player p, String warzWorld)
+	{
+		p.sendTitle(ChatColor.YELLOW + "Teleporting to spawn...", "", 5, 5, 5);
+		me.Jared.Loot.ConfigManager.savePlayerWarzData(p, p.getLocation(), p.getInventory(), warzWorld);
+		p.getInventory().clear();
+		p.teleport(ConfigManager.getSpawn());
+		me.Jared.Loot.ConfigManager.loadInventory(p, "world");
 	}
 }
