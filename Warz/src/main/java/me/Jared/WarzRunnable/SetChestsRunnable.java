@@ -1,6 +1,7 @@
 package me.Jared.WarzRunnable;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -69,26 +70,35 @@ public class SetChestsRunnable extends BukkitRunnable
 			var block = blockLocations.get(iterations).getBlock();
 
 			// If chest is already assigned a zone in the config
-			for(int idx = 0; idx < chestList.size(); idx++)
-			{
-				String chest = chestList.get(idx);
-				Location blockLocation = new Location(world, configItem.getChestX(chest),
-						configItem.getChestY(chest), configItem.getChestZ(chest));
+			Iterator<String> iterator = chestList.iterator();
+			while (iterator.hasNext()) {
+				String chest = iterator.next();
 
-				if(block.getLocation().equals(blockLocation))
-				{
-					player.sendMessage(ChatColor.RED + "Removing duplicate!");
-					player.playSound(player.getLocation(), Sound.ENTITY_GHAST_DEATH, 1, 1);
-					chestList.remove(idx);
-				}
+				Location loc = new Location(world,
+						configItem.getChestX(chest),
+						configItem.getChestY(chest),
+						configItem.getChestZ(chest)
+				);
 
-				if(blockLocation.getBlock().getType() != Material.CHEST)
-				{
+				// Ensure chunk is loaded
+				loc.getChunk().load();
+
+				// If no chest exists here anymore, remove
+				if (loc.getBlock().getType() != Material.CHEST) {
 					player.sendMessage(ChatColor.RED + "Removing Non Chest Location!");
 					player.playSound(player.getLocation(), Sound.ENTITY_CAT_DEATH, 1, 1);
-					chestList.remove(idx);
+					iterator.remove();
+					continue;
+				}
+
+				// If the new block matches an existing config entry → remove duplicate
+				if (loc.equals(block.getLocation())) {
+					player.sendMessage(ChatColor.RED + "Removing duplicate!");
+					player.playSound(player.getLocation(), Sound.ENTITY_GHAST_DEATH, 1, 1);
+					iterator.remove();
 				}
 			}
+
 
 			chestList.add(
 					block.getX() + ":" + block.getY() + ":" + block.getZ() + ":" + zoneString.toUpperCase() + ":");

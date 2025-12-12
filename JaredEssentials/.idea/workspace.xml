@@ -12,8 +12,8 @@
     <list default="true" id="b1b7a9a2-7169-41d2-992f-d989ae8af845" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Warz/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Warz/src/main/java/me/Jared/Loot/LootManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/src/main/java/me/Jared/Loot/LootManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Warz/target/classes/me/Jared/Loot/LootManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/target/classes/me/Jared/Loot/LootManager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/src/main/java/me/Jared/WarzRunnable/SetChestsRunnable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/src/main/java/me/Jared/WarzRunnable/SetChestsRunnable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Warz/target/classes/me/Jared/WarzRunnable/SetChestsRunnable.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Warz/target/classes/me/Jared/WarzRunnable/SetChestsRunnable.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
