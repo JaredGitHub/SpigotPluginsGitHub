@@ -43,7 +43,7 @@ public class ZombieUtil
 		this.zombieAmount = zombieAmount;
 
 		LootManager lootManager = new LootManager(player.getWorld().getName());
-		this.zone = getZoneFromRegion(lootManager.getRegion(player.getLocation()));
+		this.zone = lootManager.getZoneFromRegion(lootManager.getRegion(player.getLocation()));
 	}
 	public void spawnZombie()
 	{
@@ -92,25 +92,6 @@ public class ZombieUtil
 		} while(newloc.distance(playerLocation) < 25);
 
 		return newloc;
-	}
-
-	private Zone getZoneFromRegion(String region)
-	{
-		String zone = config.getString("towns." + region).toUpperCase();
-
-		switch(zone)
-		{
-		case "LOW":
-			return Zone.LOW;
-		case "MEDIUM":
-			return Zone.MEDIUM;
-		case "HIGH":
-			return Zone.HIGH;
-		case "SKYHIGH":
-			return Zone.SKYHIGH;
-		default:
-			return null;
-		}
 	}
 
 	private void createZombie(double health, int speed, Material helmet, int damage, String customName)

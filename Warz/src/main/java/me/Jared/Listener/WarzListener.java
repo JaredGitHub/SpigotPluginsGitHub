@@ -188,7 +188,7 @@ public class WarzListener implements Listener
 				case "/topelo":
 				case "/shop":
 				case "/tpyes":
-				case "tpaccept":
+				case "/tpaccept":
 					break;
 				default:
 					e.setCancelled(true);

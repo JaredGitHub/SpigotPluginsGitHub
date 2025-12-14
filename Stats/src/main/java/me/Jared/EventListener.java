@@ -501,7 +501,7 @@ public class EventListener implements Listener
 							+ ChatColor.RESET + "] " + ChatColor.RESET + player.getName() + ": " + e.getMessage()));
 		}
 
-		else if(player.getWorld().equals(Bukkit.getWorld("warz")))
+		else
 		{
 			Bukkit.broadcastMessage(ChatColor.DARK_GREEN + "" + ChatColor.ITALIC + "[WARZ] "
 					+ stats.getRankManager().getRank(player.getUniqueId()).getDisplay() + ChatColor.RESET + " " + "["
