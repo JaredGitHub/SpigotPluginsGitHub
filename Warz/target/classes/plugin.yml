@@ -15,3 +15,5 @@ commands:
   description: Puts you in warz!
  warz2:
   description: Puts you in warz2!
+ warz3:
+  description: Puts you in warz3!

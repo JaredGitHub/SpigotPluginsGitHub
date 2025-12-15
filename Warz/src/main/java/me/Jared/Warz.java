@@ -22,6 +22,7 @@ public class Warz extends JavaPlugin
 
 	private LootManager lootManagerWarz;
 	private LootManager lootManagerWarz2;
+	private LootManager lootManagerWarz3;
 
 	@Override
 	public void onEnable()
@@ -36,6 +37,7 @@ public class Warz extends JavaPlugin
 		Bukkit.getPluginCommand("addspawnpoint").setExecutor(new WarzCommands());
 		Bukkit.getPluginCommand("warz").setExecutor(new WarzCommands());
 		Bukkit.getPluginCommand("warz2").setExecutor(new WarzCommands());
+		Bukkit.getPluginCommand("warz3").setExecutor(new WarzCommands());
 
 		lootManagerWarz = new LootManager("warz");
 		lootManagerWarz.runLootRunnable(2, "warz");
@@ -43,11 +45,17 @@ public class Warz extends JavaPlugin
 		lootManagerWarz2 = new LootManager("warz2");
 		lootManagerWarz2.runLootRunnable(2, "warz2");
 
+		lootManagerWarz3 = new LootManager("warz3");
+		lootManagerWarz3.runLootRunnable(2, "warz3");
+
 		ZombieRunnable zombieRunnable = new ZombieRunnable(50, 120, "warz");
 		zombieRunnable.runTaskTimer(this, 0L, 20L);
 
 		ZombieRunnable zombieRunnable2 = new ZombieRunnable(50, 90, "warz2");
 		zombieRunnable2.runTaskTimer(this, 0L, 20L);
+
+		ZombieRunnable zombieRunnable3 = new ZombieRunnable(50, 90, "warz3");
+		zombieRunnable3.runTaskTimer(this, 0L, 20L);
 
 		Bukkit.getPluginManager().registerEvents(new WarzListener(), this);
 	}

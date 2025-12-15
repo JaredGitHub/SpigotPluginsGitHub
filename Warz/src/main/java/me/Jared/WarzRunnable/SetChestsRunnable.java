@@ -84,7 +84,8 @@ public class SetChestsRunnable extends BukkitRunnable
 				loc.getChunk().load();
 
 				// If no chest exists here anymore, remove
-				if (loc.getBlock().getType() != Material.CHEST) {
+				if (!(loc.getBlock().getType() == Material.CHEST
+				|| loc.getBlock().getType() == Material.BARREL)) {
 					player.sendMessage(ChatColor.RED + "Removing Non Chest Location!");
 					player.playSound(player.getLocation(), Sound.ENTITY_CAT_DEATH, 1, 1);
 					iterator.remove();
@@ -148,7 +149,8 @@ public class SetChestsRunnable extends BukkitRunnable
 						for(int z = minZ; z <= maxZ; z++)
 						{
 							Location blockLocation = new Location(world, x, y, z);
-							if(blockLocation.getBlock().getType() == Material.CHEST)
+							if(blockLocation.getBlock().getType() == Material.CHEST
+							||blockLocation.getBlock().getType() == Material.BARREL)
 							{
 								blockLocations.add(blockLocation);
 							}

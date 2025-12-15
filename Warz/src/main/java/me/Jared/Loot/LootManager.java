@@ -6,12 +6,14 @@ import java.util.Random;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.Chest;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryType;
+import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.plugin.Plugin;
 
 import com.sk89q.worldedit.bukkit.BukkitAdapter;
@@ -72,15 +74,20 @@ public class LootManager
 
 	private boolean setChest(Block block, Zone zone)
 	{
+		if(!isLootContainer(block)) return false;
+
 		ConfigItem configItem = new ConfigItem();
 		Random random = new Random();
 		// Getting the list of items based on the zone
 		ArrayList<String> items = new ArrayList<>(configItem.zoneListItems(zone));
 
 		Location location = block.getLocation();
-		Chest chest = (Chest) block.getState();
+
+		InventoryHolder holder = (InventoryHolder) block.getState();
+
+
 		// Clear the chest b4 putting items into it
-		chest.getBlockInventory().clear();
+		holder.getInventory().clear();
 
 		// Getting the total weight of all of the items in the list
 		int totalWeight = items.stream().mapToInt(configItem::getWeight).sum();
@@ -91,7 +98,14 @@ public class LootManager
 
 		// Instead of two make it find the number in the config "DoubleLoot"
 
-		int itemsPerChest = Boosters.getInstance().getConfig().get("DoubleLoot").equals(true) ? 4 : 2;
+		int itemsPerChest = 2;
+
+		if(isDoubleChest(block) != null)
+		{
+			itemsPerChest = 4;
+		}
+
+		if(Boosters.getInstance().getConfig().get("DoubleLoot").equals(true)) itemsPerChest *= 2;
 
 		for(int itemNumber = 0; itemNumber < itemsPerChest; itemNumber++)
 		{
@@ -115,7 +129,7 @@ public class LootManager
 
 				if(totalWeightRandom < currentWeight)
 				{
-					chest.getBlockInventory()
+					holder.getInventory()
 							.setItem(randNumChestSlot, configItem.stringToItemStackWithLore(items.get(i)));
 
 					Warz.getChestLocations(warzWorld).remove(location);
@@ -125,11 +139,12 @@ public class LootManager
 		}
 
 		Block otherBlock = isDoubleChest(block);
-		if(otherBlock != null)
-		{
-			return true;
-		}
-		return false;
+		return otherBlock != null;
+	}
+
+	private boolean isLootContainer(Block block)
+	{
+		return block.getType() == Material.CHEST || block.getType() == Material.BARREL;
 	}
 
 	public void setItems(Zone zone, Block block)
@@ -173,7 +188,8 @@ public class LootManager
 		{
 			if(player.getOpenInventory().getType() == InventoryType.CHEST)
 			{
-				if(player.getOpenInventory().getTitle().equals("Chest"))
+				if(player.getOpenInventory().getTitle().equals("Chest") || player.getOpenInventory().getTitle()
+						.equals("Barrel"))
 				{
 					String region = getRegion(player.getLocation());
 					Zone zone = getZoneFromRegion(region);
@@ -220,7 +236,8 @@ public class LootManager
 		RegionManager regionManager = container.get(BukkitAdapter.adapt(Objects.requireNonNull(location.getWorld())));
 
 		BlockVector3 playerLoc = BlockVector3.at(location.getX(), location.getY(), location.getZ());
-		if(regionManager == null) Bukkit.broadcastMessage("Region manager is NULL OH NOOO!");
+		if(regionManager == null)
+			Bukkit.broadcastMessage("Region manager is NULL OH NOOO!");
 		assert regionManager != null;
 		for(String regions : regionManager.getApplicableRegionsIDs(playerLoc))
 		{

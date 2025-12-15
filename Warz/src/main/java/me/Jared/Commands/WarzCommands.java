@@ -91,6 +91,11 @@ public class WarzCommands implements CommandExecutor, TabCompleter
 			sendPlayerToWarz(player, "warz2");
 			return true;
 		}
+		if(cmd.getName().equalsIgnoreCase("warz3"))
+		{
+			sendPlayerToWarz(player, "warz3");
+			return true;
+		}
 
 		if(!sender.hasPermission("warz"))
 		{
