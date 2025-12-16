@@ -51,6 +51,8 @@ public class GameListMenu extends Menu
 			Bukkit.dispatchCommand(player, "warz2");
 			break;
 		case 3:
+			Bukkit.dispatchCommand(player, "warz3");
+			break;
 
 		case 4:
 			Bukkit.dispatchCommand(player, "sg join");
@@ -83,6 +85,7 @@ public class GameListMenu extends Menu
 
 		ConfigManager.iconCreate(new ItemStack(Material.ZOMBIE_HEAD), ChatColor.DARK_GREEN + "WarZ (New Map)", inventory, 1);
 		ConfigManager.iconCreate(new ItemStack(Material.ZOMBIE_HEAD), ChatColor.DARK_GREEN + "WarZ (Old Map)", inventory, 2);
+		ConfigManager.iconCreate(new ItemStack(Material.ZOMBIE_HEAD), ChatColor.DARK_GREEN + "WarZ (Large City)", inventory, 3);
 
 		ConfigManager.iconCreate(new ItemStack(Material.DIAMOND), ChatColor.GOLD + "Survival Games", inventory, 4);
 		ConfigManager.iconCreate(new ItemStack(Material.DIAMOND), ChatColor.GREEN + "Gun Game", inventory, 5);

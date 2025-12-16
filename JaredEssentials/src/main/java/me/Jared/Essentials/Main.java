@@ -367,6 +367,10 @@ public class Main extends JavaPlugin implements Listener
 				{
 					teleportToSpawn(p, "warz2");
 				}
+				else if(p.getWorld().getName().equals("warz3"))
+				{
+					teleportToSpawn(p, "warz3");
+				}
 				else
 				{
 					p.teleport(ConfigManager.getSpawn());
