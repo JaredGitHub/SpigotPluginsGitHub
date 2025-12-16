@@ -3,7 +3,8 @@ package me.Jared.Zombies;
 import java.util.Random;
 
 import org.bukkit.Bukkit;
-import org.bukkit.World;
+import org.bukkit.ChatColor;
+import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -37,8 +38,23 @@ public class ZombieRunnable extends BukkitRunnable
 			{
 				if(player.getWorld().equals(Bukkit.getWorld(warzWorld)))
 				{
+					player.sendMessage(ChatColor.DARK_GREEN + "Zombies Spawning!");
+					player.playSound(player.getLocation(), Sound.ENTITY_ENDERMAN_DEATH, 10.0f, .7f);
 					ZombieUtil zombieUtil = new ZombieUtil(player, radius, zombieAmount);
 					zombieUtil.spawnZombie();
+				}
+			}
+			seconds = 0;
+		}
+
+		int secondsLeft = (interval - seconds);
+		if(secondsLeft <= 10)
+		{
+			for(Player player : Bukkit.getOnlinePlayers())
+			{
+				if(player.getWorld().equals(Bukkit.getWorld(warzWorld)))
+				{
+					player.sendMessage(ChatColor.DARK_GREEN + "Zombies will spawn in " + secondsLeft + " seconds!");
 				}
 			}
 		}
